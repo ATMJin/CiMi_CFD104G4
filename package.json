@@ -1,0 +1,11 @@
+{
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-file-include": "^2.3.0"
+    },
+    "scripts": {
+        "安裝套件": "npm -i",
+        "打包html": "gulp html",
+        "監聽html": "gulp w"
+    }
+}
