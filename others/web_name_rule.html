@@ -43,7 +43,7 @@
                 * css檔請放置在 assets/css資料夾內<br>
                 * 圖片檔請放置在 assets/images資料夾內<br>
                 * 圖片檔命名格式： 使用頁面_使用區塊(class)_icon/bg/X.副檔名<br>
-                <blockquote>
+                <!-- <blockquote>
                     - 使用頁面: 就是哪個html檔 <br>
                     - 使用區塊: 可以以使用那張圖的class大區塊命名，需有意義可以辨認是哪塊 <br>
                     - icon/bg/x: 可以不寫或是依圖示或背景命名 <br>
@@ -52,7 +52,7 @@
                     - e.g. 首頁開場動畫背景 -> homepage_animation_bg.jpg <br>
                     - e.g. 會員大頭貼 -> member_sticker.jpg <br>
                     - e.g. 商城商品 -> shop_tarot_thefool_detail.jpg <br>
-                </blockquote>
+                </blockquote> -->
                 * 影片、影音檔請放置在 assets/media資料夾內<br>
                 * PHP檔請放置在 phps資料夾內<br>
 
@@ -67,34 +67,36 @@
                 - article標籤<br>
                 - container<br>
                 - row<br>
-                * 每個大區塊請以section作為標籤<br>
+                <!-- * 每個大區塊請以section作為標籤<br> -->
+                * 自行判斷使用section或div
                 * section寬度固定100%<br>
                 * 每個section內最少要有一個容器，可用來控制寬度(padding)<br>
                 * 卡片式排版，容器請以 item_box 命名，卡片以 item 命名<br>
                 * 圖片容器請固定使用 img_box<br>
                 * 文字容器請固定使用 txt_box<br>
                 * 清單請使用 ul/ol li 標籤<br>
-                
+
 
 
                 <!-- 註解及空行規則 -->
                 <br>* ===== 註解及空行規則 ===== *<br>
                 * 請大家註解寫中文<br>
+                * 能註解盡量註解
                 * tab縮排請設定為4個空格<br>
                 * 請註明每個一區塊是做什麼的<br>
                 * 新的區塊註解請與上面內容間格1個空白行 [1]<br>
-                * section中每個相同的子項目，彼此間請留1個空白行 [2]<br>
+                <!-- * section中每個相同的子項目，彼此間請留1個空白行 [2]<br> -->
                 * section中<strong>內容</strong>開始前與結束後請各留1個空白行 [3]<br>
                 * 每個section間請留1個空白行 [4]<br>
 
                 <!-- css選取器規則 -->
                 <br>* ===== css選取器規則 ===== *<br>
                 * 請使用 reset.css<br>
-                * 一開始先都 <code>* {box-sizing: border-box;}</code>，有需要再用contain-box<br>
+                * 一開始先都 <code>* {box-sizing: border-box;}</code>，有需要再用contain-box(在reset.css裡面有了)<br>
                 * css選取器撰寫規則如下：<br>
                 1. 先寫 header / main / footer<br>
                 2. 寫區塊 section.XXX<br>
-                3. 每一層都要寫<br>
+                <!-- 3. 每一層都要寫<br> -->
                 e.g. main section.news .item:nth-child(2) .img_box img {...} <br>
                 <!-- <mark>權重(0,4,3)</mark> -->
 
