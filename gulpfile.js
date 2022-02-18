@@ -8,7 +8,7 @@ const {
 
 const fileinclude = require('gulp-file-include');
 
-exports.html = function includeHTML() {
+function includeHTML() {
     return src('html/*.html')
         .pipe(fileinclude({
             prefix: '@@',
@@ -21,3 +21,13 @@ exports.html = function includeHTML() {
 exports.w = function watchs() {
     watch(['html/*.html', 'html/**/*.html'], includeHTML);
 }
+exports.html = function includeHTML() {
+    return src('html/*.html')
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(dest('./'));
+
+};
+
