@@ -3,3 +3,4 @@
 *.sass.map
 *.scss.map
 .vscode/
+node_modules/
