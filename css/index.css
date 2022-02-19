@@ -1,0 +1,67 @@
+/* 以下為上方搜尋區域 */
+.top_bar{
+    background-color: rgb(89, 136, 111);
+    height: 48px;
+    position: fixed;
+    width: 100%;
+    display: flex;
+}
+.search_bar{
+    display: flex;
+}
+.search_bar>input{
+    border-radius:130px;
+}
+.logo>h1>a>img{
+    height: 28px;
+}
+.member_bar>ul>li>a>img{
+    width: 30px;
+    }
+.member_bar>ul{
+    display: flex;
+}
+/* 以下側邊欄 */
+.sidebar{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 12px;
+    background-color: var(--icon-color);
+}
+.sidebar_list{
+    display: flex;
+    justify-content: space-between;
+}
+.sidebar_list>li>a{
+    font-size: 0;
+}
+.sidebar_list>li>a>img{
+width: 30px;
+}
+.nav_pc{
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+/* 以下為上方搜尋區域 */
+
+/* 以下側邊欄 */
+    .sidebar{
+        width: 20%;
+        margin-top: 48px;
+        top: 0;
+    }
+    .sidebar_list{
+        display: block;
+    }
+    .sidebar_list>li>a{
+        font-size: 16px;
+    }
+    .nav_phone{
+        display: none;
+    }
+    .nav_pc{
+        display: block;
+    }
+}

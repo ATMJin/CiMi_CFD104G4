@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>命名規則</title>
+
+    <!-- 通用格式，請務必套用，確保字體、字級、顏色風格一致 -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/rule.css">
+
+</head>
+
+<body>
+    <!-- 網頁頭 -->
+    <header>
+        * header<br>
+        * 請使用header標籤，不要使用 div class="header"<br>
+        * 網頁頭註解請放在header標籤上方<br>
+        * 全所有頁面的header都應該相同，除了辨別該頁的特效<br>
+    </header>
+    <hr>
+
+
+    <!-- 網頁內容 -->
+    <main>
+        <!-- 規則說明 -->
+        <section class="rule">
+            <div class="detail_box">
+
+                * main<br>
+                * 最外層請使用main標籤，不要使用 div class="container"<br>
+                * 網頁內容註解請放在main標籤上方，且與header間格2個空白行<br>
+
+                <!-- 文件路徑放置規則 -->
+                <br>* ===== 文件路徑放置規則 ===== *<br>
+                * 請<strong><mark>不準、不要、不可以使用中文命名</mark></strong>資料夾及檔案<br>
+                * 所有路徑請使用相對路徑抓取<br>
+                * html檔請不要放置在其他子資料夾內<br>
+                * js檔請放置在 js資料夾內<br>
+                * css檔請放置在 assets/css資料夾內<br>
+                * 圖片檔請放置在 assets/images資料夾內<br>
+                * 圖片檔命名格式： 使用頁面_使用區塊(class)_icon/bg/X.副檔名<br>
+                <!-- <blockquote>
+                    - 使用頁面: 就是哪個html檔 <br>
+                    - 使用區塊: 可以以使用那張圖的class大區塊命名，需有意義可以辨認是哪塊 <br>
+                    - icon/bg/x: 可以不寫或是依圖示或背景命名 <br>
+                </blockquote>
+                <blockquote>
+                    - e.g. 首頁開場動畫背景 -> homepage_animation_bg.jpg <br>
+                    - e.g. 會員大頭貼 -> member_sticker.jpg <br>
+                    - e.g. 商城商品 -> shop_tarot_thefool_detail.jpg <br>
+                </blockquote> -->
+                * 影片、影音檔請放置在 assets/media資料夾內<br>
+                * PHP檔請放置在 phps資料夾內<br>
+
+                <!-- 標籤、id、class命名規則 -->
+                <br>* ===== 標籤、id、class命名規則 ===== *<br>
+                * 請<strong>不準、不要、不可以使用中文命名</strong>class、id<br>
+                * 所有的複合字請使用 _ 串接 e.g. class="many_words"<br>
+                * 不需要使用BEM<br>
+                * id、class="請使用雙引號包"<br>
+                * 容器與內容分開，除了以下容器以外，容器後面加上 _box<br>
+                - section標籤<br>
+                - article標籤<br>
+                - container<br>
+                - row<br>
+                <!-- * 每個大區塊請以section作為標籤<br> -->
+                * 自行判斷使用section或div
+                * section寬度固定100%<br>
+                * 每個section內最少要有一個容器，可用來控制寬度(padding)<br>
+                * 卡片式排版，容器請以 item_box 命名，卡片以 item 命名<br>
+                * 圖片容器請固定使用 img_box<br>
+                * 文字容器請固定使用 txt_box<br>
+                * 清單請使用 ul/ol li 標籤<br>
+
+
+
+                <!-- 註解及空行規則 -->
+                <br>* ===== 註解及空行規則 ===== *<br>
+                * 請大家註解寫中文<br>
+                * 能註解盡量註解
+                * tab縮排請設定為4個空格<br>
+                * 請註明每個一區塊是做什麼的<br>
+                * 新的區塊註解請與上面內容間格1個空白行 [1]<br>
+                <!-- * section中每個相同的子項目，彼此間請留1個空白行 [2]<br> -->
+                * section中<strong>內容</strong>開始前與結束後請各留1個空白行 [3]<br>
+                * 每個section間請留1個空白行 [4]<br>
+
+                <!-- css選取器規則 -->
+                <br>* ===== css選取器規則 ===== *<br>
+                * 請使用 reset.css<br>
+                * 一開始先都 <code>* {box-sizing: border-box;}</code>，有需要再用contain-box(在reset.css裡面有了)<br>
+                * css選取器撰寫規則如下：<br>
+                1. 先寫 header / main / footer<br>
+                2. 寫區塊 section.XXX<br>
+                <!-- 3. 每一層都要寫<br> -->
+                e.g. main section.news .item:nth-child(2) .img_box img {...} <br>
+                <!-- <mark>權重(0,4,3)</mark> -->
+
+            </div>
+        </section>
+
+        <!-- ===== 以下範例 =====  -->
+        <hr>
+
+        <!-- 最新消息[1](新的區塊註解請與上面內容間格1個空白行) -->
+        <section class="news">
+            <div class="item_box">
+                <!-- [3](section中"內容"開始前與結束後請各留1個空白行) -->
+                <!-- 容器到item_box，從item開始才是正式內容 -->
+                <a href="#" class="item">
+                    <div class="img_box">
+                        <img src="https://picsum.photos/300/200/?random=10" alt="請幫每張圖片加破圖註解">
+                    </div>
+                    <div class="txt_box">
+                        <h3>title</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, repudiandae reprehenderit
+                            officiis minus vero et similique fugiat temporibus possimus cum.</p>
+                    </div>
+                </a><!-- [2](section中每個相同的子項目，彼此間請留1個空白行) -->
+
+                <a href="#" class="item">
+                    <div class="img_box">
+                        <img src="https://picsum.photos/300/200/?random=10" alt="請幫每張圖片加破圖註解">
+                    </div>
+                    <div class="txt_box">
+                        <h3>title</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, repudiandae reprehenderit
+                            officiis minus vero et similique fugiat temporibus possimus cum.</p>
+                    </div>
+                </a><!-- [3](section中<strong>內容</strong>開始前與結束後請各留1個空白行) -->
+
+            </div>
+        </section><!-- [4](每個section間請留1個空白行) -->
+
+        <!-- 產品[1](新的區塊註解請與上面內容間格1個空白行) -->
+        <section class="product">
+            <div class="container">
+                <div class="row">
+                    <!-- [3] -->
+                    <!-- 此處代表容器是到row，從item開始才是正式內容 -->
+                    <div class="item">
+                        <div class="img_box">
+                            <img src="https://picsum.photos/300/100/?random=1">
+                        </div>
+                        <div class="txt_box">
+                            <h3>title</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatum impedit,
+                                itaque excepturi fugit dicta quaerat nemo, quis rem.</p>
+                        </div>
+                    </div>
+                    <!-- [2] -->
+                    <div class="item">
+                        <div class="img_box">
+                            <img src="https://picsum.photos/300/100/?random=1">
+                        </div>
+                        <div class="txt_box">
+                            <h3>title</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatum impedit,
+                                itaque excepturi fugit dicta quaerat nemo, quis rem.</p>
+                        </div>
+                    </div>
+                    <!-- [3] -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <hr>
+
+
+    <!-- 網頁尾 -->
+    <footer>
+        * footer<br>
+        * 請使用footer標籤，不要使用 div class="footer"<br>
+        * 網頁尾註解請放在footer標籤上方，並切齊body標籤，且與main間格2個空白行<br>
+        * 所有頁面的footer都應該相同，除了辨別該頁的特效<br>
+    </footer>
+
+</body>
+
+</html>
