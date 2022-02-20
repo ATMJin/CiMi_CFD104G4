@@ -1,0 +1,100 @@
+/* 以下為上方搜尋區域 */
+.top_bar{
+    background-color: rgb(89, 136, 111);
+    height: 48px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    box-sizing: border-box;
+    padding: 5px;
+    align-items: center;
+    img{
+        height: 28px;
+    }
+    .search_bar{
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        input{
+            width: 75%;
+            height: 80%;
+            border-radius:20px;
+            position: relative;
+            border: 1px solid red;
+            button{
+                width: 30px;
+                height: 30px;
+                background:#666;
+                right: 20px;
+                cursor:pointer;
+                position:absolute;
+                img{
+                    width: 20px;
+                }
+            }
+        }
+    }
+    .member_bar{
+        display: none;
+    }
+}
+@media screen and (min-width: 768px) {
+    /* 以下為上方搜尋區域 */
+    .top_bar{
+        .member_bar{
+        display: block;
+            ul{
+                display: flex;
+                box-sizing: border-box;
+                img{
+                    width: 30px;
+                    }
+            }
+        }
+    }
+
+}
+
+/* 以下側邊欄 */
+.sidebar{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 12px;
+    background-color: var(--icon-color);
+    .sidebar_list{
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-between;
+        .nav_pc{
+            display: none;
+        }
+        a{
+            font-size: 0;
+            img{
+                width: 30px;
+            }
+        
+        }
+    }
+}
+@media screen and (min-width: 768px) {    
+    /* 以下側邊欄 */
+    .sidebar{
+        width: 20%;
+        margin-top: 48px;
+        top: 0;
+        .sidebar_list{
+            display: block;
+            .nav_phone{
+                display: none;
+            }
+            .nav_pc{
+                display: block;
+            }
+            a{
+                font-size: 16px;
+            }
+        }
+    }
+}
