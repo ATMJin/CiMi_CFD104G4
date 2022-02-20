@@ -16,6 +16,7 @@
 ## 每位開發人員的vscode中請加上.vscode/settings.json -> scss產出會到asset/css
 -> settings.json請寫入以下內容:
 
+```json
 {//css產出設定
     "liveSassCompile.settings.formats": [
         {
@@ -24,6 +25,8 @@
             "savePath": "/assets/css" //此為輸出的路徑，可以自行更改
         }
     ],}
+    
+ ```
 ![image](https://user-images.githubusercontent.com/60212492/154827340-f5c57478-ab71-408f-96e7-22c4b440e2ba.png)
 
 
