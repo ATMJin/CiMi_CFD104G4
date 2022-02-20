@@ -13,7 +13,7 @@
 5. push                     ->    推送至遠端儲存庫
 
 
-## 每位開發人員的vscode中請加上.vscode/settings.json -> scss產出會到asset/css
+## 每位開發人員的vscode中請加上.vscode/settings.json -> scss產出會到assets/css
 -> settings.json請寫入以下內容:
 
 ```json
