@@ -7,4 +7,5 @@
             "savePath": "assets/css" //此為輸出的路徑，可以自行更改
         }
     ],
+    "liveServer.settings.port": 5501,
 }
