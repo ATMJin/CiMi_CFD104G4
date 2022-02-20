@@ -13,6 +13,19 @@
 5. push                     ->    推送至遠端儲存庫
 
 
+## 每位開發人員的vscode中請加上.vscode/settings.json -> scss產出會到asset/css
+-> settings.json請放上以下內容:
+
+{//css產出設定
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded", //壓縮成一行"compressed", //壓縮成一行css，正式版本
+            "extensionName": ".css",
+            "savePath": "/assets/css" //此為輸出的路徑，可以自行更改
+        }
+    ],}
+
+
 ## 需要上傳的檔案資料夾
 
 - HTML資料夾
