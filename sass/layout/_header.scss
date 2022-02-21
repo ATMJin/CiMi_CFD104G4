@@ -1,0 +1,57 @@
+/* 以下為上方搜尋區域 */
+.top_bar{
+    background-color: rgb(89, 136, 111);
+    height: 48px;
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+    display: flex;
+    box-sizing: border-box;
+    padding: 5px;
+    align-items: center;
+    img{
+        height: 28px;
+    }
+    .search_bar{
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        input{
+            width: 75%;
+            height: 80%;
+            border-radius:20px;
+            position: relative;
+            border: 1px solid red;
+            button{
+                width: 30px;
+                height: 30px;
+                background:#666;
+                right: 20px;
+                cursor:pointer;
+                position:absolute;
+                img{
+                    width: 20px;
+                }
+            }
+        }
+    }
+    .member_bar{
+        display: none;
+    }
+}
+@media screen and (min-width: 768px) {
+    /* 以下為上方搜尋區域 */
+    .top_bar{
+        .member_bar{
+        display: block;
+            ul{
+                display: flex;
+                box-sizing: border-box;
+                img{
+                    width: 30px;
+                    }
+            }
+        }
+    }
+
+}
