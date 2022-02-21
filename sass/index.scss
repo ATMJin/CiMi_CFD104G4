@@ -1,58 +1,78 @@
 /* 以下為上方搜尋區域 */
-.top_bar{
+.top_bar_box{
     background-color: rgb(89, 136, 111);
     height: 48px;
     width: 100%;
     position: fixed;
-    display: flex;
-    box-sizing: border-box;
-    padding: 5px;
-    align-items: center;
-    img{
-        height: 28px;
-    }
-    .search_bar{
-        display: flex;
-        box-sizing: border-box;
+    margin: auto;
+    .top_bar{
+        background-color: rgb(89, 136, 111);
+        height: 48px;
         width: 100%;
-        input{
-            width: 75%;
-            height: 80%;
-            border-radius:20px;
-            position: relative;
-            border: 1px solid red;
-            button{
-                width: 30px;
-                height: 30px;
-                background:#666;
-                right: 20px;
-                cursor:pointer;
-                position:absolute;
-                img{
-                    width: 20px;
+        max-width: 1440px;
+        display: flex;
+        margin: auto;
+        box-sizing: border-box;
+        padding: 5px;
+        align-items: center;
+        justify-content: space-between;
+        img{
+            height: 28px;
+        }
+        .search_bar{
+            display: flex;
+            box-sizing: border-box;
+            width: 100%;
+            input{
+                width: 75%;
+                height: 80%;
+                border-radius:20px;
+                position: relative;
+                border: 1px solid red;
+                button{
+                    width: 30px;
+                    height: 30px;
+                    background:#666;
+                    right: 20px;
+                    cursor:pointer;
+                    position:absolute;
+                    img{
+                        width: 20px;
+                    }
                 }
             }
         }
-    }
-    .member_bar{
-        display: none;
+        .member_bar{
+            display: none;
+        }
     }
 }
 @media screen and (min-width: 768px) {
     /* 以下為上方搜尋區域 */
-    .top_bar{
-        .member_bar{
-        display: block;
-            ul{
-                display: flex;
-                box-sizing: border-box;
-                img{
-                    width: 30px;
-                    }
+    .top_bar_box{
+        .top_bar{
+            .member_bar{
+            display: block;
+                ul{
+                    display: flex;
+                    box-sizing: border-box;
+                    img{
+                        width: 30px;
+                        }
+                }
             }
         }
-    }
+    }  
 
+}
+
+/* 以下為主頁橫排 */
+.content{
+    width: 100%;
+    max-width: 1440px;
+    height: 900px;
+    margin: auto;
+    display: flex;
 }
 
 /* 以下側邊欄 */
@@ -80,21 +100,58 @@
 }
 @media screen and (min-width: 768px) {    
     /* 以下側邊欄 */
-    .sidebar{
+    .sidebar_box{
         width: 20%;
-        margin-top: 48px;
-        top: 0;
-        .sidebar_list{
-            display: block;
-            .nav_phone{
-                display: none;
-            }
-            .nav_pc{
+        .sidebar{
+            // position: static;
+            width: 20%;
+            max-width: 288px;
+            margin-top: 48px;
+            top: 0;
+            .sidebar_list{
                 display: block;
-            }
-            a{
-                font-size: 16px;
+                .nav_phone{
+                    display: none;
+                }
+                .nav_pc{
+                    display: block;
+                }
+                a{
+                    font-size: 16px;
+                }
             }
         }
+    }
+}
+
+/* 以下為主要區域 */
+.main_area{
+    width: 100%;
+    background-color: rgb(44, 83, 34);
+    margin-top: 48px;
+    .hot_billboard{
+        width: 100%;
+    }
+    .save_area{
+        display: flex;
+    }
+}
+@media screen and (min-width: 768px){
+    .main_area{
+        width: 60%;
+    }
+}
+/* 以下為廣告區域 */
+.advertise{
+    width: 20%;
+    background-color: rgb(73, 31, 77);
+    display: none;
+}
+@media screen and (min-width: 768px){
+    /* 以下為廣告區域 */
+    .advertise{
+    width: 20%;
+    background-color: rgb(31, 46, 83);
+display: inline;
     }
 }
