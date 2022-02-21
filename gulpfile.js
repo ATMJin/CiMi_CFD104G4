@@ -8,19 +8,7 @@ const {
 
 const fileinclude = require('gulp-file-include');
 
-function includeHTML() {
-    return src('html/*.html')
-        .pipe(fileinclude({
-            prefix: '@@',
-            basepath: '@file'
-        }))
-        .pipe(dest('./'));
-}
-
-//watch files
-exports.w = function watchs() {
-    watch(['html/*.html', 'html/**/*.html'], includeHTML);
-}
+//watch files once
 exports.html = function includeHTML() {
     return src('html/*.html')
         .pipe(fileinclude({
@@ -28,6 +16,9 @@ exports.html = function includeHTML() {
             basepath: '@file'
         }))
         .pipe(dest('./'));
-
 };
 
+//watch files many times
+exports.w = function watchs() {
+    watch(['html/*.html', 'html/**/*.html'], exports.html);
+}
