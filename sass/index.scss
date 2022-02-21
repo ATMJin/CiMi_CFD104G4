@@ -129,12 +129,6 @@
     width: 100%;
     background-color: rgb(44, 83, 34);
     margin-top: 48px;
-    .hot_billboard{
-        width: 100%;
-    }
-    .save_area{
-        display: flex;
-    }
 }
 @media screen and (min-width: 768px){
     .main_area{
@@ -143,7 +137,6 @@
 }
 /* 以下為廣告區域 */
 .advertise{
-    width: 20%;
     background-color: rgb(73, 31, 77);
     display: none;
 }
@@ -151,7 +144,6 @@
     /* 以下為廣告區域 */
     .advertise{
     width: 20%;
-    background-color: rgb(31, 46, 83);
-display: inline;
+
     }
 }
