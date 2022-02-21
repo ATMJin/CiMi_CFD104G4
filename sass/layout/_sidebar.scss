@@ -1,0 +1,44 @@
+
+/* 以下側邊欄 */
+.sidebar{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 12px;
+    background-color: var(--icon-color);
+    .sidebar_list{
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-between;
+        .nav_pc{
+            display: none;
+        }
+        a{
+            font-size: 0;
+            img{
+                width: 30px;
+            }
+        
+        }
+    }
+}
+@media screen and (min-width: 768px) {    
+    /* 以下側邊欄 */
+    .sidebar{
+        width: 20%;
+        margin-top: 48px;
+        top: 0;
+        .sidebar_list{
+            display: block;
+            .nav_phone{
+                display: none;
+            }
+            .nav_pc{
+                display: block;
+            }
+            a{
+                font-size: 16px;
+            }
+        }
+    }
+}
