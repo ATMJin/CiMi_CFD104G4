@@ -1,11 +1,9 @@
-
 /* 以下側邊欄 */
 .sidebar{
     position: fixed;
     width: 100%;
     bottom: 0;
     padding: 12px;
-    background-color: var(--icon-color);
     .sidebar_list{
         display: flex;
         box-sizing: border-box;
@@ -24,20 +22,30 @@
 }
 @media screen and (min-width: 768px) {    
     /* 以下側邊欄 */
-    .sidebar{
+    .sidebar_box{
         width: 20%;
-        margin-top: 48px;
-        top: 0;
-        .sidebar_list{
-            display: block;
-            .nav_phone{
-                display: none;
-            }
-            .nav_pc{
+        .sidebar_box::before{
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+        }
+        .sidebar{
+            // position: static;
+            width: 20%;
+            max-width: 288px;
+            margin-top: 48px;
+            top: 0;
+            .sidebar_list{
                 display: block;
-            }
-            a{
-                font-size: 16px;
+                .nav_phone{
+                    display: none;
+                }
+                .nav_pc{
+                    display: block;
+                }
+                a{
+                    font-size: 16px;
+                }
             }
         }
     }
