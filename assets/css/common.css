@@ -4,6 +4,7 @@
 * {
     /* 字體 : 中文-sans-serif | 英文-Poppins */
     font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
 }
 
 :root {
@@ -33,7 +34,8 @@
     border-radius: 10px;
     border: none;
     outline: none;
-    padding: 10px
+    padding: 10px;
+    color: var(--primary-color);
 }
 .btn-secondary {
     font-size: 14px;
@@ -41,6 +43,7 @@
     border-radius: 10px;
     border: none;
     outline: none;
-    padding: 10px
+    padding: 10px;
+    color: var(--primary-color);
 }
 
