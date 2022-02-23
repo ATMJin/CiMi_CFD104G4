@@ -10,18 +10,18 @@ const fileinclude = require('gulp-file-include');
 
 //watch files once
 function includeHTML() {
-    return src('html/*.html')
+    return src('src/html/*.html')
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(dest('./'));
+        .pipe(dest('dist'));
 };
 exports.html = series(includeHTML, mv_img);
 
 //watch files many times
 exports.w = function watchs() {
-    watch(['html/*.html', 'html/**/*.html'], includeHTML);
+    watch(['src/html/*.html', 'src/html/**/*.html'], includeHTML);
 }
 
 // JS檔壓縮
@@ -31,12 +31,12 @@ const rename = require('gulp-rename');
 // 上線用
 // JS壓縮並更名
 function ugjs() {
-    return src('js/*.js')
+    return src('src/js/*.js')
         .pipe(uglify())
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(dest('./js/min'));
+        .pipe(dest('dist/js/min'));
 }
 exports.minjs = ugjs;
 
@@ -45,12 +45,12 @@ exports.minjs = ugjs;
 const cleanCSS = require('gulp-clean-css');
 
 function cleanC() {
-    return src('assets/css/*.css') //來源
+    return src('src/assets/css/*.css') //來源
         .pipe(cleanCSS()) // 壓縮
         .pipe(rename({
             extname: '.min.css'
         }))
-        .pipe(dest('assets/css/min')) // 目的地
+        .pipe(dest('dist/assets/css/min')) // 目的地
 }
 exports.mincss = cleanC;
 
@@ -58,7 +58,7 @@ exports.mincss = cleanC;
 // // 合併css
 // var concat = require('gulp-concat');
 // function concatCss() {
-//     return src('css/*.css').pipe(concat('all.css')).pipe(dest('css/all/'))
+//     return src('src/assets/css/*.css').pipe(concat('all.css')).pipe(dest('dist/assets/css/all/'))
 // }
 // exports.allcss = concatCss
 
@@ -67,9 +67,9 @@ exports.mincss = cleanC;
 // const sass = require('gulp-sass')(require('sass'));
 
 // function sassstyle() {
-//     return src('./sass/*.scss')
+//     return src('src/sass/*.scss')
 //         .pipe(sass.sync().on('error', sass.logError))
-//         .pipe(dest('./assets/css'));
+//         .pipe(dest('dist/assets/css'));
 // }
 
 // exports.scss = sassstyle;
@@ -80,7 +80,7 @@ exports.all = series(ugjs, cleanC)
 
 //  圖片搬家
 function mv_img() {
-    return src('src/images/*.*').pipe(dest('dist/images'))
+    return src('src/assets/images/*.*').pipe(dest('dist/assets/images'))
 }
 exports.mvimg = mv_img
 
