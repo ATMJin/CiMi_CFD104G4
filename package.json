@@ -4,6 +4,7 @@
         "gulp-clean-css": "^4.3.0",
         "gulp-concat": "^2.6.1",
         "gulp-file-include": "^2.3.0",
+        "gulp-imagemin": "^7.1.0",
         "gulp-rename": "^2.0.0",
         "gulp-sass": "^5.1.0",
         "gulp-uglify": "^3.0.2",
@@ -14,6 +15,8 @@
         "打包html": "gulp html",
         "監聽html": "gulp w",
         "SASS編譯": "gulp scss",
+        "圖片搬家": "gulp mvimg",
+        "圖片壓縮": "gulp img",
         "壓縮JS": "gulp minjs",
         "壓縮CSS": "gulp mincss",
         "同時壓縮JS、CSS": "gulp all"
