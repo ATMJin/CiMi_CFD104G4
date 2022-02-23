@@ -5,6 +5,7 @@
 
 assets/css/
 /*.html
+dist
 
 .vscode/
 node_modules/
