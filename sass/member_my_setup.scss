@@ -1,0 +1,126 @@
+.member_main_box {
+    .member_bg {
+        .member_bgcard {
+            .member_main {
+                .member_head {
+                    width: 98%;
+                    display: flex;
+                    justify-content: center;
+                    background-color: var(--primary-color);
+                    margin-top: 50px;
+                    border-bottom: 2px solid var(--font-primary);
+                    font-size: 48px;
+                    position: relative;
+
+                    .member_setchange {
+                        width: 10%;
+                        position: absolute;
+                        right: 0;
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            vertical-align: top;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .member_cardtext {
+            width: 100%;
+            margin: auto;
+            margin-top: 20px;
+            padding-bottom: 10px;
+            .member_cardmain {
+                width: 80%;
+                margin: auto;
+
+                .gap {
+                    margin: 50px 0;
+                }
+
+                h3 {
+                    margin: 10px 0px;
+                    font-size: 18px;
+                }
+
+                p {
+                    margin: 20px 0px;
+                    color: #A3A3A3a3;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+
+}
+
+@media screen and (min-width:1440px) {
+    .member_main_box {
+        .member_bg {
+            // width: 100%;
+            background-color: var(--primary-color);
+            .member_bgcard {
+                .member_main{
+                    display: none;
+                }
+                .member_main_title {
+                    .member_head {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        // background-color: var(--primary-color);
+                        margin-top: 50px;
+                        border-bottom: 2px solid transparent;
+                        font-size: 48px;
+                        position: relative;
+    
+                        .member_setchange {
+                            width: 5%;
+                            position: absolute;
+                            right: 0;
+    
+                            img {
+                                width: 50px;
+                                height: 50px;
+                                vertical-align: top;
+                            }
+                        }
+    
+                    }
+                }
+            }
+    
+            .member_cardtext {
+                width: 100%;
+                margin: auto;
+                margin-top: 20px;
+                padding-bottom: 10px;
+                .member_cardmain {
+                    width: 80%;
+                    margin: auto;
+    
+                    .gap {
+                        margin: 50px 0;
+                    }
+    
+                    h3 {
+                        margin: 10px 0px;
+                        font-size: 18px;
+                    }
+    
+                    p {
+                        margin: 20px 0px;
+                        color: var(--font-secondary);
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    
+    
+    }
+}

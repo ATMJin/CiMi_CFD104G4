@@ -9,17 +9,21 @@
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/common.css">
     <link rel="stylesheet" href="../assets/css/member.css">
+    <link rel="stylesheet" href="../assets/css/member-guide.css">
     <script src="../js/vue.js"></script>
 </head>
 
 <body>
     <header class="top_bar_box">
         <div class="top_bar">
-
+        </div>
+        <div class="member_topbar"> <!--RWD標題-->
+            <p>我的卡友</p>
         </div>
     </header>
     <section class="sidebar_box">
-        <aside class="sidebar"> <!--會員左側攔開始-->
+        <!--會員左側欄開始-->
+        <aside class="sidebar">
             <div class="member_nav">
 
                 <div class="member_head">
@@ -32,7 +36,7 @@
                 <div class="member_bar">
                     <a href="">
                         <div class="member_btn my_integral">
-                            <img src="../assets/images/icon/nav_charts.png" >
+                            <img src="../assets/images/icon/nav_charts.png">
                             <span>
                                 我的積分 : 30
                             </span>
@@ -40,7 +44,7 @@
                     </a>
                     <a href="">
                         <div class="member_btn my_treasure">
-                            <img src="../assets/images/icon/nav_coin.png" >
+                            <img src="../assets/images/icon/nav_coin.png">
                             <span>
                                 我的Mi寶
                             </span>
@@ -48,7 +52,7 @@
                     </a>
                     <a href="">
                         <div class="member_btn my_friend">
-                            <img src="../assets/images/icon/nav_friend.png" >
+                            <img src="../assets/images/icon/nav_friend.png">
                             <span>
                                 我的卡友
                             </span>
@@ -56,7 +60,7 @@
                     </a>
                     <a href="">
                         <div class="member_btn my_introduction">
-                            <img src="../assets/images/icon/nav_card.png" >
+                            <img src="../assets/images/icon/nav_card.png">
                             <span>
                                 抽卡自我介紹
                             </span>
@@ -64,7 +68,7 @@
                     </a>
                     <a href="">
                         <div class="member_btn my_article">
-                            <img src="../assets/images/icon/nav_post.png" >
+                            <img src="../assets/images/icon/nav_post.png">
                             <span>
                                 我發表的文章
                             </span>
@@ -72,7 +76,7 @@
                     </a>
                     <a href="">
                         <div class="member_btn my_order">
-                            <img src="../assets/images/icon/nav_billboard.png" >
+                            <img src="../assets/images/icon/nav_billboard.png">
                             <span>
                                 訂單紀錄
                             </span>
@@ -80,20 +84,36 @@
                     </a>
                     <a href="">
                         <div class="member_btn my_setup">
-                            <img src="../assets/images/icon/nav_settings.png" >
+                            <img src="../assets/images/icon/nav_settings.png">
                             <span>
                                 設定
                             </span>
                         </div>
                     </a>
+                </div>
             </div>
-            </div>
-        </aside>                <!--會員左側攔結束-->
-
-        <main>
-
-        </main>
+        </aside>
+        <!--會員左側欄結束-->
     </section>
+    <main class="member_main_box">
+        <div class="member_bg">
+            <div class="member_main">
+                <div class="member_head">  <!--手機板內文大標-->
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, sunt?</p>
+                </div>
+            </div>
+
+            <div class="member_main_title"> <!--桌機版內文大標-->
+                <p>我的卡友</p>
+            </div>
+
+            <div class="member_text"> <!--內文-->
+                <div class="member_card"> <!--內文卡片-->
+
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

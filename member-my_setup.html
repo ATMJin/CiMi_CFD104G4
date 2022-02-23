@@ -8,16 +8,19 @@
     <title>CiMi交友論壇</title>
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/common.css">
-    <link rel="stylesheet" href="../assets/css/member-integral.css">
-    <!-- <script src="./js/vue.js"></script> -->
+    <link rel="stylesheet" href="../assets/css/member.css">
+    <link rel="stylesheet" href="../assets/css/member-guide.css">
+    <link rel="stylesheet" href="../assets/css/member_my_setup.css">
+    <script src="../js/vue.js"></script>
 </head>
 
 <body>
     <header class="top_bar_box">
         <div class="top_bar">
         </div>
-        <div class="member_bouns_topbar">
-            <p>我的積分</p>
+        <div class="member_topbar">
+            <!--RWD-LOGO-NAV-->
+            <p></p>
         </div>
     </header>
     <section class="sidebar_box">
@@ -33,7 +36,7 @@
                 </div>
 
                 <div class="member_bar">
-                    <a href="member-integral.html">
+                    <a href="">
                         <div class="member_btn my_integral">
                             <img src="../assets/images/icon/nav_charts.png">
                             <span>
@@ -49,7 +52,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="member-myfriends.html">
+                    <a href="">
                         <div class="member_btn my_friend">
                             <img src="../assets/images/icon/nav_friend.png">
                             <span>
@@ -57,7 +60,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="member-my_introduction.html">
+                    <a href="">
                         <div class="member_btn my_introduction">
                             <img src="../assets/images/icon/nav_card.png">
                             <span>
@@ -65,7 +68,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="member-article.html">
+                    <a href="">
                         <div class="member_btn my_article">
                             <img src="../assets/images/icon/nav_post.png">
                             <span>
@@ -81,7 +84,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="member-my_setup.html">
+                    <a href="">
                         <div class="member_btn my_setup">
                             <img src="../assets/images/icon/nav_settings.png">
                             <span>
@@ -94,96 +97,60 @@
         </aside>
         <!--會員左側欄結束-->
     </section>
-
     <main class="member_main_box">
         <div class="member_bg">
-            <div class="member_main">
-                <div class="member_bouns_head">
+            <div class="member_bgcard">
 
-                    <div class="member_bouns_mycoins">
-                        <img src="../assets/images/icon/nav_member.png" alt="">
-
-                        <div class="member_bouns_showcoins">
-                            <p>155</p>
-                            <img src="../assets/images/icon/nav_coin.png" alt="">
+                <div class="member_main">
+                    <div class="member_head">
+                        <!--手機板內文大標-->
+                        <p>我的設定</p>
+                        <div class="member_setchange">
+                            <img src="../assets/images/icon/nav_post.png" alt="">
                         </div>
                     </div>
-
                 </div>
-            </div>
 
-            <div class="member_main_title">
-                <p>我的積分</p>
-            </div>
-
-            <div class="member_bouns_take">
-                <div class="member_bouns_card">
-
-                    <div class="member_bouns_card_image">
-                        <img src="../assets/images/icon/nav_coin.png" alt="">
-                    </div>
-
-                    <div class="member_bouns_card_text">
-                        <p>每日登入</p> <br>
-                        <p>每日登入獎勵</p> <br>
-                        <p>2022-02-20 22:12</p>
-                    </div>
-
-                    <div class="member_bouns_card_takecoin">
-                        <p>+1</p>
+                <div class="member_main_title">
+                    <div class="member_head">
+                        <!--桌機版內文大標-->
+                        <p>我的設定</p>
+                        <div class="member_setchange">
+                            <img src="../assets/images/icon/nav_post.png" alt="">
+                        </div>
                     </div>
                 </div>
-                <div class="member_bouns_card">
 
-                    <div class="member_bouns_card_image">
-                        <img src="https://picsum.photos/80/80/?random=10">
-                    </div>
-
-                    <div class="member_bouns_card_text">
-                        <p>三星防偷窺滿版玻璃貼 防窺螢幕保護貼適用
-                        </p> <br>
-                        <p>結帳時以積分折抵</p> <br>
-                        <p>2022-02-18 21:57</p>
-                    </div>
-
-                    <div class="member_bouns_card_takecoin">
-                        <p>-25</p>
-                    </div>
-                </div>
-                <div class="member_bouns_card">
-
-                    <div class="member_bouns_card_image">
-                        <img src="../assets/images/icon/nav_coin.png" alt="">
-                    </div>
-
-                    <div class="member_bouns_card_text">
-                        <p>每日登入</p> <br>
-                        <p>每日登入獎勵</p> <br>
-                        <p>2022-02-18 08:44</p>
-                    </div>
-
-                    <div class="member_bouns_card_takecoin">
-                        <p>+1</p>
-                    </div>
-                </div>
-                <div class="member_bouns_card">
-
-                    <div class="member_bouns_card_image">
-                        <img src="../assets/images/icon/nav_coin.png" alt="">
-                    </div>
-
-                    <div class="member_bouns_card_text">
-                        <p>每日登入</p> <br>
-                        <p>每日登入獎勵</p> <br>
-                        <p>2022-02-16 14:33</p>
-                    </div>
-
-                    <div class="member_bouns_card_takecoin">
-                        <p>+1</p>
+                <div class="member_cardtext">
+                    <!--內文-->
+                    <div class="member_cardmain">
+                        <div class="membercard_email gap">
+                            <h3>常用信箱</h3>
+                            <p>hello1124@gmail.com</p>
+                        </div>
+                        <div class="membercard_psw gap">
+                            <h3>密碼</h3>
+                            <p>*********</p>
+                        </div>
+                        <div class="membercard_name gap">
+                            <h3>名字</h3>
+                            <p>趙哈妮</p>
+                        </div>
+                        <div class="membercard_work gap">
+                            <h3>職業</h3>
+                            <p>待業中。。。</p>
+                        </div>
+                        <div class="membercard_tel gap">
+                            <h3>電話</h3>
+                            <p>09xxxxxxxx</p>
+                        </div>
+                        <div class="membercard_live gap">
+                            <h3>居住地</h3>
+                            <p>桃園市</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 </body>
 
