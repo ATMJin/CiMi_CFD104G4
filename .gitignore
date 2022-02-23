@@ -2,5 +2,8 @@
 *.css.map
 *.sass.map
 *.scss.map
+
+assets/css/
+
 .vscode/
 node_modules/
