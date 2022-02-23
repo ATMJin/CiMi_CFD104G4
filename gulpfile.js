@@ -63,15 +63,15 @@ exports.mincss = cleanC;
 
 
 // sass編譯
-const sass = require('gulp-sass')(require('sass'));
+// const sass = require('gulp-sass')(require('sass'));
 
-function sassstyle() {
-    return src('./sass/*.scss')
-        .pipe(sass.sync().on('error', sass.logError))
-        .pipe(dest('./assets/css'));
-}
+// function sassstyle() {
+//     return src('./sass/*.scss')
+//         .pipe(sass.sync().on('error', sass.logError))
+//         .pipe(dest('./assets/css'));
+// }
 
-exports.scss = sassstyle;
+// exports.scss = sassstyle;
 
 
 // 同時壓縮JS、CSS
