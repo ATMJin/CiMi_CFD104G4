@@ -1,3 +1,6 @@
+@import "./layout/reset";
+@import "./layout/common";
+@import "./layout/sidebar";
 /* 以下為上方搜尋區域 */
 .top_bar_box{
     height: 48px;
@@ -98,6 +101,7 @@
             font-size: 0;
             img{
                 width: 30px;
+                margin-right: 10px;
                 vertical-align: middle;
             }
         
@@ -131,7 +135,7 @@ padding-top: 15px;
                     text-decoration: none;
                     color: #fff;
                     img{
-                        width: 25px;
+                        width: 20px;
                     }
                 }
             }
@@ -142,11 +146,9 @@ padding-top: 15px;
 /* 以下為主要區域 */
 .main_area{
     width: 100%;
-    background-color: rgb(44, 83, 34);
     margin-top: 48px;
     .hot_billboard{
         width: 100%;
-        background-color: rgb(131, 136, 64);
     }
     .save_area{
         display: flex;
@@ -174,8 +176,6 @@ padding-top: 15px;
             
         }
         .save_billboard{
-            background-color: rgb(66, 161, 54);
-            h2{}
             .billboard_img{
                 img{
                     width: 100px;

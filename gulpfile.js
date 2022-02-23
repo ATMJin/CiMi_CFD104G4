@@ -80,7 +80,7 @@ exports.all = series(ugjs, cleanC)
 
 //  圖片搬家
 function mv_img() {
-    return src('src/assets/images/*.*').pipe(dest('dist/assets/images'))
+    return src('src/assets/images/*/*.*').pipe(dest('dist/assets/images'))
 }
 exports.mvimg = mv_img
 
