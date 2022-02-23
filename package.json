@@ -12,6 +12,10 @@
     "scripts": {
         "安裝套件": "npm i",
         "打包html": "gulp html",
-        "監聽html": "gulp w"
+        "監聽html": "gulp w",
+        "SASS編譯": "gulp scss",
+        "壓縮JS": "gulp minjs",
+        "壓縮CSS": "gulp mincss",
+        "同時壓縮JS、CSS": "gulp all"
     }
 }
