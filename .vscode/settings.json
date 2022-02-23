@@ -4,7 +4,7 @@
         {  
             "format": "expanded", //壓縮成一行"compressed", //壓縮成一行css，正式版本
             "extensionName": ".css",
-            "savePath": "assets/css" //此為輸出的路徑，可以自行更改
+            "savePath": "dist/assets/css" //此為輸出的路徑，可以自行更改
         }
     ],
     "liveServer.settings.port": 5501,
