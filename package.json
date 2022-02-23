@@ -14,11 +14,11 @@
         "安裝套件": "npm i",
         "打包html": "gulp html",
         "監聽html": "gulp w",
-        "SASS編譯": "gulp scss",
         "圖片搬家": "gulp mvimg",
         "圖片壓縮": "gulp img",
         "壓縮JS": "gulp minjs",
         "壓縮CSS": "gulp mincss",
-        "同時壓縮JS、CSS": "gulp all"
+        "同時壓縮JS、CSS": "gulp all",
+        "SASS編譯": "gulp scss"
     }
 }
