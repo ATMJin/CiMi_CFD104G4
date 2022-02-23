@@ -1,0 +1,58 @@
+/* 以下側邊欄 */
+.sidebar{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 12px;
+    background-color: var(--secondary-color);
+    .sidebar_list{
+        display: flex;
+        justify-content: space-between;
+        .nav_pc{
+            display: none;
+        }
+        a{
+            font-size: 0;
+            img{
+                width: 30px;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+        
+        }
+    }
+}
+@media screen and (min-width: 768px) {    
+    /* 以下側邊欄 */
+    .sidebar_box{
+        width: 20%;
+        .sidebar{
+            width: 20%;
+            max-width: 288px;
+            margin-top: 60px;
+            top: 0;
+            border-top-right-radius: 60px;
+            .sidebar_list{
+                display: inline-block;
+                li+li{
+padding-top: 15px;
+                }
+                .nav_phone{
+                    display: none;
+                }
+                .nav_pc{
+                    display: block;
+                }
+                a{
+                    font-size: 16px;
+                    vertical-align: middle;
+                    text-decoration: none;
+                    color: #fff;
+                    img{
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

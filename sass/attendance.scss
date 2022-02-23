@@ -1,0 +1,146 @@
+.lightbox{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(66,66,66,.6);
+    .attendance_item_box{
+        position: absolute;
+        width: 800px;
+        height: 540px;
+        top: 50%;
+        left: 50%;
+        margin-left: -400px;
+        margin-top: -270px;
+        background-color: #cfcec6;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 10px;
+        border-radius: 10px;
+        .close_icon_box{
+            position: absolute;
+            right: 20px;
+            width: 20px; 
+            .close_icon{
+                width: 100%;
+            }
+        }
+        .lightbox_title_box{
+            width: 100%;
+            text-align: center;
+            color: #164470;
+            font-weight: 700;
+            padding-top: 15px;
+            .lightbox_title_item{
+                font-size:var(--title);
+            }      
+        }
+        .attendance_item{
+            width: calc(25% - 20px);
+            margin: 10px;            
+            border-radius: 10px;
+            .attendance_title_box{
+                background-color: #164470;
+                width: 100%;
+                color: #ffffff;
+                border-radius: 10px 10px 0 0;
+                padding: 10px;
+                text-align: center;
+                .attendance_title_item{
+                    font-size:var(--subtitle2);
+                }
+            }
+            .coins_content{
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                border-radius: 0 0 10px 10px;
+                height: 160px;
+                background-color: #fff;
+                position: relative;
+                .img_box{
+                    width: 80px;
+                    padding: 0 10px;
+                    .check_item{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-top: -40px;
+                        margin-left: -40px;
+                        width: 80px;
+                        display: none; 
+                    }
+                    .coins_item{
+                        display: block;
+                    }
+                }
+                .txt_box{
+                    color: #5E5E5E;
+                    font-weight: 700;
+                    padding:0 10px;
+                    box-sizing: border-box;
+                    display: block;
+                    .coins_amount{
+                        font-size: var(--subtitle1);
+                    } 
+                }
+
+            }
+        }
+        .attendance_7days_item{
+            width: calc(50% - 20px);
+            margin: 10px;
+            border-radius: 10px;
+            .attendance_title_box{
+                background-color: #164470;
+                width: 100%;
+                color: #ffffff;
+                border-radius: 10px 10px 0 0;
+                padding: 10px;
+                text-align: center;
+                .attendance_title_item{
+                    font-size:var(--subtitle2);
+                }
+            }
+            .coins_content{
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                border-radius: 0 0 10px 10px;
+                height: 160px;
+                background-color: #fff;
+                position: relative;
+                .img_bonus_box{
+                    width: 150px;
+                    padding:10px  0 5px 25px;
+                    .check_item{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-top: -40px;
+                        margin-left: -40px;
+                        width: 80px;
+                        display: none; 
+                    }
+                    .coins_item{
+                        display: block;
+                    }
+                }
+                .txt_box{
+                    color: #5E5E5E;
+                    font-weight: 700;
+                    padding:0 10px;
+                    box-sizing: border-box;
+                    .coins_amount{
+                        font-size: var(--subtitle1);
+                    } 
+                }
+
+            }
+        }
+      
+
+    }
+}
