@@ -4,6 +4,7 @@
 *.scss.map
 
 assets/css/
+*.html
 
 .vscode/
 node_modules/
