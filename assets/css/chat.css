@@ -102,74 +102,83 @@ table {
 }
 
 /* 以下為上方搜尋區域 */
-.top_bar {
-  background-color: #59886f;
+.top_bar_box {
   height: 48px;
   width: 100%;
   position: fixed;
-  z-index: 10000;
+  margin: auto;
+}
+
+.top_bar_box .top_bar {
+  height: 48px;
+  width: 100%;
+  max-width: 1440px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 5px;
+  padding: 5px 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.top_bar img {
+.top_bar_box .top_bar .logo_box img {
   height: 28px;
 }
 
-.top_bar .search_bar {
+.top_bar_box .top_bar .search_bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
-}
-
-.top_bar .search_bar input {
-  width: 75%;
-  height: 80%;
-  border-radius: 20px;
   position: relative;
-  border: 1px solid red;
+  width: 60%;
 }
 
-.top_bar .search_bar input button {
+.top_bar_box .top_bar .search_bar input {
+  width: 100%;
+  height: 25px;
+  border-radius: 50px;
+}
+
+.top_bar_box .top_bar button {
   width: 30px;
-  height: 30px;
-  background: #666;
-  right: 20px;
+  background: none;
+  border: none;
   cursor: pointer;
   position: absolute;
+  top: 3px;
+  right: 3px;
 }
 
-.top_bar .search_bar input button img {
-  width: 20px;
+.top_bar_box .top_bar button img {
+  width: 15px;
 }
 
-.top_bar .member_bar {
+.top_bar_box .top_bar .member_bar {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
   /* 以下為上方搜尋區域 */
-  .top_bar .member_bar {
+  .top_bar_box .top_bar .member_bar {
     display: block;
   }
-  .top_bar .member_bar ul {
+  .top_bar_box .top_bar .member_bar ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
-  .top_bar .member_bar ul img {
+  .top_bar_box .top_bar .member_bar ul img {
     width: 30px;
   }
 }
