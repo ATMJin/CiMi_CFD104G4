@@ -1,3 +1,12 @@
+/* 以下為主頁橫排 */
+.content{
+    width: 100%;
+    max-width: 1440px;
+    height: 900px;
+    margin: auto;
+    display: flex;
+}
+
 /* 以下側邊欄 */
 .sidebar{
     position: fixed;
@@ -5,6 +14,7 @@
     bottom: 0;
     padding: 12px;
     background-color: var(--secondary-color);
+    z-index: 11;
     .sidebar_list{
         display: flex;
         justify-content: space-between;
@@ -35,7 +45,7 @@
             .sidebar_list{
                 display: inline-block;
                 li+li{
-padding-top: 15px;
+                    padding-top: 15px;
                 }
                 .nav_phone{
                     display: none;

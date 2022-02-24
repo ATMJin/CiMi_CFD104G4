@@ -1,9 +1,13 @@
+@import "./layout/reset";
+@import "./layout/common";
+@import "./layout/sidebar";
 /* 以下為上方搜尋區域 */
 .top_bar_box{
     height: 48px;
     width: 100%;
     position: fixed;
     margin: auto;
+    z-index: 11;
     background-color: #fff;
     .top_bar{
         height: 48px;
@@ -48,26 +52,4 @@
             display: none;
         }
     }
-}
-@media screen and (min-width: 768px) {
-    /* 以下為上方搜尋區域 */
-    .top_bar_box{
-        height: 60px;
-        .top_bar{
-            .member_bar{
-            display: block;
-                ul{
-                    display: flex;
-                    box-sizing: border-box;
-                    li+li{
-                        padding-left: 15px;
-                    }
-                    img{
-                        width: 28px;
-                    }
-                }
-            }
-        }
-    }  
-
 }

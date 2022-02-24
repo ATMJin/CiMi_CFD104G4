@@ -92,6 +92,7 @@
     bottom: 0;
     padding: 12px;
     background-color: var(--secondary-color);
+    z-index: 11;
     .sidebar_list{
         display: flex;
         justify-content: space-between;
