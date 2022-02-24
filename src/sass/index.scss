@@ -4,6 +4,7 @@
     width: 100%;
     position: fixed;
     margin: auto;
+    z-index: 11;
     background-color: #fff;
     .top_bar{
         height: 48px;
@@ -88,6 +89,7 @@
     bottom: 0;
     padding: 12px;
     background-color: var(--secondary-color);
+    z-index: 11;
     .sidebar_list{
         display: flex;
         justify-content: space-between;
@@ -117,7 +119,7 @@
             .sidebar_list{
                 display: inline-block;
                 li+li{
-padding-top: 15px;
+                    padding-top: 15px;
                 }
                 .nav_phone{
                     display: none;
@@ -151,10 +153,12 @@ padding-top: 15px;
     .save_area{
         display: flex;
         flex-direction: column;
+
         .save_article{
             background-color: rgb(54, 145, 161);            
             h2{
                 font-size: 18px;
+                font-weight: 700;
             }
             .article_box{
                 display: flex;
@@ -174,8 +178,11 @@ padding-top: 15px;
             
         }
         .save_billboard{
-            background-color: rgb(66, 161, 54);
-            h2{}
+            padding: 20px;
+            h2{
+                font-size: 18px;
+                font-weight: 700;
+            }
             .billboard_img{
                 img{
                     width: 100px;
