@@ -5,274 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
+    <title>cmi交友論壇</title>
     <link rel="stylesheet" href="assets\css\reset.css">
     <link rel="stylesheet" href="assets\css\index.css">
     <link rel="stylesheet" href="assets\css\common.css">
-    <link rel="stylesheet" href="assets\css\product.css">
-    <!-- owl套件 -->
-    <link rel="stylesheet" href="js\owl.js">
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-    <script src="owlcarousel/owl.carousel.min.js"></script>
-    <!-- jquery套件 -->
-    <script src="jquery.min.js"></script>
-
-
-
+    <link rel="stylesheet" href="assets\css\product_ad_page.css">
 </head>
 
 <body>
     @@include('layout/header.html')
     @@include('layout/sidebar.html')
-    <!-- 好物商城 -->
-    <main class="main_product">
-        <!-- 廣告投放 -->
-        <div class="owl-carousel">
-            <section class="advertise">
-                <div class="item_box">
-                    <a href="#" style="display: none;">
-                        <div class="img_box">
-                            <img src="https://picsum.photos/600/300/?random=10">
-                        </div>
-                    </a>
-                    <a href="#" style="display: none;">
-                        <div class="img_box">
-                            <img src="https://picsum.photos/600/300/?random=11">
-                        </div>
-                    </a>
-                    <a href="product_ad_page.html">
-                        <div class="img_box">
-                            <img src="assets\images\goods\shop_ad.jpeg">
-                        </div>
-                    </a>
-                </div>
-            </section>
-        </div>
 
-        <!-- 真實評論，好友討論，免運 -->
-        <section class="comment">
-            <a href="#">
-                <div class="item_box">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_appraise.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>真實評價</p>
-                        </div>
+    <!-- 好物商城最上面的觸銷廣告裡的內頁文章 -->
+    <main class="main_product_ad_page">
+        <!-- 文章 -->
+        <section class="product_ad_txt">
+            <div class="txt_box">
+                    <h1>神秘星星力量⭐65折起</h1>
+                    <h2>整體運勢🆙滿 490 折 50</h2>
+                    <p>抬頭望著數不清的星星✨，
+                        化成一個個神祕🔮的星座，
+                        他們...想告訴你什麼呢🤔
+                        就用好物來提升整體運勢，從⭐出發吧！
 
-                    </div>
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_tag.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>折價優惠</p>
-                        </div>
+                        用測驗找出專屬於妳的推薦好物！
+                        💫2/23-3/2 連假星座運勢💫
 
-                    </div>
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_chat.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>卡友討論</p>
-                        </div>
+                        💎 指定商品 ▸ 滿 490 現折 50 再免運
+                        💝 星運加碼 ▸ 滿額登記最高回饋 $700！
 
-                    </div>
-                </div>
-            </a>
-        </section>
-        <!-- 商品分類 -->
-        <section class="sort">
-            <div class="item_box">
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_life.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>質感生活</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_cosmetics.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>美妝保養</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_clothes.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>風格穿搭</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_food.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>美食補給</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_3C.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>3C家電</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_book.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>書籍補給</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
+                        🎉 2/23 全館滿 $799 享 $100 折扣 🎉
 
-        <!-- 最新區 -->
-        <section class="new_goods_information">
-            <!-- 限時商品 -->
-            <div class="time_limit_item_box">
-                <div class="title">
-                    <div class="img_box">
-                        <img src="assets\images\icon\shop_hot_deal.png">
-                    </div>
-                    <div class="txt_box">
-                        <div class="txt_new_goods">
-                            <p>限時商品</p>
-                        </div>
-                        <div class="txt_new_goods_time">
-                            <p>12:30:50</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="item_box">
-                        <div class="img_box">
-                            <img src="https://picsum.photos/200/200/?random=10">
-                        </div>
-                        <div class="txt_box">
-                            <p>Norns︱福袋</p>
-                            <p>NT.1500</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-
-            <!-- 最新上架商品 -->
-            <div class="new_item_box">
-                <div class="title">
-                    <!-- <div class="img_box">
-                        <img src="assets\images\icon\shop_medal.png">
-                    </div> -->
-                    <div class="txt_box">
-                        <p>最新上架商品</p>
-                    </div>
-                </div>
-                <div class="item_box">
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
-                            </div>
-                        </div>
-                    </a>
-
-        </section>
-
-
-
-        <!-- 熱門商品 -->
-        <section class="hot">
-            <div class="hot_item_box">
-                <div class="title">
-                    <div class="img_box">
-                        <img src="assets\images\icon\shop_medal.png" style="width: 30px;">
-                    </div>
-                    <div class="txt_box">
-                        <p>熱門商品</p>
-                    </div>
-                </div>
-                <div class="item_box">
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
-                            </div>
-                        </div>
-                    </a>
+                        活動詳情 Dcard 搜尋🔎 連假星座運勢測驗
+                    </p>
                 </div>
             </div>
-
         </section>
-        <!-- 全部商品 -->
+        <!-- 商品 -->
         <section class="all">
             <div class="all_item_box">
                 <div class="title">
-                    <p>全部商品</p>
+                    <p>商品</p>
                 </div>
                 <div class="item_box">
                     <a href="#">
@@ -500,6 +273,7 @@
         </section>
 
     </main>
+
 </body>
 
 </html>
