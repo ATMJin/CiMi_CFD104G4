@@ -24,12 +24,12 @@ exports.w = function watchs() {
     watch(['src/html/*.html', 'src/html/**/*.html'], includeHTML);
     watch(['src/js/*.*', 'src/js/**/*.*'], mv_js);
     watch(['src/phps/*.*', 'src/phps/**/*.*'], mv_php);
-    watch(['src/assets/images/*.*', 'src/assets/images/**/*.*'], mv_img);
+    watch(['src/assets/*.*', 'src/assets/**/*.*'], mv_img);
 }
 
 //  圖片搬家
 function mv_img() {
-    return src(['src/assets/images/*.*', 'src/assets/images/**/*.*']).pipe(dest('dist/assets/images'))
+    return src(['src/assets/*.*', 'src/assets/**/*.*']).pipe(dest('dist/assets/'))
 }
 exports.mvimg = mv_img
 
