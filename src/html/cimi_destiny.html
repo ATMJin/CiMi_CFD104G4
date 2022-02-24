@@ -10,115 +10,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+TC:wght@100;300;400;500;900&display=swap" rel="stylesheet">
-<style>
 
-    body {
-        margin: 0;
-        padding: 0;
-        background: #FFFDED;
-        min-height: 100vh;
-    }
-    .video_viewer{
-        position:fixed;
-        width: 100%;
-    }
-    .ball{
-        right: 538px;
-        top:290px;
-        width: 140px;
-        height: 140px;
-        position:fixed;
-        z-index: 3;
-    }
-  
-    .Ans_A{
-        position:fixed;
-        right: 200px;
-        top:200px;
-        z-index: 2;
-        font-size: 20px;
-        width: 200px;
-        height: 50px;
-        background-size: 200px 50px;
-    }
-   
-    .Ans_B{
-        position:fixed;
-        right: 200px;
-        top:240px;
-        z-index: 2;
-        font-size: 20px;
-       
-    }
-    .Ans_C{
-        position:fixed;
-        right: 200px;
-        top:280px;
-        z-index: 2;
-        font-size: 20px;
-    }
-    .question{
-        position: fixed;
-        width: 500px;
-        top:90px;
-        left: 400px;
-        padding: 10px;
-        color: rgb(70, 70, 70);
-        visibility:hidden;
-        font-family: 'Noto Sans TC', sans-serif;
-        line-height: 2;
+<link rel="stylesheet" href="assets/css/cimi_destiny.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 
-    }
-    #start{
-        position: fixed;
-        width: 420px;
-        top:200px;
-        left: 400px;
-        padding: 10px;
-        font-size: 60px;
-        color: #593C3C;
-    }
-    .start {
-        position:fixed;
-        margin: auto;
-        z-index: 3;
-        top: 50%;
-        left: 50%;
-        font-size: 20px;
-        background-image: url(button.png);
-        background-size: 200px 50px;
-    }
 
-    .start_button_img{
-        width: 80px;
-        height: 80px;
-    }
-    #question0{
-        visibility:visible;
-        font-size: 50px;
-        text-align: center;
-    }
 
-    /* svg_ball */
-
-    .st0{fill:#F5BA79;}
-
-    .st1{fill:#473C3C;}
-
-    .st2{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
-
-</style>
 <body>
     <main>
-
+        
         <div class="player">
             <video id="cimi_video" class="video_viewer"
-                src="CiMiAnimaton_withoutball.mp4" width="100%"
+                src="assets/video/cimi_animation.mp4" width="100%"
                 ></video>
-            <div class="ball">
+            <div class="question_frame" style="visibility:hidden">
+                <img src="assets/images/question.png" alt="">
+            </div>
+            <div class="answer_frame" style="visibility:hidden">
+                <img src="assets/images/answer.png" alt="">
+            </div>
+          
+            <div class="ball" id="ball">
                 <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 305.01 280.24" style="enable-background:new 0 0 305.01 280.24;" xml:space="preserve">
-            <g id="ball_svg" style="display:none;">
+            <g id="ball_svg" >
                 <path class="st0" id="ball_background" d="M228.04,148.66c-6.38,51.29-53.12,87.7-104.41,81.33c-51.29-6.37-87.7-53.12-81.33-104.41
                     c6.37-51.29,53.12-87.7,104.41-81.33C198,50.63,234.41,97.37,228.04,148.66"/>
                 <path class="st1" id="ball_outline" d="M68.37,198.63c11.79,16.07,28.15,28.27,47.15,34.48c18.5,6.05,38.81,6.15,57.39,0.33
@@ -198,9 +113,17 @@
                 <div class="progress">
                     <div class="progress__filled"></div>
                 </div>
-
-                <div class="start"><img class="start_button_img"src="button_start.png" alt=""></div>
-                <!-- <div class="toggle start">►</div> -->
+                <section>
+                    <div class="start">
+                        <img class="start_button_img"src="assets/images/button_start.png" alt="">
+                    </div>
+                    <div class="color_chart">
+                        <div class="color_option pink" ></div>
+                        <div class="color_option yellow" ></div>
+                        <div class="color_option purple"></div>
+                    </div>
+                    <div id="start"><span>Let the journey begin!</span><br>選擇你喜歡的顏色</div>
+                </section>
                 
                 <div class="toggle Ans_A"style="visibility:hidden"></div>
                 
@@ -208,97 +131,33 @@
                     
                 </div>
                 <div class="toggle Ans_C"style="visibility:hidden"></div>
-                <div id="start">Let the journey begin!</div>
-                <div class="question" id="question1">上一他們會時候天可以時間，我不是周我都會遇的手定訓練，沒有很果真的很有趣個人。怎樣的戴上面寫，嘗試的距離表演。要，沒有一組都麼都只剩就沒好喜星的，就好我以前，好可怕我們的怎麼會，不是也是好好看。</div>
-                <div class="question" id="question2">是一沒可以不都我國的忙轉。出感覺點起我一老的不好，他們不可以再，奇怪的收到不一，我沒有，這遊戲上也都是，佛天亮了粉。出來的都不知什麼其實我：到最滿了思考聖誕節我喜歡⋯的死的關係況這麼一腳踏車的有：的故事真的的金的我，喜歡麥當勞開</div>
-                <div class="question" id="question3">即將這次我只是可以跟樣的，是普通，我不想看即使聊天是直接惡魔面，日本人很好的角申請，看起來表符不過也有：熊先生。</div>
                 
+
+                
+
+                <div class="question" id="question1">上一他們會時候天可以時間，我不是周我都會遇的手定訓練，沒有很果真的很有趣個人。怎樣的戴上面寫，嘗試的距離表演。</div>
+                <div class="question" id="question2">是一沒可以不都我國的忙轉。出感覺點起我一老的不好，他們不可以再，奇怪的收到不一，我沒有，這遊戲上也都是，佛天亮了粉。</div>
+                <div class="question" id="question3">即將這次我只是可以跟樣的，是普通，我不想看即使聊天是直接惡魔面，日本人很好的角申請，看起來表符不過也有：熊先生。</div>
+
+                <div class="lightbox" id="instrction_lightbox">
+                    <div class="instrction">您將踏上一段旅程，路程當中將有三個選擇口，<br>每個選擇都是命運的選擇。<br>回答這三個問題之後，您將遇到一位您從來沒有遇過的人，<br>他的興趣可能跟你一樣，對同一首歌有相同感動，甚至喜歡同一個電影。 <br>然而，機會是短暫的，24小時內，如果彼此都接受邀請了，就會成為好友； <br>如果未能成為朋友，午夜之後對方將會永遠消失。
+                        <div class="lightbox_button">
+                            <img id="button_check" src="assets/images/instruction_button_check.png" alt="">
+                            <img id="button_escape" src="assets/images/instruction_button_escape.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="lightbox" id="waiting_lightbox">
+                    <div class="instrction">恭喜您找到您的Destiny <br>他將會於午夜12點出現現。如果於24小時內，你們對彼此發送出邀請， 就會成為朋友，未能成為朋友的話，午夜一過便永遠消失。
+                        <div class="lightbox_button">
+            
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+    <script src="js/cimi_destiny.js"></script>
 </body>
-
-<script>
-
-    let selectVideo = document.querySelector('video');
-    let start = document.querySelector('.start');
-    let playButtons = document.querySelectorAll('.toggle');
-    let questions = document.getElementsByClassName("question");
-
-    let flag = [false,false,false];
-    // let pauseTime = [2,28,46];
-    let pauseTime = [4,10,28,46];
-    let options =[
-        ["第一題選項x","第一題選項y","第一題選項z","第一題選項q"],
-        ["第二題選項f","第二題選項g","第二題選項h","第二題選項i"],
-        ["第三題選項m","第三題選項n","第三題選項o","第三題選項p"]
-    ];
-
-    
-    function doFirst() {
-        start.addEventListener('click',playToggle);
-        playButtons.forEach(btn => {
-            btn.addEventListener('click',playToggle);
-        });
-    };
-    
-    
-    
-    function playToggle() {
-        
-        start.style="display:none";
-        document.getElementById("start").style ="visibility:hidden";
-        document.getElementById("ball_svg").style="display:block";
-        
-        
-        if (!selectVideo.paused && !selectVideo.ended) {
-            playButtons.forEach(btn => {
-            btn.style ="visibility: visible";});
-           
-        } else {
-            timer = setInterval(function () {
-                        console.log(selectVideo.currentTime);
-                        videoPause();
-                        }, 100);
-                        
-            selectVideo.play();
-
-            for(i=0; i<3; i++){
-                questions[i].style ="visibility:hidden"};
-                
-            for(j=0; j<4; j++){
-                playButtons[j].style ="visibility: hidden";
-            };
-             
-        };
-    };
-
-
-    function videoPause() {
-        for(i=0; i<3; i++){
-            if (selectVideo.currentTime > pauseTime[i] && flag[i] ==false) {
-                selectVideo.pause();
-                flag[i]=true;
-                
-                playButtons.forEach(btn => {
-                btn.style ="visibility: visible";});
-
-                questions[i].style ="visibility:visible";
-                for(j=0; j<4; j++){
-                    playButtons[j].innerText= options[i][j];
-                };
-               
-    
-            } else {
-
-            };
-        };
-        
-    };
-
-
-    window.addEventListener('load', doFirst);
-</script>
-
-</html>
-
