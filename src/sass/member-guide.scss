@@ -1,4 +1,5 @@
-@import "./layout/member";
+@import "./layout/reset";
+@import "./layout/common";
 
 aside{
     display: none;
@@ -6,57 +7,47 @@ aside{
 .top_bar_box .top_bar{
     display: none;
 }
-.top_bar_box .member_bouns_topbar{
+.top_bar_box .member_topbar{
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 16px;
-    background-color: #66ff77;
+    background-color: rgb(89, 136, 111);
 }
 .member_main{
-    width: 95%;
+    width: 100%;
     margin: auto;
 }
-.member_main .member_bouns_head{
-    width: 100%;
-    border:2px solid #000;
-    border-radius: 20px;
-    background-color: var(--icon-color);
-    margin-top: 50px;
-}
-.member_bg .member_main_title{
+
+.member_bg .member_bgcard .member_main_title{
     display: none;
 }
-.member_main .member_bouns_head .member_bouns_mycoins{
+.member_main .member_head .member_bouns_mycoins{
     display: flex;
     justify-content: start;
     align-items: center;
     padding: 20px;
 }
-.member_main .member_bouns_head .member_bouns_mycoins>img{
+.member_main .member_head .member_bouns_mycoins>img{
     width: 100px;
     height: 100px;
 }
-.member_main .member_bouns_head .member_bouns_mycoins .member_bouns_showcoins{
+.member_main .member_head .member_bouns_mycoins .member_bouns_showcoins{
     display: flex;
     align-items: center;
     font-size: 14px;
     margin-left: 40px;
 }
-.member_main .member_bouns_head .member_bouns_mycoins .member_bouns_showcoins p{
+.member_main .member_head .member_bouns_mycoins .member_bouns_showcoins p{
     margin-right:20px;
 }
-.member_main .member_bouns_head .member_bouns_mycoins .member_bouns_showcoins>img{
+.member_main .member_head .member_bouns_mycoins .member_bouns_showcoins>img{
     width: 50px;
     height: 50px;
 }
-.member_main_box .member_bouns_take{
-    width: 100%;
-    margin-top: 50px;
-}
-.member_main_box .member_bouns_take .member_bouns_card{
+.member_main_box .member_text .member_card{
     width: 80%;
     margin: auto;
     margin-top: 25px;
@@ -68,17 +59,7 @@ aside{
     justify-content: space-evenly;
     align-items: center;  
 }
-.member_main_box .member_bouns_take .member_bouns_card .member_bouns_card_image{
-    width: 20%;
-}
-.member_main_box .member_bouns_take .member_bouns_card .member_bouns_card_image img{
-    width: 80px;
-    height: 80px;
-}
-.member_main_box .member_bouns_take .member_bouns_card .member_bouns_card_text{
-    width: 50%;
-    justify-content: start;
-}
+
 @media screen and (min-width:768px) {
 }
 
@@ -89,7 +70,7 @@ aside{
     .top_bar_box .top_bar{
         display: block;
     }
-    .top_bar_box .member_bouns_topbar{
+    .top_bar_box .member_topbar{
         display: none;
     }
     .member_main_box .member_bg{
@@ -97,9 +78,9 @@ aside{
         margin-top: 50px;
         margin-left: 25%;
         border-radius: 20px;
-        background-color: #7777;
+        // background-color: #7777;
     }
-    .member_main_box .member_bg .member_main_title{
+    .member_main_box .member_bg .member_bgcard .member_main_title{
         width: 80%;
         height: 100px;
         margin: auto;
@@ -108,13 +89,13 @@ aside{
         align-items: flex-end;
         border-bottom: 2px solid #5e5e5e;
     }
-    .member_main_box .member_bg .member_main_title p{
+    .member_main_box .member_bg .member_bgcard .member_main_title p{
         display: inline;
     }
     .member_main_box .member_main{
         display: none;
     }
-    .member_main .member_bouns_head{
+    .member_main .member_head{
         width: 100%;
         border:2px solid #000;
         border-radius: 20px;

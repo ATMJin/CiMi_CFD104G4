@@ -1,18 +1,4 @@
-<<<<<<< HEAD:assets/css/member-integral.css
-@charset "UTF-8";
-/* 會員左側欄開始 */
-.top_bar {
-  background-color: #59886f;
-  height: 48px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  z-index: 1;
-=======
-@import "./layout/member";
+@import "./member";
 
 aside{
     display: none;
@@ -94,282 +80,44 @@ aside{
     justify-content: start;
 }
 @media screen and (min-width:768px) {
->>>>>>> origin/dev:src/sass/member-integral.scss
 }
 
-.sidebar {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  padding: 12px;
-  left: 0;
-  background-color: var(--icon-color);
+@media screen and (min-width:1440px) {
+    aside{
+        display: block;
+    }
+    .top_bar_box .top_bar{
+        display: block;
+    }
+    .top_bar_box .member_bouns_topbar{
+        display: none;
+    }
+    .member_main_box .member_bg{
+        width: 70%;
+        margin-top: 50px;
+        margin-left: 25%;
+        border-radius: 20px;
+        background-color: #7777;
+    }
+    .member_main_box .member_bg .member_main_title{
+        width: 80%;
+        height: 100px;
+        margin: auto;
+        font-size: 24px;
+        display: flex;
+        align-items: flex-end;
+        border-bottom: 2px solid #5e5e5e;
+    }
+    .member_main_box .member_bg .member_main_title p{
+        display: inline;
+    }
+    .member_main_box .member_main{
+        display: none;
+    }
+    .member_main .member_bouns_head{
+        width: 100%;
+        border:2px solid #000;
+        border-radius: 20px;
+        margin-top: 48px;
+    }
 }
-
-.sidebar_box .sidebar .member_nav {
-  height: 100%;
-  margin-top: 48px;
-}
-
-.sidebar_box .sidebar .member_nav .member_head {
-  height: 40%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 24px;
-}
-
-.sidebar_box .sidebar .member_nav .member_head .member_head_img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 20px;
-}
-
-.sidebar_box .sidebar .member_nav .member_head .member_head_img img {
-  width: 100px;
-  height: 100px;
-  vertical-align: top;
-}
-
-.sidebar_box .sidebar .member_nav .member_bar {
-  width: 100%;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-}
-
-.sidebar_box .sidebar .member_nav .member_bar a {
-  text-decoration: none;
-  color: #000;
-}
-
-.sidebar_box .sidebar .member_nav .member_bar .member_btn {
-  width: 100%;
-  height: 44px;
-  border-radius: 10px;
-  padding-left: 40%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.sidebar_box .sidebar .member_nav .member_bar img {
-  width: 20px;
-  height: 20px;
-}
-
-.sidebar_box .sidebar .member_nav .member_bar .member_btn span {
-  margin: 0 10px;
-}
-
-/* 會員左側欄結束 */
-@media screen and (min-width: 1440px) {
-  /* 會員左側欄開始 */
-  .sidebar {
-    position: fixed;
-    width: 20%;
-    height: 100vh;
-    padding: 12px;
-    background-color: var(--icon-color);
-  }
-  .sidebar_box .sidebar .member_nav .member_bar .member_btn {
-    width: 100%;
-    height: 44px;
-    border-radius: 10px;
-    padding: 0 25%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .sidebar_box .sidebar .member_nav .member_bar .member_btn:hover {
-    background-color: #f00;
-  }
-  /* 會員左側欄結束 */
-}
-
-aside {
-  display: none;
-}
-
-.top_bar_box .top_bar {
-  display: none;
-}
-
-.top_bar_box .member_bouns_topbar {
-  width: 100%;
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 16px;
-  background-color: #66ff77;
-}
-
-.member_main {
-  width: 95%;
-  margin: auto;
-}
-
-.member_main .member_bouns_head {
-  width: 100%;
-  border: 2px solid #000;
-  border-radius: 20px;
-  background-color: var(--icon-color);
-  margin-top: 50px;
-}
-
-.member_bg .member_main_title {
-  display: none;
-}
-
-.member_main .member_bouns_head .member_bouns_mycoins {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 20px;
-}
-
-.member_main .member_bouns_head .member_bouns_mycoins > img {
-  width: 100px;
-  height: 100px;
-}
-
-.member_main .member_bouns_head .member_bouns_mycoins .member_bouns_showcoins {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 14px;
-  margin-left: 40px;
-}
-
-.member_main .member_bouns_head .member_bouns_mycoins .member_bouns_showcoins p {
-  margin-right: 20px;
-}
-
-.member_main .member_bouns_head .member_bouns_mycoins .member_bouns_showcoins > img {
-  width: 50px;
-  height: 50px;
-}
-
-.member_main_box .member_bouns_take {
-  width: 100%;
-  margin-top: 50px;
-}
-
-.member_main_box .member_bouns_take .member_bouns_card {
-  width: 80%;
-  margin: auto;
-  margin-top: 25px;
-  height: 150px;
-  background-color: var(--icon-color);
-  border: 2px solid #000;
-  border-radius: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.member_main_box .member_bouns_take .member_bouns_card .member_bouns_card_image {
-  width: 20%;
-}
-
-.member_main_box .member_bouns_take .member_bouns_card .member_bouns_card_image img {
-  width: 80px;
-  height: 80px;
-}
-
-.member_main_box .member_bouns_take .member_bouns_card .member_bouns_card_text {
-  width: 50%;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-}
-
-@media screen and (min-width: 1440px) {
-  aside {
-    display: block;
-  }
-  .top_bar_box .top_bar {
-    display: block;
-  }
-  .top_bar_box .member_bouns_topbar {
-    display: none;
-  }
-  .member_main_box .member_bg {
-    width: 70%;
-    margin-top: 50px;
-    margin-left: 25%;
-    border-radius: 20px;
-    background-color: #7777;
-  }
-  .member_main_box .member_bg .member_main_title {
-    width: 80%;
-    height: 100px;
-    margin: auto;
-    font-size: 24px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    border-bottom: 2px solid #5e5e5e;
-  }
-  .member_main_box .member_bg .member_main_title p {
-    display: inline;
-  }
-  .member_main_box .member_main {
-    display: none;
-  }
-  .member_main .member_bouns_head {
-    width: 100%;
-    border: 2px solid #000;
-    border-radius: 20px;
-    margin-top: 48px;
-  }
-}
-/*# sourceMappingURL=member-integral.css.map */

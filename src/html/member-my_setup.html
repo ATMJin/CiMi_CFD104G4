@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CiMi交友論壇</title>
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/common.css">
-    <link rel="stylesheet" href="../assets/css/member.css">
-    <link rel="stylesheet" href="../assets/css/member-guide.css">
-    <link rel="stylesheet" href="../assets/css/member-my_introduction.css">
+    <link rel="stylesheet" href="../../dist/assets/css/member.css">
+    <link rel="stylesheet" href="../../dist/assets/css/member-guide.css">
+    <link rel="stylesheet" href="../../dist/assets/css/member_my_setup.css">
     <script src="../js/vue.js"></script>
 </head>
 
@@ -19,8 +17,8 @@
         <div class="top_bar">
         </div>
         <div class="member_topbar">
-            <!--RWD標題-->
-            <p>我的抽卡介紹</p>
+            <!--RWD-LOGO-NAV-->
+            <p></p>
         </div>
     </header>
     <section class="sidebar_box">
@@ -36,7 +34,7 @@
                 </div>
 
                 <div class="member_bar">
-                    <a href="">
+                    <a href="member-integral.html">
                         <div class="member_btn my_integral">
                             <img src="../assets/images/icon/nav_charts.png">
                             <span>
@@ -52,15 +50,15 @@
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="member-myfriends.html">
                         <div class="member_btn my_friend">
                             <img src="../assets/images/icon/nav_friend.png">
                             <span>
-                                我的卡友
+                                我的Mi友
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="member-my_introduction.html">
                         <div class="member_btn my_introduction">
                             <img src="../assets/images/icon/nav_card.png">
                             <span>
@@ -68,7 +66,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="member-article.html">
                         <div class="member_btn my_article">
                             <img src="../assets/images/icon/nav_post.png">
                             <span>
@@ -84,7 +82,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="member-my_setup.html">
                         <div class="member_btn my_setup">
                             <img src="../assets/images/icon/nav_settings.png">
                             <span>
@@ -97,66 +95,61 @@
         </aside>
         <!--會員左側欄結束-->
     </section>
+
     <main class="member_main_box">
         <div class="member_bg">
             <div class="member_bgcard">
+
                 <div class="member_main">
                     <div class="member_head">
                         <!--手機板內文大標-->
-                        <p>我的抽卡介紹</p>
+                        <p>我的設定</p>
+                        <div class="member_setchange">
+                            <img src="../assets/images/icon/nav_post.png" alt="">
+                        </div>
                     </div>
                 </div>
 
                 <div class="member_main_title">
-                    <!--桌機版內文大標-->
-                </div>
-
-                <div class="member_cardimage">
-                    <!--內文-->
-                    <div class="member_bgimage">
-                        <img src="https://picsum.photos/1000/300/?random=10">
-                    </div>
-                    <div class="member_headimage">
-                        <img src="../assets/images/icon/nav_member.png" alt="">
-                        <p>NAME</p>
-                        <p>暱稱暱稱</p>
+                    <div class="member_head">
+                        <!--桌機版內文大標-->
+                        <p>我的設定</p>
+                        <div class="member_setchange">
+                            <img src="../assets/images/icon/nav_post.png" alt="">
+                        </div>
                     </div>
                 </div>
 
                 <div class="member_cardtext">
-                    <div class="member_cardtext_img">
-                        <img src="../assets/images/icon/nav_post.png" alt="">
-                    </div>
-
+                    <!--內文-->
                     <div class="member_cardmain">
-                        <div class="membercard_gender gap">
-                            <h3>性別</h3>
-                            <p>男</p>
+                        <div class="membercard_email gap">
+                            <h3>常用信箱</h3>
+                            <p>hello1124@gmail.com</p>
                         </div>
-                        <div class="membercard_birthday gap">
-                            <h3>生日</h3>
-                            <p>1998/03/03</p>
+                        <div class="membercard_psw gap">
+                            <h3>密碼</h3>
+                            <p>*********</p>
                         </div>
-                        <div class="membercard_love gap">
-                            <h3>感情狀況</h3>
-                            <p>秘密</p>
+                        <div class="membercard_name gap">
+                            <h3>名字</h3>
+                            <p>趙哈妮</p>
                         </div>
-                        <div class="membercard_word gap">
-                            <h3>我的文章</h3>
-                            <p>無</p>
+                        <div class="membercard_work gap">
+                            <h3>職業</h3>
+                            <p>待業中。。。</p>
                         </div>
-                        <div class="membercard_inter gap">
-                            <h3>專長、興趣</h3>
-                            <p>秘密</p>
+                        <div class="membercard_tel gap">
+                            <h3>電話</h3>
+                            <p>09xxxxxxxx</p>
                         </div>
-                        <div class="membercard_like gap">
-                            <h3>我喜歡的事物</h3>
-                            <p>出門、踏青、拍照、逛街....</p>
+                        <div class="membercard_live gap">
+                            <h3>居住地</h3>
+                            <p>桃園市</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 </body>
 
