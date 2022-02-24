@@ -1,0 +1,165 @@
+// header
+@import 'layout/header';
+// common
+@import 'layout/common';
+@import 'layout/sidebar';
+
+* {
+    /* 字體 : 中文-sans-serif | 英文-Poppins */
+    font-family: 'Poppins', sans-serif;
+    // color: $font-primary;
+    // color: var(font-primary);
+    color: #5E5E5E;
+}
+
+// ------------------廣告商品的內頁-----------------------
+// 文章
+.main_product_ad_page {
+    margin-top: 60px;
+
+    .product_ad_txt {
+        margin: auto;
+        width: 90%;
+        .txt_box {
+            padding: 10px;
+
+
+
+            h1 {
+                font-weight: 500;
+                text-align: center;
+                font-size: 24px;
+                line-height: 33px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            }
+
+            h2 {
+                text-align: center;
+                font-size: 28px;
+                line-height: 40px;
+                padding-top: 0px;
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 22px;
+                margin-bottom: 60px;
+            }
+        }
+    }
+}
+
+// 商品
+.main_product_ad_page {
+    .all {
+        width: 100%;
+        margin-bottom: 50px;
+
+
+        .all_item_box {
+            .title {
+                margin-left: 30px;
+
+                p {}
+            }
+
+            .item_box {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                padding: 10px;
+
+
+                a {
+                    text-decoration: none;
+
+                    .item {
+                        width: 180px;
+                        background-color: rgb(247, 240, 240);
+                        margin: 10px;
+                        border-radius: 20px;
+                        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+                        box-sizing: border-box;
+
+
+
+                        .img_box {
+
+
+                            img {
+                                width: 100%;
+                                border-radius: 20px 20px 0px 0px;
+                            }
+                        }
+
+                        .txt_box {
+                            padding: 10px;
+
+                            p {
+                                line-height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ------------------好物商城-----------------------
+
+// --------桌機板
+@media screen and (min-width:768px) {
+
+    // 全部商品
+    .main_product_ad_page  {
+                // 調整避免左邊bar擋到的問題!!!
+                padding-left: 20%;
+        .all {
+
+
+
+            .all_item_box {
+                .title {
+
+
+                    p {}
+                }
+
+                .item_box {
+
+
+                    a {
+
+
+                        .item {
+                            margin: 10px;
+                            // width: 260px;
+
+
+                            .img_box {
+                                // width: 260px;
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .txt_box {
+
+
+                                p {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}
