@@ -1,0 +1,208 @@
+.member_main_box {
+    .member_bg {
+        .member_art_text {
+            .member_art_card {
+                width: 90%;
+                margin: auto;
+                margin-top: 25px;
+                background-color: var(--icon-color);
+
+                .member_art_more {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-top: 5px;
+                    padding-right: 10px;
+
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        vertical-align: top;
+                        opacity: 0.5;
+                    }
+                }
+
+                .member_card_imgtxt {
+                    .member_card_bgbox {
+                        display: flex;
+
+                        .member_card_artbox {
+                            width: 80%;
+
+                            .gap {
+                                margin: 10px 0;
+                            }
+
+                            .cardtxt_label {
+                                display: flex;
+
+                                p {
+                                    margin-left: 10px;
+                                    color: var(--font-secondary);
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .cardtxt_art {
+                                h3 {
+                                    font-size: 18px;
+                                    margin: 10px 0;
+                                    padding: 0 5px;
+
+                                }
+
+                                p {
+                                    font-size: 14px;
+                                    margin: 10px 0;
+                                    padding: 0 10px;
+
+                                }
+                            }
+                        }
+
+
+                        .cardimg {
+                            width: 40%;
+                            text-align: center;
+
+                            img {
+                                width: 100px;
+                                height: 100px;
+                                vertical-align: top;
+                                border-radius: 10px;
+                            }
+                        }
+
+
+                    }
+
+                    .cardlike {
+                        width: 100%;
+                        display: flex;
+                        justify-content: start;
+                        .cardsave {
+                            width: 60%;
+                            display: flex;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            padding: 5px;
+
+                            img {
+                                width: 25px;
+                                height: 25px;
+                                vertical-align: top;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(min-width:1440px) {
+    .member_main_box {
+        .member_bg {
+            .member_art_text {
+                .member_art_card {
+                    width: 90%;
+                    margin: auto;
+                    margin-top: 25px;
+                    background-color: var(--icon-color);
+    
+                    .member_art_more {
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: flex-end;
+                        padding-top: 5px;
+                        padding-right: 10px;
+    
+                        img {
+                            width: 25px;
+                            height: 25px;
+                            vertical-align: top;
+                            opacity: 0.5;
+                            transform:rotate(90deg) ;
+                        }
+                    }
+    
+                    .member_card_imgtxt {
+                        .member_card_bgbox {
+                            display: flex;
+    
+                            .member_card_artbox {
+                                width: 80%;
+    
+                                .gap {
+                                    margin: 10px 0;
+                                }
+    
+                                .cardtxt_label {
+                                    display: flex;
+    
+                                    p {
+                                        margin-left: 10px;
+                                        color: var(--font-secondary);
+                                        font-size: 14px;
+                                    }
+                                }
+    
+                                .cardtxt_art {
+                                    margin-top: 20px;
+                                    h3 {
+                                        font-size: 18px;
+                                        margin: 10px 0;
+                                        padding: 0 5px;
+    
+                                    }
+    
+                                    p {
+                                        font-size: 14px;
+                                        margin: 10px 0;
+                                        padding: 0 10px;
+    
+                                    }
+                                }
+                            }
+    
+    
+                            .cardimg {
+                                width: 40%;
+                                text-align: center;
+    
+                                img {
+                                    width: 150px;
+                                    height: 150px;
+                                    vertical-align: top;
+                                    border-radius: 10px;
+                                }
+                            }
+    
+    
+                        }
+    
+                        .cardlike {
+                            width: 100%;
+                            display: flex;
+                            justify-content: start;
+                            .cardsave {
+                                width: 30%;
+                                display: flex;
+                                justify-content: space-evenly;
+                                align-items: center;
+                                padding: 5px;
+    
+                                img {
+                                    width: 25px;
+                                    height: 25px;
+                                    vertical-align: top;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
