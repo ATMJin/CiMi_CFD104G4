@@ -1,0 +1,106 @@
+.member_main_box {
+    .member_bg {
+        .member_head {
+            display: none;
+        }
+
+        .member_main_title {
+            display: none;
+        }
+
+        .member_tabchange {
+            width: 100%;
+            margin: auto;
+
+            .tabs {
+                float: none;
+                list-style: none;
+                position: relative;
+                text-align: left;
+
+                li {
+                    width: 30%;
+                    float: left;
+                    display: block;
+                }
+
+                input[type="radio"] {
+                    position: absolute;
+                    display: none;
+                }
+
+                label {
+                    width: 100%;
+                    display: block;
+                    padding: 14px 21px;
+                    font-size: 20px;
+                    background: #AAA;
+                    cursor: pointer;
+                    position: relative;
+                    // top: 4px;
+                    border-radius: 5px 5px 0 0;
+                    transition: all 0.2s ease-in-out;
+                    // margin: 0 50px;
+                }
+
+                .tab-content {
+                    z-index: 2;
+                    display: none;
+                    overflow: hidden;
+                    width: 100%;
+                    position: absolute;
+                    top: 52px;
+                    left: 0;
+                    background: #FFF;
+                    margin-top: 50px;
+
+                    h2 {
+                        font-size: 18px;
+                    }
+
+                    .member_track {
+                        .member_tracksection {
+                            width: 100%;
+                            margin: auto;
+                            justify-content: center;
+                            display: flex;
+                            margin-top: 50px;
+                            
+                            .track {
+                                width: 80%;
+                                padding: 10px;
+                                p {
+                                    font-size: 18px;
+                                    
+                                }
+                            }
+
+                            .track_btn {
+                                width: 10%;
+
+                                button {
+                                    font-size: 14px;
+                                    background-color: var(--button-primary);
+                                    border-radius: 10px;
+                                    border: none;
+                                    outline: none;
+                                    padding: 10px
+                                }
+                            }
+                        }
+                    }
+                }
+
+                [name="member_tab"]:checked+label {
+                    top: 0;
+                    padding-top: 17px;
+                    background: #FFF;
+                }
+
+                [name="member_tab"]:checked~.tab-content {
+                    display: block;
+                }
+            }
+        }
+    }
+}

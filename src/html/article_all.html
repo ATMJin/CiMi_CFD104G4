@@ -7,44 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CiMi交友論壇</title>
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/common.css">
-    <link rel="stylesheet" href="../assets/css/article_all.css">
-    <style>
-        .top_bar {
-            background-color: rgb(89, 136, 111);
-            height: 48px;
-            position: fixed;
-            width: 100%;
-        }
 
-        .content {
-            display: flex;
-            height: 800px;
-        }
-
-        aside {
-            width: 20%;
-            height: 100%;
-            background-color: rgb(72, 78, 107);
-            margin-top: 48px;
-        }
-
-        main {
-            width: 80%;
-            height: 100%;
-            background-color: #ffffff);
-            margin-top: 48px;            
-
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/article_all.css">
 </head>
  
 <body>
-    <header class="top_bar">
-    </header>
+    @@include('layout/header.html')
+
     <section class="content">
-        <aside></aside>
+        @@include('layout/sidebar.html')
         <main>
             <!-- 文章分類Banner -->
             <div class="article_sort_banner">

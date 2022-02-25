@@ -16,6 +16,27 @@
 
 // -----------手機板
 
+// 好物商城標題
+.main_product{
+    padding: 10px;
+    .product_title{
+        margin-top: 50px;
+        .item_box{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .txt_box{
+                p{}
+            }
+            .img_box{
+                width: 30px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
 
 // 廣告投放
 .main_product {
@@ -115,7 +136,7 @@
 
                     .img_box {
                         padding-bottom: 10px;
-                        width: 44px;
+                        width:40px;
                         // 使圖片致中對其下面的字
                         display: block;
                         margin: 0 auto;
@@ -125,6 +146,141 @@
                         }
 
                         .txt_box {
+                            p {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.img_box{
+    // width: 50px !important;
+}
+// 最新上架商品
+.main_product {
+    .new_goods_information{  
+        margin-top: 50px;
+        width: 100%;
+        padding: 20px;
+        margin: auto;
+        display: none;
+        // 手機頁沒有
+        // 限時商品
+        .time_limit_item_box{
+            border-radius: 20px;
+            background-color: #E1E1E1;
+            padding: 10px;
+            box-sizing: border-box;
+
+            // 限時商品標題
+            .title{
+                display: flex;
+                align-items: center;
+                padding: 10px;
+
+                // 小icon
+                .img_box{
+                    img{
+                        width: 40px;
+                        border-radius: 20px;
+                    }
+                }
+
+                .txt_box {
+                    display: flex;
+                    align-items: center;
+
+                    .txt_new_goods {
+
+                        p {}
+                    }
+
+                    .txt_new_goods_time {
+                        margin-left: 10px;
+                        // background-color: #e24e4e;
+                        padding: 5px;
+                        border-radius: 20px;
+
+                        p {
+                            // color: #E1E1E1;
+                        }
+                    }
+                }
+            }
+
+            // 商品
+            a {
+                text-decoration: none;
+                .item_box {
+                    .img_box {
+                        img {
+                            width: 100%;
+                            border-radius: 20px;
+                        }
+                    }
+
+                    .txt_box {
+                        padding: 10px;
+                        p {}
+                    }
+                }
+            }
+        }
+
+        // 最新商品
+        .new_item_box {
+            margin: auto;
+            padding-left: 30px;
+            width: 70%;
+            margin-left: 10px;
+
+
+            // 最新商品標題
+            .title {
+                display: flex;
+                align-items: center;
+                
+
+                .img_box {
+
+                    img {
+                        width: 30px;
+                    }
+                }
+
+                .txt_box {
+                    padding-left: 20px;
+                    padding-bottom: 10px;
+                    p {}
+                }
+            }
+
+            // 最新商品
+            .item_box {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+
+                a {
+                    text-decoration: none;
+                    .item {
+
+
+                        padding: 10px;
+
+                        .img_box {
+                            width: 200px;
+
+                            img {
+                                width: 100%;
+                                border-radius: 20px;
+                            }
+                        }
+
+                        .txt_box {
+                            padding: 10px;
                             p {}
                         }
                     }
@@ -284,7 +440,7 @@
 
                 .img_box {
                     img {
-                        width: 30px;
+                        width: 100%;
                     }
                 }
             }
@@ -304,8 +460,7 @@
                         box-sizing: border-box;
 
                         .img_box {
-
-                            margin: 0 auto;
+                           width: 95%;
 
                             img {
                                 width: 100%;
@@ -314,7 +469,7 @@
                         }
 
                         .txt_box {
-                            padding: 10px;
+                            padding: 5px;
 
                             p {}
                         }
@@ -350,18 +505,18 @@
                 a {
                     text-decoration: none;
 
-                    .item {
-                        width: 180px;
+                    .item {   
                         background-color: rgb(247, 240, 240);
-                        margin: 10px;
                         border-radius: 20px;
                         box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
                         box-sizing: border-box;
+                        margin: 10px;
+                        width: 170px;
 
 
 
                         .img_box {
-
+                                width: 170px;
 
                             img {
                                 width: 100%;

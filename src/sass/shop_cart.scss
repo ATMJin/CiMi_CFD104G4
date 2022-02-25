@@ -1,0 +1,47 @@
+// header
+@import 'layout/header';
+// common
+@import 'layout/common';
+// @import 'layout/sidebar';
+
+* {
+    /* 字體 : 中文-sans-serif | 英文-Poppins */
+    font-family: 'Poppins', sans-serif;
+    // color: $font-primary;
+    // color: var(font-primary);
+    color: #5E5E5E;
+}
+
+// ------------------購物車頁面-----------------------
+// 手機板
+
+// 標題
+.shopping_cart{
+    // 購物車最上面的小標題，(購物車/收藏清單)
+    .shopping_cart_title{
+        // 使箭頭跟文字變一排
+        display:flex;
+        .img_box{
+            img{
+                width: 100%;
+                border-radius: 20px;
+            }
+        }
+        .txt_box{
+            // 使文字變一排
+            display: flex;
+            text-align: right;
+                p{}
+        }
+    }
+}
+
+// 商品欄
+.shopping_cart_goods{
+    .img_box{
+        img{}
+    }
+    .txt_box{
+
+    }
+}

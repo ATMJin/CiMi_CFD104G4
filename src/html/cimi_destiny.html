@@ -11,23 +11,45 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+TC:wght@100;300;400;500;900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/cimi_destiny.css">
+<link rel="stylesheet" href="/css/cimi_destiny.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-
-
+<header class="top_bar_box">
+    <div class="top_bar">
+        <div class="logo_box">
+            <h1>
+                <a href="http://">
+                    <img src="assets/images/logo.png" alt="CiMi交友論壇">
+                </a>
+            </h1>
+        </div>
+        <form class="search_bar" action="">
+            <input type="search">
+            <button type="submit">
+                <img src="assets/images/icon/nav_search.png" alt="搜尋">
+            </button>
+        </form>
+        <div class="member_bar">
+            <ul>
+                <li><a href="http://"><img src="assets/images/icon/nav_post.png" alt="發文"></a></li>
+                <li><a href="http://"><img src="assets/images/icon/nav_message.png" alt="聊天室"></a></li>
+                <li><a href="http://"><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
 
 <body>
     <main>
         
         <div class="player">
             <video id="cimi_video" class="video_viewer"
-                src="assets/video/cimi_animation.mp4" width="100%"
+                src="video/cimi_animation.mp4" width="100%"
                 ></video>
             <div class="question_frame" style="visibility:hidden">
-                <img src="assets/images/question.png" alt="">
+                <img src="/img/question.png" alt="">
             </div>
             <div class="answer_frame" style="visibility:hidden">
-                <img src="assets/images/answer.png" alt="">
+                <img src="/img/answer.png" alt="">
             </div>
           
             <div class="ball" id="ball">
@@ -115,7 +137,7 @@
                 </div>
                 <section>
                     <div class="start">
-                        <img class="start_button_img"src="assets/images/button_start.png" alt="">
+                        <img class="start_button_img"src="img/button_start.png" alt="">
                     </div>
                     <div class="color_chart">
                         <div class="color_option pink" ></div>
@@ -140,10 +162,10 @@
                 <div class="question" id="question3">即將這次我只是可以跟樣的，是普通，我不想看即使聊天是直接惡魔面，日本人很好的角申請，看起來表符不過也有：熊先生。</div>
 
                 <div class="lightbox" id="instrction_lightbox">
-                    <div class="instrction">您將踏上一段旅程，路程當中將有三個選擇口，<br>每個選擇都是命運的選擇。<br>回答這三個問題之後，您將遇到一位您從來沒有遇過的人，<br>他的興趣可能跟你一樣，對同一首歌有相同感動，甚至喜歡同一個電影。 <br>然而，機會是短暫的，24小時內，如果彼此都接受邀請了，就會成為好友； <br>如果未能成為朋友，午夜之後對方將會永遠消失。
+                    <div class="instrction"><span>遊戲說明<br></span>"您將踏上一段旅程路程當中將有三個選擇口，每個選擇都是命運的選擇。<br>回答這三個問題之後，您將遇到一位您從來沒有遇過的人，<br>他的興趣可能跟你一樣，對同一首歌有相同感動，甚至喜歡同一個電影。 <br>然而，機會是短暫的，24小時內，如果彼此都接受邀請了，就會成為好友； <br>如果未能成為朋友，午夜之後對方將會永遠消失。"
                         <div class="lightbox_button">
-                            <img id="button_check" src="assets/images/instruction_button_check.png" alt="">
-                            <img id="button_escape" src="assets/images/instruction_button_escape.png" alt="">
+                            <img id="button_check" src="img/instruction_button_check.png" alt="">
+                            <img id="button_escape" src="img/instruction_button_escape.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -159,5 +181,5 @@
             </div>
         </div>
     </main>
-    <script src="js/cimi_destiny.js"></script>
+    <script src="/js/cimi_destiny.js"></script>
 </body>

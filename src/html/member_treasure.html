@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CiMi交友論壇</title>
+    <link rel="stylesheet" href="assets/css/member.css">
+    <link rel="stylesheet" href="assets/css/member_guide.css">
+    <link rel="stylesheet" href="assets/css/member_treasure.css">
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <header class="top_bar_box">
+        <div class="top_bar">
+        </div>
+        <div class="member_topbar">
+            <!--RWD標題-->
+            <p>我的Mi友</p>
+        </div>
+    </header>
+
+    <section class="sidebar_box">
+        <!--會員左側欄開始-->
+        <aside class="sidebar">
+            <div class="member_nav">
+
+                <div class="member_head">
+                    <div class="member_head_img">
+                        <img src="../../src/assets/images/icon/nav_member.png" alt="">
+                    </div>
+                    <p>name</p>
+                </div>
+
+                <div class="member_bar">
+                    <a href="member_integral.html">
+                        <div class="member_btn my_integral">
+                            <img src="../../src/assets/images/icon/nav_charts.png">
+                            <span>
+                                我的積分 : 30
+                            </span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="member_btn my_treasure">
+                            <img src="../../src/assets/images/icon/nav_coin.png">
+                            <span>
+                                我的Mi寶
+                            </span>
+                        </div>
+                    </a>
+                    <a href="member_myfriends.html">
+                        <div class="member_btn my_friend">
+                            <img src="../../src/assets/images/icon/nav_friend.png">
+                            <span>
+                                我的Mi友
+                            </span>
+                        </div>
+                    </a>
+                    <a href="member_my_introduction.html">
+                        <div class="member_btn my_introduction">
+                            <img src="../../src/assets/images/icon/nav_card.png">
+                            <span>
+                                配對遊戲介紹
+                            </span>
+                        </div>
+                    </a>
+                    <a href="member_article.html">
+                        <div class="member_btn my_article">
+                            <img src="../../src/assets/images/icon/nav_post.png">
+                            <span>
+                                我發表的文章
+                            </span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="member_btn my_order">
+                            <img src="../../src/assets/images/icon/nav_billboard.png">
+                            <span>
+                                訂單紀錄
+                            </span>
+                        </div>
+                    </a>
+                    <a href="member_my_setup.html">
+                        <div class="member_btn my_setup">
+                            <img src="../../src/assets/images/icon/nav_settings.png">
+                            <span>
+                                設定
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <!--會員左側欄結束-->
+    </section>
+    <main class="member_main_box">
+        <div class="member_bg">
+            <div class="member_main">
+                <div class="member_head">
+                    <!--手機板內文大標-->
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="member_main_title">
+                <!--桌機版內文大標-->
+                <p>我的Mi寶</p>
+            </div>
+
+            <div class="member_tabchange">
+                <ul class="tabs">
+                    <li>
+                        <input type="radio" name="member_tab" id="member_text" checked />
+                        <label for="member_text">我的追蹤</label>
+                        <div id="tab-content1" class="tab-content">
+                            <h2>追蹤中的看版</h2>
+                            <div class="member_track">
+                                <div class="member_tracksection">
+                                    <div class="track">
+                                        <p>#美妝</p>
+                                    </div>
+
+                                    <div class="track_btn">
+                                        <button>取消追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="member_tracksection">
+                                    <div class="track">
+                                        <p>#運動</p>
+                                    </div>
+
+                                    <div class="track_btn">
+                                        <button>取消追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="member_tracksection">
+                                    <div class="track">
+                                        <p>#時尚</p>
+                                    </div>
+
+                                    <div class="track_btn">
+                                        <button>取消追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="member_tracksection">
+                                    <div class="track">
+                                        <p>#星座</p>
+                                    </div>
+
+                                    <div class="track_btn">
+                                        <button>取消追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="member_tracksection">
+                                    <div class="track">
+                                        <p>#塔羅牌</p>
+                                    </div>
+
+                                    <div class="track_btn">
+                                        <button>取消追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="member_tracksection">
+                                    <div class="track">
+                                        <p>#賺錢</p>
+                                    </div>
+
+                                    <div class="track_btn">
+                                        <button>取消追蹤</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2>追蹤中的帳號</h2>
+                            <div class="member_tracksection">
+                                <div class="track">
+                                    <p>#賺錢</p>
+                                </div>
+
+                                <div class="track_btn">
+                                    <button>取消追蹤</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" name="member_tab" id="tab2" />
+                        <label for="tab2">我的收藏</label>
+                        <div id="tab-content2" class="tab-content">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere illum quod commodi
+                                facilis aliasenim, dolorum ipsa quos magni quam, at maxime ipsum incidunt dolore. Natus
+                                eligendi qui voluptates
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
