@@ -17,6 +17,7 @@
     z-index: 11;
     .sidebar_list{
         display: flex;
+        box-sizing: border-box;
         justify-content: space-between;
         .nav_pc{
             display: none;
@@ -25,8 +26,6 @@
             font-size: 0;
             img{
                 width: 30px;
-                margin-right: 10px;
-                vertical-align: middle;
             }
         
         }
@@ -36,12 +35,17 @@
     /* 以下側邊欄 */
     .sidebar_box{
         width: 20%;
+        .sidebar_box::before{
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+        }
         .sidebar{
+            // position: static;
             width: 20%;
             max-width: 288px;
-            margin-top: 60px;
+            margin-top: 48px;
             top: 0;
-            border-top-right-radius: 60px;
             .sidebar_list{
                 display: inline-block;
                 li+li{
@@ -55,12 +59,6 @@
                 }
                 a{
                     font-size: 16px;
-                    vertical-align: middle;
-                    text-decoration: none;
-                    color: #fff;
-                    img{
-                        width: 20px;
-                    }
                 }
             }
         }

@@ -1,0 +1,240 @@
+.member_main_box {
+    .member_bg {
+        width: 90%;
+        margin: auto;
+        background-color: #dddcdcb0;
+        border-radius: 10px;
+
+        .member_bgcard {
+            width: 80%;
+            margin: auto;
+
+            .member_main {
+                .member_head {
+                    display: none;
+                }
+            }
+
+            .member_main_title {
+                display: none;
+            }
+
+            .member_cardimage {
+                width: 100%;
+                margin: auto;
+                margin-top: 50px;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    vertical-align: top;
+                }
+
+                .member_bgimage {
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    padding-top: 50px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px;
+                    }
+                }
+
+                .member_headimage {
+                    width: 100px;
+                    height: 100px;
+                    background-color: #fff;
+                    border: 2px solid #666;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    left: 33%;
+                    bottom: -25%;
+                    position: absolute;
+                    padding: 5px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    p {
+                        text-align: center;
+                        font-size: 18px;
+                    }
+
+                    p:nth-child(2) {
+                        margin-top: 20px;
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                        line-height: 1.5em;
+                    }
+                }
+
+            }
+
+            .member_cardtext {
+                margin-top: 120px;
+                padding-bottom: 10px;
+
+                .member_cardtext_img {
+                    width: 80%;
+                    margin: auto;
+                    text-align: end;
+
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        vertical-align: top;
+                    }
+                }
+
+                .member_cardmain {
+                    width: 80%;
+                    margin: auto;
+
+                    .gap {
+                        margin: 20px 0;
+                    }
+
+                    h3 {
+                        margin: 10px 0px;
+                        font-size: 18px;
+                    }
+
+                    p {
+                        margin: 20px 0px;
+                        color: #A3A3A3a3;
+                        font-size: 14px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .member_main_box {
+        .member_bg {
+            width: 70%;
+            margin: auto;
+            margin-left: 25%;
+            background-color: #dddcdcb0;
+            border-radius: 10px;
+
+            .member_bgcard {
+                width: 80%;
+                margin: auto;
+
+                .member_main {
+                    .member_head {
+                        display: none;
+                    }
+                }
+
+                .member_main_title {
+                    display: none;
+                }
+
+                .member_cardimage {
+                    width: 100%;
+                    margin: auto;
+                    margin-top: 50px;
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        vertical-align: top;
+                    }
+
+                    .member_bgimage {
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                        padding-top: 50px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 10px;
+                        }
+                    }
+
+                    .member_headimage {
+                        width: 150px;
+                        height: 150px;
+                        background-color: #fff;
+                        border: 2px solid #666;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 10px;
+                        left: 40%;
+                        bottom: -25%;
+                        position: absolute;
+                        padding: 5px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        p {
+                            text-align: center;
+                            font-size: 18px;
+                        }
+
+                        p:nth-child(2) {
+                            margin-top: 20px;
+                            margin-bottom: 10px;
+                            font-size: 18px;
+                            line-height: 1.5em;
+                        }
+                    }
+
+                }
+
+                .member_cardtext {
+                    margin-top: 150px;
+                    padding-bottom: 10px;
+
+                    .member_cardtext_img {
+                        width: 80%;
+                        margin: auto;
+                        text-align: end;
+
+                        img {
+                            width: 25px;
+                            height: 25px;
+                            vertical-align: top;
+                        }
+                    }
+
+                    .member_cardmain {
+                        width: 80%;
+                        margin: auto;
+
+                        .gap {
+                            margin: 20px 0;
+                        }
+
+                        h3 {
+                            margin: 10px 0px;
+                            font-size: 18px;
+                        }
+
+                        p {
+                            margin: 20px 0px;
+                            color: #A3A3A3a3;
+                            font-size: 14px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

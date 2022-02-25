@@ -103,7 +103,6 @@
             font-size: 0;
             img{
                 width: 30px;
-                margin-right: 10px;
                 vertical-align: middle;
             }
         
@@ -137,7 +136,7 @@
                     text-decoration: none;
                     color: #fff;
                     img{
-                        width: 20px;
+                        width: 25px;
                     }
                 }
             }
@@ -148,9 +147,11 @@
 /* 以下為主要區域 */
 .main_area{
     width: 100%;
+    background-color: rgb(44, 83, 34);
     margin-top: 48px;
     .hot_billboard{
         width: 100%;
+        background-color: rgb(131, 136, 64);
     }
     .save_area{
         display: flex;
