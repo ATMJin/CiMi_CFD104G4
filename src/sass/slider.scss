@@ -7,15 +7,18 @@
     position: relative;
 }
 
+.hot_article_wrap button{
+position: absolute;
+}
+
 .hot_article_txt {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.438);
-    color: #fff;
-    width: 100%;
+    top: 30px;
+    left: 30px;
     padding: 5px;
     box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0px 0px 6px #303030, 0px 0px 3px #303030, 0px 0px 1px #303030;
 }
 
 .swiper_container {
@@ -61,11 +64,15 @@
     align-items: center;
 }
 
+.hot_article_pic{
+    margin: 10px;
+}
 .swiper-slide img {
     display: block;
     width: 100%;
     /* height: 100%; */
     object-fit: cover;
+    border-radius: 30px;
 }
 
 .swiper-pagination {
@@ -80,7 +87,7 @@
     }
 
     .hot_article_wrap {
-        margin: 15px;
+        // margin: 0 15px;
     }
 
     .swiper_container {
@@ -104,12 +111,12 @@
 
     .swiper-button-next {
         position: absolute;
-        right: -2%;
+        right: 2%;
     }
 
     .swiper-button-prev {
         position: absolute;
-        left: -2%;
+        left: 2%;
     }
 
     .swiper {
