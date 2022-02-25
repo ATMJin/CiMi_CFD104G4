@@ -1,7 +1,7 @@
 //引入共用sass ; 如: reset/common/header(上方選單)/sidebar(側邊欄) => 可以自行看自己葉面需要那些sass檔
-@import "./layout/reset";
-@import "./layout/common";
-@import "./layout/header";
+@import "./layout/_reset";
+@import "./layout/_common";
+@import "./layout/_header";
 @import "./layout/sidebar";
 
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
