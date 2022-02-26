@@ -1,0 +1,46 @@
+<!-- 此檔案為html範例: 可以直接copy 改成自己的頁面檔名 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 共用css(包含reset/common/header/sidebar) -->
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>CIMI | login</title>
+</head>
+
+<body>
+    <!-- 登入頁面 -->
+
+    <div class="wrapper">
+        <section class="form login">
+            <header>會員登入</header>
+
+            <form action="#" enctype="multipart/form-data">
+                <div class="error-txt">This is an error message!</div>
+                <div class="field input">
+                    <lable>帳號</lable>
+                    <input type="text" placeholder="請輸入帳號" name="email">
+                </div>
+                <div class="field input">
+                    <lable>密碼</lable>
+                    <input type="password" placeholder="請輸入密碼" name="password" autocomplete="on">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="field button">
+                    <input type="submit" value="取消" id="cancel">
+                    <input type="submit" value="登入" id="login">
+                </div>
+            </form>
+            <div class="link">現在加入Cimi ! <a href="#">立即註冊</a></div>
+        </section>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+
+</html>

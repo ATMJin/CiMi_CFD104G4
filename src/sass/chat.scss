@@ -1,0 +1,488 @@
+@import "./layout/reset";
+@import "./layout/common";
+// @import "./layout/sidebar";
+
+//函數
+@mixin chatroom {
+    background-color: #164570;
+  }
+
+/* 以下為上方搜尋區域 */
+.top_bar_box {
+    height: 48px;
+    width: 100%;
+    position: fixed;
+    margin: auto;
+    z-index: 11;
+    background-color: #fff;
+
+    .top_bar {
+        height: 48px;
+        width: 100%;
+        max-width: 1440px;
+        display: flex;
+        margin: auto;
+        box-sizing: border-box;
+        padding: 5px 20px;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo_box {
+            img {
+                height: 40px;
+            }
+        }
+
+        .search_bar {
+            display: flex;
+            box-sizing: border-box;
+            position: relative;
+            width: 60%;
+
+            input {
+                width: 100%;
+                height: 25px;
+                border-radius: 50px;
+            }
+        }
+
+        button {
+            width: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 3px;
+            right: 3px;
+
+            img {
+                width: 15px;
+            }
+        }
+
+        .member_bar {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    /* 以下為上方搜尋區域 */
+    .top_bar_box {
+        height: 60px;
+
+        .top_bar {
+            .member_bar {
+                display: block;
+
+                ul {
+                    display: flex;
+                    box-sizing: border-box;
+
+                    li+li {
+                        padding-left: 15px;
+                    }
+
+                    img {
+                        width: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+//---------------------------從此開始寫自己頁面的sass----------------------------------------------
+
+
+//變數
+
+$headerHeight: 60px;
+$padding: 10px 10px 20px;
+
+
+// 聊天室頁面的header不需要fixed !
+
+
+
+.top_bar_box {
+    position: relative;
+}
+
+.chat_room {
+    width: 100%;
+    padding: 10px 2% 0;
+    margin: 0;
+    display: flex;
+    box-sizing: border-box;
+    // border: 2px solid red;
+    min-height: calc(100vh - #{$headerHeight});
+    max-height: calc(100vh - #{$headerHeight});
+    // position: absolute;
+    // bottom: 0;
+
+}
+
+//左半部好友列表
+.users {
+    $headerHeight:85px;
+    width: 30%;
+    // border: 1px solid red;
+    // padding: 0 1.5%;
+    margin: 0 10px 0 0 ;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - #{$headerHeight});
+}
+// .users_list{
+//     $headerHeight:200px;
+//     min-height: calc(100vh - #{$headerHeight});
+//     margin-bottom: 5px;
+// }
+
+.users_list span {
+    display: flex;
+    align-items: center;
+    // padding-bottom: 20px;
+    justify-content: space-between;
+    // border-bottom: 1px solid #8888;
+}
+
+.users img {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+:is(.users, .users_list) .content {
+    display: flex;
+    align-items: center;
+    line-height: 25px;
+}
+
+:is(.users, .users_list) .details {
+    color: #000;
+    margin-left: 15px;
+}
+
+:is(.users, .users_list) .details span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.users .search {
+    margin: 10px 0;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #8888;
+    border-radius: 5px 5px 8px 5px;
+    // padding: 0 5px;
+    
+}
+
+.users .search .text {
+    padding-left: 12px;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.users .search input {
+    position: absolute;
+    height: 40px;
+    width: calc(100% - 75px);
+    border: 1px solid transparent;
+    padding: 0 13px;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.users .search input.active {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+}
+
+.users .search button {
+    width: 47px;
+    height: 42px;
+    border: none;
+    outline: none;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 0 5px 8px 0;
+    transition: all 0.2s ease;
+}
+
+.users .search button.active {
+    color: #fff;
+    background-color: #333;
+
+}
+
+.users .search button.active i::before {
+    content: "\f00d";
+}
+
+.users_list {
+    margin-top: 20px;
+    line-height: 25px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+:is(.chat_box, .users_list)::-webkit-scrollbar {
+    width: 0px;
+}
+
+.users_list .friends {
+    padding: 15px;
+    // margin-bottom: 20px;
+    page-break-after: 10px;
+    border-bottom-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #EAF3FF;
+    border-radius: 8px;
+    // border-bottom: 1px solid #8888;
+}
+
+
+.users_list .friends:last-child {
+    border: none;
+    margin-bottom: 0px;
+}
+
+.user_list .friends .content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.users_list .friends .content img {
+    height: 40px;
+    width: 40px;
+}
+
+.users_list .friends .content p {
+    color: #67676a;
+}
+
+.users_list .friends .status_dot {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    color: #468669;
+}
+
+/* Will use this class name in php to show offline status*/
+.users_list .friends .status_dot.offline {
+    color: #ccc;
+}
+
+
+//右半部聊天室視窗
+.chat_area {
+    $headerHeight: 85px;
+    width: 70%;
+    height: 100%;
+    // border: 1px solid blue;
+    // padding: 10px 20px;
+    // margin: 0 10px 20px;
+    max-height: calc(100vh - #{$headerHeight});
+    position: relative;
+    border-left: 1px solid #8888;
+
+}
+
+
+
+/* Chat Area CSS Code*/
+// .chat_area {
+//     width: 73%;
+//     /* border: 1px solid blue; */
+// }
+
+.chat_area img {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chat_area header {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px 10px 20px;
+    line-height: 25px;
+    border-bottom: 1px solid #8888;
+}
+
+.chat_area header .back_icon {
+    font-size: 18px;
+    color: #333;
+    position: absolute;
+    right: 20px;
+}
+
+.chat_area header img {
+    height: 45px;
+    width: 45px;
+    margin: 0 15px;
+}
+
+.chat_area header span {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.chat_box {
+    $headerHeight: 200px;
+    line-height: 25px;
+    min-height: calc(100vh - #{$headerHeight});
+    max-height: calc(100vh - #{$headerHeight});
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 10px 30px 20px;
+    box-shadow: inset 0 32px 32px -32px rgba(0, 0, 0, 0.05),
+        inset 0 -32px 32px -32px rgba(0, 0, 0, 0.05);
+
+
+}
+
+.chat_box .chat {
+    margin: 15px 0;
+
+}
+
+.chat_box .chat p {
+    word-wrap: break-word;
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.08),
+        0 16px 16px -16px rgba(0, 0, 0, 0.10);
+}
+
+.chat_box .outgoing {
+    display: flex;
+}
+
+.outgoing .details {
+    margin-left: auto;
+    max-width: calc(100% - 20%);
+    position: relative;
+}
+
+.outgoing .details p {
+    // background-color: #164570;
+    @include chatroom;
+    color: #fff;
+    border-radius: 18px 18px 0 18px;
+    margin: 10px 0;
+    /* display: inline-block;
+    word-wrap:break-word;
+    max-width: 400px; */
+}
+
+.outgoing .details span {
+    font-size: 12px;
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+}
+
+.chat_box .incoming {
+    display: flex;
+    align-items: flex-end;
+}
+
+.chat_box .incoming img {
+    height: 35px;
+    width: 35px;
+}
+
+.incoming .details {
+    margin-left: 10px;
+    margin-right: auto;
+    max-width: calc(100% - 20%);
+    position: relative;
+}
+
+.incoming .details p {
+    color: #333;
+    background-color: #E4E6EB;
+    border-radius: 18px 18px 18px 0;
+}
+
+.incoming .details span {
+    font-size: 12px;
+    position: absolute;
+    left: 10px;
+}
+
+.chat_area .typing_area {
+    padding: 20px 0 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.typing_area input {
+    height: 48px;
+    width: calc(100%);
+    font-size: 17px;
+    border: 1px solid #ccc;
+    padding: 0 13px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.typing_area button {
+    width: 55px;
+    border: none;
+    outline: none;
+    @include chatroom;
+    color: #fff;
+    font-size: 19px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.typing_area .fun_icon {
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    color: #164570;
+    align-items: center;
+}
+.typing_area .fun_icon span{
+    padding: 0 2%;
+}
+
+
+
+@media (max-width: 768px) {
+    .chat_area {
+        display: none;
+    }
+
+    .users {
+        width: 100%;
+        padding: 20px 2%;
+    }
+
+    .chat_room {
+        width: 100%;
+        padding: 20px 2%;
+
+    }
+
+}
