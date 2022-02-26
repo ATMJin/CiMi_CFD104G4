@@ -1,6 +1,10 @@
+aside{
+    display: none;
+}
 .member_main_box {
     .member_bg {
         .member_art_text {
+            margin-top: 100px;
             .member_art_card {
                 width: 90%;
                 margin: auto;
@@ -101,6 +105,9 @@
 }
 
 @media screen and(min-width:1440px) {
+    aside{
+        display: inline-block;
+    }
     .member_main_box {
         .member_bg {
             .member_art_text {

@@ -1,3 +1,6 @@
+aside{
+    display: none;
+}
 .member_main_box {
     .member_bg {
         .member_bgcard {
@@ -7,7 +10,7 @@
                     display: flex;
                     justify-content: center;
                     background-color: var(--primary-color);
-                    margin-top: 50px;
+                    margin-top: 100px;
                     border-bottom: 2px solid var(--font-primary);
                     font-size: 48px;
                     position: relative;
@@ -59,6 +62,9 @@
 }
 
 @media screen and (min-width:1440px) {
+    aside{
+        display: inline-block;
+    }
     .member_main_box {
         .member_bg {
             // width: 100%;

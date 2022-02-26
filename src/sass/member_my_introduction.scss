@@ -1,8 +1,11 @@
+aside{
+    display: none;
+}
 .member_main_box {
     .member_bg {
         width: 90%;
         margin: auto;
-        background-color: #dddcdcb0;
+        // background-color: #dddcdcb0;
         border-radius: 10px;
 
         .member_bgcard {
@@ -118,12 +121,15 @@
 }
 
 @media screen and (min-width:1440px) {
+    aside{
+        display: inline-block;
+    }
     .member_main_box {
         .member_bg {
             width: 70%;
             margin: auto;
             margin-left: 25%;
-            background-color: #dddcdcb0;
+            // background-color: #dddcdcb0;
             border-radius: 10px;
 
             .member_bgcard {

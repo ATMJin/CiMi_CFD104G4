@@ -2,18 +2,7 @@
 aside{
     display: none;
 }
-.top_bar_box .top_bar{
-    display: none;
-}
-.top_bar_box .member_bouns_topbar{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    background-color: #66ff77;
-}
+
 .member_main{
     width: 95%;
     margin: auto;
@@ -23,7 +12,7 @@ aside{
     border:2px solid #000;
     border-radius: 20px;
     background-color: var(--icon-color);
-    margin-top: 50px;
+    margin-top: 100px;
 }
 .member_bg .member_main_title{
     display: none;
@@ -85,9 +74,6 @@ aside{
     aside{
         display: block;
     }
-    .top_bar_box .top_bar{
-        display: block;
-    }
     .top_bar_box .member_bouns_topbar{
         display: none;
     }
@@ -96,7 +82,7 @@ aside{
         margin-top: 50px;
         margin-left: 25%;
         border-radius: 20px;
-        background-color: #7777;
+        // background-color: #7777;
     }
     .member_main_box .member_bg .member_main_title{
         width: 80%;
