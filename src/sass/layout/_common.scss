@@ -23,23 +23,46 @@ body {
     --body2: 14px;
     --tag: 12px;
     --btn-font: 14px;
+
+    /* 字體粗細 */
+    --thin: 300;
+    //500為預設值,不用特別設
+    --bold: 700;
+
+
 }
 
 /* 按鈕可共用的class */
 .btn-primary {
+    font-family: 'Noto Sans TC', sans-serif;
     font-size: 14px;
+    letter-spacing: .04em;
+    border-radius: 20px;
+    // color: var(--primary-color);
     background-color: var(--button-primary);
-    border-radius: 10px;
     border: none;
     outline: none;
-    padding: 10px
+    padding: 5px 13px
+}
+.btn-primary:hover {
+    color: var(--button-primary);
+    background-color: var(--primary-color);
+    // border: 1px solid var(--button-primary);
 }
 .btn-secondary {
+    font-family: 'Noto Sans TC', sans-serif;
     font-size: 14px;
+    letter-spacing: .04em;
+    border-radius: 20px;
+    color: var(--primary-color);
     background-color: var(--button-secondary);
-    border-radius: 10px;
     border: none;
     outline: none;
-    padding: 10px
+    padding: 5px 13px
+}
+.btn-secondary:hover {
+    color: var(--button-secondary);
+    background-color: var(--primary-color);
+    // border: 1px solid var(--button-secondary);
 }
 
