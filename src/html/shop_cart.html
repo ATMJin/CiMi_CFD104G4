@@ -30,13 +30,16 @@
         <i class="bi bi-arrow-left-circle"></i>
         <!-- 文字 -->
         <div class="txt_box">
-          <p>購物車</p>
-          <p>收藏清單</p>
+          <p @click="switchShoppingCar">購物車</p>
+          <p @click="switchLoveList">收藏清單</p>
         </div>
       </section>
 
-      @@include('layout/shop_cart_list.html')
-      <shopping-car></shopping-car>
+      <!-- @@include('layout/shop_cart_list.html') -->
+      <keep-alive>
+        <component :is="componentId"></component>
+        <!-- <shopping-car></shopping-car> -->
+      </keep-alive>
     </main>
   </div>
 
