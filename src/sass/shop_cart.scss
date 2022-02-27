@@ -1,47 +1,203 @@
+// 箭頭icon
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+// reset
+@import 'layout/reset';
 // header
-@import 'layout/header';
+// @import 'layout/header';
 // common
 @import 'layout/common';
-// @import 'layout/sidebar';
 
-* {
-    /* 字體 : 中文-sans-serif | 英文-Poppins */
-    font-family: 'Poppins', sans-serif;
-    // color: $font-primary;
-    // color: var(font-primary);
-    color: #5E5E5E;
+
+// @import 'layout/sidebar';
+@mixin txt_color {
+    color: var(--font-primary);
 }
+
+// 紅底的白字
+$white:aliceblue;
+// title header紅底的顏色
+$red_bgc:#FA4C4C;
+
 
 // ------------------購物車頁面-----------------------
 // 手機板
-
 // 標題
-.shopping_cart{
-    // 購物車最上面的小標題，(購物車/收藏清單)
-    .shopping_cart_title{
+
+.shopping_cart {
+    @include txt_color;
+    width: 100%;
+
+    // 購物車最上面的title header(購物車/收藏清單)
+    .shopping_cart_title {
+        padding: 10px;
+        justify-content: space-between;
         // 使箭頭跟文字變一排
-        display:flex;
-        .img_box{
-            img{
+        display: flex;
+        align-items: center;
+        background-color: $red_bgc;
+        color: $white;
+
+        // 返回建icon
+        i:first-child {
+            font-size: 1.75em;
+        }
+
+        // 購物車收藏清單
+        .txt_box {
+            // 使文字變一排
+            display: flex;
+
+            p {
+                padding: 5px;
+
+                &:first-of-type {
+                    border-bottom: 2px solid rgba($color: $white, $alpha: 0.7);
+                }
+
+                &:last-of-type {
+                    padding-right: 0px;
+                }
+            }
+
+        }
+    }
+}
+
+// <!-- 商品欄 -->
+.shopping_cart_goods_box {
+    padding: 10px 10px;
+
+    // 商品與商品
+    .shopping_cart_goods_item_box {
+        // 底線
+        // box-shadow: 1px 1px 1px #9e9e9e;
+        border-radius: 10px;
+        background: #f0f0f0;
+        padding: 15px 10px;
+
+        // <!-- 商品照 -->
+        .img_box {
+            display: inline-block;
+            vertical-align: middle;
+            width: 25%;
+
+            img {
                 width: 100%;
                 border-radius: 20px;
             }
         }
-        .txt_box{
-            // 使文字變一排
-            display: flex;
-            text-align: right;
-                p{}
+
+        .product_txt_box {
+            display: inline-block;
+            max-width: 180px;
+            width: 30%;
+
+            p {
+                font-weight: 700;
+            }
+        }
+
+        // <!-- 商品資訊 -->
+        .information_item_box {
+            display: inline-block;
+            vertical-align: middle;
+
+            // <!-- 數量 -->
+            .item_box {
+                img {
+                    display: inline-block;
+                    height: 16px;
+                    vertical-align: middle;
+                }
+
+                input {
+                    max-width: 50px;
+                    -moz-appearance: textfield;
+
+                    &::-webkit-outer-spin-button,
+                    ::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+            }
         }
     }
 }
 
-// 商品欄
-.shopping_cart_goods{
-    .img_box{
-        img{}
-    }
-    .txt_box{
+.total_box {
+    padding: 30px 10px;
+    // 靠右
+    text-align: end;
 
+    .total_num_box {
+        display: inline-block;
+        padding: 0 20px;
+        // 文字垂直置中
+        vertical-align: middle;
+
+        .total_num {
+            font-size: 1.5em;
+        }
+    }
+
+    .btn-primary {
+        $plr: 40px;
+        padding-left: $plr;
+        padding-right: $plr;
     }
 }
+
+
+// --------桌機板
+// @media screen and (min-width:768px) {
+
+//     // <!-- 商品欄 -->
+//     .shopping_cart_goods {
+
+//         // 商品與商品
+//         .shopping_cart_goods_item_box {
+
+//             // <!-- 右/商品照 -->
+//             .img_box {
+//                 width: 20%;
+
+//                 img {}
+//             }
+
+//             .product_txt_box {
+
+//                 p {}
+//             }
+
+//             // <!-- 商品資訊 -->
+//             .information_item_box {
+
+//                 // <!-- 單價 -->
+//                 .txt_box {
+//                     p {}
+//                 }
+
+//                 // <!-- 商品購買/增加商品數量或減少 -->
+//                 .item_box {
+
+//                     // 數量/文字
+//                     .product_total_txt_box {}
+
+//                     // 數量按鈕
+//                     .item_box_total {
+
+//                         // <!-- 箭頭icon -->
+//                         .img_box {
+
+//                             img {}
+//                         }
+
+//                         input {}
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+// }
