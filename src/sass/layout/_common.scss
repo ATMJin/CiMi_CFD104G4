@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;500&family=Poppins:wght@100;300;500&display=swap');
 
 body {
     /* 字體 : 中文-Noto Sans TC | 英文-Poppins */
     font-family: 'Poppins', sans-serif,'Noto Sans TC', sans-serif;
+    line-height: 1.5;
+    font-weight: 300;
 }
 
 :root {
@@ -25,44 +27,50 @@ body {
     --btn-font: 14px;
 
     /* 字體粗細 */
-    --thin: 300;
-    //500為預設值,不用特別設
-    --bold: 700;
+    --thin: 100;
+    //300為預設值,不用特別設
+    --bold: 500;
 
-
+    /* 圖片/背景的圓角 */
+    --img-radius: 12px;
+    --bgc-radius: 15px;
 }
 
 /* 按鈕可共用的class */
 .btn-primary {
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 14px;
-    letter-spacing: .04em;
-    border-radius: 20px;
-    // color: var(--primary-color);
+    letter-spacing: .05em;
+    border-radius: .75em;
+    font-weight: 500;
+    color: var(--primary-color);
     background-color: var(--button-primary);
     border: none;
     outline: none;
     padding: 5px 13px
 }
+
 .btn-primary:hover {
     color: var(--button-primary);
     background-color: var(--primary-color);
-    // border: 1px solid var(--button-primary);
+    border: 1px solid var(--button-primary);
 }
+
 .btn-secondary {
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 14px;
-    letter-spacing: .04em;
-    border-radius: 20px;
+    letter-spacing: .05em;
+    border-radius: .75em;
+    font-weight: 500;
     color: var(--primary-color);
     background-color: var(--button-secondary);
     border: none;
     outline: none;
     padding: 5px 13px
 }
+
 .btn-secondary:hover {
     color: var(--button-secondary);
     background-color: var(--primary-color);
-    // border: 1px solid var(--button-secondary);
+    border: 1px solid var(--button-secondary);
 }
-
