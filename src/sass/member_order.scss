@@ -1,3 +1,315 @@
-header{
-    color: forestgreen;
+aside {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    margin: 40px auto;
+}
+
+/* Style the tabs */
+.tabs {
+    overflow: hidden;
+    margin-bottom: -2px;
+    /* hide bottom border */
+    margin-left: 24px;
+    margin: auto;
+}
+
+.tabs a {
+    float: left;
+    cursor: pointer;
+    padding: 12px 24px;
+    transition: background-color 0.2s;
+    border: 1px solid #ccc;
+    border-right: none;
+    background-color: #f1f1f1;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold;
+}
+
+.tabs a:last-child {
+    border-right: 1px solid #ccc;
+}
+
+/* Change background color of tabs on hover */
+.tabs a:hover {
+    background-color: #aaa;
+    color: #fff;
+}
+
+/* Styling for active tab */
+.tabs a.active {
+    background-color: #fff;
+    color: #484848;
+    border-bottom: 2px solid #fff;
+    cursor: default;
+}
+
+/* Style the tab content */
+.tabcontent {
+    padding: 30px 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px #e1e1e1
+}
+
+.data {
+    width: 120px;
+}
+
+.member_main_box {
+    .member_bg {
+        margin-top: 100px;
+
+        .container {
+            .content {
+                .tabcontent {
+                    .member_com {
+                        .member_combg {
+                            width: 100%;
+                            background-color: rgb(226, 226, 226);
+                            border-radius: 10px;
+                            padding: 10px 20px;
+
+                            .member_comtitle {}
+
+                            .member_commain {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 10px;
+
+                                img {
+                                    width: 100px;
+                                    height: 100px;
+                                    border-radius: 10px;
+                                }
+
+                                p {
+                                    margin-left: 100px;
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    .member_comsum {
+                        display: flex;
+                        justify-content: flex-end;
+                        padding: 20px;
+                        font-size: 20px;
+                    }
+
+                    .member_combtn {
+                        display: flex;
+                        justify-content: flex-end;
+                        padding: 10px;
+
+                        input:nth-child(1) {
+                            font-size: 14px;
+                            background-color: var(--button-primary);
+                            border-radius: .75em;
+                            border: none;
+                            outline: none;
+                            padding: 10px;
+                            margin-left: 20px;
+                        }
+
+                        input:nth-child(2) {
+                            font-size: 14px;
+                            border: 1px solid #00324E;
+                            border-radius: .75em;
+                            padding: 10px;
+                            margin-left: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1440px) {
+    aside {
+        display: inline-block;
+    }
+
+    .container {
+        width: 100%;
+        margin: 40px auto;
+    }
+
+    /* Style the tabs */
+    .tabs {
+        overflow: hidden;
+        margin-bottom: -2px;
+        /* hide bottom border */
+        margin-left: 24px;
+    }
+
+    .tabs a {
+        float: left;
+        cursor: pointer;
+        padding: 12px 24px;
+        transition: background-color 0.2s;
+        border: 1px solid #ccc;
+        border-right: none;
+        background-color: #f1f1f1;
+        border-radius: 10px 10px 0 0;
+        font-weight: bold;
+        color: var(--font-secondary);
+    }
+
+    .tabs a:last-child {
+        border-right: 1px solid #ccc;
+    }
+
+    /* Change background color of tabs on hover */
+    .tabs a:hover {
+        background-color: #aaa;
+        color: #fff;
+    }
+
+    /* Styling for active tab */
+    .tabs a.active {
+        background-color: #fff;
+        color: #484848;
+        border-bottom: 2px solid #fff;
+        cursor: default;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        padding: 30px 50px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 4px 4px 8px #e1e1e1
+    }
+
+    .data {
+        width: 120px;
+    }
+
+    .member_main_box {
+        .member_bg {
+            .container {
+                .content {
+                    .tabcontent {
+                        .member_com {
+
+                            .member_combg {
+                                width: 100%;
+                                background-color: rgb(226, 226, 226);
+                                border-radius: 10px;
+                                padding: 10px 20px;
+
+
+                                .member_comtitle {}
+
+                                .member_commain {
+                                    display: flex;
+                                    justify-content: start;
+                                    align-items: center;
+                                    padding: 10px;
+
+                                    .member_comimg {
+                                        width: 30%;
+                                        
+                                    }
+                                    h3{
+                                        color:  #5E5E5E;
+                                        font-weight: 500;
+                                    }
+                                    img {
+                                        width: 100px;
+                                        height: 100px;
+                                        border-radius: 10px;
+                                        vertical-align: top;
+                                    }
+                                    p {
+                                        margin-left: 0px;
+                                        margin: 0px 50px;
+                                        color: var(--font-secondary);
+                                        text-align: end;
+                                    }
+                                }
+                            }
+
+
+                        }
+
+                        .member_comsum {
+                            display: flex;
+                            justify-content: flex-end;
+                            padding: 20px;
+                            font-size: 20px;
+                        }
+
+                        .member_combtn {
+                            display: flex;
+                            justify-content: flex-end;
+                            padding: 10px;
+                            .seconbtn {
+                                font-family: 'Noto Sans TC', sans-serif;
+                                font-size: 14px;
+                                letter-spacing: .04em;
+                                border-radius: .75em;
+                                color: var(--primary-color);
+                                background-color: var(--button-secondary) !important;
+                                border: none;
+                                outline: none;
+                                padding: 5px 13px;
+                                cursor: pointer;
+                                
+                            }
+                            .seconbtn:hover{
+                                color: var(--button-secondary) !important;
+                                background-color: var(--primary-color) !important;
+                            }
+
+                            input:nth-child(1) {
+                                font-family: 'Noto Sans TC', sans-serif;
+                                font-size: 14px;
+                                letter-spacing: .04em;
+                                border-radius: .75em;
+                                // color: var(--primary-color);
+                                background-color: var(--button-primary);
+                                border: none;
+                                outline: none;
+                                padding: 5px 13px;
+                                cursor: pointer;
+                            }
+
+                            input:nth-child(1):hover {
+                                color: var(--button-primary);
+                                background-color: var(--primary-color);
+                            }
+
+                            input:nth-child(2) {
+                                font-family: 'Noto Sans TC', sans-serif;
+                                font-size: 14px;
+                                letter-spacing: .04em;
+                                border-radius: .75em;
+                                color: var(--primary-color);
+                                background-color: var(--button-secondary);
+                                border: none;
+                                outline: none;
+                                padding: 5px 13px;
+                                cursor: pointer;
+                            }
+
+                            input:nth-child(2):hover {
+                                color: var(--button-secondary);
+                                background-color: var(--primary-color);
+
+                            }
+                           
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

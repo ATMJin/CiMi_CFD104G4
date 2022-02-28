@@ -5,24 +5,27 @@ aside{
     .member_bg {
         .member_bgcard {
             .member_main {
+                width: 80%;
+                margin: auto;
                 .member_head {
-                    width: 98%;
+                    width: 100%;
                     display: flex;
-                    justify-content: center;
+                    justify-content: start;
                     background-color: var(--primary-color);
                     margin-top: 100px;
                     border-bottom: 2px solid var(--font-primary);
-                    font-size: 48px;
+                    font-size: 24px;
                     position: relative;
 
                     .member_setchange {
                         width: 10%;
                         position: absolute;
+                        top: 0;
                         right: 0;
 
                         img {
-                            width: 50px;
-                            height: 50px;
+                            width: 30px;
+                            height: 30px;
                             vertical-align: top;
                         }
                     }
@@ -77,11 +80,11 @@ aside{
                     .member_head {
                         width: 100%;
                         display: flex;
-                        justify-content: center;
+                        justify-content: start;
                         // background-color: var(--primary-color);
                         margin-top: 50px;
                         border-bottom: 2px solid transparent;
-                        font-size: 48px;
+                        font-size: 24px;
                         position: relative;
     
                         .member_setchange {
@@ -90,8 +93,8 @@ aside{
                             right: 0;
     
                             img {
-                                width: 50px;
-                                height: 50px;
+                                width: 30px;
+                                height: 30px;
                                 vertical-align: top;
                             }
                         }
