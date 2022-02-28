@@ -5,6 +5,7 @@ body {
     font-family: 'Poppins', sans-serif,'Noto Sans TC', sans-serif;
     line-height: 1.5;
     font-weight: 300;
+    box-sizing: border-box;
 }
 
 :root {
@@ -38,7 +39,7 @@ body {
 }
 
 /* 按鈕可共用的class */
-.btn-primary {
+.btn-primary { //紅底白字
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 14px;
     letter-spacing: .05em;
@@ -48,7 +49,8 @@ body {
     background-color: var(--button-primary);
     border: none;
     outline: none;
-    padding: 5px 13px
+    padding: 5px 13px;
+    cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -57,7 +59,7 @@ body {
     border: 1px solid var(--button-primary);
 }
 
-.btn-secondary {
+.btn-secondary { //藍底白字
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 14px;
     letter-spacing: .05em;
@@ -67,10 +69,31 @@ body {
     background-color: var(--button-secondary);
     border: none;
     outline: none;
-    padding: 5px 13px
+    padding: 5px 13px;
+    cursor: pointer;
 }
 
 .btn-secondary:hover {
+    color: var(--button-secondary);
+    background-color: var(--primary-color);
+    border: 1px solid var(--button-secondary);
+}
+
+.btn-third { //白底灰字
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    letter-spacing: .05em;
+    border-radius: .75em;
+    font-weight: 500;
+    color: var(--font-primary);
+    background-color: var(--primary-color);
+    border: 1px solid var(--font-primary);
+    outline: none;
+    padding: 5px 13px;
+    cursor: pointer;
+}
+
+.btn-third:hover {
     color: var(--button-secondary);
     background-color: var(--primary-color);
     border: 1px solid var(--button-secondary);
