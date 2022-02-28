@@ -212,3 +212,27 @@ $title_bgc:var(--button-secondary);
         padding-right: $plr;
     }
 }
+
+// 吉祥物
+.nothing_goods_box {
+    display: none;
+    text-align: center;
+    padding-top: 50px;
+
+    .img_box {
+        display: inline-block;
+        width: 30%;
+    }
+
+    p {
+        &:first-of-type {
+            font-size: var(--subtitle1);
+            font-weight: var(--bold);
+            line-height: 3;
+        }
+    }
+
+    button {
+        margin-top: 10px;
+    }
+}

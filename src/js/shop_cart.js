@@ -59,6 +59,21 @@ Vue.component('shopping-cart-goods-box', {
     sendPrice(x) {
       bus.$emit('send', x); // 自訂事件
     },
+    rmProduct(e) {
+      // 尋找刪除鍵所在的商品欄
+      let par = e.target.parentNode.parentNode.parentNode.parentNode;
+      console.log(par);
+      // 刪除商品欄
+      par.remove()
+
+      // 計算剩餘商品欄數量
+      let countP = document.querySelectorAll(".shopping_cart_goods_box")
+      // 出現吉祥物
+      if (countP.length == 0) {
+        document.querySelector(".nothing_goods_box").style.display = "block"
+        document.querySelector(".total_box").style.display = "none"
+      }
+    },
   },
   template: `
 <div class="shopping_cart_goods_box">
@@ -104,8 +119,8 @@ Vue.component('shopping-cart-goods-box', {
     <div class="txt_box dosometing_box">
       <!-- <p>操作</p> -->
       <div class="move_box">
-        <p class="rm_product">移除商品</p>
-        <p class="love_it">加入收藏</p>
+        <p @click="this.rmProduct" class="rm_product">移除商品</p>
+        <p @click="" class="love_it">加入收藏</p>
       </div>
     </div>
   </div>
@@ -217,6 +232,19 @@ Vue.component("love-list", {
   `,
 })
 
+Vue.component("nothing-goods-box", {
+  template: `
+<div class="nothing_goods_box">
+  <div class="img_box">
+    <img src="assets/images/index_ball.svg" alt="">
+  </div>
+  <p>尚未有商品</p>
+  <p>快去逛逛好物商城 </p>
+  <p>發現更便利的生活方式</p>
+  <button class="btn-primary">立即前往</button>
+</div>
+  `,
+})
 
 Vue.component("shopping-cart", {
   data() {
@@ -238,6 +266,9 @@ Vue.component("shopping-cart", {
     <keep-alive>
       <component :is="this.componentId"></component>
     </keep-alive>
+
+    <!-- 吉祥物 -->
+    <nothing-goods-box/>
   </section>
   `,
 })
