@@ -9,31 +9,32 @@ body {
 
 :root {
     /* 顏色 : 可用在背景色或是文字色彩 */
-    --button-primary: #F97373;
-    --button-secondary: #164570;
-    --primary-color: #FFFFFF;
-    --secondary-color: #00324E;
-    --icon-color: #E1E1E1;
-    --font-primary: #5E5E5E;
-    --font-secondary: #A3A3A3;
+    --button-primary: #F97373;      //var(--button-primary)
+    --button-secondary: #164570;    //var(--button-secondary)
+    --primary-color: #FFFFFF;       //var(--primary-color)
+    --secondary-color: #00324E;     //var(--secondary-color)
+    --icon-color: #E1E1E1;          //var(--icon-color)
+    --font-primary: #5E5E5E;        //var(--font-primary)
+    --font-secondary: #A3A3A3;      //var(--font-secondary)
 
     /* 字體大小 */
-    --title: 28px;
-    --subtitle1: 24px;
-    --subtitle2: 18px;
-    --body1: 16px;
-    --body2: 14px;
-    --tag: 12px;
-    --btn-font: 14px;
+    --title: 28px;      //var(--title)
+    --subtitle1: 24px;  //var(--subtitle1)
+    --sidebar: 20px;    //var(--sidebar)
+    --subtitle2: 18px;  //var(--subtitle2)
+    --body1: 16px;      //var(--body1)
+    --body2: 14px;      //var(--body2)
+    --tag: 12px;        //var(--tag)
+    --btn-font: 14px;   //var(--btn-font)
 
     /* 字體粗細 */
-    --thin: 100;
+    --thin: 100;    //var(--thin)
     //300為預設值,不用特別寫
-    --bold: 500;
+    --bold: 500;    //var(--bold)
 
     /* 圖片/背景的圓角 */
-    --img-radius: 12px;
-    --bgc-radius: 15px;
+    --img-radius: 12px;     //var(--img-radius)
+    --bgc-radius: 15px;     //var(--bgc-radius)
 }
 
 /* 按鈕可共用的class */
