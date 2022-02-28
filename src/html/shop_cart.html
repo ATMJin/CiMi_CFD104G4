@@ -22,28 +22,20 @@
 
   <!-- 購物車的頁面 -->
   <div id="app">
-    <main class="shopping_cart">
-
-      <!-- 購物車最上面的title header -->
-      <section class="shopping_cart_title">
-        <!-- 箭頭 -->
-        <i class="bi bi-arrow-left-circle"></i>
-        <!-- 文字 -->
-        <div class="txt_box">
-          <p @click="switchShoppingCar">購物車</p>
-          <p @click="switchLoveList">收藏清單</p>
-        </div>
-      </section>
-
-      <!-- @@include('layout/shop_cart_list.html') -->
-      <keep-alive>
-        <component :is="componentId"></component>
-        <!-- <shopping-car></shopping-car> -->
-      </keep-alive>
-    </main>
+    <shopping-cart></shopping-cart>
   </div>
 
   <script src="js/shop_cart.js"></script>
+  <!-- <main class="shopping_cart">
+
+      購物車最上面的title header
+      <shopping-cart-title></shopping-cart-title>
+
+      include('layout/shop_cart_list.html')
+      <keep-alive>
+        <component :is="componentId"></component>
+      </keep-alive>
+    </main> -->
 </body>
 
 </html>

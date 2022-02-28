@@ -29,9 +29,9 @@
 }
 
 // 紅底的白字
-$white:aliceblue;
-// title header紅底的顏色
-$red_bgc:#FA4C4C;
+$white:var(--primary-color);
+// title header顏色
+$title_bgc:var(--button-secondary);
 
 
 // ------------------購物車頁面-----------------------
@@ -45,6 +45,8 @@ $red_bgc:#FA4C4C;
     @include PC() {
         width: 50%;
         margin: 0 auto;
+        min-width: 768px;
+        max-width: 1000px;
     }
 
     // 購物車最上面的title header(購物車/收藏清單)
@@ -54,7 +56,7 @@ $red_bgc:#FA4C4C;
         // 使箭頭跟文字變一排
         display: flex;
         align-items: center;
-        background-color: $red_bgc;
+        background-color: $title_bgc;
         color: $white;
 
         // 返回建icon
@@ -89,152 +91,75 @@ $red_bgc:#FA4C4C;
 // <!-- 商品欄 -->
 .shopping_cart_goods_box {
     padding: 10px 10px;
-    $information_box_width: 50%;
 
-    // 商品與商品
+    // 內側灰色區域
     .shopping_cart_goods_item_box {
-        // 底線
-        // box-shadow: 1px 1px 1px #9e9e9e;
-        border-radius: 10px;
+        border-radius: var(--bgc-radius);
         background: #f0f0f0;
-        padding: 15px 10px;
+        padding: 10px;
         position: relative;
+        // 橫向排列
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
-        @include PC() {
-            &::after {
-                content: "";
-                display: block;
-                position: absolute;
-                height: 1px;
-                width: calc(100% - 20px);
-                top: 40px;
-                left: 10px;
-                background: #000;
-            }
-        }
-
+        // 圖片區域
         .information_box {
-            display: inline-block;
-            width: 60%;
+            width: 30%;
+            max-width: 150px;
+            margin-right: 10%;
 
-            @include PC {
-                width: $information_box_width;
-                // FIXME
-                // outline: 1px solid #000;
-            }
-
-            >p:first-child {
-                margin-bottom: 30px;
-
-                @media screen and (max-width:768px) {
-                    display: none;
-                }
-            }
-
-            // <!-- 商品照 -->
             .img_box {
-                cursor: pointer;
-                display: inline-block;
-                vertical-align: middle;
-                width: 48%;
-                // width: calc((100vw - 20px) * 0.25);
 
                 img {
+                    border-radius: var(--img-radius);
                     width: 100%;
-                    border-radius: 20px;
-                }
-            }
-
-            // <!-- 商品資訊 -->
-            .product_txt_box {
-                font-weight: 700;
-                display: inline-block;
-                vertical-align: middle;
-                // max-width: 180px;
-                width: 48%;
-
-                @include PC {
-                    width: auto;
-                    margin-left: 10px;
+                    vertical-align: bottom;
+                    cursor: pointer;
                 }
             }
         }
 
-
-        // 價格數量計算
+        // 中間文字區域
         .information_item_box {
-            display: inline-block;
-            vertical-align: middle;
+            flex-grow: 1;
+            // 直向排列且下方置底
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
-            @include PC() {
-                vertical-align: top;
-                width: 99%-$information_box_width;
-                // height: 90px;
-                // FIXME
-                // outline: 1px solid #000;
-            }
-
-            >div {
-                margin: 10px 0;
+            .product_txt_box {
+                font-weight: var(--bold);
 
                 @include PC() {
-                    display: inline-block;
-                    margin: 0;
-                    vertical-align: top;
-                    text-align: center;
+                    font-size: var(--subtitle2);
                 }
             }
 
-            // <!-- 單價與小計 -->
-            >.txt_box {
+            // 下方計算區
+            .counter_box {
+                line-height: 1.75;
+
                 @include PC() {
-                    width: 20%;
+                    line-height: 2;
                 }
 
-                >* {
+                // 右方文字置中
+                span {
+                    width: calc(100% - 70px);
+                    max-width: 150px;
                     display: inline-block;
-
-                    @include PC() {
-                        display: block;
-                    }
-                }
-
-                .num_box {
-                    width: calc(100% - 40px);
                     text-align: center;
 
-                    &.love_list_txt_box {
-                        width: auto;
-                    }
-
-                    @include PC() {
-                        width: auto;
-                        @include onmid;
-                    }
                 }
 
-            }
+                .item_box {
 
-            // <!-- 數量 -->
-            .item_box {
-                >* {
-                    display: inline-block;
-
-                    @include PC() {
-                        display: block;
-                    }
-                }
-
-                .count {
-                    @include PC() {
-                        @include onmid;
-                    }
-
+                    // 數字增減按鍵
                     img {
                         cursor: pointer;
-                        display: inline-block;
-                        height: 16px;
                         vertical-align: middle;
+                        height: 16px;
                     }
 
                     input {
@@ -248,37 +173,22 @@ $red_bgc:#FA4C4C;
                         }
                     }
                 }
-
             }
+        }
 
-            // <!-- 操作 -->
-            .dosometing_box {
-                @media screen and (max-width:768px) {
-                    display: none;
-                }
+        // 最右方操作區
+        .dosometing_box {
+            font-size: var(--tag);
 
-                width: 30%;
-
-                .move_box {
-                    @include onmid {
-                        transform: translateY(-60%)
-                    }
-
-                    .rm_product {
-                        cursor: pointer;
-                        // margin-bottom: 1em;
-                    }
-
-                    .love_it {
-                        cursor: pointer;
-                        margin-top: 3em;
-                    }
-                }
+            p {
+                cursor: pointer;
+                color: var(--font-secondary);
             }
         }
     }
 }
 
+// 下方加總區
 .total_box {
     padding: 30px 10px;
     // 靠右

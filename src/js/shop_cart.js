@@ -1,14 +1,28 @@
 const bus = new Vue(); // 建立 event bus
 
 Vue.component("shopping-cart-title", {
+  methods: {
+    // 切換購物收藏組件
+    switchShoppingCar() {
+      this.componentId = 'shopping-car';
+      this.sendComponentId(this.componentId)
+    },
+    switchLoveList() {
+      this.componentId = 'love-list';
+      this.sendComponentId(this.componentId)
+    },
+    sendComponentId(x) {
+      bus.$emit('sendId', x); // 自訂事件
+    },
+  },
   template: `
 <section class="shopping_cart_title">
   <!-- 箭頭 -->
   <i class="bi bi-arrow-left-circle"></i>
   <!-- 文字 -->
   <div class="txt_box">
-    <p>購物車</p>
-    <p>收藏清單</p>
+    <p @click="this.switchShoppingCar">購物車</p>
+    <p @click="this.switchLoveList">收藏清單</p>
   </div>
 </section>
 `,
@@ -25,7 +39,11 @@ Vue.component('shopping-cart-goods-box', {
   computed: {
     total() {
       return this.price * this.count;
-    }
+    },
+    imgrandom() {
+      let r = Math.floor(Math.random() * 10)
+      return `https://picsum.photos/300/300/?random=${r}`;
+    },
   },
   methods: {
     plusCount() {
@@ -47,48 +65,47 @@ Vue.component('shopping-cart-goods-box', {
   <div class="shopping_cart_goods_item_box">
 
     <div class="information_box">
-      <p>商品</p>
       <!-- 商品照 -->
       <div class="img_box">
-        <img src="https://picsum.photos/300/300/?random=10">
-      </div>
-      <!-- 商品資訊 -->
-      <div class="product_txt_box">
-        <p>推薦|玫瑰花</p>
+        <img :src="imgrandom">
       </div>
     </div>
 
     <!-- 價格數量計算 -->
     <div class="information_item_box">
-      <!-- 單價 -->
-      <div class="txt_box">
-        <p>單價 </p>
-        <p class="num_box"><span>$ {{this.price}}</span></p>
+      <!-- 商品資訊 -->
+      <div class="product_txt_box">
+        <p>推薦|玫瑰花</p>
       </div>
 
-      <!-- 數量 -->
-      <div class="item_box">
-        <p>數量</p>
-        <div class="count">
-          <img @click="this.minusCount" src="assets/images/icon/article_left.png">
-          <input min="0" type="number" v-model="this.count">
-          <img @click="this.plusCount" src="assets/images/icon/article_right.png">
+      <div class="counter_box">
+        <!-- 單價 -->
+        <div class="txt_box">
+          <p>單價<span class="num_box">$ {{this.price}}</span></p>
+        </div>
+        <!-- 數量 -->
+        <div class="item_box">
+          <p>數量
+            <span class="count">
+              <img @click="minusCount" src="assets/images/icon/article_left.png">
+              <input min="0" type="number" v-model="this.count">
+              <img @click="plusCount" src="assets/images/icon/article_right.png">
+            </span>
+          </p>
+        </div>
+        <!-- 商品小計 -->
+        <div class="txt_box">
+          <p>小計<span class="num_box">$ {{this.total}}</span></p>
         </div>
       </div>
+    </div>
 
-      <!-- 商品小計 -->
-      <div class="txt_box">
-        <p>小計 </p>
-        <p class="num_box"><span>$ {{this.total}}</span></p>
-      </div>
-
-      <!-- 操作 -->
-      <div class="txt_box dosometing_box">
-        <p>操作</p>
-        <div class="move_box">
-          <p class="rm_product">移除商品</p>
-          <p class="love_it">加入收藏</p>
-        </div>
+    <!-- 操作 -->
+    <div class="txt_box dosometing_box">
+      <!-- <p>操作</p> -->
+      <div class="move_box">
+        <p class="rm_product">移除商品</p>
+        <p class="love_it">加入收藏</p>
       </div>
     </div>
   </div>
@@ -143,37 +160,44 @@ Vue.component('love-list-box', {
       count: 0,
     };
   },
+  computed: {
+    imgrandom() {
+      let r = Math.floor(Math.random() * 10)
+      return `https://picsum.photos/300/300/?random=${r}`;
+    },
+  },
   template: `
 <div class="shopping_cart_goods_box love_list_txt_box">
   <div class="shopping_cart_goods_item_box">
 
     <div class="information_box">
-      <p>商品</p>
       <!-- 商品照 -->
       <div class="img_box">
-        <img src="https://picsum.photos/300/300/?random=10">
-      </div>
-      <!-- 商品資訊 -->
-      <div class="product_txt_box">
-        <p>推薦|玫瑰花</p>
+        <img :src="imgrandom">
       </div>
     </div>
 
     <!-- 價格數量計算 -->
     <div class="information_item_box">
-      <!-- 單價 -->
-      <div class="txt_box">
-        <p>單價 </p>
-        <p class="num_box love_list_txt_box"><span>$ {{this.price}}</span></p>
+      <!-- 商品資訊 -->
+      <div class="product_txt_box">
+        <p>推薦|玫瑰花</p>
       </div>
-      
-      <!-- 操作 -->
-      <div class="txt_box dosometing_box">
-        <p>操作</p>
-        <div class="move_box">
-          <p class="rm_product">移除商品</p>
-          <p class="love_it">加入購物車</p>
-        </div>
+
+      <div class="counter_box">
+        <!-- 單價 -->
+        <div class="txt_box love_list_txt_box">
+          <p>單價<span class="num_box">$ {{this.price}}</span></p>
+        </div>        
+      </div>
+    </div>
+
+    <!-- 操作 -->
+    <div class="txt_box dosometing_box">
+      <!-- <p>操作</p> -->
+      <div class="move_box">
+        <p class="rm_product">移除商品</p>
+        <p class="love_it">加入購物車</p>
       </div>
     </div>
   </div>
@@ -194,6 +218,31 @@ Vue.component("love-list", {
 })
 
 
+Vue.component("shopping-cart", {
+  data() {
+    return {
+      componentId: "shopping-car",
+    }
+  },
+  mounted() {
+    bus.$on('sendId', (x) => {
+      this.componentId = x;
+    })
+  },
+  template: `
+  <section class="shopping_cart">
+
+    <!-- 購物車最上面的title header -->
+    <shopping-cart-title></shopping-cart-title>
+    
+    <keep-alive>
+      <component :is="this.componentId"></component>
+    </keep-alive>
+  </section>
+  `,
+})
+
+
 new Vue({
   el: '#app',
   data: {
@@ -205,35 +254,13 @@ new Vue({
     // 切換購物收藏組件
     switchShoppingCar() {
       this.componentId = 'shopping-car';
-      this.txt_middle();
     },
     switchLoveList() {
       this.componentId = 'love-list';
-      this.txt_middle();
-    },
-    // 垂直置中
-    txt_middle() {
-      if (window.innerWidth >= 768) {
-        let hei = window.getComputedStyle(document.querySelector(".information_box")).height;
-
-        let txt = document.querySelectorAll(".information_item_box>.txt_box");
-        txt.forEach(element => {
-          element.style.height = hei;
-        });
-        let item_b = document.querySelectorAll(".information_item_box>.item_box");
-        item_b.forEach(element => {
-          element.style.height = hei;
-        });
-      }
     },
   },
   mounted() {
-
-    window.addEventListener("load", () => {
-      this.txt_middle();
-
-    })
-
+    window.addEventListener("load", () => {})
   },
 });
 Vue.config.devtools = true;
