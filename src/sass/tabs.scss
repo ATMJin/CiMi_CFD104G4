@@ -1,0 +1,37 @@
+/* Style the tabs */
+.tabs {
+    overflow: hidden;
+    margin-bottom: -2px; /* hide bottom border */
+    margin-left: 24px;
+}
+
+.tabs a{
+    float: left;
+    cursor: pointer;
+    padding: 12px 24px;
+    transition: background-color 0.2s;
+    border: 1px solid #ccc;
+    border-right: none;
+    background-color: #f1f1f1;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold;
+}
+.tabs a:last-child { 
+    border-right: 1px solid #ccc;
+}
+
+/* Change background color of tabs on hover */
+.tabs a:hover {
+    background-color: #aaa;
+    color: #fff;
+}
+
+/* Styling for active tab */
+.tabs a.active {
+    background-color: #fff;
+    color: #484848;
+    border-bottom: 2px solid #fff;
+    cursor: default;
+}
+
+.data { width: 120px; }
