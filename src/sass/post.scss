@@ -1,133 +1,61 @@
-//引入共用sass ; 如: reset/common/header(上方選單)/sidebar(側邊欄) => 可以自行看自己葉面需要那些sass檔
-@import "layout/reset";
-@import "layout/common";
-@import "layout/header";
-@import "layout/sidebar";
+@import "./layout/reset";
+@import "./layout/common";
+@import "./layout/header";
+@import "./layout/sidebar";
 
-//---------------------------從此開始寫自己頁面的sass----------------------------------------------
-
-// 限制輸入文字時zoom in
-input,
-textarea {
-    font-size: initial;
-    height: device-width;
-}
-
-.post_main_area {
-    width: 100%;
-    margin-top: 60px;
-    padding: 0 20px;
-    position: relative;
-
-    .post_mem_info {
+/* 以下為主要區域 */
+.main_area{
+    width: 80%;
+    margin-top: 135px;
+    padding: 24px;
+    .post_info{
         display: flex;
-        align-items: center;
-
-        .post_mem_head {
-            width: 40px;
-            margin-right: 10px;
-
-            img {
+        margin-bottom: 20px;
+        .post_img{
+            width: 55px;
+            margin-right: 12px;
+            img{
                 width: 100%;
-                border-radius: 50%;
+                border-radius: var(--img-radius);
             }
         }
-
-        .post_date {
-            font-size: var(--tag);
-            color: var(--font-primary);
+        .post_text{
+            display: flex;
+            flex-direction: column;
+            span{
+                font-size: var(--subtitle2);
+            }
+            time{
+                font-size: var(--body2);
+                color: var(--font-secondary);
+            }
         }
     }
-
-    .billboard_select_box {
+    .post{
         display: flex;
-        align-items: center;
-        margin: 10px -0;
-
-        .billboard_select_item {
-            font-size: var(--body2);
-            padding: 5px;
-            // // background-color: var(--secondary-color);
-            // color: #FFFFFF;
-        }
-
-        a {
-            font-size: var(--tag);
-            color: var(--font-primary);
-            margin-left: 10px;
-        }
-    }
-
-    .write_post_box {
-        width: 100%;
-        height: 100vw;
-        box-sizing: border-box;
-    }
-
-    .insert_pic_box {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-
-        .insert_pic_icon {
-            width: 23px;
-            margin-right: 5px;
-
-            img {
-                width: 100%;
-                vertical-align: middle;
+        flex-direction: column;
+        .select_billboard{
+            select{
+                width: 200px;
+                margin-bottom: 15px;
+            }
+            a{
+                display: inline;
             }
         }
-
-        .insert_pic_txt {
-            line-height: 1;
-            color: var(--font-primary);
+        input{
+            margin-bottom: 15px;
         }
-    }
-
-    .post_btn_box {
-        display: flex;
-        justify-content: flex-end;
-
-        .btn-thirdary {
-            margin-right: 10px;
+        textarea{
+            resize: none;
+            margin-bottom: 15px;
         }
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .post_main_area {
-        width: 80%;
-        margin-top: 100px;
-        padding: 0 60px;
-        position: relative;
-
-        .post_mem_info {
-            .post_mem_head {
-                width: 50px;
+        .post_btn{
+            display: flex;
+            justify-content: flex-end;
+            button+button{
+                margin-left: 10px;
             }
         }
-
-        .billboard_select_box {
-            margin: 20px 0;
-        }
-
-        .write_post_box {
-            height: 100%;
-        }
-
-        .insert_pic_box {
-            margin: 10px 0;
-
-        }
-
-        .post_btn_box {
-            padding-bottom: 50px;
-
-            .btn-thirdary {
-                margin-right: 20px;
-            }
-        }
-
     }
 }
