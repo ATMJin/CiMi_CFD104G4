@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CiMi交友論壇</title>
+    <link rel="stylesheet" href="assets/css/charts.css">
+    <link rel="stylesheet" href="assets/css/tabs.css">
+</head>
+
+<body>
+    @@include('layout/header.html')
+
+    <div class="content_area">
+        @@include('layout/sidebar.html')
+        <main class="main_area">
+            <h2>排行榜</h2>
+            <div id="tabs" class="container">
+                <div class="tabs">
+                    <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">會員發文</a>
+                    <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">會員被追蹤</a>
+                    <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">文章被收藏</a>
+                    <a v-on:click="activetab='4'" v-bind:class="[ activetab === '4' ? 'active' : '' ]">文章被喜歡</a>
+                </div>
+
+                <div class="content">
+                    <div v-if="activetab ==='1'" class="tabcontent">
+                        <div class="charts_box">
+                            <div class="charts_rank">
+                                <span>No.1</span>
+                            </div>
+                            <div class="charts_img">
+                                <img src="https://picsum.photos/100/100/?random=12">
+                            </div>
+                            <div class="charts_name">
+                                <span>抹抹更健康</span>
+                                <span>@mumumu</span>
+                            </div>
+                            <div class="charts_sum">
+                                發文數量 : 121
+                            </div>
+                            <div class="charts_btn">
+                                <button class="btn-secondary">追蹤</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="activetab ==='2'" class="tabcontent">
+
+                    </div>
+                    <div v-if="activetab ==='3'" class="tabcontent">
+
+                    </div>
+                    <div v-if="activetab ==='4'" class="tabcontent">
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <!-- 分類頁籤 -->
+    <script>
+        new Vue({
+            el: '#tabs',
+            data: {
+                activetab: '1'
+            },
+        });
+    </script>
+</body>
+
+</html>
