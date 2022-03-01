@@ -108,7 +108,7 @@
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="users_list">
-                <!-- <span class="friends">
+                <span class="friends">
                     <div class="content">
                         <img src="https://picsum.photos/id/684/600/400" alt="">
                         <div class="details">
@@ -118,7 +118,7 @@
                     </div>
                     <div class="status_dot"><i class="fas fa-circle"></i></div>
                     <input type="text" value="123" hidden>
-                </span>-->
+                </span>
 
             </div>
         </section>
@@ -126,16 +126,16 @@
 
         <section class="chat_area">
             <header>
-                <!-- <a href="#" class="back_icon"><i class="fas fa-arrow-left"></i></a> -->
-                <img src="./creator-noeyegirl.png" alt="">
+                <img src="./assets/images/blue_ball.png" alt="">
+                <i class="fa-solid fa-arrow-left black" id="back"></i>
                 <div class="details">
-                    <!-- <span>celia</span> -->
-                    <!-- <p>Active now</p> -->
+                    <span>CIMI</span> 
+                     <p>This is CIMI</p>
                 </div>
-                <!-- <input type="checkbox" name="" id="switch_btn" onclick="darkmode.toggle();"> -->
+                <!-- <input type="checkbox" name="" id="switch_btn" onclick="darkmode.toggle();">  -->
                 <input type="checkbox" name="" id="switch_btn" >
-                <div class="switch back_icon">
-                    <label for="switch_btn" class="btnn"></label>
+                <div class="switch dark_icon">
+                <label for="switch_btn" class="btnn"></label>
             </header>
             <div class="chat_box" id="chat_box">
                 <div class="chat outgoing">
@@ -202,8 +202,9 @@
                         <span><i class="fa-solid fa-file-image"></i></span>
                     </label>
                 </div>
-                <input type="text" placeholder="請輸入訊息" ..." name="message" id="emojionearea1">
+                <input type="text" placeholder="請輸入訊息..."  name="message" id="emojionearea1">
                 <button><i class="fab fa-telegram-plane"></i></button>
+
             </form>
         </section>
         </div>
@@ -211,15 +212,16 @@
 
     <script>
         // DarkMode.js Code
-        function addDarkmodeWidget() {
-            let switch_btn = document.getElementById('switch_btn')
-            const darkmode = new Darkmode();
-            switch_btn.addEventListener('click', changeMode)
-            function changeMode(){
-                darkmode.toggle();
-            }
-        }
-        window.addEventListener('load', addDarkmodeWidget);
+        // function addDarkmodeWidget() {
+        //     let switch_btn = document.getElementById('switch_btn')
+        //     const darkmode = new Darkmode();
+        //     switch_btn.addEventListener('click', changeMode)
+        //     function changeMode(){
+        //         darkmode.toggle();
+        //     }
+        //     console.log('addDarkmodeWidget')
+        // }
+        // window.addEventListener('load', addDarkmodeWidget);
     </script>
 
     <script>
@@ -235,10 +237,17 @@
             });
         })
     </script>
+    <script>
+        
+        let rowcount = 0
+    </script>
 
 
     <script src="js/user.js"></script>
     <script src="js/chat.js"></script>
+    <script src="js/chat_img.js"></script>
+
+    
 </body>
 
 </html>

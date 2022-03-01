@@ -14,13 +14,13 @@ $output="";
 
 if(isset($_POST['id']) == true){ 
     $output .= '
-        <a href="#" class="back_icon"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-        <img src="https://picsum.photos/300/200/?random=10" alt="">
+    <i class="fa-solid fa-arrow-left black" id="back"></i>
+        <img src="./assets/images/blue_ball.png" alt="">
         <div class="details">
             <span>'.$user['mem_name'].'</span>
             <p>this is my info area</p>
         </div>
-        <input type="checkbox" name="" id="switch_btn" onclick="darkmode.toggle();">
+        <input type="checkbox" name="" id="switch_btn">
                 <div class="switch dark_icon">
                     <label for="switch_btn" class="btnn"></label>
 

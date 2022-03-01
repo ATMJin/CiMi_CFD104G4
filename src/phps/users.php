@@ -21,7 +21,7 @@
             $output.= '
                 <span class="friends">
                     <div class="content">
-                        <img src="https://picsum.photos/id/684/600/400" alt="">
+                        <img src="./assets/images/blue_ball.png" alt="">
                         <div class="details">
                             <span>'.$usersRow['mem_name'].'</span>
                             <p>This is test message</p>

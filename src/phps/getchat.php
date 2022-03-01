@@ -11,7 +11,7 @@ $incoming_id =  $_SESSION['chatPerson']; //收訊者
 // var_dump($outgoing_id, $incoming_id) ;
 
 $output = "";
-
+$rowcount = 0;
 $sql = "SELECT * FROM messages 
         JOIN mem ON mem.mem_no = messages.outgoing_msg_id
         
@@ -21,7 +21,7 @@ $sql = "SELECT * FROM messages
 $msg = $pdo->query($sql);
 
 if($msg -> rowCount() > 0){
-   
+        $rowcount = $msg -> rowCount();
         while($msgRows = $msg->fetch(PDO::FETCH_ASSOC)){    
                 // print_r($msgRows);
                 
@@ -35,7 +35,7 @@ if($msg -> rowCount() > 0){
                         // print_r($msgRows['msg']);
                 }else{
                         $output .=' <div class="chat incoming">
-                                      <img src="https://picsum.photos/id/684/600/400" alt="">
+                                        <img src="./assets/images/blue_ball.png" alt="">
                                          <div class="details">
                                          <p>' . $msgRows['msg'] . '</p>
                                          </div>
@@ -49,6 +49,5 @@ if($msg -> rowCount() > 0){
         }
 
 }
-echo $output;
-
-?>
+ $php_array = array ('output' => $output, 'rowcount' => $rowcount);
+ echo json_encode($php_array);

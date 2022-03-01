@@ -2,6 +2,11 @@
     const searchBar = document.querySelector('.users .search input');
     const searchBtn = document.querySelector('.users .search button');
     const userList = document.querySelector('.users .users_list');
+    const users = document.querySelector('.users')
+    const chat_area = document.querySelector('.chat_area')
+
+
+
 
 
     searchBtn.onclick = () => {
@@ -45,6 +50,7 @@
         }
     }
 
+    // function do First ========================================W
     /*功能三: 左邊的人點擊之後要換成他的頭像和名字和聊天視窗 */
 
     function doFirst() {
@@ -53,15 +59,12 @@
 
         for (let i = 0; i < users.length; i++) {
             users[i].addEventListener('click', function (e) {
-
+                rowcount = 0
                 //點當前的人要換背景 => background-color: #EAF3FF;
-
-
                 scrollBottom(); // DO IMMEDIATELY
                 changeStyle(e)
                 let user_id = e.currentTarget.lastElementChild.innerText //使用者id
                 let userInfo = document.querySelector('.chat_area header') //右側聊天室header
-
 
                 //執行ajax
                 xhr = new XMLHttpRequest()
@@ -71,9 +74,16 @@
                         if (xhr.status == 200) {
                             let data = xhr.responseText;
                             userInfo.innerHTML = data;
+                            let back = document.getElementById('back')
+                            back.onclick = () => {
+                                const users = document.querySelector('.users')
+                                const chat_area = document.querySelector('.chat_area')
+                                users.style.display = 'block'
+                                chat_area.style.display = 'none'
 
-                            console.log(data);
+                            }
                         }
+                        back
                     }
                 }
                 xhr.open('POST', 'phps/getusers.php', true)
@@ -82,6 +92,7 @@
             })
         }
     }
+    // ==============================================================================
 
     //換顏色的函式
     function changeStyle(e) {
@@ -95,26 +106,32 @@
         e.currentTarget.style.backgroundColor = '#EAF3FF';
 
         let users = document.querySelector('.users')
-        console.log(users);
-        users.style.display = 'none'
         let chat_area = document.querySelector('.chat_area')
-        chat_area.style.display = 'block'
-        chat_area.style.border = 'none'
+
+        let w = $(window).width();
+        if (w < 768) {
+            chat_area.style.display = 'block'
+            chat_area.style.border = 'none'
+            users.style.display = 'none'
+        }
 
 
     }
     $(document).ready(function () {
         $(window).resize(function () {
             let w = $(window).width();
-            let users = document.querySelector('.users')
-            let chat_area = document.querySelector('.chat_area')
             if (w > 768) {
                 users.style.display = 'block'
                 chat_area.style.display = 'block'
-            }else{
+            } else {
                 chat_area.style.display = 'none'
                 users.style.display = 'block'
+
+
             }
         });
     });
+    // DarkMode.js Code
+    
+
     window.addEventListener('load', doFirst)
