@@ -3,21 +3,37 @@
 @import "./layout/common";
 @import "./layout/header";
 @import "./layout/sidebar";
-@import "./article.scss";
+@import "./article";
+@import "./tabs";
 
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
-
+// 桌機版
+@mixin PC {
+    @media screen and (min-width:768px) {
+        @content;
+    }
+}
 
 .main_area {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 80px;
+
+    @include PC() {
+        margin-top: 100px;
+
+    }
 }
 
 
 // 文章banner
 .article_sort_banner {
     width: 100%;
-    padding: 0 40px;
+    padding: 0 10px;
+
+    @include PC() {
+        padding: 0 40px;
+
+    }
 
     img {
         width: 100%;
@@ -29,7 +45,13 @@
 .article_sort {
     width: 100%;
     position: relative;
-    padding: 40px;
+    padding: 10px;
+    margin-bottom: 60px;
+
+    @include PC() {
+        margin-bottom: 0;
+        padding: 15px 40px;
+    }
 
     .article_sort_box {
         position: relative;
@@ -55,9 +77,13 @@
             .article_sort_txt {
                 display: flex;
                 align-items: center;
-                font-size: var(--title);
+                font-size: var(--subtitle1);
                 padding: 0 10px;
                 font-weight: 500;
+
+                @include PC() {
+                    font-size: var(--title);
+                }
 
             }
         }
@@ -86,8 +112,12 @@
     }
 
     .charts_box {
-        padding: 20px;
+        padding: 10px;
         cursor: pointer;
+
+        @include PC() {
+            padding: 20px;
+        }
 
         .charts_img {
             width: 5%;
@@ -115,13 +145,18 @@
     .tabs a {
         float: left;
         cursor: pointer;
-        padding: 12px 24px;
+        padding: 6px 24px;
         transition: background-color 0.2s;
         border: 1px solid #ccc;
         border-right: none;
         background-color: #f1f1f1;
         border-radius: 10px 10px 0 0;
         font-weight: 500;
+
+        @include PC() {
+            padding: 12px 24px;
+
+        }
     }
 
     .tabs a:last-child {
@@ -201,11 +236,11 @@
             justify-content: space-between;
             align-items: flex-start;
             box-sizing: border-box;
-            // height: 140px;
             padding-bottom: 10px;
             border-bottom: 1px solid #cccccc;
             position: relative;
             height: 150px;
+
 
             .article_txt_box {
                 position: relative;
@@ -254,13 +289,25 @@
             }
 
             .article_pic_box {
-                height: 100%;
+                width: 30vw;
+                max-width: 140px;
+
+                @include PC() {
+                    height: 100%;
+                    width: auto;
+                    max-width: auto;
+                }
 
                 img {
-                    height: 100%;
+                    width: 100%;
                     border-radius: 10px;
                     padding: 5px;
                     vertical-align: middle;
+
+                    @include PC() {
+                        height: 100%;
+                        width: auto;
+                    }
                 }
             }
         }
