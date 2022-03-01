@@ -1,310 +1,439 @@
-@import "./layout/reset";
-@import "./layout/common";
-@import "./layout/sidebar";
+@import"./layout/reset";
+@import"./layout/common";
 
-/* 以下為上方搜尋區域 */
-.top_bar_box {
-    width: 100%;
-    position: fixed;
-    margin: auto;
-    z-index: 11;
-    background-color: #fff;
 
-    .top_bar {
-        height: 100px;
-        width: 100%;
-        max-width: 1440px;
-        display: flex;
-        margin: auto;
-        box-sizing: border-box;
-        padding: 5px 20px;
-        align-items: center;
-        justify-content: space-between;
-
-        .logo_box {
-            img {
-                height: 40px;
-            }
-        }
-
-        .search_bar {
-            display: flex;
-            box-sizing: border-box;
-            position: relative;
-            width: 60%;
-
-            input {
-                width: 100%;
-                height: 25px;
-                border-radius: 50px;
-            }
-        }
-
-        button {
-            width: 30px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            position: absolute;
-            top: 3px;
-            right: 3px;
-
-            img {
-                width: 15px;
-            }
-        }
-
-        .member_bar {
-            display: none;
-        }
-    }
-}
-
-@media screen and (min-width: 768px) {
-
-    /* 以下為上方搜尋區域 */
-    .top_bar_box {
-        height: 100px;
-
-        .top_bar {
-            .member_bar {
-                display: block;
-
-                ul {
-                    display: flex;
-                    box-sizing: border-box;
-
-                    li+li {
-                        padding-left: 15px;
-                    }
-
-                    img {
-                        width: 28px;
-                    }
-                }
-            }
-        }
-    }
-
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 
+.left_button{
+    width: 100px;
+    height: 100px;
+    background-color:#02314c;
+    border-radius: 50%;
+    position: absolute;
+    top:-20px;
+    right:-20px;
+    z-index: 1;
+    color: #333333;
+}
 
+#return{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top:40px;
+    left: 30px;
+    cursor: pointer;
+}
+#home{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top:30px;
+    left: 35px;
+    cursor: pointer;
+}
+// .fa-solid {
+//     position: absolute;
+//     width: 20px;
+//     height: 20px;
+//     z-index: 10;
+//     top:100px;
+//     font-size: 100px;
+// }
+.right_decor{
+    width: 100px;
+    height: 100px;
+    background-color:#02314c;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    z-index: 1;
 
-
-
-
-
-
-.video_viewer {
+}
+.lightbox{
     position: fixed;
     width: 100%;
-    top: -10px;
+    height: 100%;
+    background-color: rgba(20, 19, 19, 0.568);
+    z-index: 4;
+   
+}
+.instrction{
+    position: relative;
+    top:100px;
+    left: 300px;
+   width: 600px;
+   height: 280px;
+   background-color: rgba(255, 255, 255, 0.849);
+   padding: 50px;
+   line-height: 1.5;
+   text-align: center;
+   font-size: 18px;
+   font-weight: 600;
+   color: #5c5c5c;
+   border-radius: 15px;
+}
+.instrction span{
+    font-size:24px;
 }
 
-.ball {
+.lightbox_button{
+    display: flex;
+    justify-content: center;
+    
+}
+.lightbox_button img{
+    width: 80px;
+    margin: 10px;
+    cursor: pointer;
+}
+#button_check:hover{
+    top:30px;
+}
+
+.video_viewer{
+    position:absolute;
+    width: 100%;
+    top:-10px;
+}
+.ball{
     right: 555px;
-    top: 315px;
+    top:315px;
     width: 140px;
     height: 140px;
-    position: fixed;
+    position:fixed;
     z-index: 3;
 }
-
-.question {
+.question{
     /* 問題文字 */
-    position: fixed;
+    position: absolute;
     width: 390px;
-    top: 90px;
+    top:90px;
     left: 250px;
     padding: 10px;
     color: #02314c;
     /* color: rgb(255, 255, 255); */
-    visibility: hidden;
+    visibility:hidden;
     font-family: 'Noto Sans TC', sans-serif;
     line-height: 2;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
 }
-
-.question_frame {
+.question span{
+    font-weight: 700;
+    font-size: 24px;
+}
+.question_frame{
     /*問題div框*/
-    position: fixed;
-    top: 50px;
+    position: absolute;
+    top:50px;
     left: 200px;
     width: 500px;
     height: 250px;
 }
-
-.question_frame img {
-    /*問題背景圖*/
+.question_frame img{
+     /*問題背景圖*/
     width: 100%;
     height: 100%;
 }
 
-.answer_frame {
-    position: fixed;
+.answer_frame{
+    position: absolute;
     width: 320px;
     height: 200px;
-    top: 280px;
-    right: 150px;
+    top:280px;
+    right:150px;
 }
 
-.answer_frame img {
+.answer_frame img{
     width: 100%;
     height: 100%;
 }
-
-.Ans_A {
-    position: fixed;
+.Ans_A{
+    position:absolute;
     right: 250px;
-    top: 315px;
+    top:315px;
     z-index: 2;
     font-size: 20px;
     color: #ffffff;
+    cursor: pointer;
 }
 
-.Ans_B {
-    position: fixed;
+.Ans_B{
+    position:absolute;
     right: 250px;
-    top: 350px;
+    top:350px;
     z-index: 2;
     font-size: 20px;
     color: #ffffff;
+    cursor: pointer;
 }
-
-.Ans_C {
-    position: fixed;
+.Ans_C{
+    position:absolute;
     right: 250px;
-    top: 385px;
+    top:385px;
     z-index: 2;
     font-size: 20px;
     color: #ffffff;
+    cursor: pointer;
 }
 
-#start {
-    position: fixed;
-    width: 420px;
-    top: 80px;
-    left: 400px;
+#start{
+    position: absolute;
+    width: 600px;
+    top:70px;
+    left: 180px;
     padding: 10px;
-    font-size: 20px;
-    color: #593C3C;
+    font-size: 24px;
+    color: #02314c;
     font-weight: 600;
-    line-height: 2;
+    font-family: 'Poppins', sans-serif;
+    visibility: hidden;
 
 }
 
-#start span {
-    font-size: 40px;
+#choose_text{
+    padding-top: 30px;
+}
+
+.start_text_animation{
+    animation-name:start_text_ani;
+    animation-duration: .5s;
+
+}
+@keyframes start_text_ani{
+    0%{
+    //    left: -10px;
+        top:100px;
+        opacity: .5;
+        transform: rotate3d(1, 20, 20, .1turn);
+        
+        // transform: scale(0) rotate3d(0, 11, 1, 45deg);
+    }
+ 
+    100%{
+        top:70px;
+        // left: 180px;
+        opacity: 1;}
+
+  }
+
+
+.choose_text_animation{
+    animation-name:choose_text_ani;
+    animation-duration: .5s;
+
+}
+@keyframes choose_text_ani{
+    0%{
+    //    left: -10px;
+        top:100px;
+        opacity: .5;
+        transform: rotate3d(1, 20, 20, -.1turn);
+        
+        // transform: scale(0) rotate3d(0, 11, 1, 45deg);
+    }
+ 
+    100%{
+        top:70px;
+        // left: 180px;
+        opacity: 1;}
+
+  }
+#start span{
+    font-size: 70px;
 }
 
 .start {
-    position: fixed;
+    position:absolute;
     margin: auto;
     top: 60%;
     left: 65%;
     font-size: 20px;
     background-size: 200px 50px;
     z-index: 3;
+    cursor: pointer;
+}
+.start_bitton_anime{
+    animation-name: start_button_ani;
+    animation-duration: .5s;
 }
 
-.start_button_img {
+@keyframes start_button_ani{
+    0%{
+        top:60%;
+        opacity: 1;
+    }
+    50%{top:65%}
+    100%{
+        top: 60%;
+        opacity: 0;}
+
+  }
+
+.start_button_img{
     width: 80px;
     height: 80px;
 }
-
-.color_chart {
-    display: block;
+.color_chart{
+    display:block;
 }
-
-.color_option {
-    position: fixed;
+.color_option{
+    position: absolute;
     width: 40px;
     height: 40px;
     z-index: 3;
-    border: 2px solid #3b3b3b;
+    // border: 1.5px solid #02314c;;
+    cursor: pointer;
+    border-radius: 0.75em;
     /* border-radius: 50%; */
 
 }
 
-.pink {
-    left: 480px;
-    top: 240px;
-    background-color: #F09296;
+.pink{
+   left: 480px;
+   top:240px;
+   background-color: #F09296;
 }
-
-.yellow {
+.yellow{
     left: 480px;
-    top: 300px;
+    top:300px;
     background-color: #F5BA79;
 }
-
-.purple {
+.purple{
     left: 480px;
-    top: 360px;
+    top:360px;
     background-color: #97B2FF;
 }
-
-#question0 {
-    visibility: visible;
+#question0{
+    visibility:visible;
     font-size: 50px;
     text-align: center;
 }
 
-.lightbox {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(20, 19, 19, 0.568);
-    z-index: 4;
-
-}
-
-.instrction {
-    position: fixed;
-    top: 100px;
-    right: 300px;
-    width: 600px;
-    height: 280px;
-    background-color: rgba(255, 255, 255, 0.849);
-    padding: 50px;
-    line-height: 2;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-    color: #5c5c5c;
-    border-radius: 15px;
-}
 
 
-.lightbox_button {
+
+
+
+#container{
+    top:200px;
+    left:500px;
     display: flex;
-    justify-content: center;
+    height: 50px; //
+    width: 900px; //這邊我有對最長文字的寬
+    overflow: hidden; //把其他不需要的地方隱藏
+    position: relative;
+  }
 
+  //文字讓他不要換行
+//   .static-text{
+//     white-space: nowrap;
+//     color:#F5BA79
+//   }
+  
+  //處理-2：打字效果
+  .dynamic-text{
+    position: relative; //相對於偽元素而言
+    height: 50px;
+    margin-left: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #fff5f0;
+    font-size: 30px;
+  
+    &:before{
+      content: '';
+      position: absolute;
+      border-left: solid 1px  #ffffff;
+          //border-left 用來做會閃爍的打字線
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left:0;
+      background: #1C1415; //偽元素就是一塊黑黑的傢伙把其他字遮起來～
+      animation: typewriter 4s steps(23) 4, 
+  blink 0.5s steps(23) infinite, 
+          //animation一次可以放很多個
+          //animation的step就是將想要的效果拆解成幾步驟的意思
+          //這邊以最長的文字長度23拆解出來～
+          //typewriter 效果就是一直讓黑黑的遮布往右邊移動
+          //blink 效果就是讓打字的線|一直閃爍
+          
+    }
+  }
+  
+  @keyframes typewriter{
+    40%, 60%{
+      left: 100%;
+    }
+      //40%~60% 讓字固定在最長的長度
+    100%{
+      left: 0;
+    }
+      //100% 再讓所有字消失，好像有人在把字刪掉的感覺～
+  }
+  
+  @keyframes blink{
+    from{border-left: solid 2px  #f7f7f7;}
+    to{border-left: solid 2px  transparent;}
+  }
+  
+  //處理-3：換字效果
+  
+  .dynamic-text-wrapper{
+    position: relative; //因為要移動
+    top: 0px;
+    animation: moveup 16s steps(4) 4,
+      //每一行打字設定是4s所以3s需要花費 4*3 =12秒時間移到最後一行
+      //因為3行所以這個動畫花steps(3)次解決～
+  }
+  
+  @keyframes moveup{
+    0%{top:0;}
+    100%{top: -200px;}
+      //每行高度是50px，要讓最後一行出現就是50px*3行=150px囉～
+  }
+  
+
+#destiny_botton{
+    position: relative;
+    top:400px;
+    left: 600px;
+    
+#My_destiny_button{
+    border: 2px solid white;
+    padding: 0 10px;
+    line-height: 2;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #1C1415;
+    color: white;
+    font-weight: 700; 
+    top:300px;
+    cursor: pointer;
 }
 
-.lightbox_button img {
-    width: 80px;
-    margin: 10px;
+.countdown_time{
+    font-size: 24px;
+    color: #f7f7f7;
 }
-
-
+}
 
 
 /* svg_ball */
 
 
 
-.st0 {
-    fill: #F5BA79;
-}
+.st0{fill:#F5BA79;}
 
-.st1 {
-    fill: #473C3C;
-}
+.st1{fill:#473C3C;}
 
-.st2 {
-    fill: #FFFFFF;
-    stroke: #FFFFFF;
-    stroke-width: 2;
-    stroke-miterlimit: 10;
-}
+.st2{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
