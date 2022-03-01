@@ -62,7 +62,6 @@ Vue.component('shopping-cart-goods-box', {
     rmProduct(e) {
       // 尋找刪除鍵所在的商品欄
       let par = e.target.parentNode.parentNode.parentNode.parentNode;
-      console.log(par);
       // 刪除商品欄
       par.remove()
 
@@ -233,6 +232,11 @@ Vue.component("love-list", {
 })
 
 Vue.component("nothing-goods-box", {
+  methods: {
+    gotoShopping() {
+      location.href = 'product_ad_page.html'
+    },
+  },
   template: `
 <div class="nothing_goods_box">
   <div class="img_box">
@@ -241,7 +245,7 @@ Vue.component("nothing-goods-box", {
   <p>尚未有商品</p>
   <p>快去逛逛好物商城 </p>
   <p>發現更便利的生活方式</p>
-  <button class="btn-primary">立即前往</button>
+  <button @click="gotoShopping" class="btn-primary">立即前往</button>
 </div>
   `,
 })
