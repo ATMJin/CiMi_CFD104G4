@@ -31,10 +31,10 @@
             </form>
             <div class="member_bar">
                 <ul>
-                    <li><a href="http://"><img src="assets/images/icon/nav_post.png" alt="發文"></a></li>
+                    <li><a href="post.html"><img src="assets/images/icon/nav_post.png" alt="發文"></a></li>
                     <li><a href="product.html"><img src="assets/images/icon/nav_shop.png" alt="好物商城"></a></li>
                     <li><a href="chat.html"><img src="assets/images/icon/nav_message.png" alt="聊天室"></a></li>
-                    <li><a href="member_integral.html"><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
+                    <li><a href="member_my_setup.html"><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
                 </ul>
             </div>
         </div>
@@ -48,24 +48,26 @@
                         <ul class="sidebar_list">
                             <li class="nav_phone"><a href="index.html"><img src="assets/images/icon/nav_home_w.png"
                                         alt="首頁">首頁</a></li>
-                            <li><a href="http://"><img src="assets/images/icon/nav_billboard_w.png" alt="所有看版">所有看版</a>
+                            <li><a href="billboard.html"><img src="assets/images/icon/nav_billboard_w.png"
+                                        alt="所有看版">所有看版</a>
                             </li>
                             <li><a href="product.html"><img src="assets/images/icon/nav_shop_w.png" alt="好物商城">好物商城</a>
                             </li>
-                            <li><a href="http://"><img src="assets/images/icon/nav_charts_w.png" alt="創作者排行榜">創作者排行榜</a>
+                            <li><a href="charts.html"><img src="assets/images/icon/nav_charts_w.png"
+                                        alt="創作者排行榜">創作者排行榜</a>
                             </li>
                             <li class="nav_pc"><a href="cimi_destiny.html"><img src="assets/images/icon/game_card_w.png"
                                         alt="CiMi
                                         Destiny">CiMi
                                     Destiny</a></li>
-                            <li class="nav_pc"><a href="http://"><img src="assets/images/icon/game_bottle_w.png"
-                                        alt="真心話大冒險">真心話大冒險</a>
+                            <!-- <li class="nav_pc"><a href="http://"><img src="assets/images/icon/game_bottle_w.png"
+                                        alt="真心話大冒險">真心話大冒險</a> -->
                             </li>
-                            <li class="nav_phone"><a href="http://"><img src="assets/images/icon/games_w.png"
+                            <!-- <li class="nav_phone"><a href="http://"><img src="assets/images/icon/games_w.png"
                                         alt="遊戲區">遊戲區</a>
-                            </li>
-                            <li class="nav_phone"><a href="http://"><img src="assets/images/icon/nav_member_w.png"
-                                        alt="會員專區">會員專區</a>
+                            </li> -->
+                            <li class="nav_phone"><a href="member_my_setup.html"><img
+                                        src="assets/images/icon/nav_member_w.png" alt="會員專區">會員專區</a>
                             </li>
                         </ul>
                     </nav>
@@ -156,13 +158,23 @@
                         <h2>追蹤的看版</h2>
                         <ul class="billboard_img">
                             <li>
-                                <a href="http://">
-                                    <div class="pic_box"><img src="https://picsum.photos/500/500/?random=11"></div>
+                                <a href="article_all.html">
+                                    <div class="pic_box">
+                                        <img src="https://picsum.photos/500/500/?random=11">
+                                    </div>
+                                    <div class="billboard_text">
+                                        <h2>穿搭時尚</h2>
+                                    </div>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://">
-                                    <div class="pic_box"><img src="https://picsum.photos/500/500/?random=12"></div>
+                                <a href="article_all.html">
+                                    <div class="pic_box">
+                                        <img src="https://picsum.photos/500/500/?random=12">
+                                    </div>
+                                    <div class="billboard_text">
+                                        <h2>運動健身</h2>
+                                    </div>
                                 </a>
                             </li>
                         </ul>
@@ -539,6 +551,34 @@
                     },
                 });
             }
+        }
+    </script>
+    <script>
+        //alert for one time
+        let alertmessage =
+            "'本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。(https://www.facebook.com/TibaMe)'"
+
+
+        // get cookies
+
+        function get_cookie(Name) {
+            var search = Name + "=";
+            var returnvalue = "";
+            if (document.cookie.length > 0) {
+                offset = document.cookie.indexOf(search)
+                if (offset != -1) { // if cookie exists
+                    offset += search.length;
+                    end = document.cookie.indexOf(";", offset);
+                    if (end == -1)
+                        end = document.cookie.length;
+                    returnvalue = document.cookie.substring(offset, end);
+                }
+            }
+            return returnvalue;
+        }
+        if (get_cookie('alerted') != 'yes') {
+            alert(alertmessage);
+            document.cookie = "alerted=yes";
         }
     </script>
 </body>

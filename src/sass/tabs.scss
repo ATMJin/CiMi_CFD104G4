@@ -1,7 +1,7 @@
 /* Style the tabs */
 .tabs {
     overflow: hidden;
-    margin-bottom: -2px; /* hide bottom border */
+    margin-bottom: -2px;    
 }
 
 .tabs a{
@@ -13,7 +13,7 @@
     border-right: none;
     background-color: #f1f1f1;
     border-radius: 10px 10px 0 0;
-    font-weight: bold;
+    font-weight: var(--bold);
 }
 .tabs a:last-child { 
     border-right: 1px solid #ccc;
@@ -30,7 +30,15 @@
     background-color: #fff;
     color: #484848;
     border-bottom: 2px solid #fff;
+    font-weight: var(--bold);
     cursor: default;
 }
 
-.data { width: 120px; }
+/* Style the tab content */
+.tabcontent {
+    border-top: 1px solid #ccc;
+}
+
+.data {
+    width: 120px;
+}
