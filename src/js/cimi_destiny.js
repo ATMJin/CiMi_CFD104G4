@@ -1,32 +1,49 @@
 
 
+//遊戲開始鍵
+let button_check = document.getElementById("button_check");
+
+//影片、影片播放鍵
 let selectVideo = document.querySelector('video');
 let start = document.querySelector('.start');
 
+
 let playButtons = document.querySelectorAll('.toggle');
-let questions = document.getElementsByClassName("question");
 
 
+//對話框
 let answer_frame = document.getElementsByClassName("answer_frame");
 let question_frame = document.getElementsByClassName("question_frame");
 
-let button_check = document.getElementById("button_check");
+//問題文字
+let questions = document.getElementsByClassName("question");
 
 
+//客製化顏色
 let ball_color = document.querySelector('.st0');
 let pink = document.querySelector('.pink');
 let yellow = document.querySelector('.yellow');
 let purple = document.querySelector('.purple');
 
+
+//偵測影片時間
+let  timer = setInterval(function () {
+    console.log(selectVideo.currentTime);
+    videoPause();
+    }, 100);
+
+
+//影片暫停
 let flag = [false,false,false];
-// let pauseTime = [2,28,46];
-let pauseTime = [11,19,28,30];
+let pauseTime = [7.8,14.6,25];
 let options =[
-    ["第一題選項x","第一題選項y","第一題選項z","第一題選項q"],
-    ["第二題選項f","第二題選項g","第二題選項h","第二題選項i"],
-    ["第三題選項m","第三題選項n","第三題選項o","第三題選項p"]
+    ["A. 酒精","B. 放大鏡","C. 汽油"],
+    ["A. 電話響起","B. 有門鈴聲","C. 你的手機響了"],
+    ["A. 小杯的烈酒","B. 色彩豊富的調酒","C. 啤酒"]
 ];
 
+//洞裡面
+let destiny_botton = document.getElementById("destiny_botton");
 let waiting_lightbox = document.getElementById("waiting_lightbox");
 
 
@@ -60,7 +77,16 @@ function go_purple(){
 //點按check後，遊戲說明燈箱消失
 function check_play(){
     document.getElementById("instrction_lightbox").style ="display:none";
+    document.getElementById("start").style="visibility:visible";
+    document.getElementById("animated-title").classList.add("start_text_animation");
+    document.getElementById("choose_text").classList.add("choose_text_animation");
+
+    // let t2_control =new TimelineMax();
     
+    // t2_control.to('#start', {
+    //     duration: 2.5, ease: "bounce.out", y: -500 
+    // });
+
 };
 
 function playToggle() {
@@ -89,10 +115,7 @@ function playToggle() {
         
        
     } else {
-        timer = setInterval(function () {
-                    console.log(selectVideo.currentTime);
-                    videoPause();
-                    }, 100);
+       
                     
         selectVideo.play();
         question_frame[0].style = "visibility:hidden";
@@ -125,13 +148,31 @@ function videoPause() {
             questions[i].style ="visibility:visible";
             
 
-            for(j=0; j<4; j++){
+            for(j=0; j<5; j++){
                 playButtons[j].innerText= options[i][j];
             };
            
 
-        } else if(selectVideo.currentTime > 32){
-            document.getElementById("waiting_lightbox").style ="display:block";
+        } else if(selectVideo.currentTime > 28){
+
+            clearInterval(timer);
+            // document.getElementById("waiting_lightbox").style ="display:block";
+
+            // document.querySelector('.left_button').style="backgroundcolor:transpanent";
+            // document.querySelector('.right_decor').style="backgroundcolor:transpanent";
+            
+            let typer = document.getElementById("container");
+
+            
+            typer.innerHTML='<div class="dynamic-text-wrapper"><div class="dynamic-text">屬於你的Destiny</div><div class="dynamic-text">即將於午夜12:00出現</div></div>';
+
+            let countdown = document.getElementById("countdown");
+            setTimeout(function(){countdown.innerHTML='<div class="countdown_time">倒計時03:20:04</div>'}, 10*1000);
+            ;
+            
+            setTimeout(function(){destiny_botton.innerHTML='<button id="My_destiny_button">我的destiny</button>'}, 10*1000);
+            ;
+
         };
     };
     
