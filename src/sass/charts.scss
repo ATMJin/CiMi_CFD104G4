@@ -5,11 +5,16 @@
 
 /* 以下為主要區域 */
 .main_area{
-    width: 80%;
-    margin-top: 135px;
-    padding: 40px;
+    width: 100%;
+    margin-top: 80px;
+    padding: 0 40px;
+    box-sizing: border-box;
+    @media screen and (min-width: 768px){
+        width: 80%;
+        margin-top: 135px;
+    }
     h2{
-        font-size: var(--subtitle1);
+        font-size: var(--title);
         font-weight: var(--bold);
         margin-bottom: 20px;
     }
@@ -19,9 +24,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
+    border-bottom: 1px solid #eee;
+    padding: 20px;
     .charts_img{
-        width: 5%;
+        width: 55px;
         margin-right: 12px;
         img{
             width: 100%;
@@ -31,5 +37,9 @@
     .charts_name{
         display: flex;
         flex-direction: column;
+        span:last-child{
+            font-size: var(--body2);
+            color: var(--font-secondary);
+        }
     }
 }

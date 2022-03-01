@@ -5,9 +5,14 @@
 
 /* 以下為主要區域 */
 .main_area{
-    width: 80%;
-    margin-top: 135px;
+    width: 100%;
+    margin-top: 80px;
     padding: 24px;
+    box-sizing: border-box;
+    @media screen and (min-width: 768px){
+        width: 80%;
+        margin-top: 135px;
+    }
     .post_info{
         display: flex;
         margin-bottom: 20px;
