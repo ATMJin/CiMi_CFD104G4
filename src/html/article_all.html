@@ -14,7 +14,7 @@
 <body>
     @@include('layout/header.html')
 
-    <section class="content">
+    <section class="content_area">
         @@include('layout/sidebar.html')
         <main class="main_area">
             <!-- 文章分類Banner -->
@@ -41,6 +41,28 @@
                     <div class="new_article tag">最新</div>
                     <div class="board_rule tag">規則</div>
                 </div>
+                <!-- <div id="article_tabs" class="article_change_page">
+                    <div class="tabs">
+                        <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">熱門</a>
+                        <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">最新</a>
+                        <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">規則</a>
+                    </div>
+
+                    <div class="article_change_page">
+                        <div v-if="activetab ==='1'" class="tabcontent">
+
+                        </div>
+                        <div v-if="activetab ==='2'" class="tabcontent">
+
+                        </div>
+                        <div v-if="activetab ==='3'" class="tabcontent">
+
+                        </div>
+                        <div v-if="activetab ==='4'" class="tabcontent">
+
+                        </div>
+                    </div>
+                </div> -->
                 <!-- 文章列表 -->
                 <div class="article_box">
                     <!-- 發文者 -->
@@ -54,12 +76,16 @@
                     <div class="article_container">
                         <!-- 文章內容 -->
                         <div class="article_txt_box">
-                            <div class="article_title">穿搭精華區上線啦！！值得收藏的穿搭資訊都在這!</div>
-                            <!-- 文章摘要 -->
-                            <div class="article_summary">
-                                嗨嗨穿搭板的卡友們！<br>
-                                我是穿搭小梨子🍐
+                            <div class="article_txt_item">
+                                <!-- 文章標題 -->
+                                <div class="article_title">穿搭精華區上線啦！！</div>
+                                <!-- 文章摘要 -->
+                                <div class="article_summary">
+                                    嗨嗨穿搭板的卡友們！<br>
+                                    我是穿搭穿搭板的穿搭板的小梨子🍐
+                                </div>
                             </div>
+                            
                             <!-- 文章反應 -->
                             <div class="article_react">
                                 <!-- 喜歡數 -->
@@ -444,7 +470,7 @@
                 </div>
             </section>
 
-            <script type="text/javascript" src="../javascript/article_all.js"></script>
+            <script type="text/javascript" src="javascript/article_all.js"></script>
         </main>
     </section>
 </body>

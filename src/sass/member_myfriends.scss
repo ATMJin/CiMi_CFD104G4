@@ -17,29 +17,29 @@ aside{
             padding: 24px 0;
             flex-wrap: wrap;
             margin-top: 100px;
-            // background-color: #a3a3a3;
             border-radius: 10px;
 
             .member_friends_card {
-                width: 27%;
-                // background-color: #dadada;
+                width: 40%;
                 margin: 3%;
                 padding: 2%;
-                border-radius: 5px;
+                border-radius: 20px;
+                background-color: #fff;
+                box-shadow: 0 2px 8px 2px #ecebebce;
 
                 .member_cardhead {
                     display: flex;
                     justify-content: center;
 
                     img {
-                        width: 80px;
-                        height: 80px;
+                        width: 120px;
+                        height: 120px;
                     }
                 }
 
                 .member_cardtext {
                     p {
-                        padding: 5% 10%;
+                        padding: 10px
                     }
                 }
             }
@@ -47,7 +47,7 @@ aside{
     }
 }
 
-@media screen and (min-width:1440px) {
+@media screen and (min-width:768px) {
     aside{
         display: inline-block;
     }
@@ -73,27 +73,29 @@ aside{
 
                 .member_friends_card {
                     width: calc(80%/3);
-                    // background-color: #dadada;
                     border-radius: 5px;
                     margin: 20px 0%;
                     padding: 0%;
+                    border-radius: 20px;
+                    background-color: #fff;
+                    box-shadow: 0 2px 8px 2px #ecebebce;
+    
 
                     .member_cardhead {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        padding: 50px 0px;
-
-                        // margin: 20px 0px;
+                        padding: 0%;
+                        margin: 0%;
                         img {
-                            width: 100px;
-                            height: 100px;
+                            width: 200px;
+                            height: 200px;
                         }
                     }
 
                     .member_cardtext {
                         p {
-                            padding: 5% 25%;
+                            padding: auto;
                         }
                     }
                 }

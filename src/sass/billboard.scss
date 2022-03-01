@@ -1,0 +1,57 @@
+//引入共用sass ; 如: reset/common/header(上方選單)/sidebar(側邊欄) => 可以自行看自己葉面需要那些sass檔
+@import "layout/reset";
+@import "layout/common";
+@import "layout/header";
+@import "layout/sidebar";
+
+//---------------------------從此開始寫自己頁面的sass----------------------------------------------
+
+
+.billboard_main_area {
+    width: 100%;
+    margin-top: 60px;
+    padding: 0 20px;
+    position: relative;
+
+    .billboard_sort {
+        font-size: var(--title);
+        margin-left: 20px;
+    }
+
+    .billboard_box {
+        display: flex;
+        flex-wrap: wrap;
+
+        .billboard_item {
+            width: calc (25% -60px);
+            color: var(--font-primary);
+            padding: 10px;
+            margin: 20px;
+            font-size: var(--subtitle2);
+            // padding: 10px 0;
+            border: #aaa .5px solid;
+            border-radius: 20px;
+            box-shadow: 3px 5px 0.3em #ddd;
+
+            .billboard_pic {
+                width: 220px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .billboard_main_area {
+        width: 80%;
+        margin-top: 100px;
+        padding: 0 60px;
+        position: relative;
+
+    }
+}

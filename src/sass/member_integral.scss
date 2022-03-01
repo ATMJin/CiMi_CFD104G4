@@ -4,14 +4,16 @@ aside {
 
 .member_bg {
     .member_main {
-        width: 95%;
+        width: 100%;
         margin: auto;
 
         .member_bouns_head {
             width: 100%;
-            border-radius: 20px;
-            background-color: var(--icon-color);
             margin-top: 100px;
+
+            img {
+                border-radius: 50%;
+            }
 
             .member_bouns_mycoins {
                 display: flex;
@@ -47,13 +49,29 @@ aside {
             }
         }
 
+        // .member_bouns_head::after{
+        //     content: '';
+        //     width: 300px;
+        //     height: 1px;
+        //     background: #000;
+        //     position: absolute;
+        //     margin: 0 auto;
+        // }
 
+        .divider {
+            width: 75%;
+            margin: auto;
+            border-bottom: 1px solid var(--font-secondary);
+
+        }
 
 
     }
+
     .member_main_title {
         display: none;
     }
+
     .member_bouns_take {
         width: 100%;
         margin-top: 50px;
@@ -72,8 +90,8 @@ aside {
                 width: 20%;
 
                 img {
-                    width: 80px;
-                    height: 80px;
+                    width: 50px;
+                    height: 50px;
                     vertical-align: top;
                 }
             }
@@ -82,17 +100,19 @@ aside {
                 width: 50%;
                 justify-content: start;
 
-                p:first-child{
+                p:first-child {
                     font-size: 18px;
                     font-weight: 700;
                 }
-                p:last-child{
+
+                p:last-child {
                     font-size: 14px;
                     font-weight: 300;
-                    color:var(--font-secondary);
+                    color: var(--font-secondary);
                 }
             }
-            .member_bouns_card_takecoin{
+
+            .member_bouns_card_takecoin {
                 font-size: 18px;
             }
         }
@@ -100,7 +120,7 @@ aside {
 }
 
 
-@media screen and (min-width:1440px) {
+@media screen and (min-width:768px) {
     aside {
         display: block;
     }

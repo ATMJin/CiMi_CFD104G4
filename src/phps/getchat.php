@@ -4,7 +4,7 @@ session_start();
 include_once "config.php";
 
 //拿到表單送出的資料
-$outgoing_id = $_SESSION['unique_id'];   //傳訊者
+$outgoing_id = $_SESSION['mem_no'];   //傳訊者
 $incoming_id =  $_SESSION['chatPerson']; //收訊者
 
 
@@ -13,7 +13,7 @@ $incoming_id =  $_SESSION['chatPerson']; //收訊者
 $output = "";
 
 $sql = "SELECT * FROM messages 
-        JOIN users ON users.unique_id = messages.outgoing_msg_id
+        JOIN mem ON mem.mem_no = messages.outgoing_msg_id
         
         WHERE (outgoing_msg_id = {$outgoing_id} AND incoming_msg_id = {$incoming_id}) 
         OR (outgoing_msg_id = {$incoming_id} AND incoming_msg_id = {$outgoing_id}) ORDER BY msg_id";
@@ -37,7 +37,7 @@ if($msg -> rowCount() > 0){
                         $output .=' <div class="chat incoming">
                                       <img src="https://picsum.photos/id/684/600/400" alt="">
                                          <div class="details">
-                                         <p>' . $msgRows['msg'  ] . '</p>
+                                         <p>' . $msgRows['msg'] . '</p>
                                          </div>
                                     </div>';
                          
