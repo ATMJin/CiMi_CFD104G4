@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
+    <title>質感生活 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets\css\product_page.css">
 
     <!-- 廣告輪播 -->
@@ -21,6 +21,7 @@
 </head>
 
 <body>
+
     <main class="product_page">
         <!-- 商品最上面的標題 -->
         <section class="product_page_title">
@@ -28,7 +29,7 @@
             <div class="txt_box">
                 <p>果果乳清蛋白,最佳蛋白</p>
             </div>
-            <!-- 三個點點 -->
+            <!-- 叉叉按鈕 -->
             <div class="img_box">
                 <img src="assets\images\icon\more.png">
             </div>
@@ -48,61 +49,45 @@
                 <!-- <p>@asdfr</p> -->
             </div>
             <!-- 按鈕 -->
-            <button class="product_follow">
+            <button class="btn-secondary">
                 <div class="txt_box">
                     <p>追蹤</p>
                 </div>
             </button>
         </section>
-        <!-- // 商品照(輪播 -->
-        <!-- <section class="product_page_pic">
-            <div class="img_box">
-                <img src="https://picsum.photos/300/300/?random=10">
-            </div>
-        </section> -->
 
-        <section class="hero-slider" data-carousel>
-            <div class="carousel-cell"
-                style="background-image: url(https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg);">
+        <!-- // 商品照(小圖變大圖 -->
+        <section class="product_page_pic">
+            <div class="product_large">
+                <img id="large" src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg">
             </div>
-
-            <div class="carousel-cell"
-                style="background-image: url(https://i.pinimg.com/474x/b6/07/05/b60705f0f45e97d02e8168c93b305735.jpg);">
-            </div>
-
-            <div class="carousel-cell"
-                style="background-image: url(https://i.pinimg.com/474x/95/73/85/957385a3915e0043e50ab31c12bc356a.jpg);">
+            <div class="product_small">
+                <div class="img_box">
+                    <img src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg" /></div>
+                <div class="img_box"><img
+                        src="https://i.pinimg.com/474x/95/73/85/957385a3915e0043e50ab31c12bc356a.jpg" /></div>
+                <div class="img_box">
+                    <img src="https://i.pinimg.com/474x/b6/07/05/b60705f0f45e97d02e8168c93b305735.jpg" /></div>
             </div>
         </section>
-        <!-- js -->
         <script>
-            var options = {
-                accessibility: true,
-                prevNextButtons: true,
-                pageDots: true,
-                setGallerySize: false,
-                arrowShape: {
-                    x0: 10,
-                    x1: 60,
-                    y1: 50,
-                    x2: 60,
-                    y2: 45,
-                    x3: 15
+            function showLarge(e) {
+                //   let small = e.target;
+                //   document.getElementById("large").src = small.src ;
+                document.getElementById("large").src = e.target.src;
+            }
+
+            function init() {
+                let smalls = document.querySelectorAll(".product_small img"); /*query-查詢*/
+                for (let i = 0; i < smalls.length; i++) {
+                    smalls[i].onclick = showLarge;
                 }
-            };
+            }
 
-            var carousel = document.querySelector('[data-carousel]');
-            var slides = document.getElementsByClassName('carousel-cell');
-            var flkty = new Flickity(carousel, options);
-
-            flkty.on('scroll', function () {
-                flkty.slides.forEach(function (slide, i) {
-                    var image = slides[i];
-                    var x = (slide.target + flkty.x) * -1 / 3;
-                    image.style.backgroundPosition = x + 'px';
-                });
-            });
+            window.addEventListener("load", init, false);
         </script>
+
+
         <!-- 商品價格/資訊 -->
         <section class="product_page_price_in">
             <div class="txt_box">
@@ -143,19 +128,20 @@
                     </div>
                 </div>
                 <!-- 立即購買 -->
-                <div class="product_button_shopping">
+                <div class="btn-primary">
                     <div class="txt_box">
                         <p>立即購買</p>
                     </div>
                 </div>
                 <!-- 加入購物車-->
-                <div class="product_button_shop_cat">
+                <div class="btn-secondary">
                     <div class="txt_box">
                         <p>加入購物車</p>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 </body>
 

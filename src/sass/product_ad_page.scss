@@ -13,8 +13,11 @@
 }
 
 // ------------------廣告商品的內頁-----------------------
-// 文章
+// 文章                               
 .main_product_ad_page {
+    padding-top: 135px;
+    // 背景
+    width: 80%;
     .product_ad_txt {
         margin: auto;
         width: 90%;
@@ -28,26 +31,31 @@
 
 
             h1 {
-                font-weight: 500;
-                text-align: center;
-                font-size: 24px;
+                // font-weight: 500;
+                // text-align: center;
+                font-weight:var(--bold);
+                font-size:var(--title);
                 line-height: 33px;
+                margin-bottom: 20px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.15);
             }
 
             h2 {
-                text-align: center;
-                font-size: 28px;
+                text-align:left;
+                font-size:24px;
                 line-height: 40px;
                 padding-top: 0px;
                 margin-bottom: 20px;
+                
             }
 
             p {
-                font-weight: 400;
+                // font-weight: 400;
                 font-size: 16px;
                 line-height: 28px;
                 margin-bottom: 60px;
+                // 文字排版
+                white-space: pre-line;
             }
         }
     }
@@ -82,7 +90,7 @@
                     .item {
                         background-color: rgb(255, 255, 255);
                         margin: 10px;
-                        border-radius: 20px;
+                        border-radius: var(--img-radius);
                         box-shadow: 0 2px 8px 2px #ecebebce;
                         box-sizing: border-box;
                         width: 150px;
@@ -93,17 +101,19 @@
 
                             img {
                                 width: 100%;
-                                border-radius: 20px 20px 0px 0px;
+                                border-radius: 12px 12px 0px 0px;
                             }
                         }
 
                         .txt_box {
                             padding: 10px;
 
+
                             p {
                                 line-height: 20px;
                                 // 使商品名稱跟價格有距離
                                 padding-bottom: 10px;
+
                             }
                         }
                     }
@@ -122,7 +132,7 @@
     // 全部商品
     .main_product_ad_page {
         // 調整避免左邊bar擋到的問題!!!
-        padding-left: 20%;
+        // padding-left: 20%;
 
         .all {
 

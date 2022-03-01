@@ -28,7 +28,7 @@
             .txt_box {
                 p {
                     font-size: 28px;
-                    font-weight: 700;
+                    font-weight: var(--bold);
                     // 文字
                     color: #5E5E5E;
                 }
@@ -69,7 +69,7 @@ body {
     width: 90%;
     height: 200px;
     overflow: hidden;
-    border-radius: 0.75em;
+    border-radius: var(--img-radius);
     /* slider圓角 */
     margin: 100px auto;
     /*調整slider位置*/
@@ -183,7 +183,7 @@ body {
                 display: flex;
                 justify-content: space-around;
                 background-color: #f97373;
-                border-radius: 20px;
+                border-radius: var(--bgc-radius);
                 margin: 4%;
 
                 .item {
@@ -269,8 +269,8 @@ body {
         // 手機頁沒有
         // 限時商品
         .time_limit_item_box {
-            border-radius: 20px;
-            background-color: #E1E1E1;
+            border-radius: var(--bgc-radius);
+            background-color: var(--icon-color);
             padding: 10px;
             box-sizing: border-box;
 
@@ -323,7 +323,7 @@ body {
                     .img_box {
                         img {
                             width: 100%;
-                            border-radius: 20px;
+                            border-radius: var(--img-radius);
                             background: rgba(255, 255, 255, 0.568);
                         }
                     }
@@ -393,7 +393,7 @@ body {
 
                             img {
                                 width: 100%;
-                                border-radius: 20px;
+                                border-radius: var(--img-radius);
                             }
                         }
 
@@ -583,10 +583,10 @@ body {
             .item_box {
                 display: flex;
                 justify-content: space-around;
-                background-color: #E1E1E1;
+                background-color: var(--icon-color);
                 margin: 10px;
                 padding: 10px;
-                border-radius: 20px;
+                border-radius: var(--bgc-radius);
 
                 a {
                     text-decoration: none;
@@ -646,54 +646,103 @@ body {
                 padding: 10px;
 
 
-                a {
-                    text-decoration: none;
-                    // 文字
-                    color: #5E5E5E;
 
-                    .item {
-                        // 顏色白色然後設陰影
-                        background-color: rgb(255, 255, 255);
-                        border-radius: 20px;
-                        box-shadow: 0 2px 8px 2px #ecebebce;
-                        box-sizing: border-box;
-                        margin: 10px;
+                text-decoration: none;
+                // 文字
+
+
+                .item {
+                    // 顏色白色然後設陰影
+                    background-color: rgb(255, 255, 255);
+                    border-radius: var(--img-radius);
+                    box-shadow: 0 2px 8px 2px #ecebebce;
+                    box-sizing: border-box;
+                    margin: 10px;
+                    width: 150px;
+
+
+
+                    .img_box {
                         width: 150px;
 
-
-
-                        .img_box {
-                            width: 150px;
-
-                            img {
-                                width: 100%;
-                                border-radius: 20px 20px 0px 0px;
-                            }
+                        img {
+                            width: 100%;
+                            border-radius: 12px 12px 0px 0px;
                         }
+                    }
 
-                        .txt_box {
-                            padding: 10px;
+                    .txt_box {
+                        padding: 10px;
 
-                            p {
-                                line-height: 20px;
-                                // 使商品名稱跟價格有距離
-                                padding-bottom: 10px;
-                            }
+                        p {
+                            line-height: 20px;
+                            // 使商品名稱跟價格有距離
+                            padding-bottom: 10px;
                         }
                     }
                 }
+
             }
         }
     }
 }
 
+
+
 // ------------------商品內頁燈箱-------------------
+
 // --------平板
 // @media screen and (min-width:768px)and(max-width:990px){
 
 // }
 
+
 // ------------------好物商城-----------------------
+@import 'product_page';
+
+// 購物商城的燈箱
+.product_lighbox {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    // 燈箱出現<背景暗掉
+    background: #6666;
+    // 先消失
+    display: none;
+
+    .product_page {
+        background: #fff;
+        position: absolute;
+        // overflow: scroll;
+        // <!-- 追蹤分類 -->
+        .product_page_sort_follow{
+            width: 100%;
+        }
+    }
+}
+
+// 文進大大燈箱購物車
+.shop_cart_ligh_box {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    background: #6666;
+    // FIXME
+    display: none;
+
+    // .product_page {
+    //     background: #fff;
+    //     position: absolute;
+    //     // overflow: scroll;
+    // }
+}
+
 
 // --------桌機板
 @media screen and (min-width:768px) {
@@ -735,31 +784,18 @@ body {
     }
 
     // 廣告投放
-    .main_product {
-        // 調整避免左邊bar擋到的問題!!!
-        padding-left: 20%;
+    .hero-slider {
+        // 調整大小
+        width: 90%;
+        height: 250px;
+        overflow: hidden;
+        border-radius: var(--img-radius);
+        /* slider圓角 */
+        margin: 50px auto;
+        /*調整slider位置*/
+        box-shadow: 0 2px 8px 2px #ecebebce;
+        // 背景陰影
 
-        // 調整網頁大小
-        // margin: 4%;
-        // padding-top: 100px;
-
-        .owl-carousel {
-
-            .advertise {
-
-                .item_box {
-
-                    a {
-                        .img_box {
-                            // 桌機板的圖片大小
-                            width: 80%;
-
-                            img {}
-                        }
-                    }
-                }
-            }
-        }
     }
 
     // 真實評論，好友討論，免運
@@ -843,7 +879,7 @@ body {
             // 限時商品
             .time_limit_item_box {
                 border-radius: 20px;
-                background-color: #E1E1E1;
+                background-color: var(--icon-color);
                 // padding: 10px;
 
                 // 限時商品標題
@@ -997,7 +1033,7 @@ body {
 
 
                             .img_box {
-
+                                width: 180px;
 
                                 img {
                                     width: 100%;
@@ -1032,7 +1068,7 @@ body {
                 .item_box {
 
 
-                    a {
+                    
 
 
                         .item {
@@ -1054,7 +1090,7 @@ body {
                                 p {}
                             }
                         }
-                    }
+                    
                 }
             }
         }
