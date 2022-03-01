@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/tabs.css">
     <link rel="stylesheet" href="assets/css/index_article.css">
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/attendance.css">
 </head>
 
 <body>
@@ -455,6 +456,124 @@
             </section>
         </div>
     </div>
+    <section class="lightbox_main_area">
+        <div class="lightbox">
+            <div class="attendance_item_box">
+                <div class="close_icon_box">
+                    <img src="assets/images/icon/close.png" class="close_icon" alt="close">
+                </div>
+                <div class="lightbox_title_box">
+                    <p class="lightbox_title_item">每日簽到</p>
+
+                </div>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第一天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第二天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="">第三天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第四天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第五天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第六天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_7days_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第七天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_bonus_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_bonus_item" src="assets/images/attendance_coins_bonus_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/attendance.js"></script>
+    </section>
+
     <script src="js/vue.js"></script>
 
     <!-- 分類頁籤 -->
@@ -575,7 +694,10 @@
             return returnvalue;
         }
         if (get_cookie('alerted') != 'yes') {
+            // 著作權聲明
             alert(alertmessage);
+            // 簽到燈箱
+            document.querySelector(".lightbox").style.display = "block"
             document.cookie = "alerted=yes";
         }
     </script>
