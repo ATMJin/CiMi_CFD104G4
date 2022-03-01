@@ -161,7 +161,7 @@ function videoPause() {
             // document.querySelector('.left_button').style="backgroundcolor:transpanent";
             // document.querySelector('.right_decor').style="backgroundcolor:transpanent";
             
-            let typer = document.getElementById("container");
+            let typer = document.getElementById("typewriter-contain");
 
             
             typer.innerHTML='<div class="dynamic-text-wrapper"><div class="dynamic-text">屬於你的Destiny</div><div class="dynamic-text">即將於午夜12:00出現</div></div>';
@@ -170,7 +170,7 @@ function videoPause() {
             setTimeout(function(){countdown.innerHTML='<div class="countdown_time">倒計時03:20:04</div>'}, 10*1000);
             ;
             
-            setTimeout(function(){destiny_botton.innerHTML='<button id="My_destiny_button">我的destiny</button>'}, 10*1000);
+            setTimeout(function(){destiny_botton.innerHTML='<a href="cards.html"><button id="My_destiny_button">我的destiny</button></a>'}, 10*1000);
             ;
 
         };
