@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CiMi交友論壇</title>
+    <link rel="stylesheet" href="assets/css/post.css">
+    <link rel="stylesheet" href="assets/css/tabs.css">
+</head>
+
+<body>
+    @@include('layout/header.html')
+
+    <div class="content_area">
+        @@include('layout/sidebar.html')
+        <main class="main_area">
+            <div class="post_info">
+                <div class="post_img">
+                    <img src="https://picsum.photos/100/100/?random=11">
+                </div>
+                <div class="post_text">
+                    <span class="post_name">
+                        好想睡
+                    </span>
+                    <time>2022/00/00</time>
+                </div>
+            </div>
+            <form class="post" action="">
+                <select>
+                    <option>選擇發文看版</option>
+                    <option>好聽音樂</option>
+                    <option>旅遊踏青</option>
+                    <option>美妝保養</option>
+                    <option>情感生活</option>
+                    <option>穿搭時尚</option>
+                    <option>運動健身</option>
+                </select>
+                <input type="text" placeholder="標題">
+                <textarea name="" id="" cols="30" rows="10" placeholder="內容"></textarea>
+                <div class="post_file">
+                    <input type="file">
+                </div>
+                <div class="post_btn">
+                    <button type="reset" class="btn-third">取消</button>
+                    <button type="submit" class="btn-secondary">提交</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+@import "./layout/reset";
+@import "./layout/common";
+@import "./layout/header";
+@import "./layout/sidebar";
+
+/* 以下為主要區域 */
+.main_area{
+    width: 80%;
+    margin-top: 135px;
+    padding: 24px;
+    h2{
+        font-size: var(--subtitle1);
+        font-weight: var(--bold);
+    }
+}
+
+.charts_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    .charts_img{
+        width: 5%;
+        margin-right: 12px;
+        img{
+            width: 100%;
+            border-radius: var(--img-radius);
+        }
+    }
+    .charts_name{
+        display: flex;
+        flex-direction: column;
+    }
+}
