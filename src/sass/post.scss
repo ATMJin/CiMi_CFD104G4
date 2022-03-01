@@ -1,0 +1,41 @@
+@import "./layout/reset";
+@import "./layout/common";
+@import "./layout/header";
+@import "./layout/sidebar";
+
+/* 以下為主要區域 */
+.main_area{
+    width: 80%;
+    margin-top: 135px;
+    padding: 24px;
+    .post_info{
+        display: flex;
+        .post_img{
+            width: 5%;
+            margin-right: 12px;
+            img{
+                width: 100%;
+                border-radius: var(--img-radius);
+            }
+        }
+        .post_text{
+            display: flex;
+            flex-direction: column;
+            span{
+                font-size: var(--subtitle2);
+            }
+            time{
+                font-size: var(--body2);
+                color: var(--font-secondary);
+            }
+        }
+    }
+    .post{
+        display: flex;
+        flex-direction: column;
+        .post_btn{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}

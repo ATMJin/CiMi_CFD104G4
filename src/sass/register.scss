@@ -17,43 +17,41 @@ body {
     background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
 }
-// .wrapper{
-//     width: 100%;
-//     border: 1px solid red;
-//     // margin: 0 auto;
-// }
 
+.signup {
+    background-color: var(--secondary-color);
+    // width: 450px;
+    margin: 30px auto 0;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+        0 32px 64px -48px rgba(0, 0, 0, 0.5);
+        position: relative;
 
+}
 
-#pink_ball{
+#pink_ball {
     position: absolute;
-    top: 240px;
-    right: -32%;
+    top: 400px;
+    right: -40%;
     transform: translate(380px, 24%);
     transform: rotate(10deg) scale(0.38);
 }
-#blue_ball{
+
+#blue_ball {
     position: absolute;
     top: -100px;
     left: -30%;
     transform: rotate(10deg) scale(0.4);
 }
+
 /* Signup Form CSS Code */
-
-.login {
-    background-color: var(--secondary-color);
-    // margin: 30px auto 0;
-    border-radius: 16px;
-    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
-        0 32px 64px -48px rgba(0, 0, 0, 0.5);
-}
-
 .form {
-    margin: 40px 40px;
-    padding: 50px 30px;
+    margin: 40px;
+    padding: 20px 30px;
     color: #fff;
     font-weight: 800;
     position: relative;
+
 }
 
 .form header {
@@ -61,7 +59,6 @@ body {
     font-weight: 600;
     text-align: center;
     padding-bottom: 10px;
-    border-bottom: 1px solid #e6e6e6;
 
 }
 
@@ -78,6 +75,9 @@ body {
     margin-bottom: 10px;
     border: 1px solid #f5c6cb;
     display: none;
+}
+.form label{
+    font-size: 12px;
 }
 
 .form form .name-details {
@@ -105,17 +105,38 @@ form .name-details .field:last-child {
 }
 
 .form form .input input {
-    height: 40px;
+    height: 28px;
     width: 80%;
-    font-size: 16px;
+    font-size: 12px;
     padding: 0 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.form form .image input {
-    font-size: 17px;
+.form form .radio,
+.form form .select {
+    // width: 80%;
+    display: flex;
+    justify-content: flex-start;
 }
+
+.form form .radio input,
+.form form .select select {
+    display: inline-block;
+    margin: 5px 10px;
+
+}
+
+.form form .select select {
+    display: inline-block;
+    margin: 5px 1.5%;
+    width: 20%;
+}
+
+.form form .select:first-child select {
+    width: 100px;
+}
+
 
 .form form .button {
     display: flex;
@@ -127,20 +148,21 @@ form .name-details .field:last-child {
 
 
 .form form .button input {
-    margin: 13px 20px ;
-    height: 45px;
+    margin: 13px 20px;
+    height: 30px;
     border: none;
     width: 50%;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 800;
     background-color: #FFFFFF;
     color: var(--secondary-color);
     border-radius: 5px;
     cursor: pointer;
 }
-.form form .button input:first-child{
-    background-color:#B9B9B9;
-    
+
+.form form .button input:first-child {
+    background-color: #B9B9B9;
+
 }
 
 .form .link {
@@ -178,23 +200,18 @@ form .name-details .field:last-child {
 
 
 }
+
 @media screen and (min-width:768px){
     .wrapper{
-        width: 450px;
+        width: 500px;
         margin: 0 auto;
         position: relative;
     }
-    #pink_ball{
+    #pink_ball {
         position: absolute;
-        top: 240px;
-        right: -32%;
+        top: 400px;
+        right: -35%;
         transform: translate(380px, 24%);
-        transform: rotate(10deg) scale(0.4);
-    }
-    #blue_ball{
-        position: absolute;
-        top: -100px;
-        left: -24%;
-        transform: rotate(10deg) scale(0.42);
+        transform: rotate(10deg) scale(0.38);
     }
 }

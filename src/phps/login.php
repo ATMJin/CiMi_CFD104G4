@@ -3,11 +3,11 @@ session_start();
 try{
   include_once "config.php";
   
-  $sql = "select * from users where email=:memId and password=:memPsw"; 
+  $sql = "select * from mem where mem_id=:mem_id and mem_psw=:mem_psw"; 
 
   $member = $pdo -> prepare($sql);
-  $member -> bindValue(":memId", $_POST["email"]);
-  $member -> bindValue(":memPsw", $_POST["password"]);
+  $member -> bindValue(":mem_id", $_POST["mem_id"]);
+  $member -> bindValue(":mem_psw", $_POST["mem_psw"]);
 
   $member -> execute();
 
@@ -17,9 +17,9 @@ try{
 
     //自資料庫中取回資料
     $memberRows = $member->fetch(PDO::FETCH_ASSOC);
-    $_SESSION["memId"] = $memberRows["email"];
-    $_SESSION["memPsw"] = $memberRows["password"];
-    $_SESSION["unique_id"] = $memberRows["unique_id"];
+    $_SESSION["mem_id"] = $memberRows["mem_id"];
+    $_SESSION["mem_psw"] = $memberRows["mem_psw"];
+    $_SESSION["mem_no"] = $memberRows["mem_no"];
 
     echo "success";
   }
