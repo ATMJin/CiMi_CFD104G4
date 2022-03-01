@@ -1,165 +1,324 @@
-aside{
+aside {
     display: none;
 }
+
+.member_head {
+    display: none;
+}
+
+.member_main_title {
+    display: none;
+}
+
 .member_main_box {
     .member_bg {
-        .member_head {
-            display: none;
-        }
-
-        .member_main_title {
-            display: none;
-        }
-
         .member_tabchange {
-            width: 100%;
-            margin: auto;
-            margin-top: 100px;
-
-            .tabs {
-                float: none;
-                list-style: none;
-                position: relative;
-                text-align: left;
-
-                li {
-                    width: 30%;
-                    float: left;
-                    display: block;
-                }
-
-                input[type="radio"] {
-                    position: absolute;
-                    display: none;
-                }
-
-                label {
-                    width: 100%;
-                    display: block;
-                    padding: 14px 21px;
-                    font-size: 20px;
-                    // background: #AAA;
-                    cursor: pointer;
-                    position: relative;
-                    border-radius: 5px 5px 0 0;
-                    transition: all 0.2s ease-in-out;
-                    h2 {
-                        display: inline;
-                    }
-                }
-
-                .tab-content {
-                    z-index: 2;
-                    display: none;
-                    overflow: hidden;
-                    width: 100%;
-                    position: absolute;
-                    top: 52px;
-                    left: 0;
-                    background: #FFF;
-                    margin-top: 50px;
-
-                    h2 {
-                        font-size: 18px;
-                    }
-
-                    .member_track {
-                        .member_tracksection {
-                            width: 90%;
+            .container {
+                .content {
+                    .tabcontent {
+                        .member_art_text {
+                            margin-top: 135px;
+                            .article_box {
+                                width: 80%;
+                                position: relative;
+                                margin: auto;
+                                // margin-left: 20%;
+                                .article_mem_info {
+                                    display: flex;
+                                    padding: 20px 0 5px;
+                                    align-items: center;
+                                    position: relative;
+                                    .member_articlemore{
+                                        width: 10%;
+                                        text-align: end;
+                                        img{
+                                            width: 25px;
+                                            height: 25px;
+                                        }
+                                    }
+                                    .article_mem_icon {
+                                        width: 5%;
+                                        text-align: center;
+                                        // background-color: #00324E;
+                                        img {
+                                            width: 25px;
+                                            border-radius: 25px;
+                                            vertical-align: middle;
+                                        }
+                                    }
+                        
+                                    .article_mem_name {
+                                        width: 100%;
+                                        padding: 0 5px;
+                                        font-size: var(--body2);
+                                    }
+                                }
+                        
+                                .article_container {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: flex-start;
+                                    box-sizing: border-box;
+                                    // height: 140px;
+                                    padding-bottom: 10px;
+                                    border-bottom: 1px solid #cccccc;
+                                    position: relative;
+                        
+                                    .article_txt_box {
+                                        position: relative;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;
+                                        height: 100%;
+                                        width: 70%;
+                        
+                        
+                                        .article_title {
+                                            padding-bottom: 10px;
+                                            font-size: var(--subtitle2);
+                                            font-weight: 700;
+                                        }
+                        
+                                        .article_react {
+                                            display: flex;
+                                            position: relative;
+                        
+                                            .article_like_box,
+                                            .article_comment_box,
+                                            .article_collect_box {
+                                                display: flex;
+                                                box-sizing: border-box;
+                                                padding: 10px 10px 0 0;
+                                                align-items: center;
+                        
+                                                .article_icon_item {
+                                                    width: 15px;
+                        
+                                                    img {
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+                        
+                                            .article_like_amount,
+                                            .article_collect_amount,
+                                            .article_comment_amount {
+                                                font-size: var(--tag);
+                                                padding-left: 5px;
+                                                color: #a3a3a3;
+                                            }
+                                        }
+                                    }
+                        
+                                    .article_pic_box {
+                                        height: 100%;
+                        
+                                        img {
+                                            height: 100%;
+                                            border-radius: 10px;
+                                            padding: 5px;
+                                            vertical-align: middle;
+                                        }
+                                    }
+                                }
+                            }
+                        
+                            .member_art_card {
+                                width: 90%;
+                                margin: auto;
+                                margin-top: 25px;
+                                background-color: var(--icon-color);
+                
+                                .member_art_more {
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    padding-top: 5px;
+                                    padding-right: 10px;
+                
+                                    img {
+                                        width: 25px;
+                                        height: 25px;
+                                        vertical-align: top;
+                                        opacity: 0.5;
+                                    }
+                                }
+                
+                                .member_card_imgtxt {
+                                    .member_card_bgbox {
+                                        display: flex;
+                
+                                        .member_card_artbox {
+                                            width: 80%;
+                
+                                            .gap {
+                                                margin: 10px 0;
+                                            }
+                
+                                            .cardtxt_label {
+                                                display: flex;
+                
+                                                p {
+                                                    margin-left: 10px;
+                                                    color: var(--font-secondary);
+                                                    font-size: 14px;
+                                                }
+                                            }
+                
+                                            .cardtxt_art {
+                                                h3 {
+                                                    font-size: 18px;
+                                                    margin: 10px 0;
+                                                    padding: 0 5px;
+                
+                                                }
+                
+                                                p {
+                                                    font-size: 14px;
+                                                    margin: 10px 0;
+                                                    padding: 0 10px;
+                
+                                                }
+                                            }
+                                        }
+                
+                
+                                        .cardimg {
+                                            width: 40%;
+                                            text-align: center;
+                
+                                            img {
+                                                width: 100px;
+                                                height: 100px;
+                                                vertical-align: top;
+                                                border-radius: 10px;
+                                            }
+                                        }
+                
+                
+                                    }
+                
+                                    .cardlike {
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: start;
+                                        .cardsave {
+                                            width: 60%;
+                                            display: flex;
+                                            justify-content: space-evenly;
+                                            align-items: center;
+                                            padding: 5px;
+                
+                                            img {
+                                                width: 25px;
+                                                height: 25px;
+                                                vertical-align: top;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                
+                        .member_com {
+                            width: 100%;
                             margin: auto;
-                            justify-content: center;
-                            display: flex;
                             margin-top: 30px;
 
-                            .track {
-                                width: 100%;
-                                padding: 10px;
-
-                                p {
+                            .member_combg {
+                                h2 {
                                     font-size: 18px;
-
                                 }
-                            }
 
-                            .track_btn {
-                                width: 20%;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                .btn-secondary{
-                                    cursor: pointer;
+                                .member_track {
+                                    .member_tracksection {
+                                        width: 90%;
+                                        margin: auto;
+                                        justify-content: center;
+                                        display: flex;
+                                        margin-top: 30px;
+
+                                        .track {
+                                            width: 100%;
+                                            padding: 10px;
+
+                                            p {
+                                                font-size: 18px;
+
+                                            }
+                                        }
+
+                                        .track_btn {
+                                            width: 20%;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+
+                                            .btn-secondary {
+                                                cursor: pointer;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .member_tracknum {
+                                    margin-top: 50px;
+
+                                    h2 {
+                                        color: #5e5e5e;
+                                    }
+
+                                    .tracktitle {
+                                        border-bottom: 2px solid var(--font-secondary);
+                                    }
+
+                                    .member_tracksection {
+                                        width: 90%;
+                                        margin: auto;
+                                        justify-content: center;
+                                        display: flex;
+                                        margin-top: 20px;
+
+                                        .track {
+                                            width: 100%;
+                                            padding: 10px;
+                                            display: flex;
+
+                                            .trackhead {
+
+                                                img {
+                                                    width: 50px;
+                                                    height: 50px;
+                                                    vertical-align: top;
+                                                }
+                                            }
+
+                                            .tracknumtxt {
+                                                margin-left: 10px;
+
+                                                p {
+                                                    font-size: 18px;
+                                                    padding: 5px;
+                                                    color: #A3A3A3;
+                                                }
+                                            }
+                                        }
+
+                                        .track_btn {
+                                            width: 20%;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+
+                                            .btn-secondary {
+                                                cursor: pointer;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
-
-                    .member_tracknum {
-                        margin-top: 50px;
-                        h2{
-                            color:#5e5e5e;
-                        }
-                        .tracktitle{
-                            border-bottom: 2px solid #000;
-                        }
-                        .member_tracksection {
-                            width: 90%;
-                            margin: auto;
-                            justify-content: center;
-                            display: flex;
-                            margin-top: 20px;
-
-                            .track {
-                                width: 100%;
-                                padding: 10px;
-                                display: flex;
-                                .trackhead{
-
-                                    img{
-                                        width: 50px;
-                                        height: 50px;
-                                        vertical-align: top;
-                                    }
-                                }
-                                
-                                .tracknumtxt{
-                                    margin-left: 10px;
-                                    p {
-                                        font-size: 18px;
-                                        padding: 5px;
-                                        color: #A3A3A3;
-                                    }
-                                }
-                            }
-
-                            .track_btn {
-                                width: 20%;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                .btn-secondary{
-                                    cursor: pointer;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                [name="member_tab"]:checked+label {
-                    top: 0;
-                    padding-top: 17px;
-                    background: #FFF;
-                }
-                [name="member_tab"]:checked+label h2{
-                    background: #FFF;
-                    border-bottom: 2px solid #00324E;
-                }
-                [name="member_tab"]:nth-last-child()+label h2{
-                    background: #FFF;
-                    border-bottom: 2px solid #00324E;
-                }
-
-                [name="member_tab"]:checked~.tab-content {
-                    display: block;
                 }
             }
         }
@@ -167,163 +326,130 @@ aside{
 }
 
 @media screen and (min-width:768px) {
-    aside{
-        display: inline-block;
+    aside {
+        display: block;
     }
+
+    .member_head {
+        display: none;
+    }
+
+    .member_main_title {
+        display: none;
+    }
+
     .member_main_box {
         .member_bg {
-            .member_head {
-                display: none;
-            }
-    
-            .member_main_title {
-                display: none;
-            }
-    
             .member_tabchange {
-                width: 100%;
-                margin: auto;
-    
-                .tabs {
-                    float: none;
-                    list-style: none;
-                    position: relative;
-                    text-align: left;
-    
-                    li {
-                        width: 30%;
-                        float: left;
-                        display: block;
-                    }
-    
-                    input[type="radio"] {
-                        position: absolute;
-                        display: none;
-                    }
-    
-                    label {
-                        width: 100%;
-                        display: block;
-                        padding: 14px 21px;
-                        font-size: 20px;
-                        cursor: pointer;
-                        position: relative;
-                        border-radius: 5px 5px 0 0;
-                        transition: all 0.2s ease-in-out;
-                    }
-    
-                    .tab-content {
-                        z-index: 2;
-                        display: none;
-                        overflow: hidden;
-                        width: 100%;
-                        position: absolute;
-                        top: 52px;
-                        left: 0;
-                        background: #FFF;
-                        margin-top: 30px;
-    
-                        h2 {
-                            font-size: 18px;
-                        }
-    
-                        .member_track {
-                            .member_tracksection {
+                .container {
+                    .content {
+                        .tabcontent {
+                            .member_com {
                                 width: 100%;
                                 margin: auto;
-                                justify-content: center;
-                                display: flex;
-                                margin-top: 50px;
-    
-                                .track {
-                                    width: 80%;
-                                    padding: 10px;
-                                    border-bottom: 1px solid #A3A3A3;
+                                margin-top: 30px;
 
-                                    p {
-                                        font-size: 18px;
-    
+                                .member_combg {
+                                    .tracktitle{
+                                        border-bottom: 2px solid var(--font-secondary);
                                     }
-                                }
-    
-                                .track_btn {
-                                    width: 10%;
-                                    border-bottom: 1px solid #A3A3A3;
+                                    h2 {
+                                        margin-left: 2%;
+                                        font-size: 24px;
+                                    }
 
-                                    input {
-                                        font-size: 14px;
-                                        border: 1px solid #00324E;
-                                        border-radius: 10px;
-                                        padding: 10px;
-                                    }
-                                }
-                            }
-                        }
-    
-                        .member_tracknum {
-                            margin-top: 50px;
-                            h2{
-                                color:#5e5e5e;
-                            }
-                            .tracktitle{
-                                border-bottom: 2px solid #000;
-                            }
-                            .member_tracksection {
-                                width: 100%;
-                                margin: auto;
-                                justify-content: center;
-                                display: flex;
-                                margin-top: 20px;
-    
-                                .track {
-                                    width: 80%;
-                                    padding: 10px;
-                                    display: flex;
-                                    .trackhead{
-    
-                                        img{
-                                            width: 50px;
-                                            height: 50px;
-                                            vertical-align: top;
+                                    .member_track {
+                                        .member_tracksection {
+                                            width: 90%;
+                                            margin: auto;
+                                            justify-content: center;
+                                            display: flex;
+                                            margin-top: 30px;
+
+                                            .track {
+                                                width: 100%;
+                                                padding: 10px;
+
+                                                p {
+                                                    font-size: 18px;
+
+                                                }
+                                            }
+
+                                            .track_btn {
+                                                width: 20%;
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+
+                                                .btn-secondary {
+                                                    cursor: pointer;
+                                                }
+                                            }
                                         }
                                     }
-                                    
-                                    .tracknumtxt{
-                                        margin-left: 10px;
-                                        p {
-                                            font-size: 18px;
-                                            padding: 5px;
-                                            color: #A3A3A3;
+
+                                    .member_tracknum {
+                                        margin-top: 50px;
+
+                                        h2 {
+                                            color: #5e5e5e;
+                                        }
+
+                                        .tracktitle {
+                                            border-bottom: 2px solid var(--font-secondary);
+                                        }
+
+                                        .member_tracksection {
+                                            width: 90%;
+                                            margin: auto;
+                                            justify-content: center;
+                                            display: flex;
+                                            margin-top: 20px;
+
+                                            .track {
+                                                width: 100%;
+                                                padding: 10px;
+                                                display: flex;
+
+                                                .trackhead {
+
+                                                    img {
+                                                        width: 50px;
+                                                        height: 50px;
+                                                        vertical-align: top;
+                                                    }
+                                                }
+
+                                                .tracknumtxt {
+                                                    margin-left: 10px;
+
+                                                    p {
+                                                        font-size: 18px;
+                                                        padding: 5px;
+                                                        color: #A3A3A3;
+                                                    }
+                                                }
+                                            }
+
+                                            .track_btn {
+                                                width: 20%;
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+
+                                                .btn-secondary {
+                                                    cursor: pointer;
+                                                }
+                                            }
                                         }
                                     }
                                 }
-    
-                                .track_btn {
-                                    width: 10%;
-    
-                                    input {
-                                        font-size: 14px;
-                                        border: 1px solid #00324E;
-                                        border-radius: 10px;
-                                        padding: 10px
-                                    }
-                                }
                             }
                         }
-                    }
-    
-                    [name="member_tab"]:checked+label {
-                        top: 0;
-                        padding-top: 17px;
-                        background: #FFF;
-                    }
-    
-                    [name="member_tab"]:checked~.tab-content {
-                        display: block;
                     }
                 }
             }
         }
     }
-    
 }

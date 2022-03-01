@@ -4,7 +4,7 @@ aside{
 .member_main_box {
     .member_bg {
         .member_art_text {
-            margin-top: 100px;
+            margin-top: 135px;
             .article_box {
                 width: 80%;
                 position: relative;
@@ -16,24 +16,26 @@ aside{
                     align-items: center;
                     position: relative;
                     .member_articlemore{
+                        width: 10%;
+                        text-align: end;
                         img{
                             width: 25px;
                             height: 25px;
                         }
                     }
                     .article_mem_icon {
-                        width: 18px;
-                        
+                        width: 5%;
+                        text-align: center;
                         // background-color: #00324E;
                         img {
-                            width: 100%;
-                            border-radius: 50%;
+                            width: 25px;
+                            border-radius: 25px;
                             vertical-align: middle;
                         }
                     }
         
                     .article_mem_name {
-                        // background-color: yellow;
+                        width: 100%;
                         padding: 0 5px;
                         font-size: var(--body2);
                     }
