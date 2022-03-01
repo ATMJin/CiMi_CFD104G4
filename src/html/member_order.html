@@ -8,6 +8,7 @@
     <title>CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/member_guide.css">
     <link rel="stylesheet" href="assets/css/member.css">
+    <link rel="stylesheet" href="assets/css/member_order.css">
     <script src="js/vue.js"></script>
 </head>
 
@@ -34,7 +35,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="member_treasure.html">
                         <div class="member_btn my_treasure">
                             <img src="../../src/assets/images/icon/nav_coin.png">
                             <span>
@@ -66,7 +67,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="member_order.html">
                         <div class="member_btn my_order">
                             <img src="../../src/assets/images/icon/nav_billboard.png">
                             <span>
@@ -89,27 +90,299 @@
     </section>
     <main class="member_main_box">
         <div class="member_bg">
-            <div class="member_main">
+
+            <!--<div class="member_main">
                 <div class="member_head">
-                    <!--手機板內文大標-->
+                    手機板內文大標
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, sunt?</p>
                 </div>
+            </div>-->
+            <!-- /////以下頁簽///// -->
+            <div id="tabs" class="container">
+
+                <div class="tabs">
+                    <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">尚未付款</a>
+                    <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">處理中</a>
+                    <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">待收貨</a>
+                    <a v-on:click="activetab='4'" v-bind:class="[ activetab === '4' ? 'active' : '' ]">已完成</a>
+                    <a v-on:click="activetab='5'" v-bind:class="[ activetab === '5' ? 'active' : '' ]">已取消</a>
+                </div>
+
+                <div class="content">
+                    <div v-if="activetab ==='1'" class="tabcontent">
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-17</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 1箱</h3>
+                                    <p>訂單金額：$400</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$460</h2>
+                            </div>
+                            <div class="member_combtn">
+                                <input type="button" class="btn-primary" value="前往付款">
+                                <input type="button" class="btn-secondary" value="取消付款">
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-18</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 5箱</h3>
+                                    <p>訂單金額：$2000</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$2060</h2>
+                            </div>
+                            <div class="member_combtn">
+                                <input type="button" value="前往付款">
+                                <input type="button" value="取消付款">
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div v-if="activetab ==='2'" class="tabcontent">
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-17</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 1箱</h3>
+                                    <p>訂單金額：$400</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$460</h2>
+                            </div>
+                            <div class="member_combtn">
+                                <!-- <input type="button"> -->
+                                <input type="button" class="seconbtn" value="取消訂單">
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-18</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 5箱</h3>
+                                    <p>訂單金額：$2000</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$2060</h2>
+                            </div>
+                            <div class="member_combtn">
+                                <input type="button" value="取消訂單">
+                            </div>
+                            <hr>
+                        </div>
+
+                    </div>
+                    <div v-if="activetab ==='3'" class="tabcontent">
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-17</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 1箱</h3>
+                                    <p>訂單金額：$400</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$460</h2>
+                            </div>
+                            <div class="member_combtn">
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-18</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 5箱</h3>
+                                    <p>訂單金額：$2000</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$2060</h2>
+                            </div>
+                            <div class="member_combtn">
+                            </div>
+                            <hr>
+                        </div>
+
+                    </div>
+                    <div v-if="activetab ==='4'" class="tabcontent">
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-17</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 1箱</h3>
+                                    <p>訂單金額：$400</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$460</h2>
+                            </div>
+                            <div class="member_combtn">
+                                <input type="button" value="再買一次">
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-18</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 5箱</h3>
+                                    <p>訂單金額：$2000</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$2060</h2>
+                            </div>
+                            <div class="member_combtn">
+                                <input type="button" value="再買一次">
+                            </div>
+                            <hr>
+                        </div>
+
+                    </div>
+                    <div v-if="activetab ==='5'" class="tabcontent">
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-17</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 1箱</h3>
+                                    <p>訂單金額：$400</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$460</h2>
+                            </div>
+                            <div class="member_combtn">
+                                <input type="button" value="再買一次">
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="member_com">
+                            <div class="member_combg">
+                                <div class="member_comtitle">
+                                    <h3>2021-07-18</h3>
+                                </div>
+                                <div class="member_commain">
+                                    <div class="member_comimg">
+                                        <img src="https://picsum.photos/300/200/?random=10">
+                                    </div>
+                                    <h3>時尚最夯藝人代言 祖傳喉糖  ((!!!!林俊傑!!!!)) x 5箱</h3>
+                                    <p>訂單金額：$2000</p>
+                                </div>
+                                
+                            </div>
+                            <div class="member_comsum">
+                                <h2>訂單總額：</h2>
+                                <h2>$2060</h2>
+                            </div>
+                            <div class="member_combtn">
+                                <input type="button" value="再買一次">
+                            </div>
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
-            <div class="member_main_title">
-                <!--桌機版內文大標-->
-                <p>我的卡友</p>
-            </div>
 
-            <div class="member_text">
-                <!--內文-->
+
+            <!-- <div class="member_main_title"> 
+                桌機版內文大標
+                <p>我的卡友</p> 
+            </div> -->
+
+            <!-- <div class="member_text">
+                內文
                 <div class="member_card">
-                    <!--內文卡片-->
+                    內文卡片
 
                 </div>
-            </div>
+            </div> -->
+
         </div>
     </main>
+    <script>
+        new Vue({
+            el: '#tabs',
+            data: {
+                activetab: '1'
+            },
+        });
+    </script>
 </body>
 
 </html>

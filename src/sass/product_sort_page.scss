@@ -30,7 +30,7 @@
                     font-size: 28px;
                     font-weight: 700;
                     // 文字
-                    color: #5E5E5E;
+                    color:#5E5E5E;
                 }
             }
 
@@ -131,10 +131,10 @@ body {
 }
 
 .hero-slider .carousel-cell .inner .btn:hover {
-
+    
     background-color: rgb(255, 255, 255);
     color: rgb(121, 121, 121);
-
+    
 }
 
 .hero-slider .flickity-prev-next-button {
@@ -215,49 +215,7 @@ body {
     }
 }
 
-// 商品分類
-.main_product {
-    .sort {
-        width: 100%;
 
-        .item_box {
-            display: flex;
-            justify-content: space-around;
-            box-sizing: border-box;
-
-            a {
-                text-decoration: none;
-                // 文字
-                color: #5E5E5E;
-                // 文字粗細
-                font-weight: 300;
-
-                .item {
-                    box-sizing: border-box;
-                    padding: 12px;
-
-                    .img_box {
-                        padding-bottom: 10px;
-                        width: 40px;
-
-                        // 使圖片致中對其下面的字
-                        display: block;
-                        margin: 0 auto;
-
-                        img {
-                            width: 100%;
-                        }
-
-                        .txt_box {
-
-                            p {}
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
 
 // 最新上架商品
 .main_product {
@@ -324,7 +282,6 @@ body {
                         img {
                             width: 100%;
                             border-radius: 20px;
-                            background: rgba(255, 255, 255, 0.568);
                         }
                     }
 
@@ -352,11 +309,9 @@ body {
 
 
                 .img_box {
-                    width: 30px;
 
                     img {
-                        width: 100%;
-                        background: rgba(255, 255, 255, 0.568);
+                        width: 30px;
                     }
                 }
 
@@ -602,7 +557,6 @@ body {
                             img {
                                 width: 100%;
                                 border-radius: 20px;
-                                background: rgba(255, 255, 255, 0.568);
                             }
                         }
 
@@ -699,40 +653,40 @@ body {
 @media screen and (min-width:768px) {
 
     // 好物商城標題
-    .main_product {
-        padding: 10px;
+.main_product {
+    padding: 10px;
 
-        .product_title {
-            width: 90%;
-            margin: auto;
-            // margin-top: 50px;
-            padding-top: 100px;
+    .product_title {
+        width: 90%;
+        margin: auto;
+        // margin-top: 50px;
+        padding-top: 100px;
 
-            .item_box {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+        .item_box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-                .txt_box {
-                    p {
-                        font-size: 28px;
-                        font-weight: 700;
-                        // 文字
-                        color: #5E5E5E;
-                    }
+            .txt_box {
+                p {
+                    font-size: 28px;
+                    font-weight: 700;
+                    // 文字
+                    color: #5E5E5E;
                 }
+            }
 
-                .img_box {
-                    display: none;
-                    width: 30px;
+            .img_box {
+                display: none;
+                width: 30px;
 
-                    img {
-                        width: 100%;
-                    }
+                img {
+                    width: 100%;
                 }
             }
         }
     }
+}
 
     // 廣告投放
     .main_product {

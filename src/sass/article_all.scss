@@ -6,8 +6,8 @@
 
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
 main {
-    width: 80%;
-    margin-top: 40px;
+    width: 100%;
+    margin-top: 80px;
 }
 
 // 文章banner
@@ -20,6 +20,8 @@ main {
         border-radius: 25px;
     }
 }
+
+
 
 // 文章分類大標
 .article_sort {
@@ -34,7 +36,6 @@ main {
         justify-content: space-between;
         align-items: center;
         padding-bottom: 10px;
-
 
         .article_sort_item {
             display: flex;
@@ -54,6 +55,8 @@ main {
                 align-items: center;
                 font-size: var(--title);
                 padding: 0 10px;
+                font-weight: 700;
+
             }
         }
     }
@@ -68,11 +71,10 @@ main {
             padding: 5px;
             font-size: var(--subtitle2);
             margin-right: 20px;
-
         }
 
         .hot_article {
-            border-bottom: 3px solid #00324E;
+            border-bottom: 3px solid #00324e;
         }
     }
 
@@ -100,7 +102,6 @@ main {
                 // background-color: yellow;
                 padding: 0 5px;
                 font-size: var(--body2);
-
             }
         }
 
@@ -109,12 +110,18 @@ main {
             justify-content: space-between;
             align-items: flex-start;
             box-sizing: border-box;
-            height: 140px;
+            // height: 140px;
             padding-bottom: 10px;
             border-bottom: 1px solid #cccccc;
+            position: relative;
 
             .article_txt_box {
                 position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+
 
                 .article_title {
                     padding-bottom: 10px;
@@ -131,7 +138,8 @@ main {
                     .article_collect_box {
                         display: flex;
                         box-sizing: border-box;
-                        padding: 10px 10px 10px 0;
+                        padding: 10px 10px 0 0;
+                        align-items: center;
 
                         .article_icon_item {
                             width: 15px;
@@ -147,8 +155,8 @@ main {
                     .article_comment_amount {
                         font-size: var(--tag);
                         padding-left: 5px;
+                        color: #a3a3a3;
                     }
-
                 }
             }
 
@@ -160,15 +168,14 @@ main {
                     border-radius: 10px;
                     padding: 5px;
                     vertical-align: middle;
-
                 }
-
             }
         }
-
-
     }
-
 }
 
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+    main {
+        width: 80%;
+    }
+}

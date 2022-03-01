@@ -2,89 +2,158 @@
 @import "./layout/common";
 @import "./layout/header";
 @import "./layout/sidebar";
-    /* 會員左側欄開始 */
-    .sidebar{
-        position: fixed;
+
+/* 會員左側欄開始 */
+
+.sidebar_box {
+
+    .sidebar {
         width: 100%;
         height: 100vh;
         padding: 12px;
-        left: 0;
         background-color: #FFF;
+
+        .member_nav {
+            height: 100%;
+
+            .member_head {
+                height: 40%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+                color: #000;
+
+                .member_head_img {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    margin: 20px;
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                        vertical-align: top;
+                    }
+
+                }
+            }
+
+            .member_bar {
+                width: 100%;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 22px;
+
+                a {
+                    text-decoration: none;
+                    color: #000;
+                }
+
+                .member_btn {
+                    width: 100%;
+                    height: 44px;
+                    border-radius: 10px;
+                    padding-left: 33%;
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                    // color: white;
+                    // background-color: var(--icon-color);
+                }
+
+                span {
+                    margin: 0 5px;
+                }
+            }
+        }
     }
-    .sidebar_box .sidebar .member_nav{
-        height: 100%;
-    }
-    .sidebar_box .sidebar .member_nav .member_head{
-        height: 40%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
-        color: #FFF;
-    }
-    .sidebar_box .sidebar .member_nav .member_head .member_head_img{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin: 20px;
-    }
-    .sidebar_box .sidebar .member_nav .member_head .member_head_img img{
-        width: 100px;
-        height: 100px;
-        vertical-align: top;
-    }
-    .sidebar_box .sidebar .member_nav .member_bar{
+}
+
+
+/* 會員左側欄結束 */
+@media screen and (min-width:1440px) {
+    .sidebar_box {
         width: 100%;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 22px;
-    }
-    .sidebar_box .sidebar .member_nav .member_bar a{
-        text-decoration: none;
-        color: #FFF;
-    }
-    .sidebar_box .sidebar .member_nav .member_bar .member_btn{
-        width: 100%;
-        height: 44px;
-        border-radius: 10px;
-        padding-left: 33%;
+        max-width: 1440px;
+        margin: auto;
         display: flex;
-        justify-content: start;
-        align-items: center;
-        
-    }
-    .sidebar_box .sidebar .member_nav .member_bar img{
-        width: 20px;
-        height: 20px;
-    }
-    .sidebar_box .sidebar .member_nav .member_bar .member_btn span{
-        margin: 0 5px;
-    }
-        /* 會員左側欄結束 */
-    @media screen and (min-width:768px) {
-    }
-    
-    @media screen and (min-width:1440px) {
-        /* 會員左側欄開始 */
-        .sidebar{
+        .sidebar {
             position: fixed;
             width: 20%;
             height: 100vh;
             padding: 12px;
-            background-color: #164570;
+            // background-color: #00324E;
+
+            .member_nav {
+                height: 100%;
+
+                .member_head {
+                    height: 30%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 24px;
+                    color: #000;
+
+                    .member_head_img {
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                        margin: 20px;
+
+                        img {
+                            width: 100px;
+                            height: 100px;
+                            vertical-align: top;
+                        }
+
+                    }
+                }
+
+                .member_bar {
+                    width: 100%;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 22px;
+
+                    a {
+                        text-decoration: none;
+                        color: #000;
+                    }
+
+                    .member_btn {
+                        width: 100%;
+                        height: 44px;
+                        border-radius: 10px;
+                        padding: 0 25%;
+                        display: flex;
+                        justify-content: start;
+                        align-items: center;
+                    }
+
+                    .member_btn:hover{
+                        background-color: #f00;
+                    }
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        // color: white;
+                        // background-color: var(--icon-color);
+                    }
+
+                    span {
+                        margin: 0 5px;
+                    }
+                }
+            }
         }
-        .sidebar_box .sidebar .member_nav .member_bar .member_btn{
-            width: 100%;
-            height: 44px;
-            border-radius: 10px;
-            padding: 0 25%;
-            display: flex;
-            justify-content: start;
-            align-items: center;
-        }
-        .sidebar_box .sidebar .member_nav .member_bar .member_btn:hover{
-            background-color: #f00;
-        }
-        /* 會員左側欄結束 */
     }
+}
