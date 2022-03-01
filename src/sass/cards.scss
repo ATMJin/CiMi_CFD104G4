@@ -94,6 +94,11 @@
    width: calc(3 * var(--card-width));
    height: auto;
 }
+
+.name{
+  font-size: 24px;
+  font-weight: 500;
+}
  .cardList__btn {
    --btn-size: 35px;
    width: var(--btn-size);
