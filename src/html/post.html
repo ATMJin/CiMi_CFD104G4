@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,49 +8,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/post.css">
-    <link rel="stylesheet" href="assets/css/tabs.css">
 </head>
-
+ 
 <body>
     @@include('layout/header.html')
-
-    <div class="content_area">
+    <section class="content_area">
         @@include('layout/sidebar.html')
-        <main class="main_area">
-            <div class="post_info">
-                <div class="post_img">
-                    <img src="https://picsum.photos/100/100/?random=11">
+        <main class="post_main_area">
+            <!-- 發文資訊 -->
+            <div class="post_mem_info">
+                <div class="post_mem_head">
+                    <img src="https://fakeimg.pl/30x30/200">
                 </div>
-                <div class="post_text">
-                    <span class="post_name">
-                        好想睡
-                    </span>
-                    <time>2022/00/00</time>
+                <div class="post_info_txt">
+                    <div class="post_mem_name">前端小菜雞</div>
+                    <div class="post_date">2022/1/23</div>
                 </div>
             </div>
-            <form class="post" action="">
-                <select>
-                    <option>選擇發文看版</option>
-                    <option>好聽音樂</option>
-                    <option>旅遊踏青</option>
-                    <option>美妝保養</option>
-                    <option>情感生活</option>
-                    <option>穿搭時尚</option>
-                    <option>運動健身</option>
+            <!-- 選擇發文看板 -->
+            <div class="billboard_select_box">
+                <select class="billboard_select_item">
+                    <option disabled="false" selected="true">請選擇發文看版</option>
+                    <option>🎼好聽音樂</option>
+                    <option>🚌旅遊踏青</option>
+                    <option>💄美妝保養</option>
+                    <option>💖情感生活</option>
+                    <option>🧥穿搭時尚</option>
+                    <option>🚴運動健身</option>
                 </select>
-                <input type="text" placeholder="標題">
-                <textarea name="" id="" cols="30" rows="10" placeholder="內容"></textarea>
-                <div class="post_file">
-                    <input type="file">
+                <a href="###">找不到看版嗎?</a>
+            </div>
+            <!-- 發文區域 -->
+            <textarea name="write_post" class="write_post_box" cols="100vw" rows="30"></textarea>
+            <!-- 插入圖片 -->
+            <a href="###">
+                <div class="insert_pic_box">
+                    <div class="insert_pic_icon">
+                        <img src="/src/assets/images/icon/Insert_picture.png" alt="">
+                    </div>
+                    <div class="insert_pic_txt">插入圖片</div>
                 </div>
-                <div class="post_btn">
-                    <button type="reset" class="btn-third">取消</button>
-                    <button type="submit" class="btn-secondary">提交</button>
-                </div>
-            </form>
-        </main>
-    </div>
+            </a>
+            <!-- 發文按鈕 -->
 
+            <div class="post_btn_box">
+                <input class="btn-thirdary" type="reset" value="取消">
+                <input class="btn-secondary" type="submit" value="發文">
+            </div>
+            
+        </main>
+        <script type="text/javascript" src="js/post.js"></script>
+    </section>
 
 </body>
 
