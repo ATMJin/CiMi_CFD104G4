@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
+    <title>發表文章 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/post.css">
     <link rel="stylesheet" href="assets/css/tabs.css">
 </head>
@@ -29,7 +29,7 @@
             </div>
             <form class="post" action="">
                 <div class="select_billboard">
-                    <select>
+                    <select required>
                         <option>選擇發文看版</option>
                         <option>好聽音樂</option>
                         <option>旅遊踏青</option>
@@ -41,10 +41,16 @@
                     <a href="">找不到適合的看版嗎？
                     </a>
                 </div>
-                <input type="text" placeholder="標題">
-                <textarea name="" id="" cols="30" rows="10" placeholder="內容"></textarea>
+                <input type="text" placeholder="標題" required>
+                <textarea name="" id="" cols="30" rows="10" placeholder="內容" required></textarea>
                 <div class="post_file">
-                    <input type="file">
+                    <label class="" id="" for="filename">
+                        <div class="post_file_box">
+                            <img src="assets/images/icon/Insert_picture.png" alt="">
+                            <span>插入圖片</span>
+                        </div>
+                        <input type="file" id="filename" class="" name="">
+                    </label>
                 </div>
                 <div class="post_btn">
                     <button type="reset" class="btn-third">取消</button>
