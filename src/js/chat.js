@@ -1,131 +1,156 @@
-function init() {
-
+function doFirst() {
     const form = document.querySelector('.typing_area');
     const sendBtn = document.querySelector('.typing_area button');
     const chatBox = document.querySelector('.chat_box')
-    const inputArea = document.getElementById('emojionearea1');
+    const inputArea = document.querySelector('.emojionearea-editor')
     console.log(inputArea);
 
-    function clear(){
-        inputArea.value=""
-    }
 
-
-
-
-    /*功能一 : 送出傳訊者輸入的消息*/
-
-    //取消form表單的submit事件
-    form.onsubmit = (e) => {
+    form.onsubmit = (e) => { //取消form表單的submit事件
         e.preventDefault();
     }
 
-    //sendBtn , click 執行getChat.php
-    sendBtn.onclick = () => {
-       
-        let xhr = new XMLHttpRequest(); //建立XML物件
-        xhr.onload = () => {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    let data = xhr.response;
-                    console.log(data);
+
+    function $id(id) { //更快拿到id的函式
+        return document.getElementById(id);
+    }
+
+    function clear() { //清掉輸入框的消
+        inputArea.innerHTML = ''
+        inputArea.value = ''
+    }
+
+    /*滾動到底部*/
+    let $chat = $('.chat_area'),
+        $printer = $('.chat_box'),
+        printerH = $printer.innerHeight(),
+        preventNewScroll = false;
+
+    //// SCROLL BOTTOM  
+    function scrollBottom() {
+        if (!preventNewScroll) { // if mouse is not over printer
+            $printer.stop().animate({
+                scrollTop: $printer[0].scrollHeight - printerH
+            }, 600); // SET SCROLLER TO BOTTOM
+        }
+    }
+    scrollBottom(); // DO IMMEDIATELY
+
+
+
+    // //// PREVENT SCROLL TO BOTTOM WHILE READING OLD MESSAGES
+    // $printer.hover(function (e) {
+    //     preventNewScroll = e.type == 'mouseenter' ? true : false;
+    //     if (!preventNewScroll) {
+    //         scrollBottom();
+    //     } // On mouseleave go to bottom
+    // });
+
+
+    /*功能一 : 送出傳訊者輸入的消息到後端PHP*/
+    function sendMsg(e) {
+        if (e.type == 'click' || (e.which == 13 && !e.shiftKey)) {
+            e.preventDefault();
+            let msg = $id('emojionearea1').value;
+            let xhr = new XMLHttpRequest(); //建立XHR物件
+            xhr.onload = () => {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        let data = xhr.responseText;
+
+                        console.log(data);
+                    }
                 }
             }
+            xhr.open('POST', 'phps/insertchat.php', true)
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(`msg=${msg}`);
         }
-        xhr.open('POST', 'phps/insertchat.php', true)
-        let formData = new FormData(form); //創建formData物件
-        xhr.send(formData); //送表單資料到php/getChat.php
-        clear();
+
 
 
 
     }
 
-    /*功能二 : 拿到傳訊者輸入的消息, 寫入chat_box*/
+    sendBtn.onclick = (e) => {
+        sendMsg(e)
+        clear()
+    }
+    inputArea.onkeyup = (e) => {
+        sendMsg(e)
+    }
+
+
+
+
+    /*功能二 : 從後端PHP拿到傳訊者輸入的消息, 寫入chat_box*/
     setInterval(() => {
-        //執行ajax
-        let xhr = new XMLHttpRequest() //產生XML物件
+        let xhr = new XMLHttpRequest(); //建立XHR物件
         xhr.onload = () => {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    console.log('want', xhr.response);
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
                     chatBox.innerHTML = xhr.response;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                    chatBox.onmouseover = (e) => {
+
+                        preventNewScroll = e.type == 'mouseover' ? true : false;
+
+                        console.log(e.type)
+                        if (!preventNewScroll) {
+                            scrollBottom();
+                        } // On mouseleave go to bottom
+
+                    }
                 }
             }
         }
         xhr.open("POST", 'phps/getchat.php', true);
         let formData = new FormData(form); //創建formData物件
-        xhr.send(formData); //送表單資料到php/insertChat.php
-
-        scrollBottom();
-
+        xhr.send(formData); //送表單資料到php/getChat.php
     }, 500)
 
-    function scrollBottom(){
-        //將聊天室視窗滾動到最底部
-        let lastMsg = ($('.chat_box').children('div:last-child')[0])
+    /*功能三: 送出傳訊者上船的圖片到後端PHP*/
+    document.getElementById('theFile').onchange = fileChange
 
-        // let position = ($('.chat_box').children('div:last-child')[0]).offset;
-        // console.log(position);
+}
 
-        if (lastMsg != null) {
-            setTimeout(function () {
-                lastMsg.scrollIntoView();
-            })
-            var flag = false;
-
-        $(".chat_box").scroll(function () {
-
-            if (flag) {
-                //数据加载中
-                return false;
-            }
-
-            var divHeight = $(this).height();
-            var nScrollHeight = $(this)[0].scrollHeight;
-            var nScrollTop = $(this)[0].scrollTop;
-            console.log(divHeight, nScrollHeight, nScrollTop);
-            
-            
-        });
-        }
-
-        
-    }
-    
+function fileChange() {
+    //抓到file檔案
+    let file = document.getElementById('thePic').files[0]
 
 
+    /*-------------------------------------------------- */
 
+    let readImage = new FileReader();
+    readImage.readAsDataURL(file);
 
+    // $.ajax({
+    //     type: 'POST',
+    //     url: 'php/insertimg.php',
+    //     data: {
+    //         mem_img: $('#mem_id').val(),
+    //         memPwd: $('#mem_pwd').val(),
+    //     },
+    //     success: function (data) {
+    //         if (data.login) {
+    //             window.location.href = 'index.html';
+    //         } else {
+    //             alert(data.msg);
+    //         }
+    //     },
+    //     error: function () {
+    //         console.log('error');
+    //     }
+    // });
+    console.log(readImage.result);
 
+    //注意:內嵌外部內容會發生load事件
+    readImage.addEventListener('load', function () {
 
-    /*功能三 : 
-    - 1 FOR RWD 左邊好友列表點擊後, 左側users欄位消失 , 顯示右側chat_room欄位
-    - 2 右側chat_room 點擊back icon 後消失, 回到左側
-    */
-
-    const users = document.querySelectorAll('.users_list a')
-    console.log(users);
-
-    for (let i = 0; i < users.length; i++) {
-        users[i].addEventListener('click', showChat)
-
-    }
-
-    function showChat() {
-        const usersArea = document.querySelector('.users')
-        const chatArea = document.querySelector('.chat_area')
-        // alert(chatArea);
-        chatArea.style.display = "block";
-        usersArea.style.display = "none";
-        return false; //好像可以取消a連結的跳轉是事件?
-    }
-
-    /*功能四: 聊天室有新訊息傳入或是輸出, 就讓chat_box視窗滾到最下面去*/
-
+        console.log(readImage.result);
+    })
 
 
 
 }
-
-window.addEventListener('load', init);
+window.addEventListener('load', doFirst)

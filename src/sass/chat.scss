@@ -1,5 +1,6 @@
 @import "./layout/reset";
 @import "./layout/common";
+@import "./layout/header";
 // @import "./layout/sidebar";
 
 //函數
@@ -7,100 +8,12 @@
     background-color: #164570;
   }
 
-/* 以下為上方搜尋區域 */
-.top_bar_box {
-    height: 48px;
-    width: 100%;
-    position: fixed;
-    margin: auto;
-    z-index: 11;
-    background-color: #fff;
-
-    .top_bar {
-        height: 48px;
-        width: 100%;
-        max-width: 1440px;
-        display: flex;
-        margin: auto;
-        box-sizing: border-box;
-        padding: 5px 20px;
-        align-items: center;
-        justify-content: space-between;
-
-        .logo_box {
-            img {
-                height: 40px;
-            }
-        }
-
-        .search_bar {
-            display: flex;
-            box-sizing: border-box;
-            position: relative;
-            width: 60%;
-
-            input {
-                width: 100%;
-                height: 25px;
-                border-radius: 50px;
-            }
-        }
-
-        button {
-            width: 30px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            position: absolute;
-            top: 3px;
-            right: 3px;
-
-            img {
-                width: 15px;
-            }
-        }
-
-        .member_bar {
-            display: none;
-        }
-    }
-}
-
-@media screen and (min-width: 768px) {
-
-    /* 以下為上方搜尋區域 */
-    .top_bar_box {
-        height: 60px;
-
-        .top_bar {
-            .member_bar {
-                display: block;
-
-                ul {
-                    display: flex;
-                    box-sizing: border-box;
-
-                    li+li {
-                        padding-left: 15px;
-                    }
-
-                    img {
-                        width: 28px;
-                    }
-                }
-            }
-        }
-    }
-
-}
-
-
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
 
 
 //變數
 
-$headerHeight: 60px;
+$headerHeight: 110px;
 $padding: 10px 10px 20px;
 
 
@@ -111,10 +24,18 @@ $padding: 10px 10px 20px;
 .top_bar_box {
     position: relative;
 }
+body{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+}
 
 .chat_room {
+    max-width: 1440px;
+    margin: 0 auto;
     width: 100%;
-    padding: 10px 2% 0;
+    padding: 0 2%;
     margin: 0;
     display: flex;
     box-sizing: border-box;
@@ -130,19 +51,12 @@ $padding: 10px 10px 20px;
 .users {
     $headerHeight:85px;
     width: 30%;
-    // border: 1px solid red;
-    // padding: 0 1.5%;
     margin: 0 10px 0 0 ;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     max-height: calc(100vh - #{$headerHeight});
 }
-// .users_list{
-//     $headerHeight:200px;
-//     min-height: calc(100vh - #{$headerHeight});
-//     margin-bottom: 5px;
-// }
 
 .users_list span {
     display: flex;
@@ -174,14 +88,15 @@ $padding: 10px 10px 20px;
 }
 
 .users .search {
-    margin: 10px 0;
+    // margin: 10px 0;
     display: flex;
     position: relative;
     align-items: center;
     justify-content: space-between;
     border: 1px solid #8888;
-    border-radius: 5px 5px 8px 5px;
+    // border-radius: 5px 5px 8px 5px;
     // padding: 0 5px;
+    border-radius: 3px;
     
 }
 
@@ -197,8 +112,8 @@ $padding: 10px 10px 20px;
     width: calc(100% - 75px);
     border: 1px solid transparent;
     padding: 0 13px;
-    font-size: 16px;
-    border-radius: 5px 0 0 5px;
+    font-size: 12px;
+    border-radius: 3px 0 0 3px;
     outline: none;
     opacity: 0;
     pointer-events: none;
@@ -237,7 +152,10 @@ $padding: 10px 10px 20px;
 .users_list {
     margin-top: 20px;
     line-height: 25px;
-    max-height: 350px;
+    $headerHeight: 220px;
+    line-height: 25px;
+    min-height: calc(100vh - #{$headerHeight});
+    max-height: calc(100vh - #{$headerHeight});
     overflow-y: auto;
 }
 
@@ -253,10 +171,10 @@ $padding: 10px 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    background-color: #EAF3FF;
-    border-radius: 8px;
-    // border-bottom: 1px solid #8888;
+    margin-bottom: 10px;
+    // background-color: #EAF3FF;
+    border-radius: 8px 8px 3px 3px;
+    border-bottom: 1px solid #8888;
 }
 
 
@@ -322,7 +240,7 @@ $padding: 10px 10px 20px;
 .chat_area header {
     display: flex;
     align-items: center;
-    padding: 10px 30px 10px 20px;
+    padding: 0px 30px 10px 20px;
     line-height: 25px;
     border-bottom: 1px solid #8888;
 }
@@ -331,7 +249,8 @@ $padding: 10px 10px 20px;
     font-size: 18px;
     color: #333;
     position: absolute;
-    right: 20px;
+    right: 10px;
+    top: -40px;
 }
 
 .chat_area header img {
@@ -346,13 +265,13 @@ $padding: 10px 10px 20px;
 }
 
 .chat_box {
-    $headerHeight: 200px;
+    $headerHeight: 220px;
     line-height: 25px;
     min-height: calc(100vh - #{$headerHeight});
     max-height: calc(100vh - #{$headerHeight});
     overflow-y: auto;
-    background-color: #fff;
-    padding: 10px 30px 20px;
+    background-color: #EAF3FF;
+    padding: 5px 30px;
     box-shadow: inset 0 32px 32px -32px rgba(0, 0, 0, 0.05),
         inset 0 -32px 32px -32px rgba(0, 0, 0, 0.05);
 
@@ -398,6 +317,11 @@ $padding: 10px 10px 20px;
     bottom: -10px;
     right: 10px;
 }
+#imgContainer > img{
+    max-width: 10%;
+    min-width: 10%;
+    border-radius: none;
+}
 
 .chat_box .incoming {
     display: flex;
@@ -418,7 +342,7 @@ $padding: 10px 10px 20px;
 
 .incoming .details p {
     color: #333;
-    background-color: #E4E6EB;
+    background-color: #FFFFFF;
     border-radius: 18px 18px 18px 0;
 }
 
@@ -429,7 +353,7 @@ $padding: 10px 10px 20px;
 }
 
 .chat_area .typing_area {
-    padding: 20px 0 0 20px;
+    padding: 10px 0 5px 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -462,16 +386,18 @@ $padding: 10px 10px 20px;
     font-size: 25px;
     color: #164570;
     align-items: center;
+    padding: 0 2% 0 0 ;
 }
 .typing_area .fun_icon span{
     padding: 0 2%;
 }
 
 
-
+// for 聊天室rwd
 @media (max-width: 768px) {
     .chat_area {
         display: none;
+        width: 100%;
     }
 
     .users {
