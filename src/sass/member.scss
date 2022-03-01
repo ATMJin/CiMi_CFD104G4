@@ -137,10 +137,26 @@
                         display: flex;
                         justify-content: start;
                         align-items: center;
+                        .showicon{
+                            display: block;
+                        }
+                        .hovericon{
+                            display: none;
+                        }
                     }
 
                     .member_btn:hover{
-                        background-color: #f00;
+                        background-color:var(--secondary-color);
+                        .hovericon{
+                            display: block;
+                        }
+                        .showicon{
+                            display: none;
+                        }
+                        span{
+                            color: #FFF;
+                        }
+
                     }
                     img {
                         width: 20px;
