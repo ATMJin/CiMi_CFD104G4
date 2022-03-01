@@ -3,17 +3,21 @@
 @import "./layout/common";
 @import "./layout/header";
 @import "./layout/sidebar";
+@import "./article.scss";
 
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
+
+
 .main_area {
     width: 100%;
     margin-top: 100px;
 }
 
+
 // 文章banner
 .article_sort_banner {
     width: 100%;
-    padding-left: 40px;
+    padding: 0 40px;
 
     img {
         width: 100%;
@@ -53,7 +57,7 @@
                 align-items: center;
                 font-size: var(--title);
                 padding: 0 10px;
-                font-weight: 700;
+                font-weight: 500;
 
             }
         }
@@ -79,10 +83,25 @@
     // 以下文章分類
     .container {
         width: 100%;
+    }
 
-        // color: #888;
-        .content {
-            padding: 24px;
+    .charts_box {
+        padding: 20px;
+        cursor: pointer;
+
+        .charts_img {
+            width: 5%;
+            margin-right: 12px;
+
+            img {
+                width: 100%;
+                border-radius: var(--img-radius);
+            }
+        }
+
+        .charts_name {
+            display: flex;
+            flex-direction: column;
         }
     }
 
@@ -90,9 +109,7 @@
     /* Style the tabs */
     .tabs {
         overflow: hidden;
-        margin-bottom: -2px;
-        /* hide bottom border */
-        margin-left: 24px;
+
     }
 
     .tabs a {
@@ -104,7 +121,7 @@
         border-right: none;
         background-color: #f1f1f1;
         border-radius: 10px 10px 0 0;
-        font-weight: bold;
+        font-weight: 500;
     }
 
     .tabs a:last-child {
@@ -134,7 +151,7 @@
 
     .tabcontent td.legend {
         color: #888;
-        font-weight: bold;
+        font-weight: 500;
         text-align: right;
     }
 
@@ -153,6 +170,7 @@
 
     .article_box {
         position: relative;
+        width: 100%;
 
         .article_mem_info {
             display: flex;
@@ -200,7 +218,7 @@
                 .article_title {
                     padding-bottom: 10px;
                     font-size: var(--subtitle2);
-                    font-weight: 700;
+                    font-weight: 500;
                 }
 
                 .article_react {
@@ -246,6 +264,15 @@
             }
         }
     }
+}
+
+.billboard_title {
+    font-size: var(--subtitle2);
+    font-weight: 500;
+}
+
+.billboard_rule {
+    white-space: pre-line;
 }
 
 @media screen and (min-width: 768px) {

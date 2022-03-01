@@ -3,9 +3,10 @@
 @import "./layout/header";
 @import "./layout/sidebar";
 
-html {
-    overflow: hidden;
-}
+// html {
+//     overflow: hidden;
+// }
+
 
 .lightbox {
     position: fixed;
@@ -15,6 +16,7 @@ html {
     height: 100%;
     background: rgba(66, 66, 66, 0.6);
     z-index: 999999;
+    display: none;
 
     .article_view_container {
         position: absolute;
@@ -59,6 +61,7 @@ html {
 
             .close_icon {
                 width: 13px;
+                cursor: pointer;
 
                 img {
                     width: 100%;
@@ -103,6 +106,7 @@ html {
         .interest_article_icon_item {
             width: 15px;
             margin-right: 5px;
+            cursor: pointer;
 
             img {
                 width: 100%;
@@ -129,6 +133,8 @@ html {
                     justify-content: space-between;
                     border-radius: 5px;
                     margin: 0 5px 5px 0;
+                    cursor: pointer;
+
 
 
                     .interest_article_txt {
@@ -267,9 +273,12 @@ html {
                 padding: 20px 60px;
                 justify-content: center;
                 background-color: #ffffff;
+                border-radius: 20px;
 
                 .write_comment_item {
                     width: calc(100% - 30px);
+                    border-radius: 8px;
+                    border: 0.8px solid var(--font-secondary);
                 }
 
                 .article_like,
