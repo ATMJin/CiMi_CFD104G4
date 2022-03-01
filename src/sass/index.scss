@@ -176,17 +176,19 @@
             }
             .billboard_img{
                 display: flex;
+                li{
+                    position: relative;
+                }
                 li+li{
                     margin-left: 3%;
                 }
                 .pic_box{
-                    position: relative;
                     img{
                         width: 100%;
                         border-radius: 12px;
                     }
                 }
-                .billboard_text{
+                .billboard_txt{
                     h2{
                         position: absolute;
                         top: 8%;
