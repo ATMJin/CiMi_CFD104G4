@@ -6,20 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CiMi交友論壇</title>
-    <!-- <link rel="stylesheet" href="assets\css\reset.css"> -->
-    <!-- <link rel="stylesheet" href="assets\css\index.css"> -->
-    <!-- <link rel="stylesheet" href="assets\css\common.css"> -->
-    <link rel="stylesheet" href="assets\css\product.css">
-    <!-- owl套件 -->
-    <link rel="stylesheet" href="js\owl.js">
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-    <script src="owlcarousel/owl.carousel.min.js"></script>
-    <!-- jquery套件 -->
-    <script src="jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/product.css">
+    <!-- 廣告輪播 -->
+    <link rel="stylesheet" href="src\js\product.js">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.css">
 
 
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js">
+    </script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
@@ -33,41 +30,80 @@
                 <div class="txt_box">
                     <p>好物商城</p>
                 </div>
-                <div class="img_box">
-                    <img src="src\assets\images\icon\cart.png">
-                </div>
+                <!-- 購物車icon -->
+                <a href="shop_cart.html">
+                    <div class="img_box">
+                        <img src="assets\images\icon\cart.png">
+                    </div>
+                </a>
             </div>
         </Section>
+
         <!-- 廣告投放 -->
-        <div class="owl-carousel">
-            <section class="advertise">
-                <div class="item_box">
-                    <a href="#" style="display: none;">
-                        <div class="img_box">
-                            <img src="https://picsum.photos/600/300/?random=10">
-                        </div>
-                    </a>
-                    <a href="product_ad_page.html" >
-                        <div class="img_box">
-                            <img src="https://picsum.photos/600/300/?random=11">
-                        </div>
-                    </a>
-                    <a href="product_ad_page.html"style="display: none;">
-                        <div class="img_box">
-                            <img src="src\assets\images\product\shop_ad.jpeg">
-                        </div>
-                    </a>
+        <section class="hero-slider" data-carousel>
+            <div class="carousel-cell"
+                style="background-image: url(https://i.pinimg.com/564x/93/e9/bf/93e9bf0119b0f05ba2a2908f759b8811.jpg);">
+                <!-- 變暗效果 -->
+                <!-- <div class="overlay"></div> -->
+                <div class="inner">
+                    <a href="product_ad_page.html" class="btn">Tell me more</a>
                 </div>
-            </section>
-        </div>
+            </div>
+
+            <div class="carousel-cell"
+                style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
+                <!-- <div class="overlay"></div> -->
+                <div class="inner">
+                    <a href="product_ad_page.html" class="btn">Tell me more</a>
+                </div>
+            </div>
+
+            <div class="carousel-cell" style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
+                <!-- <div class="overlay"></div> -->
+                <div class="inner">
+                    <a href="product_ad_page.html" class="btn">Tell me more</a>
+                </div>
+            </div>    
+        </section>
+        <!-- js -->
+        <script>
+            var options = {
+                accessibility: true,
+                prevNextButtons: true,
+                pageDots: true,
+                setGallerySize: false,
+                arrowShape: {
+                    x0: 10,
+                    x1: 60,
+                    y1: 50,
+                    x2: 60,
+                    y2: 45,
+                    x3: 15
+                }
+            };
+
+            var carousel = document.querySelector('[data-carousel]');
+            var slides = document.getElementsByClassName('carousel-cell');
+            var flkty = new Flickity(carousel, options);
+
+            flkty.on('scroll', function () {
+                flkty.slides.forEach(function (slide, i) {
+                    var image = slides[i];
+                    var x = (slide.target + flkty.x) * -1 / 3;
+                    image.style.backgroundPosition = x + 'px';
+                });
+            });
+        </script>
+
+
 
         <!-- 真實評論，好友討論，免運 -->
-        <section class="comment">
+        <section class="product_comment">
             <a href="#">
                 <div class="item_box">
                     <div class="item">
                         <div class="img_box">
-                            <img src="src\assets\images\icon\shop_appraise.png">
+                            <img src="assets\images\icon\shop_appraise.png">
                         </div>
                         <div class="txt_box">
                             <p>真實評價</p>
@@ -76,7 +112,7 @@
                     </div>
                     <div class="item">
                         <div class="img_box">
-                            <img src="src\assets\images\icon\shop_tag.png">
+                            <img src="assets\images\icon\shop_tag.png">
                         </div>
                         <div class="txt_box">
                             <p>折價優惠</p>
@@ -85,7 +121,7 @@
                     </div>
                     <div class="item">
                         <div class="img_box">
-                            <img src="src\assets\images\icon\shop_chat.png">
+                            <img src="assets\images\icon\shop_chat.png">
                         </div>
                         <div class="txt_box">
                             <p>卡友討論</p>
@@ -98,7 +134,7 @@
         <!-- 商品分類 -->
         <section class="sort">
             <div class="item_box">
-                <a href="#">
+                <a href="product_sort_page.html">
                     <div class="item">
                         <div class="img_box">
                             <img src="assets\images\icon\shop_life.png">
@@ -128,6 +164,8 @@
                         </div>
                     </div>
                 </a>
+            </div>
+            <div class="item_box">
                 <a href="#">
                     <div class="item">
                         <div class="img_box">
@@ -159,6 +197,7 @@
                     </div>
                 </a>
             </div>
+
         </section>
 
         <!-- 最新區 -->
@@ -167,7 +206,7 @@
             <div class="time_limit_item_box">
                 <div class="title">
                     <div class="img_box">
-                        <img src="src\assets\images\icon\shop_medal.png">
+                        <img src="assets\images\icon\shop_hot_deal.png">
                     </div>
                     <div class="txt_box">
                         <div class="txt_new_goods">
@@ -286,13 +325,13 @@
                     <p>全部商品</p>
                 </div>
                 <div class="item_box">
-                    <a href="#">
+                    <a href="product_page.html">
                         <div class="item">
                             <div class="img_box">
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -303,7 +342,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -314,7 +353,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -325,7 +364,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -336,7 +375,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -347,7 +386,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -358,7 +397,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -369,7 +408,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -380,7 +419,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -391,7 +430,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -402,7 +441,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -413,7 +452,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -424,7 +463,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -435,7 +474,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -446,7 +485,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -457,7 +496,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -468,7 +507,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -479,7 +518,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -490,7 +529,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -501,7 +540,7 @@
                                 <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱新春超值福袋</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
@@ -511,6 +550,7 @@
         </section>
 
     </main>
+
 </body>
 
 </html>

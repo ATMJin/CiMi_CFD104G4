@@ -10,42 +10,14 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/article.css">
-    <style>
-        .top_bar {
-            background-color: rgb(89, 136, 111);
-            height: 48px;
-            position: fixed;
-            width: 100%;
-            z-index: -1;
-        }
-
-        .content {
-            display: flex;
-            height: 800px;
-        }
-
-        aside {
-            width: 20%;
-            height: 100%;
-            background-color: rgb(72, 78, 107);
-            margin-top: 48px;
-        }
-
-        main {
-            width: 80%;
-            height: 100%;
-            background-color: #ffffff;
-            margin-top: 48px;            
-
-        }
-    </style>
 </head>
  
 <body>
-    <header class="top_bar">
-    </header>
+    @@include('layout/header.html')
+
     <section class="content">
-        <aside></aside>
+        @@include('layout/sidebar.html')
+    </section>
         <main>
             <div class="lightbox">
                 <section class="article_view_container">
@@ -58,7 +30,7 @@
                             <div class="article_view_mem_name">穿搭小天才</div>
                         </div>
                         <div class="close_icon">
-                            <img src="/assets/images/icon/close.png">
+                            <img src="assets/images/icon/close.png">
                         </div>
                     </div>
                     <!-- 文章標題 -->
@@ -104,14 +76,14 @@
                                             <!-- 喜歡數 -->
                                             <div class="interest_article_like_box">
                                                 <div class="interest_article_icon_item">
-                                                        <img src="../assets/images/icon/like.png" alt="">
+                                                        <img src="assets/images/icon/like.png" alt="">
                                                 </div>
                                                 <div class="interest_article_like_amount">144</div>
                                             </div>
                                             <!-- 留言數 -->
                                             <div class="interest_article_comment_box">
                                                 <div class="interest_article_icon_item">
-                                                    <img src="../assets/images/icon/comment.png" alt="">
+                                                    <img src="assets/images/icon/comment.png" alt="">
                                                 </div>
                                                 <div class="interest_article_comment_amount">24</div>
                                             </div>
@@ -131,14 +103,14 @@
                                             <!-- 喜歡數 -->
                                             <div class="interest_article_like_box">
                                                 <div class="interest_article_icon_item">
-                                                        <img src="../assets/images/icon/like.png" alt="">
+                                                        <img src="assets/images/icon/like.png" alt="">
                                                 </div>
                                                 <div class="interest_article_like_amount">144</div>
                                             </div>
                                             <!-- 留言數 -->
                                             <div class="interest_article_comment_box">
                                                 <div class="interest_article_icon_item">
-                                                    <img src="../assets/images/icon/comment.png" alt="">
+                                                    <img src="assets/images/icon/comment.png" alt="">
                                                 </div>
                                                 <div class="interest_article_comment_amount">24</div>
                                             </div>
@@ -158,14 +130,14 @@
                                             <!-- 喜歡數 -->
                                             <div class="interest_article_like_box">
                                                 <div class="interest_article_icon_item">
-                                                        <img src="../assets/images/icon/like.png" alt="">
+                                                        <img src="assets/images/icon/like.png" alt="">
                                                 </div>
                                                 <div class="interest_article_like_amount">144</div>
                                             </div>
                                             <!-- 留言數 -->
                                             <div class="interest_article_comment_box">
                                                 <div class="interest_article_icon_item">
-                                                    <img src="../assets/images/icon/comment.png" alt="">
+                                                    <img src="assets/images/icon/comment.png" alt="">
                                                 </div>
                                                 <div class="interest_article_comment_amount">24</div>
                                             </div>
@@ -185,14 +157,14 @@
                                             <!-- 喜歡數 -->
                                             <div class="interest_article_like_box">
                                                 <div class="interest_article_icon_item">
-                                                        <img src="../assets/images/icon/like.png" alt="">
+                                                        <img src="assets/images/icon/like.png" alt="">
                                                 </div>
                                                 <div class="interest_article_like_amount">144</div>
                                             </div>
                                             <!-- 留言數 -->
                                             <div class="interest_article_comment_box">
                                                 <div class="interest_article_icon_item">
-                                                    <img src="../assets/images/icon/comment.png" alt="">
+                                                    <img src="assets/images/icon/comment.png" alt="">
                                                 </div>
                                                 <div class="interest_article_comment_amount">24</div>
                                             </div>
@@ -205,7 +177,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
                     <!-- 留言區 -->
                     <div class="comment_container">
                         <p>共2則留言</p>
@@ -217,48 +189,58 @@
                             <div class="comment_txt">
                                 <div class="comment_mem_name_box">
                                     <span class="comment_mem_name_item">前端打工仔</span>
+                                    <div class="comment_impeach_icon">
+                                        <img src="assets/images/icon/more_hov.png" alt="">
+                                    </div>                           
+                                </div>
+                                <div class="comment_content">
+                                    進來員工，股份工藝多種擁有停止自然，屬。
+                                </div>
+                                <div class="comment_info">
                                     <div class="comment_like_box">
                                         <div class="comment_like_icon">
-                                            <img src="/assets/images/icon/like_hov.png" alt="">
+                                            <img src="assets/images/icon/like_hov.png" alt="">
                                         </div>
                                         <span class="comment_like_amount">23</span>
-                                    </div>                                 
-                                </div>
-                                <div class="comment_content">進來員工，股份工藝多種擁有停止自然，屬。</div>
-                                <div class="comment_info">
-                                    <span class="comment_floor" >B1</span>
+                                    </div>      
                                     <span class="comment_date" >2022/2/23</span>
-                                    <span class="comment_reply" >回覆</span>
                                 </div>
                             </div>
                         </div>
-                         <!-- 單則留言 -->
-                         <div class="comment_box">
+                        <!-- 單則留言 -->
+                        <div class="comment_box">
                             <div class="comment_head_photo">
                                 <img src="https://fakeimg.pl/40x40/200">
                             </div>
                             <div class="comment_txt">
                                 <div class="comment_mem_name_box">
-                                    <span class="comment_mem_name_item">後端打工仔</span>
+                                    <span class="comment_mem_name_item">前端打工仔</span>
+                                    <div class="comment_impeach_icon">
+                                        <img src="assets/images/icon/more_hov.png" alt="">
+                                    </div>                           
+                                </div>
+                                <div class="comment_content">
+                                    進來員工，股份工藝多種擁有停止自然，屬。
+                                </div>
+                                <div class="comment_info">
                                     <div class="comment_like_box">
                                         <div class="comment_like_icon">
-                                            <img src="/assets/images/icon/like_hov.png" alt="">
+                                            <img src="assets/images/icon/like_hov.png" alt="">
                                         </div>
-                                        <span class="comment_like_amount">23</span>   
-                                    </div>                                 
-                                </div>
-                                <div class="comment_content">進來員工，股份工藝多種擁有停止自然，屬。</div>
-                                <div class="comment_info">
-                                    <span class="comment_floor" >B2</span>
-                                    <span class="comment_date" >2022/2/25</span>
-                                    <span class="comment_reply" >回覆</span>
+                                        <span class="comment_like_amount">23</span>
+                                    </div>      
+                                    <span class="comment_date" >2022/2/23</span>
                                 </div>
                             </div>
                         </div>
-                        <!-- 使用者留言框 -->
-                        <div class="write_comment_box "> 
-                            <input type="text" class="write_comment_item">
-                            
+                    </div>
+                    </div>
+
+                    <!-- 使用者留言框 -->
+                    <div class="write_comment_container">
+                        <div class="write_comment_box">
+                            <input type="text" class="write_comment_item" value="留言...">
+                        
                             <div class="article_like">
                                 <img src="/src/assets/images/icon/like_hov.png" alt="">
                             </div>
@@ -269,14 +251,11 @@
                                 <img src="/src/assets/images/icon/more_hov.png" alt="">
                             </div>
                         </div>
-
-
                     </div>
-
                 </section>
             </div>
         </main>
-    </section>
+    
 </body>
 
 </html>

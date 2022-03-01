@@ -1,8 +1,7 @@
 /* 以下為主頁橫排 */
-.content{
+.content_area{
     width: 100%;
     max-width: 1440px;
-    height: 900px;
     margin: auto;
     display: flex;
 }
@@ -14,7 +13,8 @@
     margin-top:100px;
     // min-width:170px;
     bottom: 0;
-    padding: 20px;
+    padding: 15px;
+    font-size: var(--sidebar);
     background-color: var(--secondary-color);
     z-index: 11;
     .sidebar_list{
@@ -27,7 +27,7 @@
             font-size: 0;
             img{
                 width: 30px;
-                margin-right: 10px;
+                margin-right: 0px;
                 vertical-align: middle;
             }
         
@@ -43,7 +43,7 @@
             max-width: 288px;
             margin-top: 100px;
             top: 0;
-            border-top-right-radius: 60px;
+            border-top-right-radius: 100px;
             .sidebar_list{
                 display: inline-block;
                 li+li{
@@ -56,12 +56,13 @@
                     display: block;
                 }
                 a{
-                    font-size: 16px;
+                    font-size: var(--body1);
                     vertical-align: middle;
                     text-decoration: none;
-                    color: #fff;
+                    color: var(--primary-color);
                     img{
                         width: 20px;
+                        margin-right: 10px;
                     }
                 }
             }

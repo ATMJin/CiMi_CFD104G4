@@ -1,5 +1,7 @@
 @import "./layout/reset";
 @import "./layout/common";
+@import "./layout/header";
+@import "./layout/sidebar";
 
 aside{
     display: none;
@@ -73,10 +75,14 @@ aside{
     .top_bar_box .member_topbar{
         display: none;
     }
+    .member_main_box{
+        max-width: 1440px;
+        margin: auto;
+    }
     .member_main_box .member_bg{
-        width: 70%;
-        margin-top: 50px;
-        margin-left: 25%;
+        width: 80%;
+        margin-top: 100px;
+        margin-left: 20%;
         border-radius: 20px;
         // background-color: #7777;
     }

@@ -2,74 +2,40 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
-    <!-- <link rel="stylesheet" href="assets\css\reset.css"> -->
-    <!-- <link rel="stylesheet" href="assets\css\index.css"> -->
-    <!-- <link rel="stylesheet" href="assets\css\common.css"> -->
-    <link rel="stylesheet" href="assets\css\shop_cart.css">
-    <!-- owl套件 -->
-    <link rel="stylesheet" href="js\owl.js">
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-    <script src="owlcarousel/owl.carousel.min.js"></script>
-    <!-- jquery套件 -->
-    <script src="jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CiMi交友論壇</title>
+  <link rel="stylesheet" href="assets/css/shop_cart.css">
+  <!-- jquery套件 -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Vue -->
+  <script src="js/vue.js"></script>
 
 
 
 </head>
 
 <body>
-    @@include('layout/header.html')
-    <!-- @@include('layout/sidebar.html') -->
+  <!-- @@include('layout/header.html') -->
+  <!-- @@include('layout/sidebar.html') -->
 
-    <!-- 購物車的頁面 -->
-    <main class="shopping_cart">
-        <!-- 購物車最上面的小標題，(購物車/收藏清單) -->
-        <section class="shopping_cart_title">
-            <!-- 箭頭 -->
-            <div class="img_box">
-                <img src="https://picsum.photos/40/40/?random=10">
-            </div>
-            <!-- 文字 -->
-            <div class="txt_box">
-                <p>購物車</p>
-                <p>收藏清單</p>
-            </div>
-        </section>
+  <!-- 購物車的頁面 -->
+  <div id="app">
+    <shopping-cart></shopping-cart>
+  </div>
 
-        <section class="shopping_cart_goods">
-            <!-- 商品照 -->
-            <div class="img_box">
-                <img src="https://picsum.photos/300/300/?random=10">
-            </div>
-            <!-- 商品資訊 -->
-            <div class="txt_box">
-                <p>推薦商品|玫瑰花束</p>
-            </div>
-            <!-- 商品購買/增加商品數量或減少 -->
-            <div class="information_item_box">
-                <div class="txt_box">
-                    <p>單價</p>
-                    <p>$400</p>
-                </div>
-                <div class="item_box">
-                    <p>-</p>
-                    <input type="button">
-                </div>
-                <input type="text" style="width: 10px;" value="1">
-                <div class="item_box">
-                    <p>+</p>
-                    <input type="button">
-                </div>
+  <script src="js/shop_cart.js"></script>
+  <!-- <main class="shopping_cart">
 
-            </div>
-        </section>
-    </main>
+      購物車最上面的title header
+      <shopping-cart-title></shopping-cart-title>
 
+      include('layout/shop_cart_list.html')
+      <keep-alive>
+        <component :is="componentId"></component>
+      </keep-alive>
+    </main> -->
 </body>
 
 </html>
