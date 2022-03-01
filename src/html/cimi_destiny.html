@@ -7,43 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<script src="https://kit.fontawesome.com/372814be81.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+TC:wght@100;300;400;500;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="/css/cimi_destiny.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-<header class="top_bar_box">
-    <div class="top_bar">
-        <div class="logo_box">
-            <h1>
-                <a href="http://">
-                    <img src="assets/images/logo.png" alt="CiMi交友論壇">
-                </a>
-            </h1>
-        </div>
-        <form class="search_bar" action="">
-            <input type="search">
-            <button type="submit">
-                <img src="assets/images/icon/nav_search.png" alt="搜尋">
-            </button>
-        </form>
-        <div class="member_bar">
-            <ul>
-                <li><a href="http://"><img src="assets/images/icon/nav_post.png" alt="發文"></a></li>
-                <li><a href="http://"><img src="assets/images/icon/nav_message.png" alt="聊天室"></a></li>
-                <li><a href="http://"><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
-            </ul>
-        </div>
-    </div>
-</header>
-
 <body>
     <main>
         
+        <div class="left_button">
+            <img id="return" src="img/return.png" alt="">
+            <!-- <i class="fa-solid fa-arrow-rotate-left"></i> -->
+        </div>
+        <div class="right_decor">
+            <img id="home" src="img/white_home.png" alt="">
+        </div>
+
+
         <div class="player">
             <video id="cimi_video" class="video_viewer"
-                src="video/cimi_animation.mp4" width="100%"
+                src="video/cimi_animation_colored.mp4" width="100%"
                 ></video>
             <div class="question_frame" style="visibility:hidden">
                 <img src="/img/question.png" alt="">
@@ -51,7 +39,7 @@
             <div class="answer_frame" style="visibility:hidden">
                 <img src="/img/answer.png" alt="">
             </div>
-          
+           
             <div class="ball" id="ball">
                 <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 305.01 280.24" style="enable-background:new 0 0 305.01 280.24;" xml:space="preserve">
@@ -144,7 +132,20 @@
                         <div class="color_option yellow" ></div>
                         <div class="color_option purple"></div>
                     </div>
-                    <div id="start"><span>Let the journey begin!</span><br>選擇你喜歡的顏色</div>
+                    <div id="start">
+                        <div id="animated-title">
+                            <div class="text-top">
+                              <div>
+                                <span>Let the Journey</span>
+                                <span>Begin!</span>
+                              </div>
+                            </div>
+                            
+                        </div>
+                          <div class="choose_text_class" id="choose_text">
+                            <div>選擇喜歡的顏色</div>
+                          </div>
+                    </div>
                 </section>
                 
                 <div class="toggle Ans_A"style="visibility:hidden"></div>
@@ -157,28 +158,30 @@
 
                 
 
-                <div class="question" id="question1">上一他們會時候天可以時間，我不是周我都會遇的手定訓練，沒有很果真的很有趣個人。怎樣的戴上面寫，嘗試的距離表演。</div>
-                <div class="question" id="question2">是一沒可以不都我國的忙轉。出感覺點起我一老的不好，他們不可以再，奇怪的收到不一，我沒有，這遊戲上也都是，佛天亮了粉。</div>
-                <div class="question" id="question3">即將這次我只是可以跟樣的，是普通，我不想看即使聊天是直接惡魔面，日本人很好的角申請，看起來表符不過也有：熊先生。</div>
+                <div class="question" id="question1"><span>Q1. </span>和朋友去野外烤肉，<br>你可以選擇一種助燃物，<br>你會選擇以下哪一種？</div>
+                <div class="question" id="question2"><span>Q2. </span>當你正要去洗澡時，<br>突然發生一串事~<br>你會先解決那件事？</div>
+                <div class="question" id="question3"><span>Q3. </span>結束一天疲累的工作，想到ＰＵＢ坐坐，<br> 這時的你面對眾多的酒類飲料，<br>你會選擇那一項呢？</div>
 
                 <div class="lightbox" id="instrction_lightbox">
-                    <div class="instrction"><span>遊戲說明<br></span>"您將踏上一段旅程路程當中將有三個選擇口，每個選擇都是命運的選擇。<br>回答這三個問題之後，您將遇到一位您從來沒有遇過的人，<br>他的興趣可能跟你一樣，對同一首歌有相同感動，甚至喜歡同一個電影。 <br>然而，機會是短暫的，24小時內，如果彼此都接受邀請了，就會成為好友； <br>如果未能成為朋友，午夜之後對方將會永遠消失。"
+                    <div class="instrction"><span>遊戲說明<br></span>"您將踏上一段旅程路程當中將有三個選擇口，<br>每個選擇都是命運的選擇。<br>回答這三個問題之後，您將遇到一位您從來沒有遇過的人， <br>然而，機會是短暫的，<br>24小時內，如果彼此都接受邀請了，就會成為好友； <br>如果未能成為朋友，午夜之後對方將會永遠消失。"
                         <div class="lightbox_button">
                             <img id="button_check" src="img/instruction_button_check.png" alt="">
                             <img id="button_escape" src="img/instruction_button_escape.png" alt="">
                         </div>
                     </div>
                 </div>
-                
 
-                <div class="lightbox" id="waiting_lightbox">
-                    <div class="instrction">恭喜您找到您的Destiny <br>他將會於午夜12點出現現。如果於24小時內，你們對彼此發送出邀請， 就會成為朋友，未能成為朋友的話，午夜一過便永遠消失。
-                        <div class="lightbox_button">
-            
-                        </div>
-                    </div>
-                </div>
+                
+                <div class="lightbox" id="waiting_lightbox"></div>
             </div>
+
+            <!-- 洞裡畫面 -->
+            <div id="container"></div>
+            <div id="countdown"></div>
+            <div id="destiny_botton"></div>
+            
+            
+
         </div>
     </main>
     <script src="/js/cimi_destiny.js"></script>
