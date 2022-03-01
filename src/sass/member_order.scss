@@ -7,61 +7,8 @@ aside {
     margin: 40px auto;
 }
 
-/* Style the tabs */
-.tabs {
-    overflow: hidden;
-    margin-bottom: -2px;
-    /* hide bottom border */
-    margin-left: 24px;
-    margin: auto;
-}
-
-.tabs a {
-    float: left;
-    cursor: pointer;
-    padding: 12px 24px;
-    transition: background-color 0.2s;
-    border: 1px solid #ccc;
-    border-right: none;
-    background-color: #f1f1f1;
-    border-radius: 10px 10px 0 0;
-    font-weight: bold;
-}
-
-.tabs a:last-child {
-    border-right: 1px solid #ccc;
-}
-
-/* Change background color of tabs on hover */
-.tabs a:hover {
-    background-color: #aaa;
-    color: #fff;
-}
-
-/* Styling for active tab */
-.tabs a.active {
-    background-color: #fff;
-    color: #484848;
-    border-bottom: 2px solid #fff;
-    cursor: default;
-}
-
-/* Style the tab content */
-.tabcontent {
-    padding: 30px 50px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px #e1e1e1
-}
-
-.data {
-    width: 120px;
-}
-
 .member_main_box {
     .member_bg {
-        margin-top: 100px;
-
         .container {
             .content {
                 .tabcontent {
@@ -141,59 +88,11 @@ aside {
         margin: 40px auto;
     }
 
-    /* Style the tabs */
-    .tabs {
-        overflow: hidden;
-        margin-bottom: -2px;
-        /* hide bottom border */
-        margin-left: 24px;
-    }
-
-    .tabs a {
-        float: left;
-        cursor: pointer;
-        padding: 12px 24px;
-        transition: background-color 0.2s;
-        border: 1px solid #ccc;
-        border-right: none;
-        background-color: #f1f1f1;
-        border-radius: 10px 10px 0 0;
-        font-weight: bold;
-        color: var(--font-secondary);
-    }
-
-    .tabs a:last-child {
-        border-right: 1px solid #ccc;
-    }
-
-    /* Change background color of tabs on hover */
-    .tabs a:hover {
-        background-color: #aaa;
-        color: #fff;
-    }
-
-    /* Styling for active tab */
-    .tabs a.active {
-        background-color: #fff;
-        color: #484848;
-        border-bottom: 2px solid #fff;
-        cursor: default;
-    }
-
-    /* Style the tab content */
-    .tabcontent {
-        padding: 30px 50px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        box-shadow: 4px 4px 8px #e1e1e1
-    }
-
-    .data {
-        width: 120px;
-    }
 
     .member_main_box {
         .member_bg {
+            padding:0px 40px;
+            margin-top: 135px;
             .container {
                 .content {
                     .tabcontent {
@@ -213,9 +112,18 @@ aside {
                                     justify-content: start;
                                     align-items: center;
                                     padding: 10px;
-
-                                    .member_comimg {
+                                    .member_comtxth3{
+                                        width: 60%;
+                                        display: flex;
+                                        justify-content: start;
+                                    }
+                                    .member_comtxt{
                                         width: 30%;
+                                        display: flex;
+                                        justify-content: end;
+                                    }
+                                    .member_comimg {
+                                        width: 15%;
                                         
                                     }
                                     h3{
