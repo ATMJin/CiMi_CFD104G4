@@ -69,7 +69,7 @@ body {
     width: 90%;
     height: 200px;
     overflow: hidden;
-    border-radius: 0.75em;
+    border-radius:var(--img-radius);
     /* slider圓角 */
     margin: 100px auto;
     /*調整slider位置*/
@@ -183,7 +183,7 @@ body {
                 display: flex;
                 justify-content: space-around;
                 background-color: #f97373;
-                border-radius: 20px;
+                border-radius:var(--bgc-radius);
                 margin: 4%;
 
                 .item {
@@ -227,7 +227,7 @@ body {
         // 手機頁沒有
         // 限時商品
         .time_limit_item_box {
-            border-radius: 20px;
+            border-radius:var(--bgc-radius);
             background-color: #E1E1E1;
             padding: 10px;
             box-sizing: border-box;
@@ -541,7 +541,7 @@ body {
                 background-color: #E1E1E1;
                 margin: 10px;
                 padding: 10px;
-                border-radius: 20px;
+                border-radius:var(--bgc-radius);
 
                 a {
                     text-decoration: none;
@@ -556,7 +556,7 @@ body {
 
                             img {
                                 width: 100%;
-                                border-radius: 20px;
+                                border-radius:var(--img-radius);
                             }
                         }
 
@@ -608,7 +608,7 @@ body {
                     .item {
                         // 顏色白色然後設陰影
                         background-color: rgb(255, 255, 255);
-                        border-radius: 20px;
+                        border-radius:var(--img-radius);
                         box-shadow: 0 2px 8px 2px #ecebebce;
                         box-sizing: border-box;
                         margin: 10px;
@@ -621,7 +621,7 @@ body {
 
                             img {
                                 width: 100%;
-                                border-radius: 20px 20px 0px 0px;
+                                border-radius: 12px 12px 0px 0px;
                             }
                         }
 

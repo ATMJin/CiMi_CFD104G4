@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
+    <title>好物商城 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/product.css">
     <!-- 廣告輪播 -->
-    <link rel="stylesheet" href="src\js\product.js">
+    <!-- <link rel="stylesheet" href="src\js\product.js"> -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.css">
@@ -16,540 +16,695 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js">
     </script>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/shop_cart.css">
+    <!-- <script type="text/javascript" src="script.js"></script> -->
 </head>
 
 <body>
     @@include('layout/header.html')
-    @@include('layout/sidebar.html')
-    <!-- 好物商城 -->
-    <main class="main_product">
-        <!-- 好物商城標題 -->
-        <Section class="product_title">
-            <div class="item_box">
-                <div class="txt_box">
-                    <p>好物商城</p>
-                </div>
-                <!-- 購物車icon -->
-                <a href="shop_cart.html">
-                    <div class="img_box">
-                        <img src="assets\images\icon\cart.png">
-                    </div>
-                </a>
-            </div>
-        </Section>
-
-        <!-- 廣告投放 -->
-        <section class="hero-slider" data-carousel>
-            <div class="carousel-cell"
-                style="background-image: url(https://i.pinimg.com/564x/93/e9/bf/93e9bf0119b0f05ba2a2908f759b8811.jpg);">
-                <!-- 變暗效果 -->
-                <!-- <div class="overlay"></div> -->
-                <div class="inner">
-                    <a href="product_ad_page.html" class="btn">Tell me more</a>
-                </div>
-            </div>
-
-            <div class="carousel-cell"
-                style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
-                <!-- <div class="overlay"></div> -->
-                <div class="inner">
-                    <a href="product_ad_page.html" class="btn">Tell me more</a>
-                </div>
-            </div>
-
-            <div class="carousel-cell" style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
-                <!-- <div class="overlay"></div> -->
-                <div class="inner">
-                    <a href="product_ad_page.html" class="btn">Tell me more</a>
-                </div>
-            </div>    
-        </section>
-        <!-- js -->
-        <script>
-            var options = {
-                accessibility: true,
-                prevNextButtons: true,
-                pageDots: true,
-                setGallerySize: false,
-                arrowShape: {
-                    x0: 10,
-                    x1: 60,
-                    y1: 50,
-                    x2: 60,
-                    y2: 45,
-                    x3: 15
-                }
-            };
-
-            var carousel = document.querySelector('[data-carousel]');
-            var slides = document.getElementsByClassName('carousel-cell');
-            var flkty = new Flickity(carousel, options);
-
-            flkty.on('scroll', function () {
-                flkty.slides.forEach(function (slide, i) {
-                    var image = slides[i];
-                    var x = (slide.target + flkty.x) * -1 / 3;
-                    image.style.backgroundPosition = x + 'px';
-                });
-            });
-        </script>
-
-
-
-        <!-- 真實評論，好友討論，免運 -->
-        <section class="product_comment">
-            <a href="#">
+    <div class="content_area">
+        @@include('layout/sidebar.html')
+        <!-- 好物商城 -->
+        <main class="main_product">
+            <!-- 好物商城標題 -->
+            <Section class="product_title">
                 <div class="item_box">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_appraise.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>真實評價</p>
-                        </div>
-
-                    </div>
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_tag.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>折價優惠</p>
-                        </div>
-
-                    </div>
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_chat.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>卡友討論</p>
-                        </div>
-
-                    </div>
-                </div>
-            </a>
-        </section>
-        <!-- 商品分類 -->
-        <section class="sort">
-            <div class="item_box">
-                <a href="product_sort_page.html">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_life.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>質感生活</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_cosmetics.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>美妝保養</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_clothes.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>風格穿搭</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="item_box">
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_food.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>美食補給</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_3C.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>3C家電</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="item">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_book.png">
-                        </div>
-                        <div class="txt_box">
-                            <p>書籍補給</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-        </section>
-
-        <!-- 最新區 -->
-        <section class="new_goods_information">
-            <!-- 限時商品 -->
-            <div class="time_limit_item_box">
-                <div class="title">
-                    <div class="img_box">
-                        <img src="assets\images\icon\shop_hot_deal.png">
-                    </div>
                     <div class="txt_box">
-                        <div class="txt_new_goods">
-                            <p>限時商品</p>
+                        <p>好物商城</p>
+                    </div>
+                    <!-- 購物車icon -->
+                    <a href="shop_cart.html">
+                        <div class="img_box">
+                            <img src="assets\images\icon\cart.png">
                         </div>
-                        <div class="txt_new_goods_time">
-                            <p>12:30:50</p>
-                        </div>
+                    </a>
+                </div>
+            </Section>
+
+            <!-- 廣告投放 -->
+            <section class="hero-slider" data-carousel>
+                <div class="carousel-cell"
+                    style="background-image: url(https://i.pinimg.com/564x/93/e9/bf/93e9bf0119b0f05ba2a2908f759b8811.jpg);">
+                    <!-- 變暗效果 -->
+                    <!-- <div class="overlay"></div> -->
+                    <div class="inner">
+                        <a href="product_ad_page.html" class="btn">Tell me more</a>
                     </div>
                 </div>
+
+                <div class="carousel-cell"
+                    style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
+                    <!-- <div class="overlay"></div> -->
+                    <div class="inner">
+                        <a href="product_ad_page.html" class="btn">Tell me more</a>
+                    </div>
+                </div>
+
+                <div class="carousel-cell"
+                    style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
+                    <!-- <div class="overlay"></div> -->
+                    <div class="inner">
+                        <a href="product_ad_page.html" class="btn">Tell me more</a>
+                    </div>
+                </div>
+            </section>
+            <!-- js -->
+            <script>
+                var options = {
+                    accessibility: true,
+                    prevNextButtons: true,
+                    pageDots: true,
+                    setGallerySize: false,
+                    arrowShape: {
+                        x0: 10,
+                        x1: 60,
+                        y1: 50,
+                        x2: 60,
+                        y2: 45,
+                        x3: 15
+                    }
+                };
+
+                var carousel = document.querySelector('[data-carousel]');
+                var slides = document.getElementsByClassName('carousel-cell');
+                var flkty = new Flickity(carousel, options);
+
+                flkty.on('scroll', function () {
+                    flkty.slides.forEach(function (slide, i) {
+                        var image = slides[i];
+                        var x = (slide.target + flkty.x) * -1 / 3;
+                        image.style.backgroundPosition = x + 'px';
+                    });
+                });
+            </script>
+
+
+
+            <!-- 真實評論，好友討論，免運 -->
+            <section class="product_comment">
                 <a href="#">
                     <div class="item_box">
-                        <div class="img_box">
-                            <img src="https://picsum.photos/200/200/?random=10">
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_appraise.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>真實評價</p>
+                            </div>
+
                         </div>
-                        <div class="txt_box">
-                            <p>Norns︱福袋</p>
-                            <p>NT.1500</p>
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_tag.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>折價優惠</p>
+                            </div>
+
+                        </div>
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_chat.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>卡友討論</p>
+                            </div>
+
                         </div>
                     </div>
                 </a>
-            </div>
+            </section>
+            <!-- 商品分類 -->
+            <section class="sort">
+                <div class="item_box">
+                    <a href="product_sort_page.html">
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_life.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>質感生活</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_cosmetics.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>美妝保養</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_clothes.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>風格穿搭</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="item_box">
+                    <a href="#">
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_food.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>美食補給</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_3C.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>3C家電</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_book.png">
+                            </div>
+                            <div class="txt_box">
+                                <p>書籍補給</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </section>
+
+            <!-- 最新區 -->
+            <section class="new_goods_information">
+                <!-- 限時商品 -->
+                <div class="time_limit_item_box">
+                    <div class="title">
+                        <div class="img_box">
+                            <img src="assets\images\icon\shop_hot_deal.png">
+                        </div>
+                        <div class="txt_box">
+                            <div class="txt_new_goods">
+                                <p>限時商品</p>
+                            </div>
+                            <div class="txt_new_goods_time">
+                                <p>12:30:50</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="item_box">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/200/200/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>Norns︱福袋</p>
+                                <p>NT.1500</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
 
-            <!-- 最新上架商品 -->
-            <div class="new_item_box">
-                <div class="title">
-                    <!-- <div class="img_box">
+                <!-- 最新上架商品 -->
+                <div class="new_item_box">
+                    <div class="title">
+                        <!-- <div class="img_box">
                         <img src="assets\images\icon\shop_medal.png">
                     </div> -->
-                    <div class="txt_box">
-                        <p>最新上架商品</p>
+                        <div class="txt_box">
+                            <p>最新上架商品</p>
+                        </div>
+                    </div>
+                    <div class="item_box">
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="https://picsum.photos/100/100/?random=10">
+                                </div>
+                                <div class="txt_box">
+                                    <p>Norns︱福袋</p>
+                                    <p>NT.1500</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="https://picsum.photos/100/100/?random=10">
+                                </div>
+                                <div class="txt_box">
+                                    <p>Norns︱福袋</p>
+                                    <p>NT.1500</p>
+                                </div>
+                            </div>
+                        </a>
+
+            </section>
+
+
+
+            <!-- 熱門商品 -->
+            <section class="hot">
+                <div class="hot_item_box">
+                    <div class="title">
+                        <div class="img_box">
+                            <img src="assets\images\icon\shop_medal.png" style="width: 30px;">
+                        </div>
+                        <div class="txt_box">
+                            <p>熱門商品</p>
+                        </div>
+                    </div>
+                    <div class="item_box">
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="https://picsum.photos/100/100/?random=10">
+                                </div>
+                                <div class="txt_box">
+                                    <p>Norns︱福袋</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="https://picsum.photos/100/100/?random=10">
+                                </div>
+                                <div class="txt_box">
+                                    <p>Norns︱福袋</p>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="https://picsum.photos/100/100/?random=10">
+                                </div>
+                                <div class="txt_box">
+                                    <p>Norns︱福袋</p>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="https://picsum.photos/100/100/?random=10">
+                                </div>
+                                <div class="txt_box">
+                                    <p>Norns︱福袋</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="item_box">
-                    <a href="#">
-                        <div class="item">
+
+            </section>
+            <!-- 全部商品 -->
+            <section class="all">
+                <div class="all_item_box">
+                    <div class="title">
+                        <p>全部商品</p>
+                    </div>
+                    <div class="item_box">
+
+                        <div onclick="myFunction" class="item ligh_box_jump">
                             <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
+                                <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
                             </div>
                         </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
+
+
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
+                                <img src="https://picsum.photos/260/260/?random=10">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
                             </div>
                         </div>
-                    </a>
-
-        </section>
 
 
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
 
-        <!-- 熱門商品 -->
-        <section class="hot">
-            <div class="hot_item_box">
-                <div class="title">
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://picsum.photos/260/260/?random=10">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <!-- 燈箱--感謝文進大大相助!!!!! -->
+    <section class="product_lighbox">
+        <main class="product_page">
+            <!-- 商品最上面的標題 -->
+            <section class="product_page_title">
+                <!-- 商品名稱 -->
+                <div class="txt_box">
+                    <p>果果乳清蛋白,最佳蛋白</p>
+                </div>
+                <!-- 叉叉按鈕 -->
+                <div class="img_box cross ">
+                    <img src="assets\images\icon\close.png">
+                </div>
+
+            </section>
+            <!-- 追蹤分類 -->
+            <section class="product_page_sort_follow">
+                <!-- 圖片 -->
+                <div class="product_img_box">
+                    <img src="assets\images\icon\shop_food.png">
+                </div>
+                <!-- 文字 -->
+                <div class="txt_box">
+                    <!-- 分類 -->
+                    <p>食物</p>
+                    <!-- 追蹤id -->
+                    <!-- <p>@asdfr</p> -->
+                </div>
+                <!-- 按鈕 -->
+                <button class="btn-secondary">追蹤</button>
+            </section>
+
+            <!-- // 商品照(小圖變大圖 -->
+            <section class="product_page_pic">
+                <div class="product_large">
+                    <img id="large" src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg">
+                </div>
+                <div class="product_small">
                     <div class="img_box">
-                        <img src="assets\images\icon\shop_medal.png" style="width: 30px;">
+                        <img src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg" /></div>
+                    <div class="img_box"><img
+                            src="https://i.pinimg.com/474x/95/73/85/957385a3915e0043e50ab31c12bc356a.jpg" /></div>
+                    <div class="img_box">
+                        <img src="https://i.pinimg.com/474x/b6/07/05/b60705f0f45e97d02e8168c93b305735.jpg" /></div>
+                </div>
+            </section>
+            <script>
+                function showLarge(e) {
+                    //   let small = e.target;
+                    //   document.getElementById("large").src = small.src ;
+                    document.getElementById("large").src = e.target.src;
+                }
+
+                function init() {
+                    let smalls = document.querySelectorAll(".product_small img"); /*query-查詢*/
+                    for (let i = 0; i < smalls.length; i++) {
+                        smalls[i].onclick = showLarge;
+                    }
+                }
+
+                window.addEventListener("load", init, false);
+            </script>
+
+
+            <!-- 商品價格/資訊 -->
+            <section class="product_page_price_in">
+                <div class="txt_box">
+                    <p>$4009</p>
+                    <p>
+                        幾上我應日本人，怎麼在的關。人是行為還是沒了貨舒行
+                        是行為還是沒了貨舒行為了貨舒行為還是沒了貨舒行為還是沒了
+                        貨舒行為還是沒了貨舒行為還是沒了貨舒服的心⋯動作的很就想晚時分：真
+                        的請經手可惡的解的存在務卻。
+                    </p>
+                </div>
+            </section>
+            <!-- 商品留言 -->
+            <section class="product_page_msg">
+                <!-- 右邊 -->
+                <div class="item_box_msger">
+                    <!-- 留言頭貼 -->
+                    <div class="img_box">
+                        <img src="assets\images\icon\nav_member.png">
                     </div>
+                    <!-- 留言 -->
+
                     <div class="txt_box">
-                        <p>熱門商品</p>
+                        <input type="text" name="tname" placeholder="留言...">
+                        <!-- <p>留言...</p> -->
                     </div>
                 </div>
-                <div class="item_box">
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
-                            </div>
+                <!-- 左邊icon -->
+                <div class="item_box_fuction_icon">
+                    <div class="img_box">
+                        <!-- 收藏 -->
+                        <div class="img_box_save">
+                            <img src="assets\images\icon\save_hov.png">
                         </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
-                            </div>
+                        <!-- 檢舉 -->
+                        <div class="img_box_report">
+                            <img src="assets\images\icon\more.png">
                         </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/100/100/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>Norns︱福袋</p>
-                                <p>NT.1500</p>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
+                    <!-- 立即購買 -->
+                    <button class="btn-primary">立即購買</button>
+                    
+                    <!-- 加入購物車-->
+                    <button class="btn-secondary">加入購物車</button>
                 </div>
-            </div>
+            </section>
 
-        </section>
-        <!-- 全部商品 -->
-        <section class="all">
-            <div class="all_item_box">
-                <div class="title">
-                    <p>全部商品</p>
-                </div>
-                <div class="item_box">
-                    <a href="product_page.html">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://picsum.photos/260/260/?random=10">
-                            </div>
-                            <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+        </main>
+    </section>
+    <!-- js -->
+    <script>
+        function init() {
+            let small_img = document.querySelectorAll(".ligh_box_jump")
+            small_img[0].addEventListener("click", myFunction)
 
-    </main>
+            let cross = document.querySelector(".cross")
+            cross.addEventListener("click", displayNone)
+        }
+        window.addEventListener("load", init)
+
+        function displayNone() {
+            let x = document.querySelector(".product_lighbox");
+            x.style.display = "none";
+        }
+
+        function myFunction() {
+            let x = document.querySelector(".product_lighbox");
+            x.style.display = "block";
+        }
+    </script>
+    <!-- 文進大大的購物車燈箱 -->
+    <div id="app">
+        <div class="shop_cart_ligh_box">
+            <shopping-cart></shopping-cart>
+        </div>
+    </div>
+    <script src="js/shop_cart.js"></script>
 
 </body>
 
