@@ -188,19 +188,20 @@ body{
     margin: auto;
     top:20%;
    width: 50%;
-   background-color: rgba(255, 255, 255, 0.849);
+   background-color: rgb(255, 255, 255);
    padding: 40px;
-   line-height: 1.5;
+   line-height: 2;
    text-align: center;
-   font-size: 18px;
+   font-size: 16px;
    font-weight: 500;
    color: #02314c;
    border-radius: 15px;
+   border: 1.5px solid rgb(32, 32, 32);
 }
 .instrction span{
     font-size:26px;
     line-height: 2;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .lightbox_button{
