@@ -12,10 +12,11 @@
             padding: 0;
             margin: 0;
         }
+        
          .background{
             width: 100%;
+            height: 100%;
             position: relative;
-  
         }
         .front{
             position: absolute;
@@ -147,6 +148,47 @@
             font-weight: 600;
             color: rgb(129, 129, 129);
         }
+
+        @media screen and (max-width:768px) {
+
+            .background{
+            height: 100vh;
+            position: fixed;
+            }
+            .background img{
+                height: 100%;
+                object-fit: cover;
+            
+            }
+            .red_ball{
+                left:55%;
+            }
+            .blue_ball{
+                left:35%;
+            }
+            .red_shadow{
+            left: 60%;
+            animation-name:shadow_r;
+            
+
+            }
+            .blue_shadow{
+                left: 40%;
+                animation-name:shadow_b;
+            }
+            .front{
+            top:75%;
+            right: 53%;
+
+       
+            }
+            .back{
+                top:75%;
+                right: 33%;
+
+            }
+        }
+
     </style>
 </head>
 <body>
