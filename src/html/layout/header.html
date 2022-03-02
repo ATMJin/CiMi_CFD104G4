@@ -16,10 +16,20 @@
         <div class="member_bar">
             <ul>
                 <li><a href="post.html"><img src="assets/images/icon/nav_post.png" alt="發文"></a></li>
-                <li><a href="product.html"><img src="assets/images/icon/nav_shop.png" alt="好物商城"></a></li>
+                <li><a><img src="assets/images/icon/nav_shop.png" alt="購物車"></a></li>
                 <li><a href="chat.html"><img src="assets/images/icon/nav_message.png" alt="聊天室"></a></li>
                 <li><a href="member_my_setup.html"><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
             </ul>
         </div>
     </div>
 </header>
+
+<!-- 購物車燈箱 -->
+<script src="js/vue.js"></script>
+<div id="shoppingApp">
+    <div class="shopping_cart_light_box">
+        <shopping-cart></shopping-cart>
+    </div>
+</div>
+<script src="js/shop_cart.js"></script>
+<link rel="stylesheet" href="assets/css/shop_cart.css">
