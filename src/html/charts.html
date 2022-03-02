@@ -16,13 +16,13 @@
     <div class="content_area">
         @@include('layout/sidebar.html')
         <main class="main_area">
-            <h2>排行榜</h2>
+            <h2>發文者排行榜</h2>
             <div id="tabs" class="container">
                 <div class="tabs">
-                    <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">會員發文</a>
-                    <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">會員被追蹤</a>
-                    <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">文章被收藏</a>
-                    <a v-on:click="activetab='4'" v-bind:class="[ activetab === '4' ? 'active' : '' ]">文章被喜歡</a>
+                    <a @click="activetab='1'" :class="[ activetab === '1' ? 'active' : '' ]">會員發文數</a>
+                    <a @click="activetab='2'" :class="[ activetab === '2' ? 'active' : '' ]">會員被追蹤</a>
+                    <a @click="activetab='3'" :class="[ activetab === '3' ? 'active' : '' ]">文章被收藏</a>
+                    <a @click="activetab='4'" :class="[ activetab === '4' ? 'active' : '' ]">文章被喜歡</a>
                 </div>
 
                 <div class="content">
@@ -35,11 +35,11 @@
                                 <img src="https://picsum.photos/100/100/?random=12">
                             </div>
                             <div class="charts_name">
-                                <span>抹抹更健康</span>
+                                <span>抹抹健康</span>
                                 <span>@mumumu</span>
                             </div>
                             <div class="charts_sum">
-                                發文數量 : 121
+                                發文數 : 121
                             </div>
                             <div class="charts_btn">
                                 <button class="btn-secondary">追蹤</button>
@@ -54,11 +54,11 @@
                                 <img src="https://picsum.photos/100/100/?random=13">
                             </div>
                             <div class="charts_name">
-                                <span>好人一生平安</span>
+                                <span>好人平安</span>
                                 <span>@mumumu</span>
                             </div>
                             <div class="charts_sum">
-                                發文數量 : 121
+                                發文數 : 121
                             </div>
                             <div class="charts_btn">
                                 <button class="btn-secondary">追蹤</button>
@@ -73,11 +73,11 @@
                                 <img src="https://picsum.photos/100/100/?random=14">
                             </div>
                             <div class="charts_name">
-                                <span>煞氣a小毛</span>
+                                <span>陶氣小毛</span>
                                 <span>@mumumu</span>
                             </div>
                             <div class="charts_sum">
-                                發文數量 : 121
+                                發文數 : 121
                             </div>
                             <div class="charts_btn">
                                 <button class="btn-secondary">追蹤</button>
@@ -93,11 +93,11 @@
                                 <img src="https://picsum.photos/100/100/?random=17">
                             </div>
                             <div class="charts_name">
-                                <span>抹茶巧克力</span>
+                                <span>抹茶蘋果</span>
                                 <span>@mumumu</span>
                             </div>
                             <div class="charts_sum">
-                                發文數量 : 121
+                                追蹤數 : 121
                             </div>
                             <div class="charts_btn">
                                 <button class="btn-secondary">追蹤</button>
@@ -112,11 +112,11 @@
                                 <img src="https://picsum.photos/100/100/?random=15">
                             </div>
                             <div class="charts_name">
-                                <span>三生三世平安</span>
+                                <span>三生平安</span>
                                 <span>@mumumu</span>
                             </div>
                             <div class="charts_sum">
-                                發文數量 : 121
+                                追蹤數 : 121
                             </div>
                             <div class="charts_btn">
                                 <button class="btn-secondary">追蹤</button>
@@ -131,11 +131,11 @@
                                 <img src="https://picsum.photos/100/100/?random=16">
                             </div>
                             <div class="charts_name">
-                                <span>煞氣a小花</span>
+                                <span>小氣阿花</span>
                                 <span>@mumumu</span>
                             </div>
                             <div class="charts_sum">
-                                發文數量 : 121
+                                追蹤數 : 121
                             </div>
                             <div class="charts_btn">
                                 <button class="btn-secondary">追蹤</button>
@@ -143,10 +143,120 @@
                         </div>
                     </div>
                     <div v-if="activetab ==='3'" class="tabcontent">
+                        <div class="charts_box">
+                            <div class="charts_rank">
+                                <span>No.1</span>
+                            </div>
+                            <div class="charts_img">
+                                <img src="https://picsum.photos/100/100/?random=17">
+                            </div>
+                            <div class="charts_name">
+                                <span>抹茶草莓</span>
+                                <span>@mumumu</span>
+                            </div>
+                            <div class="charts_sum">
+                                收藏數 : 121
+                            </div>
+                            <div class="charts_btn">
+                                <button class="btn-secondary">追蹤</button>
+                            </div>
+                        </div>
 
+                        <div class="charts_box">
+                            <div class="charts_rank">
+                                <span>No.2</span>
+                            </div>
+                            <div class="charts_img">
+                                <img src="https://picsum.photos/100/100/?random=15">
+                            </div>
+                            <div class="charts_name">
+                                <span>三生平安</span>
+                                <span>@mumumu</span>
+                            </div>
+                            <div class="charts_sum">
+                                收藏數 : 121
+                            </div>
+                            <div class="charts_btn">
+                                <button class="btn-secondary">追蹤</button>
+                            </div>
+                        </div>
+
+                        <div class="charts_box">
+                            <div class="charts_rank">
+                                <span>No.3</span>
+                            </div>
+                            <div class="charts_img">
+                                <img src="https://picsum.photos/100/100/?random=16">
+                            </div>
+                            <div class="charts_name">
+                                <span>煞氣花花</span>
+                                <span>@mumumu</span>
+                            </div>
+                            <div class="charts_sum">
+                                收藏數 : 121
+                            </div>
+                            <div class="charts_btn">
+                                <button class="btn-secondary">追蹤</button>
+                            </div>
+                        </div>
                     </div>
                     <div v-if="activetab ==='4'" class="tabcontent">
+                        <div class="charts_box">
+                            <div class="charts_rank">
+                                <span>No.1</span>
+                            </div>
+                            <div class="charts_img">
+                                <img src="https://picsum.photos/100/100/?random=17">
+                            </div>
+                            <div class="charts_name">
+                                <span>草莓巧克</span>
+                                <span>@mumumu</span>
+                            </div>
+                            <div class="charts_sum">
+                                喜歡數 : 121
+                            </div>
+                            <div class="charts_btn">
+                                <button class="btn-secondary">追蹤</button>
+                            </div>
+                        </div>
 
+                        <div class="charts_box">
+                            <div class="charts_rank">
+                                <span>No.2</span>
+                            </div>
+                            <div class="charts_img">
+                                <img src="https://picsum.photos/100/100/?random=15">
+                            </div>
+                            <div class="charts_name">
+                                <span>平安喜樂</span>
+                                <span>@mumumu</span>
+                            </div>
+                            <div class="charts_sum">
+                                喜歡數 : 121
+                            </div>
+                            <div class="charts_btn">
+                                <button class="btn-secondary">追蹤</button>
+                            </div>
+                        </div>
+
+                        <div class="charts_box">
+                            <div class="charts_rank">
+                                <span>No.3</span>
+                            </div>
+                            <div class="charts_img">
+                                <img src="https://picsum.photos/100/100/?random=16">
+                            </div>
+                            <div class="charts_name">
+                                <span>煞氣小花</span>
+                                <span>@mumumu</span>
+                            </div>
+                            <div class="charts_sum">
+                                喜歡數 : 121
+                            </div>
+                            <div class="charts_btn">
+                                <button class="btn-secondary">追蹤</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
