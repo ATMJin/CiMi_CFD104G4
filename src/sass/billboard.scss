@@ -5,13 +5,23 @@
 @import "layout/sidebar";
 
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
-
+@mixin PC {
+    @media screen and (min-width:768px) {
+        @content;
+    }
+}
 
 .billboard_main_area {
     width: 100%;
-    margin-top: 60px;
-    padding: 0 20px;
+    margin-top: 80px;
+    padding: 0 10px;
     position: relative;
+
+    @include PC() {
+        width: 80%;
+        margin-top: 135px;
+        padding: 0 60px;
+    }
 
     .billboard_sort {
         font-size: var(--title);
@@ -22,20 +32,34 @@
     .billboard_box {
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
+        margin: 0 auto;
 
         .billboard_item {
-            width: calc (25% -60px);
+            width: calc(50vw - 30px);
             color: var(--font-primary);
             padding: 10px;
-            margin: 20px;
+            margin: 10px;
             font-size: var(--subtitle2);
-            // padding: 10px 0;
             border: #aaa .5px solid;
             border-radius: 20px;
             box-shadow: 3px 5px 0.3em #ddd;
+            box-sizing: border-box;
+
+            @include PC() {
+                width: calc(33% - 50px);
+                color: var(--font-primary);
+                padding: 20px;
+                margin: 20px;
+            }
 
             .billboard_pic {
-                width: 220px;
+                width: 100%;
+                box-sizing: border-box;
+
+                // @include PC() {
+                //     width: 220px;
+                // }
 
                 img {
                     width: 100%;
@@ -45,14 +69,4 @@
 
     }
 
-}
-
-@media screen and (min-width: 768px) {
-    .billboard_main_area {
-        width: 80%;
-        margin-top: 100px;
-        padding: 0 60px;
-        position: relative;
-
-    }
 }

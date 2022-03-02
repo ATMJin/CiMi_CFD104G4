@@ -70,7 +70,6 @@ aside{
     }
     .member_main_box {
         .member_bg {
-            // width: 100%;
             background-color: var(--primary-color);
             .member_bgcard {
                 .member_main{
@@ -106,8 +105,8 @@ aside{
             .member_cardtext {
                 width: 100%;
                 margin: auto;
-                margin-top: 20px;
-                padding-bottom: 10px;
+                margin-top: 0px;
+                padding-bottom: 0px;
                 .member_cardmain {
                     width: 80%;
                     margin: auto;

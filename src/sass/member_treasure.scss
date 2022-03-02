@@ -9,7 +9,10 @@ aside {
 .member_main_title {
     display: none;
 }
-
+.container {
+    width: 100%;
+    margin: 80px auto;
+}
 .member_main_box {
     .member_bg {
         .member_tabchange {
@@ -17,7 +20,6 @@ aside {
                 .content {
                     .tabcontent {
                         .member_art_text {
-                            margin-top: 135px;
                             .article_box {
                                 width: 80%;
                                 position: relative;
@@ -337,16 +339,17 @@ aside {
     .member_main_title {
         display: none;
     }
-
+    .container {
+        width: 100%;
+        margin: 0px auto;
+    }
     .member_main_box {
         .member_bg {
             .member_tabchange {
                 .container {
                     .content {
                         .tabcontent {
-                            .member_art_text{
-                                margin-top: 0px;
-                            
+                            .member_art_text{                            
                             .member_com {
                                 width: 100%;
                                 margin: auto;
