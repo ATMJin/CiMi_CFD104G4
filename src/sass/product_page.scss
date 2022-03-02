@@ -176,6 +176,7 @@
             .img_box_save {
                 width: 40px;
                 height: 40px;
+
                 img {
                     width: 100%;
                 }
@@ -460,6 +461,7 @@
 
             .img_box {
                 width: 80%;
+
                 img {
                     width: 100%;
                     border-radius: var(--img-radius);
@@ -506,7 +508,7 @@
     // <!-- 商品留言 -->
     .product_page_msg {
         // 對其上面大小
-        width: 40%;
+        width: 39%;
         padding: 10px;
         display: flex;
         position: fixed;
@@ -546,6 +548,8 @@
 
                 input {
                     border: none;
+                    // 留言輸入框的大小
+                    height: 25px;
 
                 }
             }
@@ -612,16 +616,41 @@
             .txt_box {
 
 
-                p {
-
-
-                }
+                p {}
             }
         }
     }
 
 
     // hover
+    // 標題
+    .product_page {
+
+
+
+
+        // <!-- 商品最上面的標題 -->
+        .product_page_title {
+
+
+            // <!-- 商品名稱 -->
+            .txt_box {
+
+
+                p {}
+            }
+
+            // <!-- 三個點點 -->
+            .img_box:hover {
+
+                img {
+                    cursor: pointer;
+
+                }
+            }
+        }
+    }
+
     // <!-- 商品留言 -->
     .product_page_msg {
         height: 90px;
@@ -654,10 +683,12 @@
 
 
                 // <!-- 收藏 -->
-                .img_box_save {
+                .img_box_save:hover {
+                    cursor: pointer;
 
-
-                    img {}
+                    img {
+                        cursor: pointer;
+                    }
                 }
 
                 // <!-- 檢舉 -->

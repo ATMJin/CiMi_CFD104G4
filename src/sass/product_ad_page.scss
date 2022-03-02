@@ -21,7 +21,7 @@
     .product_ad_txt {
         margin: auto;
         width: 90%;
-        padding-top: 50px;
+        // padding-top: 135px;
 
         // width:1200px;
         .txt_box {
@@ -35,9 +35,11 @@
                 // text-align: center;
                 font-weight:var(--bold);
                 font-size:var(--title);
-                line-height: 33px;
+                // 調整線的距離
+                padding-bottom: 20px;
                 margin-bottom: 20px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+                color: #000;
             }
 
             h2 {

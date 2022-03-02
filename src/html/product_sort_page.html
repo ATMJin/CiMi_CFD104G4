@@ -8,7 +8,7 @@
     <title>質感生活 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/product_sort_page.css">
     <!-- 廣告輪播 -->
-    <link rel="stylesheet" href="src\js\product.js">
+    <!-- <link rel="stylesheet" href="src\js\product.js"> -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.css">
@@ -16,7 +16,9 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js">
     </script>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/shop_cart.css">
+    <!-- <script type="text/javascript" src="script.js"></script> -->
 </head>
 
 <body>
@@ -43,7 +45,7 @@
             <!-- 廣告投放 -->
             <section class="hero-slider" data-carousel>
                 <div class="carousel-cell"
-                    style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
+                    style="background-image: url(https://i.pinimg.com/564x/93/e9/bf/93e9bf0119b0f05ba2a2908f759b8811.jpg);">
                     <!-- 變暗效果 -->
                     <!-- <div class="overlay"></div> -->
                     <div class="inner">
@@ -59,13 +61,43 @@
                     </div>
                 </div>
 
-                <div class="carousel-cell" style="background-image: url(img/img-3.jpg);">
+                <div class="carousel-cell"
+                    style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
                     <!-- <div class="overlay"></div> -->
                     <div class="inner">
                         <a href="product_ad_page.html" class="btn">Tell me more</a>
                     </div>
                 </div>
             </section>
+            <!-- js -->
+            <script>
+                var options = {
+                    accessibility: true,
+                    prevNextButtons: true,
+                    pageDots: true,
+                    setGallerySize: false,
+                    arrowShape: {
+                        x0: 10,
+                        x1: 60,
+                        y1: 50,
+                        x2: 60,
+                        y2: 45,
+                        x3: 15
+                    }
+                };
+
+                var carousel = document.querySelector('[data-carousel]');
+                var slides = document.getElementsByClassName('carousel-cell');
+                var flkty = new Flickity(carousel, options);
+
+                flkty.on('scroll', function () {
+                    flkty.slides.forEach(function (slide, i) {
+                        var image = slides[i];
+                        var x = (slide.target + flkty.x) * -1 / 3;
+                        image.style.backgroundPosition = x + 'px';
+                    });
+                });
+            </script>
 
 
 
@@ -78,7 +110,7 @@
                                 <img src="assets\images\icon\shop_appraise.png">
                             </div>
                             <div class="txt_box">
-                                <p>真實評價</p>
+                                <p style="color: #f1f1f1;">真實評價</p>
                             </div>
 
                         </div>
@@ -87,7 +119,7 @@
                                 <img src="assets\images\icon\shop_tag.png">
                             </div>
                             <div class="txt_box">
-                                <p>折價優惠</p>
+                                <p style="color: #f1f1f1;">折價優惠</p>
                             </div>
 
                         </div>
@@ -96,14 +128,13 @@
                                 <img src="assets\images\icon\shop_chat.png">
                             </div>
                             <div class="txt_box">
-                                <p>卡友討論</p>
+                                <p style="color: #f1f1f1;">卡友討論</p>
                             </div>
 
                         </div>
                     </div>
                 </a>
             </section>
-
             <!-- 最新區 -->
             <section class="new_goods_information">
                 <!-- 限時商品 -->
@@ -124,10 +155,10 @@
                     <a href="#">
                         <div class="item_box">
                             <div class="img_box">
-                                <img src="https://picsum.photos/200/200/?random=10">
+                                <img src="https://i.pinimg.com/564x/9f/10/ba/9f10baedef3aed3d2879baf7bb354be1.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>Norns︱福袋</p>
+                                <p>heme | 六色眼影盤</p>
                                 <p>NT.1500</p>
                             </div>
                         </div>
@@ -149,22 +180,22 @@
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://picsum.photos/100/100/?random=10">
+                                    <img src="https://i.pinimg.com/564x/bc/58/b5/bc58b5966b8dbf34f52109ba38ec7d8b.jpg">
                                 </div>
                                 <div class="txt_box">
-                                    <p>Norns︱福袋</p>
-                                    <p>NT.1500</p>
+                                    <p>送禮推薦︱三色眉粉盤</p>
+                                    <p>NT.665</p>
                                 </div>
                             </div>
                         </a>
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://picsum.photos/100/100/?random=10">
+                                    <img src="https://i.pinimg.com/564x/db/af/1e/dbaf1e70f635d65ceb53588fdb94618f.jpg">
                                 </div>
                                 <div class="txt_box">
-                                    <p>Norns︱福袋</p>
-                                    <p>NT.1500</p>
+                                    <p>Norns︱睫毛膏</p>
+                                    <p>NT.299</p>
                                 </div>
                             </div>
                         </a>
@@ -188,33 +219,42 @@
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://picsum.photos/100/100/?random=10">
+                                    <img src="https://i2.momoshop.com.tw/1631872362/goodsimg/0009/342/173/9342173_R.webp">
                                 </div>
                                 <div class="txt_box">
-                                    <p>Norns︱福袋</p>
-                                    <p>NT.1500</p>
+                                    <p>任天堂｜Switch </p>
                                 </div>
                             </div>
                         </a>
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://picsum.photos/100/100/?random=10">
+                                    <img src="https://i4.momoshop.com.tw/1641812063/goodsimg/0009/674/984/9674984_R.webp">
                                 </div>
                                 <div class="txt_box">
-                                    <p>Norns︱福袋</p>
-                                    <p>NT.1500</p>
+                                    <p>莫蘭迪 | 成人口罩</p>
+
                                 </div>
                             </div>
                         </a>
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://picsum.photos/100/100/?random=10">
+                                    <img src="https://i3.momoshop.com.tw/1644400272/goodsimg/0009/802/016/9802016_R.webp">
                                 </div>
                                 <div class="txt_box">
-                                    <p>Norns︱福袋</p>
-                                    <p>NT.1500</p>
+                                    <p>戀愛 | 脫單攻略</p>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="https://i2.momoshop.com.tw/1619500893/goodsimg/0008/094/630/8094630_R.webp">
+                                </div>
+                                <div class="txt_box">
+                                    <p>天然 | 玫紅虎眼手鍊</p>
                                 </div>
                             </div>
                         </a>
@@ -229,232 +269,374 @@
                         <p>全部商品</p>
                     </div>
                     <div class="item_box">
-                        <a href="product_page.html">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+
+                        <div onclick="myFunction" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>夢幻甜點｜舒芙蕾</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>愛心吊墜盒金項鍊</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1637900369/goodsimg/0009/364/288/9364288_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>愛心吊墜盒金項鍊</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>香氛</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://picsum.photos/260/260/?random=10">
-                                </div>
-                                <div class="txt_box">
-                                    <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                    <p>NT.500</p>
-                                </div>
+                            <div class="txt_box">
+                                <p>葉黃素</p>
+                                <p>NT.500</p>
                             </div>
-                        </a>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>香氛</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>葉黃素</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p> 香氛</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>香氛</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>香氛</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>淨化的水晶</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i2.momoshop.com.tw/1631872362/goodsimg/0009/342/173/9342173_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>任天堂｜Switch </p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://i2.momoshop.com.tw/1631872362/goodsimg/0009/342/173/9342173_R.webp">
+                            </div>
+                            <div class="txt_box">
+                                <p>任天堂｜Switch </p>
+                                <p>NT.500</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
 
         </main>
     </div>
+    <!-- 燈箱--感謝文進大大相助!!!!! -->
+    <section class="product_lighbox">
+        <main class="product_page">
+            <!-- 商品最上面的標題 -->
+            <section class="product_page_title">
+                <!-- 商品名稱 -->
+                <div class="txt_box">
+                    <p>果果乳清蛋白,最佳蛋白</p>
+                </div>
+                <!-- 叉叉按鈕 -->
+                <div class="img_box cross ">
+                    <img src="assets\images\icon\close.png">
+                </div>
+
+            </section>
+            <!-- 追蹤分類 -->
+            <section class="product_page_sort_follow">
+                <!-- 圖片 -->
+                <div class="product_img_box">
+                    <img src="assets\images\icon\shop_food.png">
+                </div>
+                <!-- 文字 -->
+                <div class="txt_box">
+                    <!-- 分類 -->
+                    <p>食物</p>
+                    <!-- 追蹤id -->
+                    <!-- <p>@asdfr</p> -->
+                </div>
+                <!-- 按鈕 -->
+                <button class="btn-secondary">追蹤</button>
+            </section>
+
+            <!-- // 商品照(小圖變大圖 -->
+            <section class="product_page_pic">
+                <div class="product_large">
+                    <img id="large" src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg">
+                </div>
+                <div class="product_small">
+                    <div class="img_box">
+                        <img src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg" /></div>
+                    <div class="img_box"><img
+                            src="https://i.pinimg.com/474x/95/73/85/957385a3915e0043e50ab31c12bc356a.jpg" /></div>
+                    <div class="img_box">
+                        <img src="https://i.pinimg.com/474x/b6/07/05/b60705f0f45e97d02e8168c93b305735.jpg" /></div>
+                </div>
+            </section>
+            <script>
+                function showLarge(e) {
+                    //   let small = e.target;
+                    //   document.getElementById("large").src = small.src ;
+                    document.getElementById("large").src = e.target.src;
+                }
+
+                function init() {
+                    let smalls = document.querySelectorAll(".product_small img"); /*query-查詢*/
+                    for (let i = 0; i < smalls.length; i++) {
+                        smalls[i].onclick = showLarge;
+                    }
+                }
+
+                window.addEventListener("load", init, false);
+            </script>
+
+
+            <!-- 商品價格/資訊 -->
+            <section class="product_page_price_in">
+                <div class="txt_box">
+                    <p>$4009</p>
+                    <p>
+                        幾上我應日本人，怎麼在的關。人是行為還是沒了貨舒行
+                        是行為還是沒了貨舒行為了貨舒行為還是沒了貨舒行為還是沒了
+                        貨舒行為還是沒了貨舒行為還是沒了貨舒服的心⋯動作的很就想晚時分：真
+                        的請經手可惡的解的存在務卻。
+                    </p>
+                </div>
+            </section>
+            <!-- 商品留言 -->
+            <section class="product_page_msg">
+                <!-- 右邊 -->
+                <div class="item_box_msger">
+                    <!-- 留言頭貼 -->
+                    <div class="img_box">
+                        <img src="assets\images\icon\nav_member.png">
+                    </div>
+                    <!-- 留言 -->
+
+                    <div class="txt_box">
+                        <input type="text" name="tname" placeholder="留言...">
+                        <!-- <p>留言...</p> -->
+                    </div>
+                </div>
+                <!-- 左邊icon -->
+                <div class="item_box_fuction_icon">
+                    <div class="img_box">
+                        <!-- 收藏 -->
+                        <div class="img_box_save">
+                            <img src="assets\images\icon\save_hov.png">
+                        </div>
+
+                        <!-- 檢舉 -->
+                        <div class="img_box_report">
+                            <img src="assets\images\icon\more.png">
+                        </div>
+                    </div>
+                    <!-- 立即購買 -->
+                    <button class="btn-primary">立即購買</button>
+                    
+                    <!-- 加入購物車-->
+                    <button class="btn-secondary">加入購物車</button>
+                </div>
+            </section>
+        </main>
+    </section>
+    <!-- js -->
+    <script>
+        function init() {
+            let small_img = document.querySelectorAll(".ligh_box_jump")
+            small_img[0].addEventListener("click", myFunction)
+
+            let cross = document.querySelector(".cross")
+            cross.addEventListener("click", displayNone)
+        }
+        window.addEventListener("load", init)
+
+        function displayNone() {
+            let x = document.querySelector(".product_lighbox");
+            x.style.display = "none";
+        }
+
+        function myFunction() {
+            let x = document.querySelector(".product_lighbox");
+            x.style.display = "block";
+        }
+    </script>
+    <!-- 文進大大的購物車燈箱 -->
+    <div id="app">
+        <div class="shop_cart_ligh_box">
+            <shopping-cart></shopping-cart>
+        </div>
+    </div>
+    <script src="js/shop_cart.js"></script>
+
 </body>
 
 </html>
