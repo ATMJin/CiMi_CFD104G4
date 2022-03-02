@@ -12,13 +12,11 @@
 
 // 好物商城標題
 .main_product {
-    padding: 10px;
+    // padding: 10px;
 
     .product_title {
         width: 90%;
         margin: auto;
-        // margin-top: 50px;
-        // display: none;
 
         .item_box {
             display: flex;
@@ -27,10 +25,10 @@
 
             .txt_box {
                 p {
-                    font-size: 28px;
+                    font-size: var(--title);
                     font-weight: var(--bold);
                     // 文字
-                    color: #5E5E5E;
+                    // color: #5E5E5E;
                 }
             }
 
@@ -47,10 +45,10 @@
 }
 
 
-// 廣告投放
-body {
-    margin: 0;
-}
+// 廣告輪播
+// body {
+//     margin: 0;
+// }
 
 .overlay {
     position: absolute;
@@ -175,8 +173,8 @@ body {
 
         a {
             text-decoration: none;
-            // 文字顏色
-            color: #E1E1E1;
+            // 文字顏色(白
+            color: var(--primary-color);
 
             .item_box {
                 margin: auto;
@@ -200,14 +198,15 @@ body {
                         img {
                             width: 100%;
                         }
+                    }
 
-                        .txt_box {
-                            p {
-                                text-align: center;
+                    .txt_box {
+                        p {
 
-                            }
+                            text-align: center;
+                            // 文字顏色(白
+                            color: var(--primary-color);
                         }
-
                     }
                 }
             }
@@ -228,7 +227,7 @@ body {
             a {
                 text-decoration: none;
                 // 文字
-                color: #5E5E5E;
+                color: var(--font-primary);
                 // 文字粗細
                 font-weight: 300;
 
@@ -265,8 +264,8 @@ body {
         margin-top: 50px;
         margin: auto;
         display: none;
-
         // 手機頁沒有
+
         // 限時商品
         .time_limit_item_box {
             border-radius: var(--bgc-radius);
@@ -296,7 +295,7 @@ body {
 
                         p {
                             // 文字
-                            color: #5E5E5E;
+                            color: var(--font-primary);
                         }
                     }
 
@@ -307,7 +306,7 @@ body {
                         border-radius: 20px;
 
                         p {
-                            // color: #E1E1E1;
+                            color: var(--font-primary);
                         }
                     }
                 }
@@ -321,6 +320,7 @@ body {
 
                 .item_box {
                     .img_box {
+                        width: 200px;
                         img {
                             width: 100%;
                             border-radius: var(--img-radius);
@@ -597,7 +597,7 @@ body {
                         box-sizing: border-box;
 
                         .img_box {
-                            width: 95%;
+                            width:100px;
 
                             img {
                                 width: 100%;
@@ -716,9 +716,10 @@ body {
     .product_page {
         background: #fff;
         position: absolute;
+
         // overflow: scroll;
         // <!-- 追蹤分類 -->
-        .product_page_sort_follow{
+        .product_page_sort_follow {
             width: 100%;
         }
     }
@@ -749,7 +750,11 @@ body {
 
     // 好物商城標題
     .main_product {
-        padding: 10px;
+        // padding: 10px;
+        // 調整頁面!!!!
+        width: 80%;
+        margin: 40px;
+        // padding-top:10px;
 
         .product_title {
             width: 90%;
@@ -764,10 +769,9 @@ body {
 
                 .txt_box {
                     p {
-                        font-size: 28px;
-                        font-weight: 700;
+ 
                         // 文字
-                        color: #5E5E5E;
+                        color: #0a0a0a;
                     }
                 }
 
@@ -783,7 +787,7 @@ body {
         }
     }
 
-    // 廣告投放
+    // 廣告投放!!!!
     .hero-slider {
         // 調整大小
         width: 90%;
@@ -800,27 +804,31 @@ body {
 
     // 真實評論，好友討論，免運
     .main_product {
-        // 調整避免左邊bar擋到的問題!!!
-        padding-left: 20%;
-
         .product_comment {
 
+    
             a {
 
+    
                 .item_box {
-
-
+ 
+    
                     .item {
 
-
-
+    
+    
                         .img_box {
-                            img {}
 
-                            .txt_box {
-                                p {}
+    
+                            img {
+
                             }
+                        }
+    
+                        .txt_box {
+                            p {
 
+                            }
                         }
                     }
                 }
@@ -1068,29 +1076,29 @@ body {
                 .item_box {
 
 
-                    
 
 
-                        .item {
-                            margin: 10px;
+
+                    .item {
+                        margin: 10px;
+                        width: 200px;
+
+
+                        .img_box {
                             width: 200px;
 
-
-                            .img_box {
-                                width: 200px;
-
-                                img {
-                                    width: 100%;
-                                }
-                            }
-
-                            .txt_box {
-
-
-                                p {}
+                            img {
+                                width: 100%;
                             }
                         }
-                    
+
+                        .txt_box {
+
+
+                            p {}
+                        }
+                    }
+
                 }
             }
         }
