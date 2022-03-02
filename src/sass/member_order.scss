@@ -4,7 +4,7 @@ aside {
 
 .container {
     width: 100%;
-    margin: 40px auto;
+    margin: 80px auto;
 }
 
 .member_main_box {
@@ -105,7 +105,11 @@ aside {
                                 padding: 10px 20px;
 
 
-                                .member_comtitle {}
+                                .member_comtitle {
+                                    h2{
+                                        color:var(--font-secondary);
+                                    }
+                                }
 
                                 .member_commain {
                                     display: flex;
@@ -126,6 +130,7 @@ aside {
                                         width: 15%;
                                         
                                     }
+                                    
                                     h3{
                                         color:  #5E5E5E;
                                         font-weight: 500;
