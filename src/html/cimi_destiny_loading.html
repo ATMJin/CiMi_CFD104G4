@@ -8,28 +8,36 @@
     <title>Document</title>
     <style>
         body{
-            margin: 0;
-            padding: 0;
             overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+         .background{
+            width: 100%;
+            position: relative;
+  
         }
         .front{
             position: absolute;
-            top:67%;
-            left:42%;
+            top:68%;
+            right: 53%;
             font-size: 30px;
-            font-weight: 500;
+            color: rgb(94, 94, 94);
+            font: 500;
             font-family: 'Noto Sans TC', sans-serif;
-            color: rgb(158, 158, 158);
-
         }
         .back{
             position: absolute;
-            top:67%;
-            right:39%;
+            top:68%;
+            right: 39%;
             font-size: 30px;
-            font-weight: 500;
+            color: rgb(94, 94, 94);
+            font: 500;
             font-family: 'Noto Sans TC', sans-serif;
-            color: rgb(158, 158, 158);
+        }
+        .background img{
+            position: absolute;
+            width: 100%;
 
         }
         .container_load{
@@ -37,15 +45,8 @@
             display: flex;
             width:100%;
             height:50%;
+
             
-        }
-        .background{
-            width: 100%;
-            height: 100%;
-        }
-        .background img{
-            width: 100%;
-            height: 100%;
         }
         .red_ball{
             width: 100px;
@@ -153,8 +154,10 @@
         <div class="background">
             <img src="assets/images/map.jpg" alt="">
         </div>
-        <a href="index.html"><div class="front">前台</div></a>
-        <a href=""><div class="back">後台</div></a>
+        <a href="index.html">
+            <div class="front">前台</div>
+        </a>
+        <div class="back">後台</div>
         <div class="ellipses red_shadow">
 
         </div>
@@ -243,9 +246,6 @@
             </svg>
         </div>
     </div>
-<div class="login_text">
-    Loading...
-</div>
 </body>
 <script>
    
