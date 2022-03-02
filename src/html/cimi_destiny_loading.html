@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+TC:wght@100;300;400;500;900&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
-        
+        body{
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+         .background{
+            width: 100%;
+            position: relative;
+  
+        }
+        .front{
+            position: absolute;
+            top:68%;
+            right: 53%;
+            font-size: 30px;
+            color: rgb(94, 94, 94);
+            font: 500;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .back{
+            position: absolute;
+            top:68%;
+            right: 39%;
+            font-size: 30px;
+            color: rgb(94, 94, 94);
+            font: 500;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .background img{
+            position: absolute;
+            width: 100%;
+
+        }
         .container_load{
             margin: auto;
             display: flex;
@@ -118,6 +151,13 @@
 </head>
 <body>
     <div class="container_load" id="loading"> 
+        <div class="background">
+            <img src="assets/images/map.jpg" alt="">
+        </div>
+        <a href="index.html">
+            <div class="front">前台</div>
+        </a>
+        <div class="back">後台</div>
         <div class="ellipses red_shadow">
 
         </div>
@@ -206,9 +246,6 @@
             </svg>
         </div>
     </div>
-<div class="login_text">
-    Loading...
-</div>
 </body>
 <script>
    
