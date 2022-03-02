@@ -1,7 +1,4 @@
-@import "reset";
-@import "common";
-@import "sidebar";
-
+/* 以下為上方搜尋區域 */
 .top_bar_box{
     height: 70px;
     width: 100%;
@@ -64,6 +61,7 @@
             .logo_box{
                 img{
                 height: 55px;
+                vertical-align: top;
                 }
             }
             .member_bar{
@@ -76,6 +74,7 @@
                     }
                     img{
                         width: 28px;
+                        vertical-align: top;
                     }
                 }
             }
