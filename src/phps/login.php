@@ -12,7 +12,8 @@ try{
   $member -> execute();
 
   if( $member->rowCount()==0){ //查無此人
-	  echo "exist";
+	  $php_array1 = array ('noPerson' => "帳號或密碼有誤, 請重新輸入");
+    echo json_encode($php_array1);
   }else{ //登入成功
 
     //自資料庫中取回資料
@@ -20,8 +21,16 @@ try{
     $_SESSION["mem_id"] = $memberRows["mem_id"];
     $_SESSION["mem_psw"] = $memberRows["mem_psw"];
     $_SESSION["mem_no"] = $memberRows["mem_no"];
-
-    echo "success";
+    $_SESSION["mem_head"] = $memberRows["mem_head"];
+    
+    $php_array = array (
+      'output' => "success", 
+      'mem_id' => $_SESSION["mem_id"], 
+      'mem_psw' => $_SESSION["mem_psw"], 
+      'mem_no' => $_SESSION["mem_no"],
+      'mem_head' => $_SESSION["mem_head"], 
+    );
+    echo json_encode($php_array);
   }
 
 }catch(PDOException $e){

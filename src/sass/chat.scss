@@ -311,7 +311,9 @@ body{
     color: #fff;
     border-radius: 18px 18px 0 18px;
     margin: 10px 0;
-    font-weight: 500;
+    // font-weight: 300;
+    display: flex;
+    align-items: center;
     /* display: inline-block;
     word-wrap:break-word;
     max-width: 400px; */
@@ -350,7 +352,9 @@ body{
     color: #333;
     background-color: #FFFFFF;
     border-radius: 18px 18px 18px 0;
-    font-weight: 500;
+    // font-weight: 300;
+    display: flex;
+    align-items: center;
 
 }
 
@@ -378,11 +382,12 @@ body{
 
 .typing_area button {
     width: 55px;
+    height: 34px;
     border: none;
     outline: none;
     @include chatroom;
     color: #fff;
-    font-size: 19px;
+    font-size: 14px;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
