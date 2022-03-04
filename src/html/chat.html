@@ -94,7 +94,7 @@
     </style>
 </head>
 
-<body>
+<body id="body">
     @@include('layout/header.html')
 
     <!-- 開始寫自己頁面的HTML -->
@@ -192,18 +192,18 @@
             <form action="#" class="typing_area">
                 <div class="fun_icon">
                     <!-- 加號按鈕 -->
-                    <input type="file" name="upFile" id="thePic" style="display: none;"><br>
+                    <input type="text" name="upFile" id="thePic" style="display: none;"><br>
                     <label for="thePic">
-                        <span><i class="fa-solid fa-circle-plus"></i></span>
+                        <span id="btnSave" class="btn btn-danger" onclick="screenshot()"><i class="fa-solid fa-camera-retro"></i></span>
                     </label>
                     <!-- 照片按鈕 -->
                     <input type="file" name="upFile" id="theFile" style="display: none;"><br>
                     <label for="theFile">
-                        <span><i class="fa-solid fa-file-image"></i></span>
+                        <span><i class="fa-solid fa-images"></i></span>
                     </label>
                 </div>
                 <input type="text" placeholder="請輸入訊息..."  name="message" id="emojionearea1">
-                <button><i class="fab fa-telegram-plane"></i></button>
+                <button><i class="fa-solid fa-paper-plane"></i></button>
 
             </form>
         </section>
@@ -212,16 +212,18 @@
 
     <script>
         // DarkMode.js Code
-        // function addDarkmodeWidget() {
-        //     let switch_btn = document.getElementById('switch_btn')
-        //     const darkmode = new Darkmode();
-        //     switch_btn.addEventListener('click', changeMode)
-        //     function changeMode(){
-        //         darkmode.toggle();
-        //     }
-        //     console.log('addDarkmodeWidget')
-        // }
-        // window.addEventListener('load', addDarkmodeWidget);
+        function addDarkmodeWidget() {
+            let switch_btn = document.getElementById('switch_btn')
+            const darkmode = new Darkmode();
+            switch_btn.addEventListener('click', changeMode)
+
+            function changeMode() {
+                darkmode.toggle();
+            }
+            console.log('addDarkmodeWidget')
+            // console.log(switch_btn.classList.add('active'))
+        }
+        window.addEventListener('load', addDarkmodeWidget);
     </script>
 
     <script>
@@ -241,10 +243,22 @@
         
         let rowcount = 0
     </script>
+    <script  src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script type="text/javascript">    
+        function screenshot(){
+    
+            html2canvas(document.getElementById('body')).then(function(canvas) {
+                // document.body.appendChild(canvas);
+                var a = document.createElement('a');
+                a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+                a.download = 'image.jpg';
+                a.click();
+            });
+        }
+    </script>
 
-
-    <script src="js/user.js"></script>
     <script src="js/chat.js"></script>
+    <script src="js/user.js"></script>
     <script src="js/chat_img.js"></script>
 
     
