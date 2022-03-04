@@ -92,7 +92,7 @@
     }
 }
 
-// 燈箱(商品
+// 燈箱(商品照片
 .product_page_pic {
     .product_large {
         img {}
@@ -126,7 +126,7 @@
     position: fixed;
     bottom: 0;
     background-color: rgb(255, 255, 255);
-
+    height: 90px;
 
 
 
@@ -165,8 +165,7 @@
 
     // <!-- 左邊icon -->
     .item_box_fuction_icon {
-        display: flex;
-        align-items: center;
+        
 
 
         .img_box {
@@ -174,20 +173,23 @@
 
             // <!-- 收藏 -->
             .img_box_save {
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                padding: 5px;
 
                 img {
                     width: 100%;
+                    vertical-align:text-bottom;
                 }
             }
 
             // <!-- 檢舉 -->
             .img_box_report {
-                width: 32px;
+                width: 30px;
+                padding: 5px;
 
                 img {
                     width: 100%;
+                    vertical-align:text-bottom;
                 }
             }
         }
@@ -286,7 +288,7 @@
                 img {}
             }
 
-            // <!-- 檢舉 -->
+            // <!-- 愛心 -->
             .img_box_report {
 
 
@@ -356,7 +358,7 @@
         width: 80%;
         margin: 0 auto;
         position: absolute;
-        width: 40vw;
+        width: 45vw;
         height: 100%;
         top: 0;
         // 致中
@@ -508,13 +510,13 @@
     // <!-- 商品留言 -->
     .product_page_msg {
         // 對其上面大小
-        width: 39%;
+        width: 44%;
         padding: 10px;
-        display: flex;
+        // display: flex;
         position: fixed;
         bottom: 0;
         background-color: rgb(255, 255, 255);
-        justify-content: space-between;
+        // justify-content: space-between;
 
 
 
@@ -524,7 +526,7 @@
         .item_box_msger {
             display: flex;
             align-items: center;
-
+            width: calc(100% - 45%);
 
 
 
@@ -543,23 +545,23 @@
 
             // <!-- 留言 -->
             .txt_box {
-                min-width: 100px;
+                width: calc(100% - 30px);
                 padding-left: 10px;
 
                 input {
                     border: none;
                     // 留言輸入框的大小
-                    height: 25px;
-
+                    height: 50px;
+                    width: calc(100% - 10px);
                 }
             }
         }
 
         // <!-- 左邊icon -->
         .item_box_fuction_icon {
-            display: flex;
             align-items: center;
-
+            display: flex;
+            width: calc(100% - 45%);
 
             .img_box {
                 display: flex;
@@ -691,7 +693,7 @@
                     }
                 }
 
-                // <!-- 檢舉 -->
+                // <!-- 愛心 -->
                 .img_box_report {
 
 

@@ -13,6 +13,8 @@
 // 好物商城標題
 .main_product {
     // padding: 10px;
+    // 調整頁面!!!!
+    width: 100%;
 
     .product_title {
         width: 90%;
@@ -321,6 +323,7 @@
                 .item_box {
                     .img_box {
                         width: 200px;
+
                         img {
                             width: 100%;
                             border-radius: var(--img-radius);
@@ -597,7 +600,7 @@
                         box-sizing: border-box;
 
                         .img_box {
-                            width:100px;
+                            width: 80px;
 
                             img {
                                 width: 100%;
@@ -612,6 +615,7 @@
                             p {
                                 // 使商品名稱跟價格有距離
                                 padding-bottom: 10px;
+                                font-size: var(--body2);
                             }
                         }
                     }
@@ -678,6 +682,8 @@
                             line-height: 20px;
                             // 使商品名稱跟價格有距離
                             padding-bottom: 10px;
+                            // 讓商品標題有位置跟下面價錢對其如果標題多於一行
+                            // height: 50px;
                         }
                     }
                 }
@@ -769,7 +775,7 @@
 
                 .txt_box {
                     p {
- 
+
                         // 文字
                         color: #0a0a0a;
                     }
@@ -806,29 +812,25 @@
     .main_product {
         .product_comment {
 
-    
+
             a {
 
-    
+
                 .item_box {
- 
-    
+
+
                     .item {
 
-    
-    
+
+
                         .img_box {
 
-    
-                            img {
 
-                            }
+                            img {}
                         }
-    
-                        .txt_box {
-                            p {
 
-                            }
+                        .txt_box {
+                            p {}
                         }
                     }
                 }

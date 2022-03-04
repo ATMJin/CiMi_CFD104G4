@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
+    <title>創作者排行榜 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/charts.css">
     <link rel="stylesheet" href="assets/css/tabs.css">
 </head>
@@ -16,13 +16,13 @@
     <div class="content_area">
         @@include('layout/sidebar.html')
         <main class="main_area">
-            <h2>發文者排行榜</h2>
+            <h2>創作者排行榜</h2>
             <div id="tabs" class="container">
                 <div class="tabs">
-                    <a @click="activetab='1'" :class="[ activetab === '1' ? 'active' : '' ]">會員發文數</a>
-                    <a @click="activetab='2'" :class="[ activetab === '2' ? 'active' : '' ]">會員被追蹤</a>
-                    <a @click="activetab='3'" :class="[ activetab === '3' ? 'active' : '' ]">文章被收藏</a>
-                    <a @click="activetab='4'" :class="[ activetab === '4' ? 'active' : '' ]">文章被喜歡</a>
+                    <a @click="activetab='1'" :class="[ activetab === '1' ? 'active' : '' ]">發文</a>
+                    <a @click="activetab='2'" :class="[ activetab === '2' ? 'active' : '' ]">喜歡</a>
+                    <a @click="activetab='3'" :class="[ activetab === '3' ? 'active' : '' ]">收藏</a>
+                    <a @click="activetab='4'" :class="[ activetab === '4' ? 'active' : '' ]">追蹤</a>
                 </div>
 
                 <div class="content">
