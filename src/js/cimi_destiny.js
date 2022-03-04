@@ -32,6 +32,7 @@ let  timer = setInterval(function () {
     videoPause();
     }, 100);
 
+let flag1 = false;
 
 //影片暫停
 let flag = [false,false,false];
@@ -42,6 +43,7 @@ let options =[
     ["A. 小杯的烈酒","B. 色彩豊富的調酒","C. 啤酒"]
 ];
 
+
 //洞裡面
 let destiny_botton = document.getElementById("destiny_botton");
 let waiting_lightbox = document.getElementById("waiting_lightbox");
@@ -49,6 +51,7 @@ let waiting_lightbox = document.getElementById("waiting_lightbox");
 
 
 function doFirst() {
+    
     waiting_lightbox.style="display:none";
     start.addEventListener('click',playToggle);
     pink.addEventListener('click', go_pink);
@@ -78,14 +81,9 @@ function go_purple(){
 function check_play(){
     document.getElementById("instrction_lightbox").style ="display:none";
     document.getElementById("start").style="visibility:visible";
+    
     document.getElementById("animated-title").classList.add("start_text_animation");
     document.getElementById("choose_text").classList.add("choose_text_animation");
-
-    // let t2_control =new TimelineMax();
-    
-    // t2_control.to('#start', {
-    //     duration: 2.5, ease: "bounce.out", y: -500 
-    // });
 
 };
 
@@ -94,10 +92,10 @@ function playToggle() {
     start.classList.add("start_bitton_anime");
     setTimeout(function(){start.style="display:none;"}, .5*1000);
     
-    // start.style="display:none";
 
-    document.getElementById("start").style ="visibility:hidden";
 
+    document.getElementById("start").style ="display:none";
+    document.querySelector(".trees").style="display:none";
     
     document.getElementById("ball_svg").style="display:block";
     pink.style="display:none";
@@ -134,7 +132,9 @@ function playToggle() {
 
 
 function videoPause() {
+
     for(i=0; i<3; i++){
+        
         if (selectVideo.currentTime > pauseTime[i] && flag[i] ==false) {
             selectVideo.pause();
             flag[i]=true;
@@ -151,29 +151,41 @@ function videoPause() {
             for(j=0; j<5; j++){
                 playButtons[j].innerText= options[i][j];
             };
-           
+        } 
+    };
+    
+    if(selectVideo.currentTime > 28){
 
-        } else if(selectVideo.currentTime > 28){
+        clearInterval(timer);
+        
+        let typer = document.getElementById("typewriter-contain");
 
-            clearInterval(timer);
-            // document.getElementById("waiting_lightbox").style ="display:block";
+        
+        typer.innerHTML='<div class="dynamic-text-wrapper"><div class="dynamic-text">屬於你的Destiny</div><div class="dynamic-text">即將於午夜12:00出現</div></div>';
 
-            // document.querySelector('.left_button').style="backgroundcolor:transpanent";
-            // document.querySelector('.right_decor').style="backgroundcolor:transpanent";
-            
-            let typer = document.getElementById("typewriter-contain");
+        let countdown = document.getElementById("countdown");
+        setTimeout(function(){countdown.innerHTML='<div class="countdown_time">倒計時03:20:04</div>'}, 10*1000);
+        ;
+        
+        setTimeout(function(){destiny_botton.innerHTML='<a href="cards.html"><button id="My_destiny_button">我的destiny</button></a>'}, 10*1000);
+        ;
 
-            
-            typer.innerHTML='<div class="dynamic-text-wrapper"><div class="dynamic-text">屬於你的Destiny</div><div class="dynamic-text">即將於午夜12:00出現</div></div>';
+    }else if(selectVideo.currentTime > 2.5 && flag1 == false){
 
-            let countdown = document.getElementById("countdown");
-            setTimeout(function(){countdown.innerHTML='<div class="countdown_time">倒計時03:20:04</div>'}, 10*1000);
-            ;
-            
-            setTimeout(function(){destiny_botton.innerHTML='<a href="cards.html"><button id="My_destiny_button">我的destiny</button></a>'}, 10*1000);
-            ;
+        selectVideo.pause();
+        document.getElementById("space").style="visibility:visible";
+        
+        window.addEventListener('keydown', space_instruct);
+        function space_instruct(e) {
 
+            if (e.keyCode == 32 && flag1 == false) {
+                selectVideo.play();
+                
+                document.getElementById("space").style="visibility:hidden";
+                flag1=true;
+            } ;
         };
+
     };
     
 };
@@ -186,9 +198,7 @@ tl_control.to('#ball', {
         y: -70,
         repeat: 1,
         yoyo: true,
-        //rotation : 360,
         duration: 0.3,
-        // ease: "elastic.out(1, 0.3)"
     }).to('#ball', { y: 0,});
  tl_control.reversed(true);
 
@@ -196,6 +206,7 @@ function keyboardFunction(e) {
 
     if (e.keyCode == 32) {
         tl_control.reversed(!tl_control.reversed());
+        
     } 
     
 };
