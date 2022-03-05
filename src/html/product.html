@@ -217,7 +217,7 @@
                                 <p>限時商品</p>
                             </div>
                             <div class="txt_new_goods_time">
-                                <p>12:30:50</p>
+                                <p id="product_limited_time"></p>
                             </div>
                         </div>
                     </div>
@@ -271,6 +271,18 @@
 
             </section>
 
+            <!-- 限時 -->
+            <script>
+                var myVar = setInterval(function () {
+                    myTimer()
+                }, 1000);
+
+                function myTimer() {
+                    var d = new Date();
+                    var t = d.toLocaleTimeString();
+                    document.getElementById("product_limited_time").innerHTML = t;
+                }
+            </script>
 
 
             <!-- 熱門商品 -->
