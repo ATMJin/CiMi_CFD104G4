@@ -805,14 +805,13 @@
 
                     <div class="txt_box">
                         <input type="text" name="tname" placeholder="留言...">
-                        <!-- <p>留言...</p> -->
                     </div>
                 </div>
                 <!-- 左邊icon -->
                 <div class="item_box_fuction_icon">
                     <div class="img_box">
                         <!-- 收藏 -->
-                        <div class="img_box_save">
+                        <div class="img_box_save" id="product_save" title="加入收藏">
                             <img src="assets\images\icon\save_hov.png">
                         </div>
 
@@ -822,15 +821,15 @@
                         </div>
                     </div>
                     <!-- 立即購買 -->
-                    <button class="btn-primary">立即購買</button>
+                    <button class="btn-primary" style="align-items: center; height: 40px; margin-top: 20px;">立即購買</button>
 
                     <!-- 加入購物車-->
-                    <button class="btn-secondary">加入購物車</button>
+                    <button class="btn-secondary" id="product_cart_none">加入購物車</button>
                 </div>
             </section>
         </main>
     </section>
-    <!-- js -->
+    <!-- 燈箱js -->
     <script>
         function init() {
             let small_img = document.querySelectorAll(".ligh_box_jump")
@@ -851,6 +850,30 @@
             x.style.display = "block";
         }
     </script>
+    <!-- 收藏save -->
+    <script>
+        let product_save;
+        //加入收藏 或 取消收藏
+        function switchFavorite() {
+            if (product_save.title == "加入收藏") {
+                product_save.src =
+                    "https://cdn-icons.flaticon.com/png/512/6048/premium/6048873.png?token=exp=1646494404~hmac=a51e5406035e5577298de7a1b8800d62";
+                    product_save.title = "取消收藏";
+            } else {
+                product_save.src =
+                    "assets/images/icon.save_hov.png";
+                    product_save.title = "加入收藏";
+            }
+        }
+
+        function init() {
+            //設定[加入收藏 或 取消收藏]的點按事件
+            product_save = document.getElementById("product_save")
+            product_save.onclick = switchFavorite;
+        } //init
+        window.addEventListener("load", init, false);
+    </script>
+
     <!-- 文進大大的購物車燈箱 -->
     <div id="app">
         <div class="shop_cart_ligh_box">
