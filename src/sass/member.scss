@@ -4,7 +4,9 @@
 @import "./layout/sidebar";
 
 /* 會員左側欄開始 */
-
+.top_bar_box{
+    top: 0;
+}
 .member_sidebar_box {
 width: 100%;
 margin-top: 70px;
