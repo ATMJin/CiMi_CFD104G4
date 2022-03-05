@@ -19,6 +19,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <body>
     <main>
+        <div class="lightbox" id="instrction_lightbox">
+            <img id="instruction_tree"src="assets/images/instruction_tree.png" alt="">
+    
+            <div class="instrction"><span>遊戲說明<br></span>"您將踏上一段旅程路程當中將有三個選擇口，每個選擇都是命運的選擇。<br>回答這三個問題之後，您將遇到一位您從來沒有遇過的人。<br>然而，機會是短暫的，24小時內，如果彼此都接受邀請了，就會成為好友； <br>如果未能成為朋友，午夜之後對方將會永遠消失。"
+                <div class="lightbox_button">
+                    <img id="button_check" src="assets/images/instruction_button_check.png" alt="">
+                    <img id="button_escape" src="assets/images/instruction_button_escape.png" alt="">
+                </div>
+               
+            </div>
+        </div>
+
+        
+        <div class="lightbox" id="waiting_lightbox"></div>
         <!-- loading -->
         <div class="container_load" id="loading"> 
             <div class="ellipses red_shadow">
@@ -115,6 +129,7 @@
         </div>
 
         <!-- game_start -->
+        
         <div class="left_button">
             <img id="return" src="assets/images/return.png" alt="">
             <!-- <i class="fa-solid fa-arrow-rotate-left"></i> -->
@@ -125,7 +140,7 @@
             </a>
         </div>
 
-
+      
         <div class="player">
             <video id="cimi_video" class="video_viewer"
                 src="assets/video/cimi_animation_colored.mp4" width="100%"
@@ -139,8 +154,9 @@
             <div class="answer_frame" style="visibility:hidden">
                 <img src="assets/images/answer.png" alt="">
             </div>
-           
+         
             <div class="ball" id="ball">
+               
                 <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 305.01 280.24" style="enable-background:new 0 0 305.01 280.24;" xml:space="preserve">
             <g id="ball_svg" >
@@ -218,6 +234,7 @@
             </svg>
 
             </div>
+            
             <div class="player__controls">
                 
                 <div class="progress">
@@ -232,6 +249,7 @@
                         <div class="color_option yellow" ></div>
                         <div class="color_option purple"></div>
                     </div>
+                    <img class="trees" src="assets/images/trees.jpg" alt="">
                     <div id="start">
                         <div id="animated-title">
                             <div class="text-top">
@@ -245,9 +263,10 @@
                           <div class="choose_text_class" id="choose_text">
                             <div>選擇喜歡的顏色</div>
                           </div>
+                          
                     </div>
                 </section>
-                
+                <div id="space">按下"space"鍵<br>可以讓你的球跳起來喔!</div>
                 <div class="toggle Ans_A"style="visibility:hidden"></div>
                 
                 <div class="toggle Ans_B"style="visibility:hidden">
@@ -262,17 +281,7 @@
                 <div class="question" id="question2"><span>Q2. </span>當你正要去洗澡時，<br>突然發生一串事~<br>你會先解決那件事？</div>
                 <div class="question" id="question3"><span>Q3. </span>結束一天疲累的工作，想到ＰＵＢ坐坐，<br> 這時的你面對眾多的酒類飲料，<br>你會選擇那一項呢？</div>
 
-                <div class="lightbox" id="instrction_lightbox">
-                    <div class="instrction"><span>遊戲說明<br></span>"您將踏上一段旅程路程當中將有三個選擇口，<br>每個選擇都是命運的選擇。<br>回答這三個問題之後，您將遇到一位您從來沒有遇過的人， <br>然而，機會是短暫的，<br>24小時內，如果彼此都接受邀請了，就會成為好友； <br>如果未能成為朋友，午夜之後對方將會永遠消失。"
-                        <div class="lightbox_button">
-                            <img id="button_check" src="assets/images/instruction_button_check.png" alt="">
-                            <img id="button_escape" src="assets/images/instruction_button_escape.png" alt="">
-                        </div>
-                    </div>
-                </div>
-
                 
-                <div class="lightbox" id="waiting_lightbox"></div>
             </div>
 
             <!-- 洞裡畫面 -->

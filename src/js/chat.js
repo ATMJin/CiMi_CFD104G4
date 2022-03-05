@@ -1,8 +1,18 @@
+
+function scrollBottom() {
+    console.log(`object`);
+    if (!preventNewScroll) { // if mouse is not over printer
+        $printer.stop().animate({
+            scrollTop: $printer[0].scrollHeight - printerH
+        }, 600); // SET SCROLLER TO BOTTOM
+    }
+}
+
 function doFirst() {
-    const form = document.querySelector('.typing_area');
-    const sendBtn = document.querySelector('.typing_area button');
-    const chatBox = document.querySelector('.chat_box')
-    const inputArea = document.querySelector('.emojionearea-editor')
+const form = document.querySelector('.typing_area');
+const sendBtn = document.querySelector('.typing_area button');
+const chatBox = document.querySelector('.chat_box')
+const inputArea = document.querySelector('.emojionearea-editor')
 
     form.onsubmit = (e) => { //取消form表單的submit事件
         e.preventDefault();
@@ -24,21 +34,14 @@ function doFirst() {
         printerH = $printer.innerHeight(),
         preventNewScroll = false;
 
-    function scrollBottom() {
-        console.log(`object`);
-        if (!preventNewScroll) { // if mouse is not over printer
-            $printer.stop().animate({
-                scrollTop: $printer[0].scrollHeight - printerH
-            }, 600); // SET SCROLLER TO BOTTOM
-        }
-    }
+    
     scrollBottom(); // DO IMMEDIATELY
 
     /*功能一 : 送出傳訊者輸入的消息到後端PHP*/
     function sendMsg(e) {
         if (e.type == 'click' || (e.which == 13 && !e.shiftKey)) {
             e.preventDefault();
-            let msg = document.querySelector('.emojionearea-editor').innerText
+            let msg = document.querySelector('.emojionearea-editor').innerHTML
             let xhr = new XMLHttpRequest(); //建立XHR物件
             xhr.onload = () => {
                 if (xhr.readyState == 4) {
