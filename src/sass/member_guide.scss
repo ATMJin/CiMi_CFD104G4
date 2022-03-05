@@ -1,7 +1,18 @@
-@import "./layout/reset";
-@import "./layout/common";
-@import "./layout/header";
-@import "./layout/sidebar";
+@import "member_sidebar";
+.top_bar_box{
+    top: 0;
+}
+.member_content_area{
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+}
+.member_content_area{
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+}
 
 aside{
     display: none;
@@ -22,7 +33,9 @@ aside{
     width: 100%;
     margin: auto;
 }
-
+.member_main_box{
+    width: 100%;
+}
 .member_bg .member_bgcard .member_main_title{
     display: none;
 }
@@ -66,6 +79,7 @@ aside{
     aside{
         display: block;
     }
+    
     .top_bar_box .top_bar{
         display: block;
     }
@@ -73,8 +87,7 @@ aside{
         display: none;
     }
     .member_main_box{
-        max-width: 1440px;
-        margin: auto;
+        width: 100%;
     }
     .member_main_box .member_bg{
         width: 80%;

@@ -1,3 +1,4 @@
+
 aside {
     display: none;
 }
@@ -48,16 +49,6 @@ aside {
                 height: 100px;
             }
         }
-
-        // .member_bouns_head::after{
-        //     content: '';
-        //     width: 300px;
-        //     height: 1px;
-        //     background: #000;
-        //     position: absolute;
-        //     margin: 0 auto;
-        // }
-
         .divider {
             width: 75%;
             margin: auto;
@@ -74,13 +65,12 @@ aside {
 
     .member_bouns_take {
         width: 100%;
-        margin-top: 50px;
 
         .member_bouns_card {
             width: 80%;
             margin: auto;
             margin-top: 25px;
-            height: 150px;
+            height: 75px;
             border-radius: 15px;
             display: flex;
             justify-content: space-evenly;
@@ -202,7 +192,7 @@ aside {
                     width: 80%;
                     margin: auto;
                     margin-top: 25px;
-                    height: 150px;
+                    height: 100px;
                     background-color: var(--icon-color);
                     border: 2px solid #000;
                     border-radius: 20px;
