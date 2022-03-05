@@ -1,6 +1,13 @@
 aside{
     display: none;
 }
+.top_bar_box{
+    top: 0;
+}
+.member_sidebar_box{
+    display: none;
+}
+
 .member_main_box {
     .member_bg {
         .member_main {
@@ -51,6 +58,10 @@ aside{
     aside{
         display: inline-block;
     }
+    .member_sidebar_box{
+        display: block;
+    }
+
     .member_main_box {
         .member_bg {
             .member_main {
