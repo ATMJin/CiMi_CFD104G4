@@ -13,7 +13,7 @@
 
 // 商品頁// 手機板
 
-// 標題
+// // 標題
 .product_page {
     overflow: scroll;
 
@@ -71,6 +71,7 @@
 
             p {
                 margin: 0px;
+                color: var(--primary-color);
             }
         }
 
@@ -107,7 +108,7 @@
 
 // <!-- 商品價格/資訊 -->
 .product_page_price_in {
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
 
     .txt_box {
         padding: 20px;
@@ -158,6 +159,8 @@
 
             input {
                 border: none;
+                // 文字強迫換行，太長的英文字，會自動切成兩半。
+                word-break: break-all;
 
             }
         }
@@ -165,7 +168,7 @@
 
     // <!-- 左邊icon -->
     .item_box_fuction_icon {
-        
+
 
 
         .img_box {
@@ -178,7 +181,7 @@
 
                 img {
                     width: 100%;
-                    vertical-align:text-bottom;
+                    vertical-align: text-bottom;
                 }
             }
 
@@ -189,7 +192,7 @@
 
                 img {
                     width: 100%;
-                    vertical-align:text-bottom;
+                    vertical-align: text-bottom;
                 }
             }
         }
@@ -248,6 +251,86 @@
     }
 }
 
+// 網友留言區
+.product_lighbox {
+    .product_page {
+        .product_comment {
+            width: 100%;
+            position: relative;
+            padding: 20px;
+            padding-bottom: 100px;
+            p {}
+
+            .comment_box {
+                display: flex;
+                padding: 20px 0;
+                border-bottom: 1px solid #a3a3a3;
+
+                .comment_head_photo {
+                    margin-right: 10px;
+
+                    img {
+                        border-radius: 50%;
+                    }
+
+                    ;
+                }
+
+                .comment_txt {
+                    position: relative;
+                    width: 100%;
+
+                    .comment_mem_name_box {
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: var(--tag);
+                        .comment_mem_name_item {}
+
+                        .comment_impeach_icon {
+                            width: 15px;
+                            margin-right: 5px;
+
+                            img {
+                                width: 100%;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+
+                    .comment_content {
+                        padding: 5px 0;
+                    }
+
+                    .comment_info {
+                        font-size: var(--tag);
+                        display: flex;
+                        .comment_like_box {
+                            margin-right: 15px;
+                            display: flex;
+                            align-items: center;
+                            .comment_like_icon {
+                                width: 15px;
+                                margin-right: 5px;
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .comment_like_amount {}
+                        }
+
+                        .comment_date {
+                            margin-right: 15px;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 // hover
 // <!-- 商品留言 -->
@@ -358,11 +441,11 @@
         width: 80%;
         margin: 0 auto;
         position: absolute;
-        width: 45vw;
+        width: 55vw;
         height: 100%;
         top: 0;
         // 致中
-        left: 29.7%;
+        left: 25%;
 
 
 
@@ -401,22 +484,27 @@
             // width: 90%;
             justify-content: space-between;
 
+            .product_item_box {
+                display: flex;
+                align-items: center;
 
-            // 圖片
-            .product_img_box {
+                // 圖片
+                .product_img_box {
 
-                img {
-                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
                 }
-            }
 
-            // 文字
-            .txt_box {
-                min-width: 40px;
+                // 文字
+                .txt_box {
+                    min-width: 40px;
 
-                p {
-                    // 追蹤顏色被覆蓋了
-                    color: whitesmoke;
+
+                    p {
+                        // 追蹤顏色被覆蓋了
+                        color: whitesmoke;
+                    }
                 }
             }
 
@@ -495,7 +583,7 @@
 
     // <!-- 商品價格/資訊 -->
     .product_page_price_in {
-        padding-bottom: 100px;
+        // padding-bottom: 100px;
 
         .txt_box {
             padding: 20px;
@@ -510,7 +598,7 @@
     // <!-- 商品留言 -->
     .product_page_msg {
         // 對其上面大小
-        width: 44%;
+        width: 54.3%;
         padding: 10px;
         // display: flex;
         position: fixed;
@@ -526,7 +614,7 @@
         .item_box_msger {
             display: flex;
             align-items: center;
-            width: calc(100% - 45%);
+            width: calc(100% - 35%);
 
 
 
@@ -551,7 +639,7 @@
                 input {
                     border: none;
                     // 留言輸入框的大小
-                    height: 50px;
+                    height: 40px;
                     width: calc(100% - 10px);
                 }
             }
@@ -561,7 +649,7 @@
         .item_box_fuction_icon {
             align-items: center;
             display: flex;
-            width: calc(100% - 45%);
+            width: calc(100% - 55%);
 
             .img_box {
                 display: flex;

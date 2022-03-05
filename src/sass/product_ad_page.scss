@@ -20,11 +20,8 @@
     width: 100%;
 
     .product_ad_txt {
-        margin: auto;
-        width: 90%;
-        // padding-top: 135px;
+        margin: 0 40px;
 
-        // width:1200px;
         .txt_box {
             width: 100%;
             padding: 10px;
@@ -32,8 +29,6 @@
 
 
             h1 {
-                // font-weight: 500;
-                // text-align: center;
                 font-weight: var(--bold);
                 font-size: var(--title);
                 // 調整線的距離
@@ -53,7 +48,6 @@
             }
 
             p {
-                // font-weight: 400;
                 font-size: 16px;
                 line-height: 28px;
                 margin-bottom: 60px;
@@ -66,14 +60,17 @@
 
 // 商品
 .main_product_ad_page {
+
+
     .all {
         width: 100%;
         margin-bottom: 50px;
-
+        // 用margin會超出去
+        padding: 0 40px;
 
         .all_item_box {
             .title {
-                margin-left: 30px;
+                margin-left: 10px;
 
                 p {}
             }
@@ -151,7 +148,7 @@
                 }
 
                 .item_box {
-                    padding: 50px;
+                   
 
 
                     a {

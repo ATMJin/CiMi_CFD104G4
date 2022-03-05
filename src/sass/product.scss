@@ -48,10 +48,6 @@
 
 
 // 廣告輪播
-// body {
-//     margin: 0;
-// }
-
 .overlay {
     position: absolute;
     width: 100%;
@@ -184,7 +180,7 @@
                 justify-content: space-around;
                 background-color: #f97373;
                 border-radius: var(--bgc-radius);
-                margin: 4%;
+                margin: 40px;
 
                 .item {
                     display: flex;
@@ -220,6 +216,7 @@
 .main_product {
     .sort {
         width: 100%;
+        margin-bottom: 50px;
 
         .item_box {
             display: flex;
@@ -263,7 +260,6 @@
 // 最新上架商品
 .main_product {
     .new_goods_information {
-        margin-top: 50px;
         margin: auto;
         display: none;
         // 手機頁沒有
@@ -415,12 +411,7 @@
 // 最新上架商品
 .main_product {
     .new_goods_information {
-        margin-top: 50px;
-        width: 100%;
-        padding: 20px;
-        margin: auto;
         display: none;
-
         // 手機頁沒有
         // 限時商品
         .time_limit_item_box {
@@ -560,9 +551,9 @@
 // 熱門商品
 .main_product {
     .hot {
-        width: 100%;
-        padding: 20px;
-
+        margin: 0 40px;
+        margin-top: 50px;
+        margin-bottom: 50px;
 
         .hot_item_box {
             .title {
@@ -601,6 +592,8 @@
 
                         .img_box {
                             width: 80px;
+                            // 使圖片致中對其下面的字
+                            margin: 0 auto;
 
                             img {
                                 width: 100%;
@@ -628,9 +621,7 @@
 // 全部商品
 .main_product {
     .all {
-        width: 100%;
-        margin-bottom: 50px;
-
+        margin: 0 40px;
 
         .all_item_box {
             .title {
@@ -760,16 +751,12 @@
 
     // 好物商城標題
     .main_product {
-        // padding: 10px;
         // 調整頁面!!!!
         width: 80%;
-        margin: 40px;
-        // padding-top:10px;
 
         .product_title {
             width: 90%;
             margin: auto;
-            // margin-top: 50px;
             padding-top: 100px;
 
             .item_box {
@@ -800,12 +787,12 @@
     // 廣告投放!!!!
     .hero-slider {
         // 調整大小
-        width: 90%;
+        width: 92%;
         height: 250px;
         overflow: hidden;
         border-radius: var(--img-radius);
         /* slider圓角 */
-        margin: 50px auto;
+        margin: 30px auto;
         /*調整slider位置*/
         box-shadow: 0 2px 8px 2px #ecebebce;
         // 背景陰影
@@ -884,29 +871,24 @@
             display: none;
             display: flex;
             width: 100%;
-            // padding: 20px;
-            margin: auto;
             flex-wrap: nowrap;
             box-sizing: border-box;
-
-            // display: none;
+            margin: 0px 40px;
             // 限時商品
             .time_limit_item_box {
                 border-radius: 20px;
                 background-color: var(--icon-color);
-                // padding: 10px;
 
                 // 限時商品標題
                 .title {
                     display: flex;
                     align-items: center;
-                    // padding: 10px;
 
                     // 小icon
                     .img_box {
                         img {
                             width: 40px;
-                            border-radius: 20px;
+                            
                         }
                     }
 
@@ -920,13 +902,9 @@
                         }
 
                         .txt_new_goods_time {
-                            margin-left: 10px;
-                            // background-color: #e24e4e;
-                            // padding: 5px;
-                            border-radius: 20px;
+                            // margin-left: 10px;
 
                             p {
-                                // color: #E1E1E1;
                             }
                         }
                     }
@@ -1089,11 +1067,11 @@
 
                     .item {
                         margin: 10px;
-                        width: 200px;
+                        width: 180px;
 
 
                         .img_box {
-                            width: 200px;
+                            width: 180px;
 
                             img {
                                 width: 100%;
