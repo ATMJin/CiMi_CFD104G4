@@ -62,8 +62,8 @@
 
 .hero-slider {
     // 調整大小
-    width: 90%;
-    height: 200px;
+    width: 92%;
+    height: 250px;
     overflow: hidden;
     border-radius: var(--img-radius);
     /* slider圓角 */
@@ -690,9 +690,54 @@
 // ------------------商品內頁燈箱-------------------
 
 // --------平板
-// @media screen and (min-width:768px)and(max-width:990px) {
-
-// }
+@media screen and (min-width:768px)and(max-width:990px) {
+        // 熱門商品
+        .main_product {
+            .hot {
+    
+    
+                .hot_item_box {
+                    .title {
+    
+    
+                        .txt_box {
+                            p {}
+                        }
+    
+                        .img_box {
+                            img {}
+                        }
+                    }
+    
+                    .item_box {
+    
+    
+    
+                        a {
+    
+    
+                            .item {
+    
+    
+                                .img_box {
+                                    width: 120px;
+    
+                                    img {
+                                        width: 100%;
+                                    }
+                                }
+    
+                                .txt_box {
+                                    p {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
 
 
 
@@ -718,8 +763,6 @@
     .product_page {
         background: #fff;
         position: absolute;
-
-        // overflow: scroll;
         // <!-- 追蹤分類 -->
         .product_page_sort_follow {
             width: 100%;
@@ -748,7 +791,7 @@
 
 
 // --------桌機板
-@media screen and (min-width:768px) {
+@media screen and (min-width:990px) {
 
     // 好物商城標題
     .main_product {

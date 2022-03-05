@@ -14,6 +14,10 @@
 // 商品頁// 手機板
 
 // // 標題
+body {
+    position: relative;
+}
+
 .product_page {
     overflow: scroll;
 
@@ -481,7 +485,6 @@
     .product_page {
         .product_page_sort_follow {
             margin: auto;
-            // width: 90%;
             justify-content: space-between;
 
             .product_item_box {
@@ -543,7 +546,7 @@
         // 小圖
         .product_small {
             // 調整小圖的大小
-            width: 90%;
+            width:82%;
             display: flex;
             justify-content: space-around;
             margin: 0px auto;
