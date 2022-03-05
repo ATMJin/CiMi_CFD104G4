@@ -2,6 +2,9 @@
 .top_bar_box{
     top: 0;
 }
+.member_sidebar_box{
+    display: none;
+}
 .member_content_area{
     width: 100%;
     max-width: 1440px;
@@ -79,7 +82,10 @@ aside{
     aside{
         display: block;
     }
-    
+    .member_sidebar_box{
+        display: block;
+    }
+
     .top_bar_box .top_bar{
         display: block;
     }

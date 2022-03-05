@@ -1,6 +1,9 @@
 aside {
     display: none;
 }
+.member_sidebar_box{
+    display: none;
+}
 .top_bar_box{
     top: 0;
 }
@@ -333,7 +336,9 @@ aside {
     aside {
         display: block;
     }
-
+    .member_sidebar_box{
+        display: block;
+    }
     .member_head {
         display: none;
     }
