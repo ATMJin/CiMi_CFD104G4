@@ -19,6 +19,7 @@ try{
 
   // PHP執行失敗時執行下面
 }catch(PDOException $e){
-  echo $e->getMessage();
+	echo "錯誤原因 : ", $e->getMessage(), "<br>";
+	echo "錯誤行號 : ", $e->getLine(), "<br>";
 }
 ?>
