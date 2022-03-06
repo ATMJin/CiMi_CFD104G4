@@ -327,6 +327,7 @@
                 .item_box {
                     .img_box {
                         width: 200px;
+                        margin: 0 auto;
 
                         img {
                             width: 100%;
@@ -338,6 +339,7 @@
 
                     .txt_box {
                         padding: 10px;
+                        min-width:180px;
 
                         p {}
                     }
@@ -396,6 +398,7 @@
 
                         .img_box {
                             width: 200px;
+                            margin: 0 auto;
 
                             img {
                                 width: 100%;
@@ -405,7 +408,7 @@
 
                         .txt_box {
                             padding: 10px;
-
+                            min-width:180px;
                             p {}
                         }
                     }
