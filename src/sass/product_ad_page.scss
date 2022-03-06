@@ -15,16 +15,13 @@
 // ------------------廣告商品的內頁-----------------------
 // 文章                               
 .main_product_ad_page {
-    padding-top: 135px;
+    padding-top: 70px;
     // 背景
     width: 100%;
 
     .product_ad_txt {
-        margin: auto;
-        width: 90%;
-        // padding-top: 135px;
+        margin: 0 20px;
 
-        // width:1200px;
         .txt_box {
             width: 100%;
             padding: 10px;
@@ -32,8 +29,6 @@
 
 
             h1 {
-                // font-weight: 500;
-                // text-align: center;
                 font-weight: var(--bold);
                 font-size: var(--title);
                 // 調整線的距離
@@ -53,7 +48,6 @@
             }
 
             p {
-                // font-weight: 400;
                 font-size: 16px;
                 line-height: 28px;
                 margin-bottom: 60px;
@@ -68,12 +62,13 @@
 .main_product_ad_page {
     .all {
         width: 100%;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
 
 
         .all_item_box {
             .title {
-                margin-left: 30px;
+                // 對其logo
+                margin: 0 30px;
 
                 p {}
             }
@@ -134,13 +129,31 @@
 // --------桌機板
 @media screen and (min-width:768px) {
 
+    // 文章                               
+    .main_product_ad_page {
+        padding-top: 135px;
+
+        .product_ad_txt {
+            margin: 0 40px;
+
+            .txt_box {
+                h1 {}
+
+                h2 {}
+
+                p {}
+            }
+        }
+    }
+
     // 全部商品
     .main_product_ad_page {
         // 背景
         width: 80%;
 
         .all {
-
+            // 用margin會超出去
+            padding: 0 40px;
 
 
             .all_item_box {
@@ -151,7 +164,7 @@
                 }
 
                 .item_box {
-                    padding: 50px;
+
 
 
                     a {

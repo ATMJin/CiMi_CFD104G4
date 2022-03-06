@@ -172,6 +172,7 @@
 .main_product {
     .product_comment {
         width: 100%;
+        display: none;
 
         a {
             text-decoration: none;
@@ -759,7 +760,7 @@
         // padding: 10px;
         // 調整頁面!!!!
         width: 80%;
-        margin: 40px;
+        padding: 40px;
         // padding-top:10px;
 
         .product_title {

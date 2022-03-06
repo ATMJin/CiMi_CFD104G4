@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>質感生活 | CiMi交友論壇</title>
-    <link rel="stylesheet" href="assets/css/product_sort_page.css">
+    <link rel="stylesheet" href="assets/css/product.css">
     <!-- 廣告輪播 -->
     <!-- <link rel="stylesheet" href="src\js\product.js"> -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap"
@@ -148,7 +148,7 @@
                                 <p>限時商品</p>
                             </div>
                             <div class="txt_new_goods_time">
-                                <p>12:30:50</p>
+                                <p id="product_limited_time"></p>
                             </div>
                         </div>
                     </div>
@@ -202,6 +202,18 @@
 
             </section>
 
+            <!-- 限時 -->
+            <script>
+                var myVar = setInterval(function () {
+                    myTimer()
+                }, 1000);
+
+                function myTimer() {
+                    var d = new Date();
+                    var t = d.toLocaleTimeString();
+                    document.getElementById("product_limited_time").innerHTML = t;
+                }
+            </script>
 
 
             <!-- 熱門商品 -->
@@ -219,7 +231,8 @@
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://i2.momoshop.com.tw/1631872362/goodsimg/0009/342/173/9342173_R.webp">
+                                    <img
+                                        src="https://i2.momoshop.com.tw/1631872362/goodsimg/0009/342/173/9342173_R.webp">
                                 </div>
                                 <div class="txt_box">
                                     <p>任天堂｜Switch </p>
@@ -229,7 +242,8 @@
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://i4.momoshop.com.tw/1641812063/goodsimg/0009/674/984/9674984_R.webp">
+                                    <img
+                                        src="https://i4.momoshop.com.tw/1641812063/goodsimg/0009/674/984/9674984_R.webp">
                                 </div>
                                 <div class="txt_box">
                                     <p>莫蘭迪 | 成人口罩</p>
@@ -240,7 +254,8 @@
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://i3.momoshop.com.tw/1644400272/goodsimg/0009/802/016/9802016_R.webp">
+                                    <img
+                                        src="https://i3.momoshop.com.tw/1644400272/goodsimg/0009/802/016/9802016_R.webp">
                                 </div>
                                 <div class="txt_box">
                                     <p>戀愛 | 脫單攻略</p>
@@ -251,7 +266,8 @@
                         <a href="#">
                             <div class="item">
                                 <div class="img_box">
-                                    <img src="https://i2.momoshop.com.tw/1619500893/goodsimg/0008/094/630/8094630_R.webp">
+                                    <img
+                                        src="https://i2.momoshop.com.tw/1619500893/goodsimg/0008/094/630/8094630_R.webp">
                                 </div>
                                 <div class="txt_box">
                                     <p>天然 | 玫紅虎眼手鍊</p>
@@ -601,7 +617,7 @@
                     </div>
                     <!-- 立即購買 -->
                     <button class="btn-primary">立即購買</button>
-                    
+
                     <!-- 加入購物車-->
                     <button class="btn-secondary">加入購物車</button>
                 </div>
