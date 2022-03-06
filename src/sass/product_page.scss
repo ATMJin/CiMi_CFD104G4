@@ -158,13 +158,14 @@
 
 
         .product_page_msg {
-            width: 100%;
+            // 桌機會超出去
+            // width: 100%;
+            width: inherit;
             padding: 10px;
             display: flex;
             position: fixed;
             bottom: 0;
             background-color: rgb(255, 255, 255);
-            height: 90px;
             justify-content: space-around;
 
             // <!-- 右邊 -->
@@ -199,6 +200,7 @@
             // <!-- 左邊icon -->
             .item_box_fuction_icon {
                 display: flex;
+
                 .img_box {
                     display: flex;
                     align-items: center;
@@ -226,9 +228,15 @@
                         }
                     }
                 }
+
                 // botton
+                // <!-- 立即購買 -->
+                .btn-primary {
+                    align-items: center;
+                }
+
                 // <!-- 加入購物車-->
-                #product_cart_none{
+                .btn-secondary{
                     display: none;
                 }
             }
@@ -320,83 +328,67 @@
 }
 
 // --------平板
-@media screen and (min-width:768px)and(max-width:990px){
+@media screen and (min-width:768px)and(max-width:990px) {
+
     // <!-- 商品留言 -->
     .product_lighbox {
         .product_page_msg {
             // 對其上面大小
             width: 54%;
+
             //   <!-- 右邊 -->
             .item_box_msger {
- 
+
                 // <!-- 留言頭貼 -->
                 .img_box {
-               img {
-                        
-                    }
+                    img {}
                 }
 
                 // <!-- 留言 -->
                 .txt_box {
-                    
 
-                    input {
-                    
-                    }
+
+                    input {}
                 }
             }
 
             // <!-- 左邊icon -->
             .item_box_fuction_icon {
-            
+
 
                 .img_box {
-                    
+
 
                     // <!-- 收藏 -->
                     .img_box_save {
-                        
 
-                        img {
-                            
-                        }
+
+                        img {}
                     }
 
                     // <!-- 愛心 -->
                     .img_box_report {
-                        
-                    
 
-                        img {
-                            
-                        }
+
+
+                        img {}
                     }
                 }
 
                 // <!-- 立即購買 -->
                 .btn-primary {
-                    
+
 
 
                     .txt_box {
 
 
-                        p {
-                            
-
-
-
-                        }
+                        p {}
                     }
                 }
 
                 // <!-- 加入購物車-->
-                .btn-secondary {
-
-
-
-
-                }
+                .btn-secondary {}
 
 
 
@@ -592,6 +584,7 @@
             position: fixed;
             bottom: 0;
             background-color: rgb(255, 255, 255);
+            height: 90px;
             // justify-content: space-between;
 
 
@@ -655,7 +648,7 @@
                     // <!-- 愛心 -->
                     .img_box_report {
                         width: 30px;
-                    
+
 
                         img {
                             width: 100%;
@@ -682,14 +675,23 @@
 
                 // <!-- 加入購物車-->
                 .btn-secondary {
+                    display: none;
                     margin: 5px;
-
+                    font-family: 'Noto Sans TC', sans-serif;
+                    font-size: 14px;
+                    letter-spacing: .05em;
+                    border-radius: .75em;
+                    font-weight: 500;
+                    color: var(--primary-color);
+                    background-color: var(--button-secondary);
+                    border: none;
+                    outline: none;
+                    padding: 5px 13px;
+                    cursor: pointer;
 
 
 
                 }
-
-
 
                 .txt_box {
 
