@@ -30,10 +30,13 @@ let purple = document.querySelector('.purple');
 let  timer = setInterval(function () {
     console.log(selectVideo.currentTime);
     videoPause();
+    movedown();
     }, 100);
+
 
 let flag1 = false;
 let flag_touch = false;
+let flag_movedown = false;
 
 
 //影片暫停
@@ -67,6 +70,7 @@ function doFirst() {
     playButtons.forEach(btn => {
         btn.addEventListener('click',playToggle);
     });
+    window.addEventListener('load', movedown);
     
 };
 
@@ -83,6 +87,16 @@ function go_purple(){
     document.getElementsByClassName("st2").style= "fill:transparent;";
 };
 
+function movedown(){
+    if(!selectVideo.paused && !selectVideo.ended && flag_movedown == false){
+        document.getElementsByClassName('player')[0].classList.add("margin_top");  
+        flag_movedown = true; 
+
+    }else if( selectVideo.paused && flag_movedown == true){
+        document.getElementsByClassName('player')[0].classList.remove("margin_top"); 
+        flag_movedown = false; 
+    };
+}
 
 //點按check後，遊戲說明燈箱消失
 function check_play(){
@@ -104,6 +118,7 @@ function playToggle() {
     document.getElementById("start").style ="display:none";
     document.querySelector(".trees").style="display:none";
     
+    document.querySelector(".ball").style="right:43%;top:43%;width:12%;"
     document.getElementById("ball_svg").style="display:block";
     pink.style="display:none";
     yellow.style="display:none";
@@ -116,7 +131,6 @@ function playToggle() {
     if (!selectVideo.paused && !selectVideo.ended) {
         playButtons.forEach(btn => {
         btn.style ="visibility: visible";});
-        
         
        
     } else {
@@ -203,6 +217,10 @@ function videoPause() {
 
     };
     
+    if(selectVideo.currentTime > 25.7){
+        document.body.style.background = "#1C1415";
+
+    };
 };
 //球跳躍
 
@@ -237,6 +255,7 @@ function touch(){
         document.getElementById("space").style="visibility:hidden";
         flag1 = true;
     }
+
     
 };
 window.addEventListener('load', doFirst);
