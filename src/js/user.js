@@ -5,10 +5,6 @@
     const users = document.querySelector('.users')
     const chat_area = document.querySelector('.chat_area')
 
-
-
-
-
     searchBtn.onclick = () => {
         searchBar.classList.toggle('active');
         searchBar.focus();
@@ -35,7 +31,7 @@
     // }, 500);
 
     /*滾動到底部*/
-    let $chat = $('.chat_area'),
+    let $chat = $('.chat_area')
         $printer = $('.chat_box', $chat),
         $textArea = $('textarea', $chat),
         printerH = $printer.innerHeight(),
@@ -56,24 +52,27 @@
     function doFirst() {
         const users = document.querySelectorAll('.users_list .friends');
         console.log(users);
-
+        let xhr = new XMLHttpRequest();
         for (let i = 0; i < users.length; i++) {
             users[i].addEventListener('click', function (e) {
                 rowcount = 0
                 //點當前的人要換背景 => background-color: #EAF3FF;
+                changeStyle(e);
                 scrollBottom(); // DO IMMEDIATELY
-                changeStyle(e)
                 let user_id = e.currentTarget.lastElementChild.innerText //使用者id
                 let userInfo = document.querySelector('.chat_area header') //右側聊天室header
 
                 //執行ajax
-                xhr = new XMLHttpRequest()
-
+                // xhr = new XMLHttpRequest()
+                xhr.abort();
                 xhr.onload = () => {
                     if (xhr.readyState == 4) {
                         if (xhr.status == 200) {
                             let data = xhr.responseText;
                             userInfo.innerHTML = data;
+                            addDarkmodeWidget();
+
+
                             let back = document.getElementById('back')
                             back.onclick = () => {
                                 const users = document.querySelector('.users')
@@ -82,8 +81,33 @@
                                 chat_area.style.display = 'none'
 
                             }
+
+                            setInterval(() => {
+                                let xhr = new XMLHttpRequest(); //建立XHR物件
+                                xhr.onload = () => {
+                                    if (xhr.readyState == 4) {
+                                        if (xhr.status == 200) {
+                                            let res = JSON.parse(xhr.response)
+                                            console.log(res.rowcount);
+                                            // addDarkmodeWidget()
+
+                                            if (res.rowcount > rowcount) {
+                                                chatBox.innerHTML = res.output;
+
+                                                chatBox.scrollTop = chatBox.scrollHeight;
+                                                chatBox.onmouseover = (e) => {
+                                                    clearInterval(keyin)
+                                                }
+                                                rowcount = res.rowcount
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }, 500);
+
                         }
-                        back
+
                     }
                 }
                 xhr.open('POST', 'phps/getusers.php', true)
@@ -132,6 +156,6 @@
         });
     });
     // DarkMode.js Code
-    
+
 
     window.addEventListener('load', doFirst)
