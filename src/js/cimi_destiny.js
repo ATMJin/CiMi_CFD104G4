@@ -33,6 +33,8 @@ let  timer = setInterval(function () {
     }, 100);
 
 let flag1 = false;
+let flag_touch = false;
+
 
 //影片暫停
 let flag = [false,false,false];
@@ -44,14 +46,18 @@ let options =[
 ];
 
 
+
+
 //洞裡面
 let destiny_botton = document.getElementById("destiny_botton");
 let waiting_lightbox = document.getElementById("waiting_lightbox");
 
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
 
 
 function doFirst() {
-    
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     waiting_lightbox.style="display:none";
     start.addEventListener('click',playToggle);
     pink.addEventListener('click', go_pink);
@@ -61,6 +67,7 @@ function doFirst() {
     playButtons.forEach(btn => {
         btn.addEventListener('click',playToggle);
     });
+    
 };
 
 function go_pink(){
@@ -170,25 +177,35 @@ function videoPause() {
         setTimeout(function(){destiny_botton.innerHTML='<a href="cards.html"><button id="My_destiny_button">我的destiny</button></a>'}, 10*1000);
         ;
 
-    }else if(selectVideo.currentTime > 2.5 && flag1 == false){
+    }
+    if(selectVideo.currentTime > 2.5 && flag1 == false){
 
         selectVideo.pause();
-        document.getElementById("space").style="visibility:visible";
+       
+        if(document.body.clientWidth < 768){
+            document.getElementById("space").innerText="點擊畫面，讓你的球跳躍~";
+            document.getElementById("space").style="visibility:visible";
+        }else{
+            document.getElementById("space").style="visibility:visible";
+        }
+       
         
         window.addEventListener('keydown', space_instruct);
         function space_instruct(e) {
 
-            if (e.keyCode == 32 && flag1 == false) {
+            if (e.keyCode == 32 && flag1 == false ) {
                 selectVideo.play();
                 
                 document.getElementById("space").style="visibility:hidden";
-                flag1=true;
+                flag1 = true;
             } ;
         };
 
     };
     
 };
+//球跳躍
+
 
 window.addEventListener('keydown', keyboardFunction);
 
@@ -210,5 +227,16 @@ function keyboardFunction(e) {
     } 
     
 };
+window.addEventListener('touchstart',touch, false);
 
+
+function touch(){
+    tl_control.reversed(!tl_control.reversed());
+    if(selectVideo.currentTime > 2.5 && flag1==false){
+        selectVideo.play();
+        document.getElementById("space").style="visibility:hidden";
+        flag1 = true;
+    }
+    
+};
 window.addEventListener('load', doFirst);
