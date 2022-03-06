@@ -48,7 +48,16 @@
                 }
         }
         .member_bar{
-            display: none;
+            .member_bar_phone{
+                display: inline;
+            }
+            li{
+                display: none;
+                img{
+                    width: 28px;
+                    vertical-align: top;
+                }
+            }
         }
     }
 }
@@ -69,13 +78,13 @@
                 ul{
                     display: flex;
                     box-sizing: border-box;
+                    li{
+                        display: inline;
+                    }
                     li+li{
                         padding-left: 15px;
                     }
-                    img{
-                        width: 28px;
-                        vertical-align: top;
-                    }
+                    
                 }
             }
         }
