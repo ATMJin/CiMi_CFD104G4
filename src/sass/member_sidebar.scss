@@ -65,6 +65,16 @@ position: fixed;
                     display: flex;
                     justify-content: start;
                     align-items: center;
+                    .test1{
+                        display: none;
+                    }
+                    .test2{
+                        font-size: 20px;
+                    }
+                    .test3{
+                        width: 20px;
+                        height: 20px;
+                    }
                     
                 }
                 .member_btn:hover{
@@ -73,6 +83,13 @@ position: fixed;
                         display: block;
                     }
                     .hovericon{
+                        display: none;
+                    }
+                    .test1{
+                        display: block;
+                        color:#00324e;
+                    }
+                    .test2{
                         display: none;
                     }
                     span{
