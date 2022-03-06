@@ -308,40 +308,41 @@
                         p {
                             color: var(--font-primary);
                             background: var(--font-primary);
-                            border-radius:var(--bgc-radius);
+                            border-radius: var(--bgc-radius);
                             color: rgb(255, 255, 255);
                             text-align: center;
-                            font-weight:var(--bold);
-                            font-size:var(--tag);
+                            font-weight: var(--bold);
+                            font-size: var(--tag);
                         }
                     }
                 }
             }
 
             // 商品
-            a {
-                text-decoration: none;
-                // 文字
-                color: #5E5E5E;
 
-                .item_box {
-                    .img_box {
-                        width: 200px;
-                        margin: 0 auto;
+            //點圖片文字出現手手
+            .item_box {
+                .img_box {
+                    width: 200px;
+                    margin: 0 auto;
+                    cursor: pointer;
 
-                        img {
-                            width: 100%;
-                            border-radius: var(--img-radius);
-                            background: rgba(255, 255, 255, 0.568);
-                            box-shadow: 0 2px 8px 2px #ecebebce;
-                        }
+                    img {
+                        width: 100%;
+                        border-radius: var(--img-radius);
+                        background: rgba(255, 255, 255, 0.568);
+                        box-shadow: 0 2px 8px 2px #ecebebce;
                     }
+                }
 
-                    .txt_box {
-                        padding: 10px;
-                        min-width:180px;
+                .txt_box {
+                    padding: 10px;
+                    min-width: 180px;
+                    cursor: pointer;
 
-                        p {}
+                    p {
+                        // 文字
+                        color: var(--font-primary);
                     }
                 }
             }
@@ -383,36 +384,39 @@
                 flex-wrap: wrap;
                 box-sizing: border-box;
 
-                a {
-                    text-decoration: none;
-                    // 文字
-                    color: #5E5E5E;
+                .item {
+                    // 顏色白色然後設陰影
+                    background-color: rgb(255, 255, 255);
+                    border-radius: var(--img-radius);
+                    box-shadow: 0 2px 8px 2px #ecebebce;
 
-                    .item {
-                        // 顏色白色然後設陰影
-                        background-color: rgb(255, 255, 255);
-                        border-radius: var(--img-radius);
-                        box-shadow: 0 2px 8px 2px #ecebebce;
 
-                        padding: 10px;
+                    padding: 10px;
 
-                        .img_box {
-                            width: 200px;
-                            margin: 0 auto;
+                    //點圖片文字出現手手
+                    .img_box {
+                        width: 200px;
+                        margin: 0 auto;
+                        cursor: pointer;
 
-                            img {
-                                width: 100%;
-                                border-radius: var(--img-radius);
-                            }
+                        img {
+                            width: 100%;
+                            border-radius: var(--img-radius);
                         }
+                    }
 
-                        .txt_box {
-                            padding: 10px;
-                            min-width:180px;
-                            p {}
+                    .txt_box {
+                        padding: 10px;
+                        min-width: 180px;
+                        cursor: pointer;
+
+                        p {
+                            // 文字
+                            color: var(--font-primary);
                         }
                     }
                 }
+
             }
         }
     }
@@ -433,7 +437,7 @@
                 .txt_box {
                     p {
                         // 文字
-                        color: #5E5E5E;
+                        color: var(--font-primary);
                     }
                 }
 
@@ -452,34 +456,31 @@
                 padding: 10px;
                 border-radius: var(--bgc-radius);
 
-                a {
-                    text-decoration: none;
-                    // 文字
-                    color: #5E5E5E;
+                .item {
+                    box-sizing: border-box;
+                    cursor: pointer;
 
-                    .item {
-                        box-sizing: border-box;
+                    .img_box {
+                        width: 80px;
+                        // 使圖片致中對其下面的字
+                        margin: 0 auto;
 
-                        .img_box {
-                            width: 80px;
-                            // 使圖片致中對其下面的字
-                            margin: 0 auto;
-
-                            img {
-                                width: 100%;
-                                border-radius: var(--img-radius);
-                                background: rgba(255, 255, 255, 0.568);
-                            }
+                        img {
+                            width: 100%;
+                            border-radius: var(--img-radius);
+                            background: rgba(255, 255, 255, 0.568);
                         }
+                    }
 
-                        .txt_box {
-                            padding: 5px;
+                    .txt_box {
+                        padding: 5px;
 
-                            p {
-                                // 使商品名稱跟價格有距離
-                                padding-bottom: 10px;
-                                font-size: var(--body2);
-                            }
+                        p {
+                            // 使商品名稱跟價格有距離
+                            padding-bottom: 10px;
+                            font-size: var(--body2);
+                            // 文字
+                            color: var(--font-primary);
                         }
                     }
                 }
@@ -492,13 +493,14 @@
 .main_product {
     .all {
         margin-bottom: 100px;
+
         .all_item_box {
             .title {
                 margin-left: 30px;
 
                 p {
                     // 文字
-                    color: #5E5E5E;
+                    color: var(--font-primary);
                 }
             }
 
@@ -508,9 +510,6 @@
                 flex-wrap: wrap;
                 box-sizing: border-box;
                 padding: 10px;
-
-
-
                 text-decoration: none;
                 // 文字
 
@@ -523,6 +522,7 @@
                     box-sizing: border-box;
                     margin: 10px;
                     width: 150px;
+                    cursor: pointer;
 
 
 
@@ -559,12 +559,14 @@
 
 // --------平板
 @media screen and (min-width:768px)and(max-width:990px) {
+
     // 廣告輪播
     .hero-slider {
         margin: 0px auto;
         margin-top: 100px;
-        /*調整slider位置*/  
+        /*調整slider位置*/
     }
+
     // 熱門商品
     .main_product {
         width: 80%;

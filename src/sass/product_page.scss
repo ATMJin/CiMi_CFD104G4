@@ -236,8 +236,8 @@
                 }
 
                 // <!-- 加入購物車-->
-                .btn-secondary{
-                    display: none;
+                .btn-secondary {
+                    // display: none;
                 }
             }
         }
@@ -621,7 +621,8 @@
                         border: none;
                         // 留言輸入框的大小
                         height: 40px;
-                        width: calc(100% - 10px);
+                        // width: calc(100% - 10px);
+                        width: calc(100% - -73px);
                     }
                 }
             }
@@ -630,8 +631,8 @@
             .item_box_fuction_icon {
                 align-items: center;
                 display: flex;
-                width: calc(100% - 55%);
-
+                // width: calc(100% - 55%);
+                margin-left: 80px;
                 .img_box {
                     display: flex;
 
@@ -675,7 +676,7 @@
 
                 // <!-- 加入購物車-->
                 .btn-secondary {
-                    display: none;
+                    // display: none;
                     margin: 5px;
                     font-family: 'Noto Sans TC', sans-serif;
                     font-size: 14px;
