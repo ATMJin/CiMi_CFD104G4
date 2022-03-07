@@ -3,6 +3,14 @@
 @import "./layout/header";
 @import "./layout/sidebar";
 
+// 以下為側邊攔顏色
+.sidebar_box .sidebar .sidebar_list a[href="charts.html"] {
+    color: #fff;
+  }
+.sidebar .sidebar_list a img[alt="創作者排行榜"] {
+    filter: invert(100%);
+  }
+
 /* 以下為主要區域 */
 .main_area{
     width: 100%;
