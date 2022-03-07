@@ -223,7 +223,14 @@
                                 </div>
                                 <!-- 倒數時間 -->
                                 <div class="txt_new_goods_time">
-                                    <p id="product_limited_time"></p>
+                                    <!--剩餘的天数-->
+                                    <div class="product_time" id="d"></div>
+                                    <!--剩餘的小時-->
+                                    <div class="product_time" id="h"></div>
+                                    <!--剩餘的分鐘-->
+                                    <div class="product_time" id="m"></div>
+                                    <!--剩餘的秒數-->
+                                    <div class="product_time" id="s"></div>
                                 </div>
                             </div>
                         </div>
@@ -269,19 +276,52 @@
                 </div>
             </section>
 
-            <!-- 限時 -->
-            <script>
-                var myVar = setInterval(function () {
-                    myTimer()
-                }, 1000);
+            <!-- 限時特賣 -->
+            <!--JS-->
+            <script type="text/javascript">
+                // <!-- 设置秒殺结束时間
+                var endTime = new Date("2022-03-31 00:00:00");
+                //把年月日时分秒的时间转换成为毫秒数 -->
+                endSeconds = endTime.getTime(); // 结束时间的毫秒数
+                //定义变量 天数 小时 分钟 秒数 
+                var d = h = m = s = 0;
+                //设置定时器  实现一个秒杀效果
+                var timer = setInterval(qiang, 1000);
 
-                function myTimer() {
-                    var d = new Date();
-                    var t = d.toLocaleTimeString();
-                    document.getElementById("product_limited_time").innerHTML = t;
+                function qiang() {
+                    // 获取当前系统时间
+                    var nowTime = new Date();
+                    // 获取当前时间差---nowTime.getTime()现在时间的毫秒数
+                    var remain = parseInt((endSeconds - nowTime.getTime()) / 1000);
+                    //判断秒杀是否过期
+                    if (remain > 0) {
+                        //1.计算剩余天数  （除以60*60*24  取整数  获取剩余天数）
+                        d = parseInt(remain / 86400)
+                        //2.计算剩余小时（除以60*60 转换成为小时了  与24进行取模   获取剩余小时）
+                        h = parseInt((remain / 3600) % 24);
+                        //3.计算剩余分钟（除以60  转换成为分钟了  与60进行取模   获取剩余分钟）
+                        m = parseInt((remain / 60) % 60);
+                        //4.计算剩余秒数（与60进行取模   获取剩余秒数）
+                        s = parseInt((remain) % 60);
+
+                        //统一利用两位数 表示 剩余的天、小时、分钟、秒
+                        d = d < 10 ? '0' + d : d;
+                        h = h < 10 ? '0' + h : h;
+                        m = m < 10 ? '0' + m : m;
+                        s = s < 10 ? '0' + s : s;
+
+                    } else {
+                        // 秒杀过期  取消定时器
+                        clearInterval(timer);
+                        d = h = m = s = '00'
+                    }
+                    //将剩余的天数、小时、分钟、秒  小时到指定网页中去
+                    document.getElementById("d").innerHTML = d + '天';
+                    document.getElementById("h").innerHTML = h + '時';
+                    document.getElementById("m").innerHTML = m + '分';
+                    document.getElementById("s").innerHTML = s + '秒';
                 }
             </script>
-
 
             <!-- 熱門商品 -->
             <section class="hot">
