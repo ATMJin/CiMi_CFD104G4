@@ -48,15 +48,19 @@
                 }
         }
         .member_bar{
-            .member_bar_phone{
-                display: inline;
-            }
             li{
                 display: none;
                 img{
                     width: 28px;
                     vertical-align: top;
                 }
+            }
+            li+li{
+                padding-left: 15px;
+            }
+            .member_bar_phone{
+                display: inline;
+                cursor: pointer;
             }
         }
     }
@@ -80,9 +84,6 @@
                     box-sizing: border-box;
                     li{
                         display: inline;
-                    }
-                    li+li{
-                        padding-left: 15px;
                     }
                     
                 }
