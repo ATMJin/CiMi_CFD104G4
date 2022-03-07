@@ -143,39 +143,14 @@ body{
     height: 80px;
     background-color:#02314c;
     border-radius: 50%;
-    position: absolute;
-    top:-25px;
+    position: fixed;
+    top:-30px;
     right: 10px;
     z-index: 1;
     color: #333333;
     overflow: hidden;
-}
-
-#return{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top:40px;
-    left: 30px;
-    cursor: pointer;
-}
-#home{
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    top:30px;
-    left: 35px;
-    cursor: pointer;
-}
-// .fa-solid {
-//     position: absolute;
-//     width: 20px;
-//     height: 20px;
-//     z-index: 10;
-//     top:100px;
-//     font-size: 100px;
-// }
-.right_decor{
+  }
+  .right_decor{
     width: 80px;
     height: 80px;
     background-color:#02314c;
@@ -184,8 +159,24 @@ body{
     bottom: 10px;
     left: -25px;
     z-index: 1;
-
-}
+  
+  }
+  #return{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top:40px;
+    left: 25px;
+    cursor: pointer;
+  }
+  #home{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top:20px;
+    left: 35px;
+    cursor: pointer;
+  }
 
 .lightbox{
     position: absolute;
@@ -568,7 +559,7 @@ body{
 
 #destiny_botton{
     position: absolute;
-    top:63%;
+    top:83%;
     left: 46%;
     
 #My_destiny_button{

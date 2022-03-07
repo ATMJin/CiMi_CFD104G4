@@ -1,286 +1,143 @@
+var checkbox = $(".switch__checkbox");
+var switcher = $(".switch__slider");
+var body = $("body");
+var audio = new Audio('https://www.freesound.org/data/previews/88/88659_392324-lq.mp3');
+let center = document.querySelector('.center');
+let section = document.getElementsByTagName('section');
+function $(el){
+  return document.querySelector(el)
+}
 
-window.addEventListener('load', doFirst);
+Object.prototype.addClass = function(className) {
+  this.classList.add(className);
+}
 
-let accept_buttons = document.querySelectorAll('.accept_button');
+Object.prototype.removeClass = function(className) {
+  this.classList.remove(className);
+}
 
+Object.prototype.toggleClass = function(className){
+  this.classList.contains(className) ? this.removeClass(className) : this.addClass(className);
+}
+
+checkbox.addEventListener('change', function() {
+  switcher.toggleClass("glow");
+  setTimeout(function() {
+	section[0].style="visibility:visible";
+  }, 400);
+  body.toggleClass("light-bg");
+  audio.pause();
+  audio.play();
+  center.style="display:none";
+  
+});
+
+//好友蒐集bar
+let collection = document.getElementById("collect");
+
+let red_button =document.getElementById("red_button");
+let blue_button =document.getElementById("blue_button");
+let yellow_button =document.getElementById("yellow_button");
+
+
+
+//紅色球
+let flag_ball_red=false;
+function collective_red(){
+  if(red_button.innerText=='送出邀請'&& flag_ball_red==false){
+
+    let red_ball = document.createElement("div");
+    red_ball.classList.add("ball_collect_red");
+    collection.appendChild(red_ball);
+
+    red_button.style.backgroundColor="transparent";
+		red_button.style.color="white";
+		red_button.innerText=('取消邀請');
+    
+    flag_ball_red=true;
+  
+		
+  }else if(red_button.innerText=='取消邀請'&& flag_ball_red==true){
+    red_button.innerText=('送出邀請');
+    let red_ball = document.querySelector('.ball_collect_red');
+    red_ball.remove();
+    flag_ball_red=false;
+
+  }else{
+
+  }
+
+}
+
+
+//藍色球
+let flag_ball_blue=false;
+function collective_blue(){
+  if(blue_button.innerText=='送出邀請'&& flag_ball_blue == false){
+
+    let blue_ball = document.createElement("div");
+    blue_ball.classList.add("ball_collect_blue");
+    collection.appendChild(blue_ball);
+
+    blue_button.style.backgroundColor="transparent";
+		blue_button.style.color="white";
+		blue_button.innerText=('取消邀請');
+    
+    flag_ball_blue=true;
+  
+		
+  }else if(blue_button.innerText=='取消邀請'&& flag_ball_blue==true){
+    blue_button.innerText=('送出邀請');
+    let blue_ball = document.querySelector('.ball_collect_blue');
+    blue_ball.remove();
+    flag_ball_blue=false;
+
+  }else{
+
+  }
+
+}
+
+
+//黃色球
+let flag_ball_yellow = false;
+function collective_yellow(){
+  if(yellow_button.innerText=='送出邀請'&& flag_ball_yellow == false){
+
+    let yellow_ball = document.createElement("div");
+    yellow_ball.classList.add("ball_collect_yellow");
+    collection.appendChild(yellow_ball);
+
+    yellow_button.style.backgroundColor="transparent";
+		yellow_button.style.color="white";
+		yellow_button.innerText=('取消邀請');
+    
+    flag_ball_yellow=true;
+  
+		
+  }else if(yellow_button.innerText =='取消邀請' && flag_ball_yellow == true){
+    yellow_button.innerText=('送出邀請');
+    let yellow_ball = document.querySelector('.ball_collect_yellow');
+    yellow_ball.remove();
+    flag_ball_yellow=false;
+
+  }else{
+
+  }
+
+}
+// remove ===>document.getElementById("goy").innerHTML = "";
 function doFirst(){
 
-	accept_buttons.forEach(btn => {
-        btn.addEventListener('click', change_status);
-		
-    });
-};
+  red_button.addEventListener('click',collective_red);
+  blue_button.addEventListener('click',collective_blue);
+  yellow_button.addEventListener('click',collective_yellow);
+    
+	check_buttons.forEach(btn => {
+    btn.addEventListener('click', change_status);
 
-function change_status(e){
-	let button = e.target;
-	button.style='border:2px solid #fff;';
-
-	if(button.innerText=='送出邀請'){
-		button.style.backgroundColor="white";
-		button.style.color="black";
-		button.innerText=('取消邀請');
-		
-	}else{
-		button.innerText=('送出邀請');
-	};
-	
-};
-
-
-
-
-const { gsap, imagesLoaded } = window;
-
-const buttons = {
-	prev: document.querySelector(".btn--left"),
-	next: document.querySelector(".btn--right"),
-};
-const cardsContainerEl = document.querySelector(".cards__wrapper");
-const appBgContainerEl = document.querySelector(".app__bg");
-
-const cardInfosContainerEl = document.querySelector(".info__wrapper");
-
-buttons.next.addEventListener("click", () => swapCards("right"));
-
-buttons.prev.addEventListener("click", () => swapCards("left"));
-
-function swapCards(direction) {
-	const currentCardEl = cardsContainerEl.querySelector(".current--card");
-	const previousCardEl = cardsContainerEl.querySelector(".previous--card");
-	const nextCardEl = cardsContainerEl.querySelector(".next--card");
-
-	const currentBgImageEl = appBgContainerEl.querySelector(".current--image");
-	const previousBgImageEl = appBgContainerEl.querySelector(".previous--image");
-	const nextBgImageEl = appBgContainerEl.querySelector(".next--image");
-
-	changeInfo(direction);
-	swapCardsClass();
-
-	removeCardEvents(currentCardEl);
-
-	function swapCardsClass() {
-		currentCardEl.classList.remove("current--card");
-		previousCardEl.classList.remove("previous--card");
-		nextCardEl.classList.remove("next--card");
-
-		currentBgImageEl.classList.remove("current--image");
-		previousBgImageEl.classList.remove("previous--image");
-		nextBgImageEl.classList.remove("next--image");
-
-		currentCardEl.style.zIndex = "50";
-		currentBgImageEl.style.zIndex = "-2";
-
-		if (direction === "right") {
-			previousCardEl.style.zIndex = "20";
-			nextCardEl.style.zIndex = "30";
-
-			nextBgImageEl.style.zIndex = "-1";
-
-			currentCardEl.classList.add("previous--card");
-			previousCardEl.classList.add("next--card");
-			nextCardEl.classList.add("current--card");
-
-			currentBgImageEl.classList.add("previous--image");
-			previousBgImageEl.classList.add("next--image");
-			nextBgImageEl.classList.add("current--image");
-		} else if (direction === "left") {
-			previousCardEl.style.zIndex = "30";
-			nextCardEl.style.zIndex = "20";
-
-			previousBgImageEl.style.zIndex = "-1";
-
-			currentCardEl.classList.add("next--card");
-			previousCardEl.classList.add("current--card");
-			nextCardEl.classList.add("previous--card");
-
-			currentBgImageEl.classList.add("next--image");
-			previousBgImageEl.classList.add("current--image");
-			nextBgImageEl.classList.add("previous--image");
-		}
-	}
+});
 }
 
-function changeInfo(direction) {
-	let currentInfoEl = cardInfosContainerEl.querySelector(".current--info");
-	let previousInfoEl = cardInfosContainerEl.querySelector(".previous--info");
-	let nextInfoEl = cardInfosContainerEl.querySelector(".next--info");
 
-	gsap.timeline()
-		.to([buttons.prev, buttons.next], {
-		duration: 0.2,
-		opacity: 0.5,
-		pointerEvents: "none",
-	})
-		.to(
-		currentInfoEl.querySelectorAll(".text"),
-		{
-			duration: 0.4,
-			stagger: 0.1,
-			translateY: "-120px",
-			opacity: 0,
-		},
-		"-="
-	)
-		.call(() => {
-		swapInfosClass(direction);
-	})
-		.call(() => initCardEvents())
-		.fromTo(
-		direction === "right"
-		? nextInfoEl.querySelectorAll(".text")
-		: previousInfoEl.querySelectorAll(".text"),
-		{
-			opacity: 0,
-			translateY: "40px",
-		},
-		{
-			duration: 0.4,
-			stagger: 0.1,
-			translateY: "0px",
-			opacity: 1,
-		}
-	)
-		.to([buttons.prev, buttons.next], {
-		duration: 0.2,
-		opacity: 1,
-		pointerEvents: "all",
-	});
-
-	function swapInfosClass() {
-		currentInfoEl.classList.remove("current--info");
-		previousInfoEl.classList.remove("previous--info");
-		nextInfoEl.classList.remove("next--info");
-
-		if (direction === "right") {
-			currentInfoEl.classList.add("previous--info");
-			nextInfoEl.classList.add("current--info");
-			previousInfoEl.classList.add("next--info");
-		} else if (direction === "left") {
-			currentInfoEl.classList.add("next--info");
-			nextInfoEl.classList.add("previous--info");
-			previousInfoEl.classList.add("current--info");
-		}
-	}
-}
-
-function updateCard(e) {
-	const card = e.currentTarget;
-	const box = card.getBoundingClientRect();
-	const centerPosition = {
-		x: box.left + box.width / 2,
-		y: box.top + box.height / 2,
-	};
-	let angle = Math.atan2(e.pageX - centerPosition.x, 0) * (35 / Math.PI);
-	gsap.set(card, {
-		"--current-card-rotation-offset": `${angle}deg`,
-	});
-	const currentInfoEl = cardInfosContainerEl.querySelector(".current--info");
-	gsap.set(currentInfoEl, {
-		rotateY: `${angle}deg`,
-	});
-}
-
-function resetCardTransforms(e) {
-	const card = e.currentTarget;
-	const currentInfoEl = cardInfosContainerEl.querySelector(".current--info");
-	gsap.set(card, {
-		"--current-card-rotation-offset": 0,
-	});
-	gsap.set(currentInfoEl, {
-		rotateY: 0,
-	});
-}
-
-function initCardEvents() {
-	const currentCardEl = cardsContainerEl.querySelector(".current--card");
-	currentCardEl.addEventListener("pointermove", updateCard);
-	currentCardEl.addEventListener("pointerout", (e) => {
-		resetCardTransforms(e);
-	});
-}
-
-initCardEvents();
-
-function removeCardEvents(card) {
-	card.removeEventListener("pointermove", updateCard);
-}
-
-function init() {
-
-	let tl = gsap.timeline();
-
-	tl.to(cardsContainerEl.children, {
-		delay: 0.15,
-		duration: 0.5,
-		stagger: {
-			ease: "power4.inOut",
-			from: "right",
-			amount: 0.1,
-		},
-		"--card-translateY-offset": "0%",
-	})
-		.to(cardInfosContainerEl.querySelector(".current--info").querySelectorAll(".text"), {
-		delay: 0.5,
-		duration: 0.4,
-		stagger: 0.1,
-		opacity: 1,
-		translateY: 0,
-	})
-		.to(
-		[buttons.prev, buttons.next],
-		{
-			duration: 0.4,
-			opacity: 1,
-			pointerEvents: "all",
-		},
-		"-=0.4"
-	);
-}
-
-const waitForImages = () => {
-	const images = [...document.querySelectorAll("img")];
-	const totalImages = images.length;
-	let loadedImages = 0;
-	const loaderEl = document.querySelector(".loader span");
-
-	gsap.set(cardsContainerEl.children, {
-		"--card-translateY-offset": "100vh",
-	});
-	gsap.set(cardInfosContainerEl.querySelector(".current--info").querySelectorAll(".text"), {
-		translateY: "40px",
-		opacity: 0,
-	});
-	gsap.set([buttons.prev, buttons.next], {
-		pointerEvents: "none",
-		opacity: "0",
-	});
-
-	images.forEach((image) => {
-		imagesLoaded(image, (instance) => {
-			if (instance.isComplete) {
-				loadedImages++;
-				let loadProgress = loadedImages / totalImages;
-
-				gsap.to(loaderEl, {
-					duration: 1,
-					scaleX: loadProgress,
-					backgroundColor: `hsl(${loadProgress * 120}, 100%, 50%`,
-				});
-
-				if (totalImages == loadedImages) {
-					gsap.timeline()
-					
-						.call(() => init());
-				}
-			}
-		});
-	});
-};
-
-waitForImages();
-
-
-
-
-
-
+window.addEventListener('load', doFirst);
