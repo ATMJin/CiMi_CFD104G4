@@ -28,9 +28,12 @@
             img{
                 width: 30px;
                 margin-right: 0px;
-                vertical-align: middle;
+                vertical-align: top;
+                filter: invert(60%);
             }
-        
+            img:hover{
+                filter: invert(100%);
+            }
         }
     }
 }
@@ -58,13 +61,18 @@
                 }
                 a{
                     font-size: var(--body1);
-                    vertical-align: middle;
+                    vertical-align: text-top;
                     text-decoration: none;
-                    color: var(--primary-color);
+                    color: #ccc;
                     img{
                         width: 20px;
                         margin-right: 10px;
+                        vertical-align: inherit;
+                        position: relative;
                     }
+                }
+                a:hover{
+                    color: #fff;
                 }
             }
         }
