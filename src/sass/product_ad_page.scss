@@ -3,6 +3,13 @@
 // common
 @import 'layout/common';
 @import 'layout/sidebar';
+// 側邊欄顏色
+.sidebar_box .sidebar .sidebar_list a[href="product.html"] {
+    color: #fff;
+  }
+.sidebar .sidebar_list a img[alt="好物商城"] {
+    filter: invert(100%);
+  }
 
 * {
     /* 字體 : 中文-sans-serif | 英文-Poppins */
