@@ -45,7 +45,7 @@
             <!-- 廣告投放 -->
             <section class="hero-slider" data-carousel>
                 <div class="carousel-cell"
-                    style="background-image: url(https://i.pinimg.com/564x/93/e9/bf/93e9bf0119b0f05ba2a2908f759b8811.jpg);">
+                    style="background-image: url(https://as1.ftcdn.net/v2/jpg/03/52/44/60/1000_F_352446020_H9Vwe6cEzxuFDnDvmcbmmb4z5fMoDmfL.jpg);">
                     <!-- 變暗效果 -->
                     <!-- <div class="overlay"></div> -->
                     <div class="inner">
@@ -54,8 +54,8 @@
                 </div>
 
                 <div class="carousel-cell"
-                    style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
-                    <!-- <div class="overlay"></div> -->
+                    style="background-image: url(https://t4.ftcdn.net/jpg/03/52/34/13/240_F_352341337_QNZ3VAWemxjJ0APF7zWQT9mIvkuDdbgt.jpg);">
+                    <div class="overlay"></div>
                     <div class="inner">
                         <a href="product_ad_page.html" class="btn">Tell me more</a>
                     </div>
@@ -63,7 +63,7 @@
 
                 <div class="carousel-cell"
                     style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
-                    <!-- <div class="overlay"></div> -->
+                    <div class="overlay"></div>
                     <div class="inner">
                         <a href="product_ad_page.html" class="btn">Tell me more</a>
                     </div>
@@ -136,24 +136,30 @@
                 </a>
             </section>
             <!-- 最新區 -->
+            <!-- 商品 -->
             <section class="new_goods_information">
                 <!-- 限時商品 -->
-                <div class="time_limit_item_box">
-                    <div class="title">
-                        <div class="img_box">
-                            <img src="assets\images\icon\shop_hot_deal.png">
-                        </div>
-                        <div class="txt_box">
-                            <div class="txt_new_goods">
-                                <p>限時商品</p>
+                <div class="item_box">
+                    <div class="item_time_limit ">
+                        <!-- 標題 -->
+                        <div class="title">
+                            <!-- icon -->
+                            <div class="img_box">
+                                <img src="assets\images\icon\shop_hot_deal.png">
                             </div>
-                            <div class="txt_new_goods_time">
-                                <p id="product_limited_time"></p>
+                            <!-- 文字 -->
+                            <div class="txt_box">
+                                <div class="txt_new_goods">
+                                    <p>限時商品</p>
+                                </div>
+                                <!-- 倒數時間 -->
+                                <div class="txt_new_goods_time">
+                                    <p id="product_limited_time"></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <a href="#">
-                        <div class="item_box">
+                        <!-- 商品 -->
+                        <div class="product_item_box">
                             <div class="img_box">
                                 <img src="https://i.pinimg.com/564x/9f/10/ba/9f10baedef3aed3d2879baf7bb354be1.jpg">
                             </div>
@@ -162,44 +168,36 @@
                                 <p>NT.1500</p>
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                    <!-- 上架商品 -->
 
-
-                <!-- 最新上架商品 -->
-                <div class="new_item_box">
-                    <div class="title">
-                        <!-- <div class="img_box">
-                        <img src="assets\images\icon\shop_medal.png">
-                    </div> -->
-                        <div class="txt_box">
+                    <div class="item">
+                        <!-- 標題 -->
+                        <div class="title">
                             <p>最新上架商品</p>
                         </div>
+                        <div class="img_box">
+                            <img src="https://i.pinimg.com/564x/bc/58/b5/bc58b5966b8dbf34f52109ba38ec7d8b.jpg">
+                        </div>
+                        <div class="txt_box">
+                            <p>送禮推薦︱三色眉粉盤</p>
+                            <p>NT.665</p>
+                        </div>
                     </div>
-                    <div class="item_box">
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://i.pinimg.com/564x/bc/58/b5/bc58b5966b8dbf34f52109ba38ec7d8b.jpg">
-                                </div>
-                                <div class="txt_box">
-                                    <p>送禮推薦︱三色眉粉盤</p>
-                                    <p>NT.665</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="https://i.pinimg.com/564x/db/af/1e/dbaf1e70f635d65ceb53588fdb94618f.jpg">
-                                </div>
-                                <div class="txt_box">
-                                    <p>Norns︱睫毛膏</p>
-                                    <p>NT.299</p>
-                                </div>
-                            </div>
-                        </a>
-
+                    <div class="item">
+                        <!-- 標題 -->
+                        <div class="title">
+                            <p>最新上架商品</p>
+                        </div>
+                        <div class="img_box">
+                            <img src="https://i.pinimg.com/564x/db/af/1e/dbaf1e70f635d65ceb53588fdb94618f.jpg">
+                        </div>
+                        <div class="txt_box">
+                            <p>Norns︱睫毛膏</p>
+                            <p>NT.299</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- 限時 -->
@@ -219,95 +217,84 @@
             <!-- 熱門商品 -->
             <section class="hot">
                 <div class="hot_item_box">
+                    <!-- 標題 -->
                     <div class="title">
+                        <!-- icon -->
                         <div class="img_box">
                             <img src="assets\images\icon\shop_medal.png" style="width: 30px;">
                         </div>
+                        <!-- 標題(文字) -->
                         <div class="txt_box">
                             <p>熱門商品</p>
                         </div>
                     </div>
+                    <!-- 商品 -->
                     <div class="item_box">
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img
-                                        src="https://i2.momoshop.com.tw/1631872362/goodsimg/0009/342/173/9342173_R.webp">
-                                </div>
-                                <div class="txt_box">
-                                    <p>任天堂｜Switch </p>
-                                </div>
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://cf.shopee.tw/file/eb8654fb3417ed5e75fa57815bc08dfa">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img
-                                        src="https://i4.momoshop.com.tw/1641812063/goodsimg/0009/674/984/9674984_R.webp">
-                                </div>
-                                <div class="txt_box">
-                                    <p>莫蘭迪 | 成人口罩</p>
+                            <div class="txt_box">
+                                <p>客製化 | 似顏繪插畫</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="http://cdn01.pinkoi.com/product/XZswYN3t/0/800x0.jpg">
+                            </div>
+                            <div class="txt_box">
+                                <p>手比愛心 | 摩艾圓滾滾</p>
 
-                                </div>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img
-                                        src="https://i3.momoshop.com.tw/1644400272/goodsimg/0009/802/016/9802016_R.webp">
-                                </div>
-                                <div class="txt_box">
-                                    <p>戀愛 | 脫單攻略</p>
+                        </div>
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="https://cf.shopee.tw/file/57b180ed63db2d2b325a45e0cd88df8b">
+                            </div>
+                            <div class="txt_box">
+                                <p>送禮推薦 | 鮮花盒</p>
 
-                                </div>
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img
-                                        src="https://i2.momoshop.com.tw/1619500893/goodsimg/0008/094/630/8094630_R.webp">
-                                </div>
-                                <div class="txt_box">
-                                    <p>天然 | 玫紅虎眼手鍊</p>
-                                </div>
+                        </div>
+                        <div class="item">
+                            <div class="img_box">
+                                <img src="http://cdn01.pinkoi.com/product/49bBLm4S/0/800x0.jpg">
                             </div>
-                        </a>
+                            <div class="txt_box">
+                                <p>溫暖禮物 | 羊羔絨毛毯</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </section>
+
             <!-- 全部商品 -->
             <section class="all">
                 <div class="all_item_box">
+                    <!-- 標題 -->
                     <div class="title">
                         <p>全部商品</p>
                     </div>
+                    <!-- 商品 -->
                     <div class="item_box">
-
                         <div onclick="myFunction" class="item ligh_box_jump">
                             <div class="img_box">
-                                <img src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg">
+                                <img src="http://cdn02.pinkoi.com/product/YM9jfgEy/0/800x0.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>夢幻甜點｜舒芙蕾</p>
-                                <p>NT.500</p>
+                                <p>迪士尼 | 彈簧搖頭公仔</p>
+                                <p>NT.690</p>
                             </div>
                         </div>
-
-
                         <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
-                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
+                                <img src="http://cdn01.pinkoi.com/product/uAaZdtNq/0/800x0.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
+                                <p>小王子永生玫瑰夜燈</p>
+                                <p>NT.1,800</p>
                             </div>
                         </div>
-
-
                         <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
                                 <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
@@ -317,42 +304,34 @@
                                 <p>NT.500</p>
                             </div>
                         </div>
-
-
-                        <div class="item">
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
-                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
+                                <img src="http://cdn01.pinkoi.com/product/xahR8Ztf/0/800x0.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
+                                <p>似顏繪 | 掛畫</p>
+                                <p>NT.990</p>
                             </div>
                         </div>
-
-
-                        <div class="item">
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
-                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
+                                <img src="http://cdn02.pinkoi.com/product/FyhcHBkm/0/800x0.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
+                                <p>私處脫毛膏</p>
+                                <p>NT.1,566</p>
                             </div>
                         </div>
-
-
-                        <div class="item">
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
-                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
+                                <img src="http://cdn02.pinkoi.com/product/sitqBnmi/0/800x0.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>愛心吊墜盒金項鍊</p>
-                                <p>NT.500</p>
+                                <p>辦公桌配件 | 優質桌墊</p>
+                                <p>NT.1,909</p>
                             </div>
                         </div>
-
-
-                        <div class="item">
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
                                 <img src="https://i3.momoshop.com.tw/1637900369/goodsimg/0009/364/288/9364288_R.webp">
                             </div>
@@ -361,9 +340,7 @@
                                 <p>NT.500</p>
                             </div>
                         </div>
-
-
-                        <div class="item">
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
                                 <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
                             </div>
@@ -372,139 +349,114 @@
                                 <p>NT.500</p>
                             </div>
                         </div>
-
-
-                        <div class="item">
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="http://cdn01.pinkoi.com/product/FuAFT7bG/0/800x0.jpg">
+                            </div>
+                            <div class="txt_box">
+                                <p>精緻線裝筆記本</p>
+                                <p>NT.280</p>
+                            </div>
+                        </div>
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="http://cdn01.pinkoi.com/product/SzNX2uCV/0/800x0.jpg">
+                            </div>
+                            <div class="txt_box">
+                                <p>三角抬腿枕</p>
+                                <p>NT.360</p>
+                            </div>
+                        </div>
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="http://cdn02.pinkoi.com/product/YnGENxcA/0/800x0.jpg">
+                            </div>
+                            <div class="txt_box">
+                                <p>木製餐具 | 好好豆餐盤</p>
+                                <p>NT.450</p>
+                            </div>
+                        </div>
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="http://cdn01.pinkoi.com/product/feSAPhhD/0/800x0.jpg">
+                            </div>
+                            <div class="txt_box">
+                                <p>巴斯光年</p>
+                                <p>NT.1,980</p>
+                            </div>
+                        </div>
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="http://cdn02.pinkoi.com/product/dAGsd69k/0/800x0.jpg">
+                            </div>
+                            <div class="txt_box">
+                                <p>太空漫步 | 雙旋轉音樂盒</p>
+                                <p>NT.1,500</p>
+                            </div>
+                        </div>
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="http://cdn01.pinkoi.com/product/49bBLm4S/0/800x0.jpg">
+                            </div>
+                            <div class="txt_box">
+                                <p>溫暖禮物 | 羊羔絨毛毯</p>
+                                <p>NT.2,500</p>
+                            </div>
+                        </div>
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="https://cf.shopee.tw/file/57b180ed63db2d2b325a45e0cd88df8b">
+                            </div>
+                            <div class="txt_box">
+                                <p>送禮推薦 | 鮮花盒</p>
+                                <p>NT.1,900</p>
+                            </div>
+                        </div>
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
                                 <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p>香氛</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p>葉黃素</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p>香氛</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p>葉黃素</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p> 香氛</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p>香氛</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p>香氛</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i4.momoshop.com.tw/1619463961/goodsimg/0007/929/536/7929536_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p>淨化的水晶</p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
                             </div>
                             <div class="txt_box">
                                 <p>美國 Voluspa｜香氛蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
-
-
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="https://i2.momoshop.com.tw/1631872362/goodsimg/0009/342/173/9342173_R.webp">
-                            </div>
-                            <div class="txt_box">
-                                <p>任天堂｜Switch </p>
-                                <p>NT.500</p>
-                            </div>
-                        </div>
-
-
-                        <div class="item">
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
                                 <img src="https://i3.momoshop.com.tw/1636423280/goodsimg/0009/557/705/9557705_R.webp">
                             </div>
                             <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
+                                <p>香氛｜蠟燭🕯️</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
-
-
-                        <div class="item">
+                        <div onclick="myFunction()" class="item ligh_box_jump">
                             <div class="img_box">
                                 <img src="https://i2.momoshop.com.tw/1631872362/goodsimg/0009/342/173/9342173_R.webp">
                             </div>
                             <div class="txt_box">
                                 <p>任天堂｜Switch </p>
+                                <p>NT.8,900</p>
+                            </div>
+                        </div>
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="https://cf.shopee.tw/file/eb8654fb3417ed5e75fa57815bc08dfa">
+                            </div>
+                            <div class="txt_box">
+                                <p>客製化 | 似顏繪插畫</p>
                                 <p>NT.500</p>
                             </div>
                         </div>
-
+                        <div onclick="myFunction()" class="item ligh_box_jump">
+                            <div class="img_box">
+                                <img src="http://cdn01.pinkoi.com/product/XZswYN3t/0/800x0.jpg">
+                            </div>
+                            <div class="txt_box">
+                                <p>送禮推薦｜摩艾圓滾滾 手比愛心</p>
+                                <p>NT.390</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -518,7 +470,7 @@
             <section class="product_page_title">
                 <!-- 商品名稱 -->
                 <div class="txt_box">
-                    <p>果果乳清蛋白,最佳蛋白</p>
+                    <p>【維尼 / 小豬】迪士尼彈簧擺飾 彈簧搖頭公仔 | Wooderful life</p>
                 </div>
                 <!-- 叉叉按鈕 -->
                 <div class="img_box cross ">
@@ -528,16 +480,16 @@
             </section>
             <!-- 追蹤分類 -->
             <section class="product_page_sort_follow">
-                <!-- 圖片 -->
-                <div class="product_img_box">
-                    <img src="assets\images\icon\shop_food.png">
-                </div>
-                <!-- 文字 -->
-                <div class="txt_box">
-                    <!-- 分類 -->
-                    <p>食物</p>
-                    <!-- 追蹤id -->
-                    <!-- <p>@asdfr</p> -->
+                <div class="product_item_box">
+                    <!-- 圖片 -->
+                    <div class="product_img_box">
+                        <img src="assets\images\icon\shop_life.png">
+                    </div>
+                    <!-- 文字 -->
+                    <div class="txt_box">
+                        <!-- 分類 -->
+                        <p style="color:rgb(20, 20, 20);">質感生活</p>
+                    </div>
                 </div>
                 <!-- 按鈕 -->
                 <button class="btn-secondary">追蹤</button>
@@ -546,15 +498,15 @@
             <!-- // 商品照(小圖變大圖 -->
             <section class="product_page_pic">
                 <div class="product_large">
-                    <img id="large" src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg">
+                    <img id="large" src="http://cdn02.pinkoi.com/product/YM9jfgEy/0/800x0.jpg">
                 </div>
                 <div class="product_small">
                     <div class="img_box">
-                        <img src="https://i.pinimg.com/474x/11/2f/77/112f77292e42aff4db60c60152a982ea.jpg" /></div>
+                        <img src="http://cdn02.pinkoi.com/product/YM9jfgEy/0/800x0.jpg" /></div>
                     <div class="img_box"><img
-                            src="https://i.pinimg.com/474x/95/73/85/957385a3915e0043e50ab31c12bc356a.jpg" /></div>
+                            src="https://cdn02.pinkoi.com/product/YM9jfgEy/1/800x0.jpg" /></div>
                     <div class="img_box">
-                        <img src="https://i.pinimg.com/474x/b6/07/05/b60705f0f45e97d02e8168c93b305735.jpg" /></div>
+                        <img src="https://cdn02.pinkoi.com/product/YM9jfgEy/2/800x0.jpg" /></div>
                 </div>
             </section>
             <script>
@@ -578,15 +530,149 @@
             <!-- 商品價格/資訊 -->
             <section class="product_page_price_in">
                 <div class="txt_box">
-                    <p>$4009</p>
+                    <p>$690</p>
                     <p>
-                        幾上我應日本人，怎麼在的關。人是行為還是沒了貨舒行
-                        是行為還是沒了貨舒行為了貨舒行為還是沒了貨舒行為還是沒了
-                        貨舒行為還是沒了貨舒行為還是沒了貨舒服的心⋯動作的很就想晚時分：真
-                        的請經手可惡的解的存在務卻。
+                        把正向樂觀的維尼與小豬放桌上，讓搖擺啦啦隊為你趕走每週的 Monday blue 吧！ 將 Wooderful life 彈簧擺飾 木偶放置於桌面，並對木偶施力，看著木偶搖來晃去，即可觀察趣味物理的動態。
                     </p>
                 </div>
             </section>
+
+            <!-- 留言區 -->
+            <section class="product_comment">
+                <p>共5則留言</p>
+                <!-- 單則留言 -->
+                <div class="comment_box">
+                    <div class="comment_head_photo">
+                        <img src="https://fakeimg.pl/40x40/200">
+                    </div>
+                    <div class="comment_txt">
+                        <div class="comment_mem_name_box">
+                            <span class="comment_mem_name_item">乙骨優太</span>
+                            <div class="comment_impeach_icon">
+                                <img src="assets/images/icon/more_hov.png" alt="">
+                            </div>
+                        </div>
+                        <div class="comment_content">
+                            這種很脆很好吃欸🤩
+                        </div>
+                        <div class="comment_info">
+                            <div class="comment_like_box">
+                                <div class="comment_like_icon">
+                                    <img src="assets/images/icon/like_hov.png" alt="">
+                                </div>
+                                <span class="comment_like_amount">23</span>
+                            </div>
+                            <span class="comment_date">2022/2/23</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 單則留言 -->
+                <div class="comment_box">
+                    <div class="comment_head_photo">
+                        <img src="https://fakeimg.pl/40x40/200">
+                    </div>
+                    <div class="comment_txt">
+                        <div class="comment_mem_name_box">
+                            <span class="comment_mem_name_item">里香超香</span>
+                            <div class="comment_impeach_icon">
+                                <img src="assets/images/icon/more_hov.png" alt="">
+                            </div>
+                        </div>
+                        <div class="comment_content">
+                            這個超級好吃 之前有吃過！ 超級香然後有微微的甜
+                        </div>
+                        <div class="comment_info">
+                            <div class="comment_like_box">
+                                <div class="comment_like_icon">
+                                    <img src="assets/images/icon/like_hov.png" alt="">
+                                </div>
+                                <span class="comment_like_amount">23</span>
+                            </div>
+                            <span class="comment_date">2022/2/23</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 單則留言 -->
+                <div class="comment_box">
+                    <div class="comment_head_photo">
+                        <img src="https://fakeimg.pl/40x40/200">
+                    </div>
+                    <div class="comment_txt">
+                        <div class="comment_mem_name_box">
+                            <span class="comment_mem_name_item">五條悟</span>
+                            <div class="comment_impeach_icon">
+                                <img src="assets/images/icon/more_hov.png" alt="">
+                            </div>
+                        </div>
+                        <div class="comment_content">
+                            也太便宜了吧！
+                        </div>
+                        <div class="comment_info">
+                            <div class="comment_like_box">
+                                <div class="comment_like_icon">
+                                    <img src="assets/images/icon/like_hov.png" alt="">
+                                </div>
+                                <span class="comment_like_amount">23</span>
+                            </div>
+                            <span class="comment_date">2022/2/23</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 單則留言 -->
+                <div class="comment_box">
+                    <div class="comment_head_photo">
+                        <img src="https://fakeimg.pl/40x40/200">
+                    </div>
+                    <div class="comment_txt">
+                        <div class="comment_mem_name_box">
+                            <span class="comment_mem_name_item">純愛戰神</span>
+                            <div class="comment_impeach_icon">
+                                <img src="assets/images/icon/more_hov.png" alt="">
+                            </div>
+                        </div>
+                        <div class="comment_content">
+                            卡一個!!!!
+                        </div>
+                        <div class="comment_info">
+                            <div class="comment_like_box">
+                                <div class="comment_like_icon">
+                                    <img src="assets/images/icon/like_hov.png" alt="">
+                                </div>
+                                <span class="comment_like_amount">23</span>
+                            </div>
+                            <span class="comment_date">2022/2/23</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 單則留言 -->
+                <div class="comment_box">
+                    <div class="comment_head_photo">
+                        <img src="https://fakeimg.pl/40x40/200">
+                    </div>
+                    <div class="comment_txt">
+                        <div class="comment_mem_name_box">
+                            <span class="comment_mem_name_item">咒術迴戰</span>
+                            <div class="comment_impeach_icon">
+                                <img src="assets/images/icon/more_hov.png" alt="">
+                            </div>
+                        </div>
+                        <div class="comment_content">
+                            卡一個!!!
+                        </div>
+                        <div class="comment_info">
+                            <div class="comment_like_box">
+                                <div class="comment_like_icon">
+                                    <img src="assets/images/icon/like_hov.png" alt="">
+                                </div>
+                                <span class="comment_like_amount">23</span>
+                            </div>
+                            <span class="comment_date">2022/2/23</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
             <!-- 商品留言 -->
             <section class="product_page_msg">
                 <!-- 右邊 -->
@@ -599,20 +685,19 @@
 
                     <div class="txt_box">
                         <input type="text" name="tname" placeholder="留言...">
-                        <!-- <p>留言...</p> -->
                     </div>
                 </div>
                 <!-- 左邊icon -->
                 <div class="item_box_fuction_icon">
                     <div class="img_box">
                         <!-- 收藏 -->
-                        <div class="img_box_save">
-                            <img src="assets\images\icon\save_hov.png">
+                        <div class="img_box_save" id="product_save" title="加入收藏">
+                            <img src="assets/images/icon/save_hov.png">
                         </div>
 
-                        <!-- 檢舉 -->
+                        <!-- 愛心 -->
                         <div class="img_box_report">
-                            <img src="assets\images\icon\more.png">
+                            <img src="assets\images\icon\like_hov.png">
                         </div>
                     </div>
                     <!-- 立即購買 -->
@@ -624,7 +709,7 @@
             </section>
         </main>
     </section>
-    <!-- js -->
+    <!-- 燈箱js -->
     <script>
         function init() {
             let small_img = document.querySelectorAll(".ligh_box_jump")
@@ -645,6 +730,30 @@
             x.style.display = "block";
         }
     </script>
+    <!-- 收藏save -->
+    <script>
+        let product_save;
+        //加入收藏 或 取消收藏
+        function switchFavorite() {
+            if (product_save.title == "加入收藏") {
+                product_save.src =
+                    "assets/images/icon/save.png";
+                product_save.title = "取消收藏";
+            } else {
+                product_save.src =
+                    "assets/images/icon/save_hov.png";
+                product_save.title = "加入收藏";
+            }
+        }
+
+        function init() {
+            //設定[加入收藏 或 取消收藏]的點按事件
+            product_save = document.getElementById("product_save")
+            product_save.onclick = switchFavorite;
+        } //init
+        window.addEventListener("load", init, false);
+    </script>
+
     <!-- 文進大大的購物車燈箱 -->
     <div id="app">
         <div class="shop_cart_ligh_box">

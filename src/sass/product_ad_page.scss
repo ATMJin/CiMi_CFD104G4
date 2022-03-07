@@ -3,6 +3,13 @@
 // common
 @import 'layout/common';
 @import 'layout/sidebar';
+// 側邊欄顏色
+.sidebar_box .sidebar .sidebar_list a[href="product.html"] {
+    color: #fff;
+  }
+.sidebar .sidebar_list a img[alt="好物商城"] {
+    filter: invert(100%);
+  }
 
 * {
     /* 字體 : 中文-sans-serif | 英文-Poppins */
@@ -63,58 +70,47 @@
     .all {
         width: 100%;
         margin-bottom: 100px;
-
-
         .all_item_box {
             .title {
                 // 對其logo
                 margin: 0 30px;
-
                 p {}
             }
-
             .item_box {
                 display: flex;
                 justify-content: space-around;
                 flex-wrap: wrap;
                 box-sizing: border-box;
                 padding: 10px;
+                text-decoration: none;
+                // 卡片式(商品)
+                .item {
+                    background-color: rgb(255, 255, 255);
+                    margin: 10px;
+                    border-radius: var(--img-radius);
+                    box-shadow: 0 2px 8px 2px #ecebebce;
+                    box-sizing: border-box;
+                    width: 150px;
+                    cursor: pointer;
 
-
-                a {
-                    text-decoration: none;
-
-                    // 卡片式(商品)
-                    .item {
-                        background-color: rgb(255, 255, 255);
-                        margin: 10px;
-                        border-radius: var(--img-radius);
-                        box-shadow: 0 2px 8px 2px #ecebebce;
-                        box-sizing: border-box;
+                    .img_box {
                         width: 150px;
 
-
-                        .img_box {
-                            width: 150px;
-
-                            img {
-                                width: 100%;
-                                border-radius: 12px 12px 0px 0px;
-                            }
+                        img {
+                            width: 100%;
+                            border-radius: 12px 12px 0px 0px;
                         }
+                    }
 
-                        .txt_box {
-                            padding: 10px;
+                    .txt_box {
+                        padding: 10px;
 
-
-                            p {
-                                line-height: 20px;
-                                // 使商品名稱跟價格有距離
-                                padding-bottom: 10px;
-                                // 讓商品標題有位置跟下面價錢對其如果標題多於一行
-                                // height: 50px;
-
-                            }
+                        p {
+                            line-height: 20px;
+                            // 使商品名稱跟價格有距離
+                            padding-bottom: 10px;
+                            // 讓商品標題有位置跟下面價錢對其如果標題多於一行
+                            // height: 50px;
                         }
                     }
                 }
@@ -155,7 +151,6 @@
             // 用margin會超出去
             padding: 0 40px;
 
-
             .all_item_box {
                 .title {
 
@@ -164,28 +159,19 @@
                 }
 
                 .item_box {
+                    .item {
+                        width: 200px;
 
-
-
-                    a {
-
-
-                        .item {
+                        .img_box {
                             width: 200px;
 
-                            .img_box {
-                                width: 200px;
-
-                                img {
-                                    width: 100%;
-                                }
+                            img {
+                                width: 100%;
                             }
+                        }
 
-                            .txt_box {
-
-
-                                p {}
-                            }
+                        .txt_box {
+                            p {}
                         }
                     }
                 }
