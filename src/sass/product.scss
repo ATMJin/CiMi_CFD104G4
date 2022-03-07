@@ -572,12 +572,8 @@
         width: 80%;
 
         .hot {
-
-
             .hot_item_box {
                 .title {
-
-
                     .txt_box {
                         p {}
                     }
@@ -588,26 +584,17 @@
                 }
 
                 .item_box {
+                    .item {
+                        .img_box {
+                            width: 120px;
 
-
-
-                    a {
-
-
-                        .item {
-
-
-                            .img_box {
-                                width: 120px;
-
-                                img {
-                                    width: 100%;
-                                }
+                            img {
+                                width: 100%;
                             }
+                        }
 
-                            .txt_box {
-                                p {}
-                            }
+                        .txt_box {
+                            p {}
                         }
                     }
                 }
@@ -759,7 +746,6 @@
 
     // 最新上架商品
     .main_product {
-
         .new_goods_information {
             // 手機頁沒有
             display: none;
@@ -787,7 +773,6 @@
                     .img_box {
                         img {
                             width: 40px;
-
                         }
                     }
 
@@ -796,36 +781,26 @@
                         align-items: center;
 
                         .txt_new_goods {
-
                             p {}
                         }
 
                         .txt_new_goods_time {
-
-
                             p {}
                         }
                     }
                 }
 
                 // 商品
-                a {
-                    text-decoration: none;
-
-                    .item_box {
-
-                        .img_box {
-                            img {
-                                width: 100%;
-                                border-radius: var(--img-radius);
-                            }
+                .item_box {
+                    .img_box {
+                        img {
+                            width: 100%;
+                            border-radius: var(--img-radius);
                         }
+                    }
 
-                        .txt_box {
-
-
-                            p {}
-                        }
+                    .txt_box {
+                        p {}
                     }
                 }
             }
@@ -864,28 +839,20 @@
                     flex-wrap: wrap;
                     box-sizing: border-box;
 
-                    a {
-                        text-decoration: none;
+                    .item {
+                        .img_box {
+                            width: 200px;
 
-                        .item {
-
-
-
-
-                            .img_box {
-                                width: 200px;
-
-                                img {
-                                    width: 100%;
-                                    border-radius: var(--img-radius);
-                                }
+                            img {
+                                width: 100%;
+                                border-radius: var(--img-radius);
                             }
+                        }
 
-                            .txt_box {
+                        .txt_box {
 
-                                // padding: 10px;
-                                p {}
-                            }
+                            // padding: 10px;
+                            p {}
                         }
                     }
                 }
@@ -898,12 +865,8 @@
         .hot {
             margin: 0 40px;
             margin-top: 50px;
-
-
             .hot_item_box {
                 .title {
-
-
                     .txt_box {
                         p {}
                     }
@@ -914,64 +877,9 @@
                 }
 
                 .item_box {
-
-
-
-                    a {
-
-
-                        .item {
-
-
-                            .img_box {
-                                width: 150px;
-
-                                img {
-                                    width: 100%;
-                                }
-                            }
-
-                            .txt_box {
-                                p {
-                                    font-size: var(--body1);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-
-    // 全部商品
-    .main_product {
-        .all {
-            margin: 0 40px;
-            margin-top: 50px;
-
-
-            .all_item_box {
-                .title {
-
-
-                    p {}
-                }
-
-                .item_box {
-
-
-
-
-
                     .item {
-                        margin: 10px;
-                        width: 180px;
-
-
                         .img_box {
-                            width: 180px;
+                            width: 150px;
 
                             img {
                                 width: 100%;
@@ -979,12 +887,36 @@
                         }
 
                         .txt_box {
-
-
                             p {}
                         }
                     }
+                }
+            }
+        }
+    }
+}
 
+    // 全部商品
+    .main_product {
+        .all {
+            margin: 0 40px;
+            margin-top: 50px;
+
+            .all_item_box {
+                .title {}
+
+                .item_box {
+                    .item {
+                        margin: 10px;
+                        width: 180px;
+                        .img_box {
+                            width: 180px;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .txt_box {}
+                    }
                 }
             }
         }
