@@ -5,9 +5,30 @@
 @import "layout/sidebar";
 
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
+$billboard_pic_phone_width: 78%;
+
 @mixin PC {
-    @media screen and (min-width:768px) {
+    @media screen and (min-width: 768px) {
         @content;
+    }
+}
+
+// billboard_item共用
+%billboard_item_common {
+    width: 50vw;
+    height: 220px;
+    color: var(--font-primary);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 3px 5px 0.3em #ddd;
+    position: relative;
+    overflow: hidden;
+
+    @include PC() {
+        width: calc(100% - 20px);
+        padding: 20px;
+        margin: 10px 10px 20px;
     }
 }
 
@@ -20,7 +41,7 @@
     @include PC() {
         width: 80%;
         margin-top: 135px;
-        padding: 0 60px;
+        padding: 0 40px;
     }
 
     .billboard_sort {
@@ -29,44 +50,298 @@
         font-weight: 500;
     }
 
+    // 文字
+    .billboard_name {
+        font-size: var(--subtitle2);
+        font-weight: 500;
+    }
+
+    .billboard_txt {
+        font-size: var(--body1);
+
+        @include PC() {
+            font-size: var(--body2);
+            padding-bottom: 15px;
+        }
+    }
+
+    // 看版
     .billboard_box {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
         margin: 0 auto;
 
-        .billboard_item {
-            width: calc(50vw - 30px);
-            color: var(--font-primary);
-            padding: 10px;
-            margin: 10px;
-            font-size: var(--subtitle2);
-            border: #aaa .5px solid;
-            border-radius: 20px;
-            box-shadow: 3px 5px 0.3em #ddd;
-            box-sizing: border-box;
+        @include PC() {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .top_area {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
 
             @include PC() {
-                width: calc(33% - 50px);
-                color: var(--font-primary);
-                padding: 20px;
-                margin: 20px;
+                // display: flex;
             }
 
-            .billboard_pic {
-                width: 100%;
-                box-sizing: border-box;
+            // 左邊區域
+            .left_area {
+                width: calc(100vw - 20px);
+                display: flex;
 
-                // @include PC() {
-                //     width: 220px;
-                // }
+                @include PC() {
+                    width: calc(33.333%);
+                    display: block;
+                }
 
-                img {
-                    width: 100%;
+                // 感情版
+                .love_billboard_item {
+                    @extend %billboard_item_common;
+                    background-color: #ffadc4aa;
+
+                    @include PC() {
+                        height: 200px;
+                    }
+
+
+
+                    .love_billboard_pic {
+                        width: $billboard_pic_phone_width;
+                        position: absolute;
+                        bottom: -10%;
+                        right: -1%;
+                        transition: 0.5s;
+
+                        @include PC() {
+                            width: 58%;
+                            bottom: -20%;
+                            right: 7%;
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .love_billboard_pic:hover {
+                        @include PC() {
+                            width: 68%;
+                        }
+                    }
+                }
+
+                // 音樂版
+                .music_billboard_item {
+                    @extend %billboard_item_common;
+                    background-color: #fdd7aeaa;
+                    margin-top: 50px;
+
+                    @include PC() {
+                        height: 200px;
+                    }
+
+
+                    .music_billboard_pic {
+                        width: 80%;
+                        position: absolute;
+                        bottom: -10%;
+                        right: -1%;
+                        transition: 0.5s;
+
+                        @include PC() {
+                            width: 55%;
+                            bottom: -10%;
+                            right: 5%;
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .music_billboard_pic:hover {
+                        @include PC() {
+                            width: 65%;
+                        }
+
+                    }
+                }
+            }
+
+            // 右邊區域
+            .right_area {
+                width: calc(100vw - 20px);
+                display: flex;
+                margin-top: -40px;
+
+
+                @include PC() {
+                    width: calc(66.666%);
+                }
+
+                // 美妝版
+                .makeup_billboard_item {
+                    @extend %billboard_item_common;
+                    background-color: #d9bdf7aa;
+
+                    @include PC() {
+                        height: 420px;
+                        width: 50%;
+                    }
+
+                    .makeup_billboard_pic {
+                        width: $billboard_pic_phone_width;
+                        position: absolute;
+                        bottom: -10%;
+                        right: -1%;
+                        transition: 0.5s;
+
+                        @include PC() {
+                            width: 68%;
+                            bottom: -8%;
+                            right: 0;
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .makeup_billboard_pic:hover {
+                        @include PC() {
+                            width: 78%;
+                        }
+                    }
+                }
+
+                // 運動版
+                .sport_billboard_item {
+                    @extend %billboard_item_common;
+                    background-color: #fff3adaa;
+                    margin-top: 50px;
+
+                    @include PC() {
+                        height: 420px;
+                        width: 50%;
+                    }
+
+                    .sport_billboard_pic {
+                        width: $billboard_pic_phone_width;
+                        position: absolute;
+                        bottom: -8%;
+                        right: -5%;
+                        transition: 0.5s;
+
+                        @include PC() {
+                            width: 74%;
+                            bottom: -5%;
+                            right: -2%;
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .sport_billboard_pic:hover {
+                        @include PC() {
+                            width: 84%;
+                        }
+                    }
                 }
             }
         }
 
-    }
+        // 下方區域
+        .bottom_area {
+            width: calc(100vw - 20px);
+            margin-bottom: 80px;
+            display: flex;
+            margin-top: -40px;
 
+            @include PC() {
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: -10px;
+            }
+
+            // 旅遊版
+            .travel_billboard_item {
+                @extend %billboard_item_common;
+                background-color: #b7dbfaaa;
+
+                @include PC() {
+                    width: 50%;
+                    height: 300px;
+                }
+
+
+                .travel_billboard_pic {
+                    width: $billboard_pic_phone_width;
+                    position: absolute;
+                    bottom: -10%;
+                    right: -1%;
+                    transition: 0.5s;
+
+                    @include PC() {
+                        width: 50%;
+                        bottom: -15%;
+                        right: 6%;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .travel_billboard_pic:hover {
+                    @include PC() {
+                        width: 60%;
+                    }
+                }
+            }
+
+            // 時尚版
+            .fashion_billboard_item {
+                @extend %billboard_item_common;
+                background-color: #d0f5b9aa;
+                margin-top: 50px;
+
+                @include PC() {
+                    width: 50%;
+                    height: 300px;
+                }
+
+
+
+                .fashion_billboard_pic {
+                    width: $billboard_pic_phone_width;
+                    position: absolute;
+                    bottom: -10%;
+                    right: -1%;
+                    transition: 0.5s;
+
+                    @include PC() {
+                        width: 45%;
+                        bottom: -12%;
+                        right: 5%;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .fashion_billboard_pic:hover {
+                    @include PC() {
+                        width: 55%;
+                    }
+                }
+            }
+        }
+    }
 }
