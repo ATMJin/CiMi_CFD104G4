@@ -138,7 +138,7 @@ $billboard_pic_phone_width: 78%;
                 .music_billboard_item {
                     @extend %billboard_item_common;
                     background-color: #fdd7aeaa;
-                    margin-top: 50px;
+                    margin-top: 10px;
 
                     @include PC() {
                         height: 200px;
@@ -181,6 +181,7 @@ $billboard_pic_phone_width: 78%;
 
                 @include PC() {
                     width: calc(66.666%);
+                    margin-top: 0;
                 }
 
                 // 美妝版
@@ -227,6 +228,7 @@ $billboard_pic_phone_width: 78%;
                     @include PC() {
                         height: 420px;
                         width: 50%;
+                        margin-top: 10px;
                     }
 
                     .sport_billboard_pic {
@@ -314,6 +316,7 @@ $billboard_pic_phone_width: 78%;
                 @include PC() {
                     width: 50%;
                     height: 300px;
+                    margin-top: 10px;
                 }
 
 
