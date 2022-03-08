@@ -808,7 +808,7 @@
                         </div>
 
                         <!-- 愛心 -->
-                        <div class="img_box_report">
+                        <div class="img_box_report" id="product_heart" title="加入愛心">
                             <img src="assets\images\icon\like_hov.png">
                         </div>
                     </div>
@@ -821,6 +821,7 @@
             </section>
         </main>
     </section>
+
     <!-- 燈箱js -->
     <script>
         function init() {
@@ -848,11 +849,11 @@
         //加入收藏 或 取消收藏
         function switchFavorite() {
             if (product_save.title == "加入收藏") {
-                product_save.src =
+                product_save_img.src =
                     "assets/images/icon/save.png";
                 product_save.title = "取消收藏";
             } else {
-                product_save.src =
+                product_save_img.src =
                     "assets/images/icon/save_hov.png";
                 product_save.title = "加入收藏";
             }
@@ -861,7 +862,34 @@
         function init() {
             //設定[加入收藏 或 取消收藏]的點按事件
             product_save = document.getElementById("product_save")
+            // 變數名稱
+            product_save_img = document.querySelector("#product_save img")
             product_save.onclick = switchFavorite;
+        } //init
+        window.addEventListener("load", init, false);
+    </script>
+    <!-- 愛心heart -->
+    <script>
+        let product_heart;
+        //加入愛心 或 取消愛心
+        function switchFavorite() {
+            if (product_heart.title == "加入愛心") {
+                product_heart_img.src =
+                    "assets/images/icon/like.png";
+                product_heart.title = "取消愛心";
+            } else {
+                product_heart_img.src =
+                    "assets/images/icon/like_hov.png";
+                product_heart.title = "加入愛心";
+            }
+        }
+
+        function init() {
+            //設定[加入愛心 或 取消愛心]的點按事件
+            product_heart = document.querySelector("#product_heart")
+            // 變數名稱
+            product_heart_img = document.querySelector("#product_heart img")
+            product_heart.onclick = switchFavorite;
         } //init
         window.addEventListener("load", init, false);
     </script>

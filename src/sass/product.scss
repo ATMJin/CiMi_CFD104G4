@@ -268,6 +268,24 @@
     }
 }
 
+// 商品分類
+.main_product:hover {
+    .sort {
+        .item_box {
+            a {
+                .item {
+                    .img_box {
+                        img {
+                            // transition: 0.3s;
+                            // transform: translateY(-2px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 // 最新商品
 .main_product {
 
@@ -320,7 +338,7 @@
                             // background-color: var(--font-primary);
                             width: 30%;
                             display: flex;
-                            font-size:var(--tag);
+                            font-size: var(--tag);
 
                             .product_time {
                                 align-items: center;
@@ -366,6 +384,7 @@
                 background-color: var(--icon-color);
                 border-radius: var(--bgc-radius);
                 margin-left: 20px;
+
                 // 剛好可以使item對其
                 // padding-left: 10px;
                 .title {
@@ -378,6 +397,7 @@
                     margin: 0px auto;
                     // justify-content: space-evenly;
                     justify-content: space-around;
+
                     .item {
                         // 顏色白色然後設陰影
                         background-color: rgb(255, 255, 255);
@@ -396,11 +416,12 @@
                         .img_box {
                             width: 220px;
                             // padding: 10px;
+                            border-radius: 12px 12px 0px 0px;
 
                             img {
                                 width: 100%;
                                 border-radius: var(--img-radius);
-                                border-radius: 12px 12px 0px 0px;
+
                             }
                         }
 
@@ -550,6 +571,7 @@
         }
     }
 }
+
 
 
 // ------------------商品內頁燈箱-------------------
@@ -762,6 +784,7 @@
                     // background-color: var(--icon-color);
                     border-radius: var(--bgc-radius);
                     width: calc(100%/3);
+
                     // <!-- 標題 -->
                     .title {
                         display: flex;

@@ -203,13 +203,15 @@
 
                 .img_box {
                     display: flex;
+                    // padding-right: 10px;
+                    // align-items: flex-start;
                     align-items: center;
-                    padding-right: 10px;
 
                     // <!-- 收藏 -->
                     .img_box_save {
                         width: 30px;
                         padding: 5px;
+                        cursor: pointer;
 
                         img {
                             width: 100%;
@@ -221,6 +223,7 @@
                     .img_box_report {
                         width: 30px;
                         padding: 5px;
+                        cursor: pointer;
 
                         img {
                             width: 100%;
