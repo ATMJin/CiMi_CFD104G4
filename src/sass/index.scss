@@ -7,6 +7,7 @@
 // 以下為側邊攔顏色
 .sidebar_box .sidebar .sidebar_list a[href="index.html"] {
     color: #fff;
+    text-shadow:0 0 5px rgb(77, 68, 202);
   }
 .sidebar .sidebar_list a img[alt="首頁"] {
     filter: invert(100%);

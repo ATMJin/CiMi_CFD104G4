@@ -20,6 +20,9 @@
     .sidebar_list{
         display: flex;
         justify-content: space-between;
+        li:hover img{
+            filter: invert(100%);
+        }
         .nav_pc{
             display: none;
         }
@@ -30,9 +33,6 @@
                 margin-right: 0px;
                 vertical-align: top;
                 filter: invert(60%);
-            }
-            img:hover{
-                filter: invert(100%);
             }
         }
     }
@@ -45,13 +45,19 @@
             width: 20%;
             max-width: 288px;
             margin-top: 100px;
-            padding: 33px 15px 0px;
+            padding: 33px 15px 0px 30px;
             top: 0;
             border-top-right-radius: 100px;
             .sidebar_list{
                 display: inline-block;
                 li+li{
                     padding-top: 15px;
+                }
+                li{
+                    transition: 0.7s;
+                }
+                li:hover{
+                    transform: translateX(31px);
                 }
                 .nav_phone{
                     display: none;
@@ -73,6 +79,7 @@
                 }
                 a:hover{
                     color: #fff;
+                    text-shadow:0 0 5px rgb(77, 68, 202);
                 }
             }
         }
