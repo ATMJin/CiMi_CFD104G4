@@ -312,7 +312,7 @@
 
                         // 小標
                         .txt_new_goods {
-                            width: 45%;
+                            width: 50%;
                         }
 
                         // 倒數計時
@@ -320,7 +320,7 @@
                             // background-color: var(--font-primary);
                             width: 30%;
                             display: flex;
-
+                            font-size:var(--tag);
 
                             .product_time {
                                 align-items: center;
@@ -370,7 +370,7 @@
                 // padding-left: 10px;
                 .title {
                     // padding: 20px;
-                    padding: 5px 10px;
+                    padding: 20px 10px;
                 }
 
                 .items {
@@ -786,7 +786,7 @@
 
                             // 小標
                             .txt_new_goods {
-                                width: 45%;
+                                width: 50%;
                             }
 
                             // 倒數計時
@@ -848,7 +848,7 @@
                     // 標題
                     .title {
                         // padding: 10px;
-                        padding: 5px 10px;
+                        padding: 20px 10px;
                     }
 
                     .img_box {
