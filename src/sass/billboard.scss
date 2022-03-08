@@ -138,10 +138,11 @@ $billboard_pic_phone_width: 78%;
                 .music_billboard_item {
                     @extend %billboard_item_common;
                     background-color: #fdd7aeaa;
-                    margin-top: 10px;
+                    margin-top: 50px;
 
                     @include PC() {
                         height: 200px;
+                        margin-top: 10px;
                     }
 
 
