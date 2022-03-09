@@ -416,11 +416,11 @@
                         .img_box {
                             width: 220px;
                             // padding: 10px;
-                            border-radius: 12px 12px 0px 0px;
+                            // border-radius: 12px 12px 0px 0px;
 
                             img {
                                 width: 100%;
-                                border-radius: var(--img-radius);
+                                border-radius: 12px 12px 0px 0px;
 
                             }
                         }
