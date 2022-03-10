@@ -49,7 +49,7 @@
                             <img src="assets/images/icon/Insert_picture.png" alt="">
                             <span>插入圖片</span>
                         </div>
-                        <input type="file" id="filename" class="" name="">
+                        <input type="file" id="filename" accept="image/*" id="upFile">
                     </label>
                 </div>
                 <div class="post_btn">
@@ -59,8 +59,18 @@
             </form>
         </main>
     </div>
-
-
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("upFile").onchange = function (e) {
+                let file = e.target.files[0];
+                let reader = new FileReader();
+                reader.onload = function () {
+                    document.getElementById("myImage").src = reader.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        })
+    </script>
 </body>
 
 </html>
