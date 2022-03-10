@@ -19,7 +19,7 @@
                             alt="發文"></a></li>
                 <li class="member_bar_phone"><img src="assets/images/icon/cart.png" alt="購物車"></li>
                 <li><a href="chat.html"><img src="assets/images/icon/nav_message.png" alt="聊天室"></a></li>
-                <li><a href="member_my_setup.html"><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
+                <li><a><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
             </ul>
         </div>
     </div>
@@ -34,3 +34,26 @@
 </div>
 <script src="js/shop_cart.js"></script>
 <link rel="stylesheet" href="assets/css/shop_cart.css">
+<script>
+    let mem_head = document.querySelector("img[alt='會員']");
+    mem_head.addEventListener('click', check)
+
+    function check() {
+        // console.log(localStorage.getItem('login'));
+        console.log(sessionStorage.getItem('login'));
+
+        if (sessionStorage.getItem('login') == null) {
+            location.href = 'login_new.html';
+
+        }
+
+
+    }
+    if (sessionStorage.getItem('login') == 'success') {
+        //登入的時候把頭像換
+        mem_head.src = sessionStorage.getItem('mem_head')
+        let mem_link = document.querySelectorAll('.member_bar ul li a')
+        console.log(mem_link[3]);
+        mem_link[3].href = 'member.html';
+    }
+</script>

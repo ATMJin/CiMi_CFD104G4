@@ -69,37 +69,6 @@
                     </div>
                 </div>
             </section>
-            <!-- js -->
-            <script>
-                var options = {
-                    accessibility: true,
-                    prevNextButtons: true,
-                    pageDots: true,
-                    setGallerySize: false,
-                    arrowShape: {
-                        x0: 10,
-                        x1: 60,
-                        y1: 50,
-                        x2: 60,
-                        y2: 45,
-                        x3: 15
-                    }
-                };
-
-                var carousel = document.querySelector('[data-carousel]');
-                var slides = document.getElementsByClassName('carousel-cell');
-                var flkty = new Flickity(carousel, options);
-
-                flkty.on('scroll', function () {
-                    flkty.slides.forEach(function (slide, i) {
-                        var image = slides[i];
-                        var x = (slide.target + flkty.x) * -1 / 3;
-                        image.style.backgroundPosition = x + 'px';
-                    });
-                });
-            </script>
-
-
 
             <!-- 真實評論，好友討論，免運 -->
             <section class="product_comment">
@@ -207,55 +176,6 @@
                 </div>
             </section>
 
-
-            <!-- 限時特賣 -->
-            <!--JS-->
-            <script type="text/javascript">
-                // <!-- 设置秒殺结束時間
-                var endTime = new Date("2022-03-31 00:00:00");
-                //把年月日时分秒的时间轉换成为毫秒數 -->
-                endSeconds = endTime.getTime(); // 结束時間的毫秒數
-                //定義變數 天數 小時 分鐘 秒數 
-                var d = h = m = s = 0;
-                //设置定时器  實現一個秒殺效果
-                var timer = setInterval(qiang, 1000);
-
-                function qiang() {
-                    // 獲得當前系統時間
-                    var nowTime = new Date();
-                    // 獲得當前時間差---nowTime.getTime()现在時間的毫秒數
-                    var remain = parseInt((endSeconds - nowTime.getTime()) / 1000);
-                    //判断秒殺是否過期
-                    if (remain > 0) {
-                        //1.計算剩餘天數 （除以60*60*24  取整數  獲得剩餘天數）
-                        d = parseInt(remain / 86400)
-                        //2.計算剩餘小時數（除以60*60 轉換成小時數  與24小時進行取得   獲得剩餘小時）
-                        h = parseInt((remain / 3600) % 24);
-                        //3.計算剩餘分鐘（除以60  轉換成分鐘  與60進行取得   獲得剩餘分鐘）
-                        m = parseInt((remain / 60) % 60);
-                        //4.計算剩餘秒數（與60進行取得   獲得剩餘分鐘）
-                        s = parseInt((remain) % 60);
-
-                        //統一以兩位數表示 剩餘的天、時、分、秒
-                        d = d < 10 ? '0' + d : d;
-                        h = h < 10 ? '0' + h : h;
-                        m = m < 10 ? '0' + m : m;
-                        s = s < 10 ? '0' + s : s;
-
-                    } else {
-                        // 秒殺過期 取消定時器
-                        clearInterval(timer);
-                        d = h = m = s = '00'
-                    }
-                    //將剩餘天數、小時、分鐘、秒  小時到指定網頁
-                    document.getElementById("d").innerHTML = d + '天';
-                    document.getElementById("h").innerHTML = h + '時';
-                    document.getElementById("m").innerHTML = m + '分';
-                    document.getElementById("s").innerHTML = s + '秒';
-                }
-            </script>
-
-
             <!-- 熱門商品 -->
             <section class="hot">
                 <div class="hot_item_box">
@@ -342,8 +262,8 @@
                                 <img src="assets\images\goods\goods_all_citt.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
+                                <p>浮雕香氛蠟燭🕯️</p>
+                                <p>NT.119</p>
                             </div>
                         </div>
                         <div onclick="myFunction()" class="item ligh_box_jump">
@@ -378,8 +298,8 @@
                                 <img src="assets\images\goods\goods_all_Brooklyn Candle Studio Fern.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
+                                <p>極簡主義香氛蠟燭🕯️</p>
+                                <p>NT.1,390</p>
                             </div>
                         </div>
                         <div onclick="myFunction()" class="item ligh_box_jump">
@@ -388,7 +308,7 @@
                             </div>
                             <div class="txt_box">
                                 <p>愛心吊墜盒金項鍊</p>
-                                <p>NT.500</p>
+                                <p>NT.990</p>
                             </div>
                         </div>
                         <div onclick="myFunction()" class="item ligh_box_jump">
@@ -459,8 +379,8 @@
                                 <img src="assets\images\goods\goods_all_citta.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>美國 Voluspa｜香氛蠟燭🕯️</p>
-                                <p>NT.500</p>
+                                <p>乾燥花香氛蠟燭🕯️</p>
+                                <p>NT.300</p>
                             </div>
                         </div>
                         <div onclick="myFunction()" class="item ligh_box_jump">
@@ -468,8 +388,8 @@
                                 <img src="assets\images\goods\goods_all_citta.jpg">
                             </div>
                             <div class="txt_box">
-                                <p>香氛｜蠟燭🕯️</p>
-                                <p>NT.500</p>
+                                <p>乾燥花香氛蠟燭🕯️</p>
+                                <p>NT.300</p>
                             </div>
                         </div>
                         <div onclick="myFunction()" class="item ligh_box_jump">
@@ -478,7 +398,7 @@
                             </div>
                             <div class="txt_box">
                                 <p>任天堂｜Switch </p>
-                                <p>NT.8,900</p>
+                                <p>NT.9,980</p>
                             </div>
                         </div>
                         <div onclick="myFunction()" class="item ligh_box_jump">
@@ -551,22 +471,6 @@
                         <img src="assets\images\goods\goods_sort_page_all_toy_(2).jpg" /></div>
                 </div>
             </section>
-            <script>
-                function showLarge(e) {
-                    //   let small = e.target;
-                    //   document.getElementById("large").src = small.src ;
-                    document.getElementById("large").src = e.target.src;
-                }
-
-                function init() {
-                    let smalls = document.querySelectorAll(".product_small img"); /*query-查詢*/
-                    for (let i = 0; i < smalls.length; i++) {
-                        smalls[i].onclick = showLarge;
-                    }
-                }
-
-                window.addEventListener("load", init, false);
-            </script>
 
 
             <!-- 商品價格/資訊 -->
@@ -739,7 +643,7 @@
                         </div>
 
                         <!-- 愛心 -->
-                        <div class="img_box_report">
+                        <div class="img_box_report" id="product_heart" title="加入愛心">
                             <img src="assets\images\icon\like_hov.png">
                         </div>
                     </div>
@@ -752,50 +656,8 @@
             </section>
         </main>
     </section>
-    <!-- 燈箱js -->
-    <script>
-        function init() {
-            let small_img = document.querySelectorAll(".ligh_box_jump")
-            small_img[0].addEventListener("click", myFunction)
-
-            let cross = document.querySelector(".cross")
-            cross.addEventListener("click", displayNone)
-        }
-        window.addEventListener("load", init)
-
-        function displayNone() {
-            let x = document.querySelector(".product_lighbox");
-            x.style.display = "none";
-        }
-
-        function myFunction() {
-            let x = document.querySelector(".product_lighbox");
-            x.style.display = "block";
-        }
-    </script>
-    <!-- 收藏save -->
-    <script>
-        let product_save;
-        //加入收藏 或 取消收藏
-        function switchFavorite() {
-            if (product_save.title == "加入收藏") {
-                product_save.src =
-                    "assets/images/icon/save.png";
-                product_save.title = "取消收藏";
-            } else {
-                product_save.src =
-                    "assets/images/icon/save_hov.png";
-                product_save.title = "加入收藏";
-            }
-        }
-
-        function init() {
-            //設定[加入收藏 或 取消收藏]的點按事件
-            product_save = document.getElementById("product_save")
-            product_save.onclick = switchFavorite;
-        } //init
-        window.addEventListener("load", init, false);
-    </script>
+    <!-- 廣告輪播/燈箱/收藏save/愛心heart/js限時特賣(倒數計時)/小圖變大圖 -->
+    <script src="js\product.js"></script>
 
     <!-- 文進大大的購物車燈箱 -->
     <div id="app">

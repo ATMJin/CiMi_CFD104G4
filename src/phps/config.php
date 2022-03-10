@@ -1,5 +1,5 @@
 <?php
-$dbname = "cimi";
+$dbname = "tibamefe_cfd104g4";
 $user = "root";
 $password = "Aa0979025607";
 
