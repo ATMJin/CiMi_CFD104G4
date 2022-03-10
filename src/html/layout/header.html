@@ -45,6 +45,8 @@
         if (sessionStorage.getItem('login') == null) {
             location.href = 'login_new.html';
 
+        }else{
+            location.href = 'member.html';
         }
 
 
@@ -52,8 +54,9 @@
     if (sessionStorage.getItem('login') == 'success') {
         //登入的時候把頭像換
         mem_head.src = sessionStorage.getItem('mem_head')
-        let mem_link = document.querySelectorAll('.member_bar ul li a')
-        console.log(mem_link[3]);
-        mem_link[3].href = 'member.html';
+        let mem_link = document.querySelector("img[alt='會員']")
+        // console.log(mem_link);
+        // console.log(mem_link[3]);
+        mem_link.href = 'member.html';
     }
 </script>
