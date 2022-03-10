@@ -1,24 +1,55 @@
 <?php
 session_start();
 //引入連線工作的檔案
-include_once "config.php";
+include_once "../config.php";
 
-//拿到表單送出的資料
 $outgoing_id = $_SESSION['mem_no'];   //傳訊者
-$incoming_id =  $_SESSION['chatPerson']; //收訊者
+$incoming_id =  $_POST['id']; //收訊者
+
+$_SESSION['chatPerson'] = $incoming_id;
 
 
-// var_dump($outgoing_id, $incoming_id) ;
+// var_dump($outgoing_id, $incoming_id, $_SESSION['chatPerson']) ; //打印資料看一下
 
+/**********************************************************/
+//1. 獲取聊天室好友資訊
+$header="";
+$sql="SELECT * from mem where mem_no = $incoming_id";  //195052890 => Admin 的 mem_no
+$user = $pdo->query($sql);
+$userRows = $user->fetchAll(PDO::FETCH_ASSOC);
+
+if ($user -> rowCount() > 0){
+        foreach($userRows as $i => $userRow){
+            // print_r($usersRow);	
+    
+            $header.= '
+            <i class="fa-solid fa-arrow-left black" id="back"></i>
+            <img src="./assets/images/blue_ball.png" alt="">
+            <div class="details">
+                <span>'.$userRow['mem_name'].'</span>
+                <p>this is user info</p>
+            </div>
+            <input type="checkbox" name="" id="switch_btn">
+                <div class="switch dark_icon">
+                <label for="switch_btn" class="btnn"></label>
+    
+        ';  
+        };
+    }else{
+        echo "No friends to chat";
+    }
+
+/**********************************************************/
+//2. 獲取聊天視窗消息
 $output = "";
 $rowcount = 0;
-$sql = "SELECT * FROM messages 
+$sql1 = "SELECT * FROM messages 
         JOIN mem ON mem.mem_no = messages.outgoing_msg_id
         
         WHERE (outgoing_msg_id = {$outgoing_id} AND incoming_msg_id = {$incoming_id}) 
         OR (outgoing_msg_id = {$incoming_id} AND incoming_msg_id = {$outgoing_id}) ORDER BY msg_id";
 
-$msg = $pdo->query($sql);
+$msg = $pdo->query($sql1);
 
 if($msg -> rowCount() > 0){
         $rowcount = $msg -> rowCount();
@@ -49,5 +80,5 @@ if($msg -> rowCount() > 0){
         }
 
 }
- $php_array = array ('output' => $output, 'rowcount' => $rowcount);
+ $php_array = array ('header' => $header, 'output' => $output, 'rowcount' => $rowcount);
  echo json_encode($php_array);

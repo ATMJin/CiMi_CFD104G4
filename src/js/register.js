@@ -1,28 +1,15 @@
-let registerForm = document.querySelector('.signup form') //form表單
-const continueBtn = document.getElementById('register') // 註冊按鈕
-
-registerForm.onsubmit = (e) =>{
-    e.preventDefault(); //preventing form from submitting
-
-// function doFirst(){
-    
 
 
-
-
-   
-    
-// }
-
-continueBtn.onclick = () => {
+/*功能一 : 使用者註冊*/
+function memRegister() {
     // Ajax Start
     let xhr = new XMLHttpRequest(); // creating XML Object
     xhr.open("POST", "phps/register.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onload = () => {
-        if(xhr.readyState === XMLHttpRequest.DONE){
-            if(xhr.status === 200){
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
                 let data = xhr.response
                 console.log(data);
                 // if(data == "success"){
@@ -34,12 +21,14 @@ continueBtn.onclick = () => {
             }
         }
     }
-
-    //we have to send the form data through ajax to php 
-    let formData = new FormData(form); //creating new formData Object
-    xhr.send(formData); //sending the form data to signup.php
+    let formData = new FormData(registerForm); 
+    xhr.send(formData);
 }
+
+
+function init(){
+
 }
-window.addEventListener('load', doFirst)
 
 
+window.addEventListener('load', init)
