@@ -161,8 +161,8 @@ aside {
         width: 70%;
         margin-left: 25%;
         border-radius: 20px;
+        margin-top: 100px !important;
 
-        // background-color: #7777;
         .member_main {
             display: none;
 
@@ -224,20 +224,22 @@ aside {
 
         .member_bouns_take {
             width: 100%;
-            margin-top: 135px;
+            margin-top: 50px;
 
             .member_bouns_cardbox {
                 display: block;
                 border-bottom: 1px solid #aaa;
+
                 .member_bouns_card {
                     width: 80%;
                     margin: auto;
                     margin-top: 25px;
                     height: 100px;
-                    border-radius: 20px;
+                    border-radius: 20px 20px 0px 0px;
                     display: flex;
                     justify-content: space-evenly;
                     align-items: center;
+                    border-bottom: 1px solid #a1a1a1;
 
                     .member_bouns_card_image {
                         width: 20%;
@@ -258,9 +260,7 @@ aside {
                         }
                     }
                 }
-
             }
         }
-
     }
 }
