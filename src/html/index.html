@@ -652,6 +652,15 @@
             document.cookie = "alerted=yes";
         }
     </script>
+    
+    <script>
+        // console.log(localStorage.getItem('login'));
+        if (sessionStorage.getItem('login') == 'success') {
+            //登入的時候把頭像換掉
+            let mem_head = document.querySelector("img[alt='會員']");
+            mem_head.src = sessionStorage.getItem('mem_head')
+        }
+    </script>
 </body>
 
 </html>

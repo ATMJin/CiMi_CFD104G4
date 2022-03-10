@@ -8,11 +8,16 @@ function scrollBottom() {
     }
 }
 
+
+
+
+
+
 function doFirst() {
-const form = document.querySelector('.typing_area');
-const sendBtn = document.querySelector('.typing_area button');
-const chatBox = document.querySelector('.chat_box')
-const inputArea = document.querySelector('.emojionearea-editor')
+    let form = document.querySelector('.typing_area');
+    let sendBtn = document.querySelector('.typing_area button');
+    let chatBox = document.querySelector('.chat_box')
+    let inputArea = document.querySelector('.emojionearea-editor')
 
     form.onsubmit = (e) => { //取消form表單的submit事件
         e.preventDefault();
@@ -56,7 +61,28 @@ const inputArea = document.querySelector('.emojionearea-editor')
             xhr.send(`msg=${msg}`);
         }
     }
-    function getChat() {
+   
+    sendBtn.onclick = (e) => {
+        sendMsg(e)
+        keyin = setInterval(getChat, 500)
+        console.log(document.querySelector('.emojionearea-editor').innerText);
+        clear()
+    }
+    inputArea.onkeyup = (e) => {
+        if (e.which == 13) {
+            sendMsg(e)
+            keyin = setInterval(getChat, 500)
+            clear()
+
+        }
+
+    }
+
+    /*功能二 : 從後端PHP拿到傳訊者輸入的消息, 寫入chat_box*/
+    let keyin = setInterval(getChat, 500)
+}
+
+ function getChat() {
         let xhr = new XMLHttpRequest(); //建立XHR物件
         xhr.onload = () => {
             if (xhr.readyState == 4) {
@@ -82,23 +108,5 @@ const inputArea = document.querySelector('.emojionearea-editor')
         let formData = new FormData(form); //創建formData物件
         xhr.send(formData); //送表單資料到php/getChat.php
     }
-    sendBtn.onclick = (e) => {
-        sendMsg(e)
-        keyin = setInterval(getChat, 500)
-        console.log(document.querySelector('.emojionearea-editor').innerText);
-        clear()
-    }
-    inputArea.onkeyup = (e) => {
-        if (e.which == 13) {
-            sendMsg(e)
-            keyin = setInterval(getChat, 500)
-            clear()
 
-        }
-
-    }
-
-    /*功能二 : 從後端PHP拿到傳訊者輸入的消息, 寫入chat_box*/
-    let keyin = setInterval(getChat, 500)
-}
 window.addEventListener('load', doFirst)

@@ -1,8 +1,9 @@
 /*登入*/
-const form = document.querySelector('.form form')
-const loginBtn = document.getElementById('login');
+const loginForm = document.querySelector('.login form') // 登入form表單
+const loginBtn = document.getElementById('login'); // 登入按鈕
 
-form.onsubmit = (e) => { //取消form表單預設事件
+
+loginForm.onsubmit = (e) => { //取消form表單預設事件
     e.preventDefault();
 
 }
@@ -10,6 +11,8 @@ form.onsubmit = (e) => { //取消form表單預設事件
 function $id(id) {
     return document.getElementById(id);
 }
+
+
 let member={};
 
 
@@ -33,7 +36,10 @@ function getMemInfo() {
                     memInfo = res
 
                     //跳轉回首頁
-                    // location.href = "index.html";
+                    sessionStorage.setItem('login', 'success')
+                    sessionStorage.setItem('mem_no', res.mem_no)
+                    sessionStorage.setItem('mem_head', res.mem_head)
+                    location.href = "index.html";
 
                 } else { //帳號密碼錯誤/欄位有空
                     alert(res.noPerson);
@@ -52,25 +58,9 @@ function getMemInfo() {
 
 function init() {
 
-
     loginBtn.onclick = () => {
-    getMemInfo()
-        //執行ajax
-    console.log(memInfo);
-
-
+        getMemInfo()
     }
-    
-
-//     /*取消*/
-//     const accountField = document.querySelector('.form input[type="text"]');
-//     const cancelBtn = document.getElementById('cancel');
-//     // console.log(accountField);
-//     cancelBtn.onclick = () => {
-//         accountField.value = "";
-//         pswField.value = "";
-//         accountField.focus();
-//     }
 }
 window.addEventListener('load', init)
 

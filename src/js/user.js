@@ -12,6 +12,8 @@
         searchBar.value = "";
     }
 
+    
+
     /*功能二 : 從好友列表中撈資料寫入userList*/
 
     // setInterval(() => {
@@ -23,6 +25,8 @@
                 let data = xhr.response;
                 // console.log(data);
                 userList.innerHTML = data;
+                debugger;
+                
             }
         }
     }
@@ -32,7 +36,7 @@
 
     /*滾動到底部*/
     let $chat = $('.chat_area')
-        $printer = $('.chat_box', $chat),
+    $printer = $('.chat_box', $chat),
         $textArea = $('textarea', $chat),
         printerH = $printer.innerHeight(),
         preventNewScroll = false;
@@ -58,9 +62,39 @@
                 rowcount = 0
                 //點當前的人要換背景 => background-color: #EAF3FF;
                 changeStyle(e);
+                
                 scrollBottom(); // DO IMMEDIATELY
                 let user_id = e.currentTarget.lastElementChild.innerText //使用者id
                 let userInfo = document.querySelector('.chat_area header') //右側聊天室header
+                
+
+
+                function getChat() {
+                    let xhr = new XMLHttpRequest(); //建立XHR物件
+                    xhr.onload = () => {
+                        if (xhr.readyState == 4) {
+                            if (xhr.status == 200) {
+                                let res = JSON.parse(xhr.response)
+            
+                                console.log(res.rowcount);
+                                // addDarkmodeWidget()
+            
+                                if (res.rowcount > rowcount) {
+                                    chatBox.innerHTML = res.output;
+                                    chatBox.scrollTop = chatBox.scrollHeight;
+                                    rowcount = res.rowcount
+                                }
+            
+                            }
+                        }
+                    }
+                    xhr.open('POST', 'phps/getchat.php', true)
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send(`id=${user_id}`);
+                }
+
+
+
 
                 //執行ajax
                 // xhr = new XMLHttpRequest()
@@ -70,7 +104,6 @@
                         if (xhr.status == 200) {
                             let data = xhr.responseText;
                             userInfo.innerHTML = data;
-                            addDarkmodeWidget();
 
 
                             let back = document.getElementById('back')
@@ -155,7 +188,6 @@
             }
         });
     });
-    // DarkMode.js Code
 
 
     window.addEventListener('load', doFirst)
