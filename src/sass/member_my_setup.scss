@@ -1,4 +1,4 @@
-aside{
+  aside{
     display: none;
 }
 .top_bar_box{
@@ -7,7 +7,22 @@ aside{
 .member_sidebar_box{
     display: none;
 }
-
+.backPage {
+    margin-top: 70px;
+    button {
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 14px;
+        letter-spacing: .05em;
+        border-radius: .75em;
+        font-weight: 500;
+        color: var(--primary-color);
+        background-color: var(--button-secondary);
+        border: none;
+        outline: none;
+        padding: 5px 13px;
+        cursor: pointer;
+    }
+}
 .member_main_box {
     .member_bg {
         .member_bgcard {
@@ -19,7 +34,7 @@ aside{
                     display: flex;
                     justify-content: start;
                     background-color: var(--primary-color);
-                    margin-top: 100px;
+                    margin-top: 10px;
                     border-bottom: 2px solid var(--font-primary);
                     font-size: 24px;
                     position: relative;
