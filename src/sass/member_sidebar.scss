@@ -24,7 +24,7 @@
             height: 100%;
 
             .member_head {
-                height: 35%;
+                height: 30%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -76,7 +76,9 @@
                         width: 20px;
                         height: 20px;
                     }
-
+                    span{
+                        color: #fff;
+                    }
                 }
 
                 .member_btn:hover {

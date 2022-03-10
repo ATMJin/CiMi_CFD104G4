@@ -10,13 +10,29 @@ aside {
 .member_head {
     display: none;
 }
+.backPage {
+    margin-top: 70px;
+    button {
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 14px;
+        letter-spacing: .05em;
+        border-radius: .75em;
+        font-weight: 500;
+        color: var(--primary-color);
+        background-color: var(--button-secondary);
+        border: none;
+        outline: none;
+        padding: 5px 13px;
+        cursor: pointer;
+    }
+}
 
 .member_main_title {
     display: none;
 }
 .container {
     width: 100%;
-    margin: 80px auto;
+    margin: 20px auto;
 }
 .member_main_box {
     .member_bg {
