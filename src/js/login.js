@@ -39,7 +39,7 @@ function getMemInfo() {
                     sessionStorage.setItem('login', 'success')
                     sessionStorage.setItem('mem_no', res.mem_no)
                     sessionStorage.setItem('mem_head', res.mem_head)
-                    location.href = "index.html";
+                    location.href = "homepage.html";
 
                 } else { //帳號密碼錯誤/欄位有空
                     alert(res.noPerson);
