@@ -15,48 +15,71 @@
         @@include('layout/sidebar.html')
         <main class="billboard_main_area">
             <div class="billboard_sort">
-                <p>看板分類</p>
+                <h1>所有看版</h1>
             </div>
             <div class="billboard_box">
-                <!-- <a href="article_all.html"> -->
-                <div class="billboard_item">
-                    <div class="billboard_pic" onclick="location.href=
-                        'article_all.html';">
-                        <img src="assets/images/music.png" alt="">
+                <!-- 上方區域 -->
+                <div class="top_area">
+                    <!-- 左邊區域 -->
+                    <div class="left_area">
+                        <div class="love_billboard_item">
+                            <div class="love_billboard_pic">
+                                <img src="assets/images/love.png" alt="">
+                            </div>
+                            <h2 class="billboard_name">情感生活</h2>
+                            <h3 class="billboard_txt">感情|交往|結婚</h3>
+                            <button class="btn-secondary" type="button">追蹤</button>
+                        </div>
+                        <div class="music_billboard_item">
+                            <div class="music_billboard_pic" onclick="location.href=
+                                'article_all.html';">
+                                <img src="assets/images/music.png" alt="">
+                            </div>
+                            <h2 class="billboard_name">好聽音樂</h2>
+                            <h3 class="billboard_txt">嘻哈|流行|樂團</h3>
+                            <button class="btn-secondary" type="button">追蹤</button>
+                        </div>
                     </div>
-                    🎼 好聽音樂-嘻哈|流行|樂團
-                </div>
-                <!-- </a> -->
-                <div class="billboard_item">
-                    <div class="billboard_pic">
-                        <img src="assets/images/travel.png" alt="">
+                    <!-- 右邊區域 -->
+                    <div class="right_area">
+                        <div class="makeup_billboard_item">
+                            <div class="makeup_billboard_pic">
+                                <img src="assets/images/makeup.png" alt="">
+                            </div>
+                            <h2 class="billboard_name">美妝保養</h2>
+                            <h3 class="billboard_txt">美妝|美甲|美體</h3>
+                            <button class="btn-secondary" type="button">追蹤</button>
+                        </div>
+                        <div class="sport_billboard_item">
+                            <div class="sport_billboard_pic">
+                                <img src="assets/images/sport.png" alt="">
+                            </div>
+                            <h2 class="billboard_name">運動健身</h2>
+                            <h3 class="billboard_txt">健身|賽事|減肥</h3>
+                            <button class="btn-secondary" type="button">追蹤</button>
+                        </div>
                     </div>
-                    🚌 旅遊踏青-景點|活動|花季
                 </div>
-                <div class="billboard_item">
-                    <div class="billboard_pic">
-                        <img src="assets/images/makeup.png" alt="">
+                <!-- 下方區域 -->
+                <div class="bottom_area">
+                    <div class="travel_billboard_item">
+                        <div class="travel_billboard_pic">
+                            <img src="assets/images/travel.png" alt="">
+                        </div>
+                        <h2 class="billboard_name">旅遊踏青</h2>
+                        <h3 class="billboard_txt">景點|活動|花季</h3>
+                        <button class="btn-secondary" type="button">追蹤</button>
                     </div>
-                    💄 美妝保養-美妝|美甲|美體
-                </div>
-                <div class="billboard_item">
-                    <div class="billboard_pic">
-                        <img src="assets/images/relationship.png" alt="">
+                    <div class="fashion_billboard_item">
+                        <div class="fashion_billboard_pic">
+                            <img src="assets/images/fashion.png" alt="">
+                        </div>
+                        <h2 class="billboard_name">穿搭時尚</h2>
+                        <h3 class="billboard_txt">穿搭|球鞋|飾品</h3>
+                        <button class="btn-secondary" type="button">追蹤</button>
                     </div>
-                    💖 情感生活-感情|交往|結婚
                 </div>
-                <div class="billboard_item">
-                    <div class="billboard_pic">
-                        <img src="assets/images/style.png" alt="">
-                    </div>
-                    🧥 穿搭時尚-穿搭|球鞋|飾品
-                </div>
-                <div class="billboard_item">
-                    <div class="billboard_pic">
-                        <img src="assets/images/sport.png" alt="">
-                    </div>
-                    🚴 運動健身-健身|賽事|減肥
-                </div>
+
             </div>
 
 

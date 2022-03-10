@@ -3,11 +3,20 @@
 @import "./layout/header";
 @import "./layout/sidebar";
 
+// 側邊欄顏色
+.sidebar_box .sidebar .sidebar_list a[href="post.html"] {
+    color: #fff;
+  }
+.sidebar .sidebar_list a img[alt="發表文章"] {
+    filter: invert(100%);
+  }
+
 /* 以下為主要區域 */
 .main_area{
     width: 100%;
     margin-top: 80px;
     padding: 24px;
+    margin-bottom: 67px;
     box-sizing: border-box;
     @media screen and (min-width: 768px){
         width: 80%;
@@ -65,6 +74,9 @@
             color: var(--font-primary);
             border: 1px solid var(--secondary-color);
             font-family: 'Poppins', sans-serif,'Noto Sans TC', sans-serif;
+            @media screen and (min-width: 768px){
+                margin-bottom: 20px;                
+            }
         }
         textarea{
             resize: none;
@@ -73,6 +85,9 @@
             color: var(--font-primary);
             border: 1px solid var(--secondary-color);
             font-family: 'Poppins', sans-serif,'Noto Sans TC', sans-serif;
+            @media screen and (min-width: 768px){
+                margin-bottom: 20px;                
+            }
         }
         .post_file{
             .post_file_box{

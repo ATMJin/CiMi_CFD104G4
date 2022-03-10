@@ -26,7 +26,7 @@
             display: flex;
             box-sizing: border-box;
             position: relative;
-            width: 65%;
+            width: 60%;
             padding: 0 15px;
             input{
                 width: 100%;
@@ -48,7 +48,20 @@
                 }
         }
         .member_bar{
-            display: none;
+            li{
+                display: none;
+                img{
+                    width: 28px;
+                    vertical-align: top;
+                }
+            }
+            li+li{
+                padding-left: 5px;
+            }
+            .member_bar_phone{
+                display: inline;
+                cursor: pointer;
+            }
         }
     }
 }
@@ -56,6 +69,9 @@
     /* 以下為上方搜尋區域 */
     .top_bar_box{
         height:100px;
+        .search_bar{
+            width: 65%;
+        }
         .top_bar{
             height: 100px;
             .logo_box{
@@ -69,13 +85,13 @@
                 ul{
                     display: flex;
                     box-sizing: border-box;
+                    li{
+                        display: inline;
+                    }
                     li+li{
                         padding-left: 15px;
                     }
-                    img{
-                        width: 28px;
-                        vertical-align: top;
-                    }
+                    
                 }
             }
         }
