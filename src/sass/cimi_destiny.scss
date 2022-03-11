@@ -256,7 +256,7 @@ body{
     /* 問題文字 */
     position: absolute;
     width: 40%;
-    top:10%;
+    top: 15%;
     left: 14%;
     padding: 10px;
     color: #02314c;
@@ -279,6 +279,9 @@ body{
     left: 15%;
     width: 500px;
     height: 250px;
+}
+.question_no_box{
+    visibility: hidden;
 }
 .question_frame img{
      /*問題背景圖*/
@@ -309,7 +312,7 @@ body{
     cursor: pointer;
     position:absolute;
     font-size: 20px;
-    left:72%;
+    left:70%;
 }
 .Ans_A{
     top:60%;

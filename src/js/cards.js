@@ -21,14 +21,20 @@ Object.prototype.toggleClass = function(className){
 }
 
 checkbox.addEventListener('change', function() {
+  let typer = document.getElementById("typewriter-contain");
   switcher.toggleClass("glow");
   setTimeout(function() {
 	section[0].style="visibility:visible";
-  }, 400);
+  typer.innerHTML='<div class="dynamic-text-wrapper"><div class="dynamic-text">屬於你的Destiny</div><div class="dynamic-text">即將於午夜12:00出現</div></div>';
+  }, 500);
   body.toggleClass("light-bg");
   audio.pause();
   audio.play();
   center.style="display:none";
+  
+
+        
+       
   
 });
 
