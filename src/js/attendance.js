@@ -10,7 +10,7 @@ let lightbox = document.querySelectorAll(".lightbox");
 let day_list = ['日', '一', '二', '三', '四', '五', '六'];
 let day  = new Date().getDay();
 
-console.log('close');
+// console.log('close');
 
 function close_lightbox(){
     lightbox[0].style.display= "none";
