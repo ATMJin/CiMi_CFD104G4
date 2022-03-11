@@ -282,16 +282,14 @@
                   
             </div>
         </section>
-        <div class="question" id="question1"><span>Q1. </span>和朋友去野外烤肉，<br>你可以選擇一種助燃物，<br>你會選擇以下哪一種？</div>
-        <div class="question" id="question2"><span>Q2. </span>當你正要去洗澡時，<br>突然發生一串事~<br>你會先解決那件事？</div>
-        <div class="question" id="question3"><span>Q3. </span>結束一天疲累的工作，想到ＰＵＢ坐坐，<br> 這時的你面對眾多的酒類飲料，<br>你會選擇那一項呢？</div>
+        <div class="question" id="question1"></div>
+        <div class="question" id="question2"></div>
+        <div class="question" id="question3"></div>
+        <div class="question_no_box" id="question_no"></div>
 
-        <div class="toggle Ans_A"style="visibility:hidden"></div>
-                
-        <div class="toggle Ans_B"style="visibility:hidden">
-            
-        </div>
-        <div class="toggle Ans_C"style="visibility:hidden"></div>
+        <div class="toggle Ans_A" data-ans="0" id="ans_a"style="visibility:hidden"></div>
+        <div class="toggle Ans_B" data-ans="1" id="ans_b" style="visibility:hidden"></div>
+        <div class="toggle Ans_C" data-ans="2" id="ans_c" style="visibility:hidden"></div>
         
         <div id="typewriter-contain"></div>
 
@@ -302,6 +300,9 @@
     </main>
     <script src="js/cimi_destiny.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+
+   
     <script>
   
         var $loading = $('#loading')
