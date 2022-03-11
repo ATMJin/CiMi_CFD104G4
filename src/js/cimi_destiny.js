@@ -205,7 +205,7 @@ function playToggle(e) {
 
         $.ajax({
             url: 'phps/response.php',
-            data: {question_no:question_no_array[question_no],mem_ans:mem_ans},
+            data: {mem_no:sessionStorage.getItem('mem_no'),question_no:question_no_array[question_no],mem_ans:mem_ans},
             type: 'GET',
             success(res){
               alert('12345');
