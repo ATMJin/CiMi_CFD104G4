@@ -1,67 +1,39 @@
 aside {
     display: none;
 }
+.member_sidebar_box{
+    display: none;
+}
 
 .container {
     width: 100%;
-    margin: 40px auto;
+    margin: 10px auto;
+}
+.backPage {
+    margin-top: 70px;
+    button {
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 14px;
+        letter-spacing: .05em;
+        border-radius: .75em;
+        font-weight: 500;
+        color: var(--primary-color);
+        background-color: var(--button-secondary);
+        border: none;
+        outline: none;
+        padding: 5px 13px;
+        cursor: pointer;
+    }
 }
 
-/* Style the tabs */
-.tabs {
-    overflow: hidden;
-    margin-bottom: -2px;
-    /* hide bottom border */
-    margin-left: 24px;
-    margin: auto;
+.top_bar_box{
+    top: 0;
 }
-
-.tabs a {
-    float: left;
-    cursor: pointer;
-    padding: 12px 24px;
-    transition: background-color 0.2s;
-    border: 1px solid #ccc;
-    border-right: none;
-    background-color: #f1f1f1;
-    border-radius: 10px 10px 0 0;
-    font-weight: bold;
-}
-
-.tabs a:last-child {
-    border-right: 1px solid #ccc;
-}
-
-/* Change background color of tabs on hover */
-.tabs a:hover {
-    background-color: #aaa;
-    color: #fff;
-}
-
-/* Styling for active tab */
-.tabs a.active {
-    background-color: #fff;
-    color: #484848;
-    border-bottom: 2px solid #fff;
-    cursor: default;
-}
-
-/* Style the tab content */
-.tabcontent {
-    padding: 30px 50px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px #e1e1e1
-}
-
-.data {
-    width: 120px;
-}
-
 .member_main_box {
     .member_bg {
-        margin-top: 100px;
-
+        .tabs a{
+            padding: 10px;
+        }
         .container {
             .content {
                 .tabcontent {
@@ -73,7 +45,7 @@ aside {
                             padding: 10px 20px;
 
                             .member_comtitle {}
-
+                            
                             .member_commain {
                                 display: flex;
                                 justify-content: center;
@@ -85,10 +57,20 @@ aside {
                                     height: 100px;
                                     border-radius: 10px;
                                 }
-
                                 p {
                                     margin-left: 100px;
                                 }
+                                .member_comtxth3{
+                                    padding-left: 10px;
+                                }
+                                .member_comtxt{
+                                    display: none;
+                                }
+                                
+                            }
+                            .member_rwdcomtxt{
+                                color:var(--font-secondary) ;
+                                text-align: end;
                             }
                         }
 
@@ -135,65 +117,30 @@ aside {
     aside {
         display: inline-block;
     }
-
+    .member_sidebar_box{
+        display: block;
+    }
     .container {
         width: 100%;
         margin: 40px auto;
     }
 
-    /* Style the tabs */
-    .tabs {
-        overflow: hidden;
-        margin-bottom: -2px;
-        /* hide bottom border */
-        margin-left: 24px;
-    }
-
-    .tabs a {
-        float: left;
-        cursor: pointer;
-        padding: 12px 24px;
-        transition: background-color 0.2s;
-        border: 1px solid #ccc;
-        border-right: none;
-        background-color: #f1f1f1;
-        border-radius: 10px 10px 0 0;
-        font-weight: bold;
-        color: var(--font-secondary);
-    }
-
-    .tabs a:last-child {
-        border-right: 1px solid #ccc;
-    }
-
-    /* Change background color of tabs on hover */
-    .tabs a:hover {
-        background-color: #aaa;
-        color: #fff;
-    }
-
-    /* Styling for active tab */
-    .tabs a.active {
-        background-color: #fff;
-        color: #484848;
-        border-bottom: 2px solid #fff;
-        cursor: default;
-    }
-
-    /* Style the tab content */
-    .tabcontent {
-        padding: 30px 50px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        box-shadow: 4px 4px 8px #e1e1e1
-    }
-
-    .data {
-        width: 120px;
-    }
 
     .member_main_box {
         .member_bg {
+            padding:0px 40px;
+            margin-top: 135px;
+            .tabs a{
+                float: left;
+                cursor: pointer;
+                padding: 12px 24px;
+                transition: background-color 0.2s;
+                border: 1px solid #ccc;
+                border-right: none;
+                background-color: #f1f1f1;
+                border-radius: 10px 10px 0 0;
+                font-weight: var(--bold);
+            }
             .container {
                 .content {
                     .tabcontent {
@@ -206,18 +153,32 @@ aside {
                                 padding: 10px 20px;
 
 
-                                .member_comtitle {}
+                                .member_comtitle {
+                                    h2{
+                                        color:var(--font-secondary);
+                                    }
+                                }
 
                                 .member_commain {
                                     display: flex;
                                     justify-content: start;
                                     align-items: center;
                                     padding: 10px;
-
-                                    .member_comimg {
+                                    .member_comtxth3{
+                                        width: 60%;
+                                        display: flex;
+                                        justify-content: start;
+                                    }
+                                    .member_comtxt{
                                         width: 30%;
+                                        display: flex;
+                                        justify-content: end;
+                                    }
+                                    .member_comimg {
+                                        width: 15%;
                                         
                                     }
+                                    
                                     h3{
                                         color:  #5E5E5E;
                                         font-weight: 500;
@@ -236,7 +197,9 @@ aside {
                                     }
                                 }
                             }
-
+                        .member_rwdcomtxt{
+                            display: none;
+                        }
 
                         }
 

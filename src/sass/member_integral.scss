@@ -1,5 +1,31 @@
+.top_bar_box {
+    top: 0;
+}
+
 aside {
     display: none;
+}
+
+.member_sidebar_box {
+    display: none;
+}
+
+.backPage {
+    margin-top: 70px;
+
+    button {
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 14px;
+        letter-spacing: .05em;
+        border-radius: .75em;
+        font-weight: 500;
+        color: var(--primary-color);
+        background-color: var(--button-secondary);
+        border: none;
+        outline: none;
+        padding: 5px 13px;
+        cursor: pointer;
+    }
 }
 
 .member_bg {
@@ -9,7 +35,7 @@ aside {
 
         .member_bouns_head {
             width: 100%;
-            margin-top: 100px;
+            margin-top: 0px;
 
             img {
                 border-radius: 50%;
@@ -49,15 +75,6 @@ aside {
             }
         }
 
-        // .member_bouns_head::after{
-        //     content: '';
-        //     width: 300px;
-        //     height: 1px;
-        //     background: #000;
-        //     position: absolute;
-        //     margin: 0 auto;
-        // }
-
         .divider {
             width: 75%;
             margin: auto;
@@ -74,47 +91,50 @@ aside {
 
     .member_bouns_take {
         width: 100%;
-        margin-top: 50px;
+        margin-top: 0px;
 
-        .member_bouns_card {
-            width: 80%;
-            margin: auto;
-            margin-top: 25px;
-            height: 150px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+        .member_bouns_cardbox {
+            .member_bouns_card {
+                width: 80%;
+                margin: auto;
+                margin-top: 25px;
+                height: 75px;
+                border-radius: 15px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
 
-            .member_bouns_card_image {
-                width: 20%;
+                .member_bouns_card_image {
+                    width: 20%;
 
-                img {
-                    width: 50px;
-                    height: 50px;
-                    vertical-align: top;
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        vertical-align: top;
+                    }
                 }
-            }
 
-            .member_bouns_card_text {
-                width: 50%;
-                justify-content: start;
+                .member_bouns_card_text {
+                    width: 50%;
+                    justify-content: start;
 
-                p:first-child {
+                    p:first-child {
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+
+                    p:last-child {
+                        font-size: 14px;
+                        font-weight: 300;
+                        color: var(--font-secondary);
+                    }
+                }
+
+                .member_bouns_card_takecoin {
                     font-size: 18px;
-                    font-weight: 700;
-                }
-
-                p:last-child {
-                    font-size: 14px;
-                    font-weight: 300;
-                    color: var(--font-secondary);
                 }
             }
 
-            .member_bouns_card_takecoin {
-                font-size: 18px;
-            }
         }
     }
 }
@@ -125,18 +145,24 @@ aside {
         display: block;
     }
 
+    .member_sidebar_box {
+        display: block;
+    }
+
     .member_bouns_topbar {
         display: none;
     }
 
+    .backPage {
+        display: none;
+    }
 
     .member_bg {
         width: 70%;
-        margin-top: 50px;
         margin-left: 25%;
         border-radius: 20px;
+        margin-top: 100px !important;
 
-        // background-color: #7777;
         .member_main {
             display: none;
 
@@ -180,36 +206,40 @@ aside {
                     height: 100px;
                 }
             }
+        }
 
-            .member_main_title {
-                width: 80%;
-                height: 100px;
-                margin: auto;
-                font-size: 24px;
-                display: flex;
-                align-items: flex-end;
-                border-bottom: 2px solid #5e5e5e;
+        .member_main_title {
+            width: 80%;
+            height: 100px;
+            margin: auto;
+            font-size: 24px;
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 2px solid #5e5e5e;
 
-                p {
-                    display: inline;
-                }
+            p {
+                display: inline;
             }
+        }
 
-            .member_bouns_take {
-                width: 100%;
-                margin-top: 50px;
+        .member_bouns_take {
+            width: 100%;
+            margin-top: 50px;
+
+            .member_bouns_cardbox {
+                display: block;
+                border-bottom: 1px solid #aaa;
 
                 .member_bouns_card {
                     width: 80%;
                     margin: auto;
                     margin-top: 25px;
-                    height: 150px;
-                    background-color: var(--icon-color);
-                    border: 2px solid #000;
-                    border-radius: 20px;
+                    height: 100px;
+                    border-radius: 20px 20px 0px 0px;
                     display: flex;
                     justify-content: space-evenly;
                     align-items: center;
+                    border-bottom: 1px solid #a1a1a1;
 
                     .member_bouns_card_image {
                         width: 20%;

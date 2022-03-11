@@ -2,8 +2,8 @@
     <div class="top_bar">
         <div class="logo_box">
             <h1>
-                <a href="index.html">
-                    <img src="assets/images/index_logo.svg" alt="CiMi交友論壇">
+                <a href="homepage.html">
+                    <img src="assets/images/homepage_logo.svg" alt="CiMi交友論壇">
                 </a>
             </h1>
         </div>
@@ -15,11 +15,48 @@
         </form>
         <div class="member_bar">
             <ul>
-                <li><a href="http://"><img src="assets/images/icon/nav_post.png" alt="發文"></a></li>
-                <li><a href="product.html"><img src="assets/images/icon/nav_shop.png" alt="好物商城"></a></li>
+                <li class="member_bar_phone"><a href="post.html"><img src="assets/images/icon/nav_post.png"
+                            alt="發文"></a></li>
+                <li class="member_bar_phone"><img src="assets/images/icon/cart.png" alt="購物車"></li>
                 <li><a href="chat.html"><img src="assets/images/icon/nav_message.png" alt="聊天室"></a></li>
-                <li><a href="member_integral.html"><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
+                <li><a><img src="assets/images/icon/nav_member.png" alt="會員"></a></li>
             </ul>
         </div>
     </div>
 </header>
+
+<!-- 購物車燈箱 -->
+<script src="js/vue.js"></script>
+<div id="shoppingApp">
+    <div class="shopping_cart_light_box">
+        <shopping-cart></shopping-cart>
+    </div>
+</div>
+<script src="js/shop_cart.js"></script>
+<link rel="stylesheet" href="assets/css/shop_cart.css">
+<script>
+    let mem_head = document.querySelector("img[alt='會員']");
+    mem_head.addEventListener('click', check)
+
+    function check() {
+        // console.log(localStorage.getItem('login'));
+        console.log(sessionStorage.getItem('login'));
+
+        if (sessionStorage.getItem('login') == null) {
+            location.href = 'login_new.html';
+
+        }else{
+            location.href = 'member.html';
+        }
+
+
+    }
+    if (sessionStorage.getItem('login') == 'success') {
+        //登入的時候把頭像換
+        mem_head.src = sessionStorage.getItem('mem_head')
+        let mem_link = document.querySelector("img[alt='會員']")
+        // console.log(mem_link);
+        // console.log(mem_link[3]);
+        mem_link.href = 'member.html';
+    }
+</script>

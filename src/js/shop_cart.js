@@ -14,11 +14,14 @@ Vue.component("shopping-cart-title", {
     sendComponentId(x) {
       bus.$emit('sendId', x); // 自訂事件
     },
+    disNone() {
+      document.querySelector(".shopping_cart_light_box").style.display = "none"
+    }
   },
   template: `
 <section class="shopping_cart_title">
   <!-- 箭頭 -->
-  <i class="bi bi-arrow-left-circle"></i>
+  <i @click="this.disNone" class="bi bi-arrow-left-circle"></i>
   <!-- 文字 -->
   <div class="txt_box">
     <p @click="this.switchShoppingCar">購物車</p>
@@ -64,6 +67,7 @@ Vue.component('shopping-cart-goods-box', {
       let par = e.target.parentNode.parentNode.parentNode.parentNode;
       // 刪除商品欄
       par.remove()
+      this.sendPrice(-(this.price * this.count));
 
       // 計算剩餘商品欄數量
       let countP = document.querySelectorAll(".shopping_cart_goods_box")
@@ -234,7 +238,7 @@ Vue.component("love-list", {
 Vue.component("nothing-goods-box", {
   methods: {
     gotoShopping() {
-      location.href = 'product_ad_page.html'
+      location.href = 'product.html'
     },
   },
   template: `
@@ -279,7 +283,7 @@ Vue.component("shopping-cart", {
 
 
 new Vue({
-  el: '#app',
+  el: '#shoppingApp',
   data: {
     count: 0,
     price_total: 0,
@@ -299,3 +303,12 @@ new Vue({
   },
 });
 Vue.config.devtools = true;
+
+
+let shopCar = document.querySelector(".member_bar li:nth-child(2)");
+
+function disBlock() {
+  document.querySelector(".shopping_cart_light_box").style.display = "block"
+}
+
+shopCar.addEventListener("click", disBlock)

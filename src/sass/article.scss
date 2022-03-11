@@ -3,8 +3,13 @@
 @import "./layout/header";
 @import "./layout/sidebar";
 
-html {
-    overflow: hidden;
+// html {
+//     overflow: hidden;
+// }
+@mixin PC {
+    @media screen and (min-width:768px) {
+        @content;
+    }
 }
 
 .lightbox {
@@ -15,18 +20,26 @@ html {
     height: 100%;
     background: rgba(66, 66, 66, 0.6);
     z-index: 999999;
+    display: none;
 
     .article_view_container {
         position: absolute;
-        // z-index: 99999;
-        width: 750px;
+        width: 100vw;
         height: 100%;
         top: 0;
-        left: 50%;
-        margin-left: -400px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
         background-color: #ffffff;
         overflow: hidden scroll;
 
+
+        @include PC() {
+            max-width: 1000px;
+            width: 50vw;
+            min-width: 768px;
+
+        }
 
         .article_view_mem_info_box {
             position: sticky;
@@ -36,7 +49,11 @@ html {
             display: flex;
             justify-content: space-between;
             background-color: #ffffff;
-            padding: 20px 60px;
+            padding: 15px;
+
+            @include PC() {
+                padding: 20px 60px;
+            }
 
             .article_view_mem_info_item {
                 display: flex;
@@ -59,6 +76,7 @@ html {
 
             .close_icon {
                 width: 13px;
+                cursor: pointer;
 
                 img {
                     width: 100%;
@@ -67,13 +85,21 @@ html {
         }
 
         .article_view_content_container {
-            padding: 0 60px;
+            padding: 0 15px;
+
+            @include PC() {
+                padding: 0 60px;
+            }
         }
 
         .article_view_title {
             font-size: var(--subtitle1);
-            font-weight: 700;
-            margin: 10px 0;
+            font-weight: 500;
+            margin-bottom: 10px;
+
+            @include PC() {
+                font-size: var(--subtitle1);
+            }
         }
 
         .article_view_info_box {
@@ -95,7 +121,7 @@ html {
 
         .article_view_content {
             p {
-                font-size: var(--body1);
+                font-size: var(--body);
                 line-height: 2;
             }
         }
@@ -103,6 +129,7 @@ html {
         .interest_article_icon_item {
             width: 15px;
             margin-right: 5px;
+            cursor: pointer;
 
             img {
                 width: 100%;
@@ -114,7 +141,6 @@ html {
 
             p {
                 font-size: var(--body2);
-                font-weight: 300;
             }
 
             .interest_article_box {
@@ -124,11 +150,17 @@ html {
 
                 .interest_article_item {
                     display: flex;
-                    width: calc(50% - 5px);
+                    width: 100%;
                     background-color: #eeeeee;
                     justify-content: space-between;
                     border-radius: 5px;
                     margin: 0 5px 5px 0;
+                    cursor: pointer;
+
+                    @include PC() {
+                        width: calc(50% - 5px);
+                    }
+
 
 
                     .interest_article_txt {
@@ -137,7 +169,7 @@ html {
                         h2 {
                             font-size: var(--body1);
                             padding-bottom: 10px;
-                            font-weight: 700;
+                            font-weight: 500;
 
                         }
 
@@ -180,7 +212,6 @@ html {
         // 留言區
         .comment_container {
             width: 100%;
-            height: 500px;
             // background-color: #c8d9fac4;
             position: relative;
 
@@ -264,12 +295,20 @@ html {
 
             .write_comment_box {
                 display: flex;
-                padding: 20px 60px;
+                padding: 15px;
                 justify-content: center;
                 background-color: #ffffff;
+                border-radius: 20px;
+
+                @include PC() {
+                    padding: 20px 60px;
+                }
 
                 .write_comment_item {
                     width: calc(100% - 30px);
+                    border-radius: 8px;
+                    border: 0.8px solid var(--font-secondary);
+                    padding-left: 10px;
                 }
 
                 .article_like,

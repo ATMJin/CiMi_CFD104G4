@@ -1,6 +1,29 @@
 aside{
     display: none;
 }
+.top_bar_box{
+    top: 0;
+}
+.member_sidebar_box{
+    display: none;
+}
+.backPage {
+    margin-top: 70px;
+    button {
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 14px;
+        letter-spacing: .05em;
+        border-radius: .75em;
+        font-weight: 500;
+        color: var(--primary-color);
+        background-color: var(--button-secondary);
+        border: none;
+        outline: none;
+        padding: 5px 13px;
+        cursor: pointer;
+    }
+}
+
 .member_main_box {
     .member_bg {
         .member_main {
@@ -16,7 +39,7 @@ aside{
             justify-content: center;
             padding: 24px 0;
             flex-wrap: wrap;
-            margin-top: 100px;
+            margin-top: 0px;
             border-radius: 10px;
 
             .member_friends_card {
@@ -51,6 +74,10 @@ aside{
     aside{
         display: inline-block;
     }
+    .member_sidebar_box{
+        display: block;
+    }
+
     .member_main_box {
         .member_bg {
             .member_main {

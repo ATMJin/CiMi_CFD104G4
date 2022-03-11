@@ -5,230 +5,165 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
+    <title>我的Mi友 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/member_guide.css">
-    <link rel="stylesheet" href="assets/css/member.css">
+    <link rel="stylesheet" href="assets/css/member_sidebar.css">
     <link rel="stylesheet" href="assets/css/member_myfriends.css">
+    <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
+
     <script src="js/vue.js"></script>
 </head>
 
 <body>
     @@include('layout/header.html')
-    <section class="sidebar_box">
-        <!--會員左側欄開始-->
-        <aside class="sidebar">
-            <div class="member_nav">
+    <div class="member_content_area">
 
-                <div class="member_head">
-                    <div class="member_head_img">
-                        <img src="assets/images/icon/nav_member.png" alt="">
-                    </div>
-                    <p>name</p>
-                </div>
+        @@include('member_sidebar.html')
 
-                <div class="member_bar">
-                    <a href="member_integral.html">
-                        <div class="member_btn my_integral">
-                            <img src="assets/images/icon/nav_charts.png">
-                            <span>
-                                我的積分 : 30
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_treasure.html">
-                        <div class="member_btn my_treasure">
-                            <img src="assets/images/icon/nav_coin.png">
-                            <span>
-                                我的Mi寶
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_myfriends.html">
-                        <div class="member_btn my_friend">
-                            <img src="assets/images/icon/nav_friend.png">
-                            <span>
-                                我的Mi友
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_my_introduction.html">
-                        <div class="member_btn my_introduction">
-                            <img src="assets/images/icon/nav_card.png">
-                            <span>
-                                配對遊戲介紹
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_article.html">
-                        <div class="member_btn my_article">
-                            <img src="assets/images/icon/nav_post.png">
-                            <span>
-                                我發表的文章
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_order.html">
-                        <div class="member_btn my_order">
-                            <img src="assets/images/icon/nav_billboard.png">
-                            <span>
-                                訂單紀錄
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_my_setup.html">
-                        <div class="member_btn my_setup">
-                            <img src="assets/images/icon/nav_settings.png">
-                            <span>
-                                設定
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </aside>
-        <!--會員左側欄結束-->
-    </section>
-
-    <main class="member_main_box">
-        <div class="member_bg">
-
-            <div class="member_main">
-                <div class="member_head">
-                    <!--手機板內文大標-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, sunt?</p>
-                </div>
+        <main class="member_main_box">
+            <div class="backPage">
+                <button onclick="history.back()">←</button>
             </div>
 
-            <div class="member_main_title">
-                <!--桌機版內文大標-->
+            <div class="member_bg">
+                <div class="member_main">
+                    <div class="member_head">
+                        <!--手機板內文大標-->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, sunt?</p>
+                    </div>
+                </div>
 
-            </div>
+                <div class="member_main_title">
+                    <!--桌機版內文大標-->
 
-            <div class="member_text">
-                <!--內文-->
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
-                    </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
-                    </div>
                 </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
+
+                <div class="member_text">
+                    <!--內文-->
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
-                    </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
-                    </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
-                    </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
-                    </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
-                    </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
-                    </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
-                    </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
-                    </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
-                    </div>
-                </div>
-                <div class="member_friends_card">
-                    <!--內文卡片-->
-                    <div class="member_cardhead">
-                        <img src="assets/images/icon/nav_member.png" alt="">
-                    </div>
-                    <div class="member_cardtext">
-                        <p>暱稱</p>
-                        <p>稱號稱號</p>
+                    <div class="member_friends_card">
+                        <!--內文卡片-->
+                        <div class="member_cardhead">
+                            <img src="assets/images/icon/nav_member.png" alt="">
+                        </div>
+                        <div class="member_cardtext">
+                            <p>暱稱</p>
+                            <p>稱號稱號</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CiMi交友論壇</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/slider.css">
+    <link rel="stylesheet" href="assets/css/homepage_article.css">
+    <link rel="stylesheet" href="assets/css/homepage.css">
+    <link rel="stylesheet" href="assets/css/attendance.css">
+</head>
+
+<body>
+    @@include('layout/header.html')
+    <div class="content_box">
+        <div class="content_area">
+            @@include('layout/sidebar.html')
+            <main class="main_area">
+                <div class="hot_billboard">
+                    <!-- <h2>熱門看版排行</h2> -->
+                    <!-- <div class="swiper_container">
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="hot_article_wrap">
+                                        <div class="hot_article_pic">
+                                            <a href="article_all.html"><img
+                                                    src="assets/images/bilboard_pic_relation.jpg"></a>
+                                        </div>
+                                        <div class="hot_article_txt">
+                                            <h2>1</h2>
+                                        </div>
+                                        <button class="btn-secondary">追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="hot_article_wrap">
+                                        <div class="hot_article_pic">
+                                            <a href="article_all.html"><img
+                                                    src="assets/images/bilboard_pic-makeup.jpg"></a>
+                                        </div>
+                                        <div class="hot_article_txt">
+                                            <h2>2</h2>
+                                        </div>
+                                        <button class="btn-secondary">追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="hot_article_wrap">
+                                        <div class="hot_article_pic">
+                                            <a href="article_all.html"><img
+                                                    src="assets/images/billboard_pic_car.jpg"></a>
+                                        </div>
+                                        <div class="hot_article_txt">
+                                            <h2>青</h2>
+                                        </div>
+                                        <button class="btn-secondary">追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="hot_article_wrap">
+                                        <div class="hot_article_pic">
+                                            <a href="article_all.html"><img
+                                                    src="assets/images/bilboar_pic_music.jpg"></a>
+                                        </div>
+                                        <div class="hot_article_txt">
+                                            <h2>好樂</h2>
+                                        </div>
+                                        <button class="btn-secondary">追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="hot_article_wrap">
+                                        <div class="hot_article_pic">
+                                            <a href="article_all.html"><img
+                                                    src="assets/images/bilboard_pic_sport.jpg"></a>
+                                        </div>
+                                        <div class="hot_article_txt">
+                                            <h2>身</h2>
+                                        </div>
+                                        <button class="btn-secondary">追蹤</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="hot_article_wrap">
+                                        <div class="hot_article_pic">
+                                            <a href="article_all.html"><img
+                                                    src="assets/images/bilboard_pic_clothing.jpg"></a>
+                                        </div>
+                                        <div class="hot_article_txt">
+                                            <h2>穿尚</h2>
+                                        </div>
+                                        <button class="btn-secondary">追蹤</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div> -->
+                </div>
+
+                <div class="save_area">
+                    <div class="save_billboard">
+                        <h2>追蹤的看版</h2>
+                        <ul class="billboard_img">
+                            <li>
+                                <a href="article_all.html">
+                                    <div class="pic_box">
+                                        <img src="assets/images/billboard_square_cloth.jpg">
+                                    </div>
+                                    <div class="billboard_txt">
+                                        <h2>穿搭時尚</h2>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="article_all.html">
+                                    <div class="pic_box">
+                                        <img src="assets/images/billboard_square_sport.jpg">
+                                    </div>
+                                    <div class="billboard_txt">
+                                        <h2>運動健身</h2>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="billboard_text">
+                            <li><a href="article_all.html">好聽音樂</a></li>
+                            <li><a href="article_all.html">旅遊踏青</a></li>
+                            <li><a href="article_all.html">美妝保養</a></li>
+                            <li><a href="article_all.html">情感生活</a></li>
+                        </ul>
+                    </div>
+                    <div class="save_article">
+                        <h2>追蹤看版的最新文章</h2>
+                        <div class="article_area">
+                            <article class="article_box">
+                                <!-- 發文者 -->
+                                <div class="article_mem_info">
+                                    <div class="article_mem_icon">
+                                        <img src="https://fakeimg.pl/12x12/200">
+                                    </div>
+                                    <div class="article_mem_name">抹抹更健康</div>
+                                </div>
+                                <!-- 文章標題 -->
+                                <div class="article_container">
+                                    <!-- 文章內容 -->
+                                    <div class="article_txt_box">
+                                        <div class="article_title">大冰奶不夠力？這個強多了
+                                        </div>
+                                        <!-- 文章反應 -->
+                                        <div class="article_react">
+                                            <!-- 喜歡數 -->
+                                            <div class="article_like_box">
+                                                <div class="article_icon_item">
+                                                    <img src="assets/images/icon/like.png" alt="">
+                                                </div>
+                                                <div class="article_like_amount">144</div>
+                                            </div>
+                                            <!-- 留言數 -->
+                                            <div class="article_comment_box">
+                                                <div class="article_icon_item">
+                                                    <img src="assets/images/icon/comment.png" alt="">
+                                                </div>
+                                                <div class="article_comment_amount">24</div>
+                                            </div>
+                                            <!-- 收藏 -->
+                                            <div class="article_collect_box">
+                                                <div class="article_icon_item">
+                                                    <img src="assets/images/icon/save_hov.png" alt="">
+                                                </div>
+                                                <div class="article_collect_amount">收藏</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 文章圖片 -->
+                                    <div class="article_pic_box">
+                                        <img src="https://picsum.photos/60/60/?random=10">
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article_box">
+                                <!-- 發文者 -->
+                                <div class="article_mem_info">
+                                    <div class="article_mem_icon">
+                                        <img src="https://fakeimg.pl/12x12/200">
+                                    </div>
+                                    <div class="article_mem_name">穿搭小天才</div>
+                                </div>
+                                <!-- 文章標題 -->
+                                <div class="article_container">
+                                    <!-- 文章內容 -->
+                                    <div class="article_txt_box">
+                                        <div class="article_title">穿搭精華區上線啦！！
+                                        </div>
+                                        <!-- 文章反應 -->
+                                        <div class="article_react">
+                                            <!-- 喜歡數 -->
+                                            <div class="article_like_box">
+                                                <div class="article_icon_item">
+                                                    <img src="assets/images/icon/like.png" alt="">
+                                                </div>
+                                                <div class="article_like_amount">144</div>
+                                            </div>
+                                            <!-- 留言數 -->
+                                            <div class="article_comment_box">
+                                                <div class="article_icon_item">
+                                                    <img src="assets/images/icon/comment.png" alt="">
+                                                </div>
+                                                <div class="article_comment_amount">24</div>
+                                            </div>
+                                            <!-- 收藏 -->
+                                            <div class="article_collect_box">
+                                                <div class="article_icon_item">
+                                                    <img src="assets/images/icon/save_hov.png" alt="">
+                                                </div>
+                                                <div class="article_collect_amount">收藏</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 文章圖片 -->
+                                    <div class="article_pic_box">
+                                        <img src="https://picsum.photos/60/60/?random=11">
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="writings">
+                    <div id="tabs" class="container">
+                        <div class="tabs">
+                            <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">追蹤</a>
+                            <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">熱門</a>
+                            <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">最近</a>
+                        </div>
+
+                        <div class="content">
+                            <div v-if="activetab ==='1'" class="tabcontent">
+                                <div class="article_list">
+                                    <article class="article_box">
+                                        <!-- 發文者 -->
+                                        <div class="article_mem_info">
+                                            <div class="article_mem_icon">
+                                                <img src="https://fakeimg.pl/12x12/200">
+                                            </div>
+                                            <div class="article_mem_name">小小小梨子</div>
+                                        </div>
+                                        <!-- 文章標題 -->
+                                        <div class="article_container">
+                                            <!-- 文章內容 -->
+                                            <div class="article_txt_box">
+                                                <div class="article_title">穿搭精華區上線啦！！值得收藏的穿搭資訊都在這!</div>
+                                                <!-- 文章摘要 -->
+                                                <div class="article_summary">
+                                                    嗨嗨穿搭板的卡友們！<br>
+                                                    我是穿搭小梨子🍐
+                                                </div>
+                                                <!-- 文章反應 -->
+                                                <div class="article_react">
+                                                    <!-- 喜歡數 -->
+                                                    <div class="article_like_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/like.png" alt="">
+                                                        </div>
+                                                        <div class="article_like_amount">144</div>
+                                                    </div>
+                                                    <!-- 留言數 -->
+                                                    <div class="article_comment_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/comment.png" alt="">
+                                                        </div>
+                                                        <div class="article_comment_amount">24</div>
+                                                    </div>
+                                                    <!-- 收藏 -->
+                                                    <div class="article_collect_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/save_hov.png" alt="">
+                                                        </div>
+                                                        <div class="article_collect_amount">收藏</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 文章圖片 -->
+                                            <div class="article_pic_box">
+                                                <img src="https://picsum.photos/150/150/?random=14">
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <div v-if="activetab ==='2'" class="tabcontent">
+                                <div class="article_list">
+                                    <article class="article_box">
+                                        <!-- 發文者 -->
+                                        <div class="article_mem_info">
+                                            <div class="article_mem_icon">
+                                                <img src="https://fakeimg.pl/12x12/200">
+                                            </div>
+                                            <div class="article_mem_name">抹茶大福</div>
+                                        </div>
+                                        <!-- 文章標題 -->
+                                        <div class="article_container">
+                                            <!-- 文章內容 -->
+                                            <div class="article_txt_box">
+                                                <div class="article_title">COSCO的爆紅抹茶太甜了，不推薦</div>
+                                                <!-- 文章摘要 -->
+                                                <div class="article_summary">
+                                                    最近爆紅的抹茶沖泡包<br>
+                                                    雖然價格還算親民，但口味太甜啦>A< </div> <!-- 文章反應 -->
+                                                        <div class="article_react">
+                                                            <!-- 喜歡數 -->
+                                                            <div class="article_like_box">
+                                                                <div class="article_icon_item">
+                                                                    <img src="assets/images/icon/like.png" alt="">
+                                                                </div>
+                                                                <div class="article_like_amount">144</div>
+                                                            </div>
+                                                            <!-- 留言數 -->
+                                                            <div class="article_comment_box">
+                                                                <div class="article_icon_item">
+                                                                    <img src="assets/images/icon/comment.png" alt="">
+                                                                </div>
+                                                                <div class="article_comment_amount">24</div>
+                                                            </div>
+                                                            <!-- 收藏 -->
+                                                            <div class="article_collect_box">
+                                                                <div class="article_icon_item">
+                                                                    <img src="assets/images/icon/save_hov.png" alt="">
+                                                                </div>
+                                                                <div class="article_collect_amount">收藏</div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <!-- 文章圖片 -->
+                                                <div class="article_pic_box">
+                                                    <img src="https://picsum.photos/150/150/?random=15">
+                                                </div>
+                                            </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <div v-if="activetab ==='3'" class="tabcontent">
+                                <article class="article_box">
+                                    <!-- 發文者 -->
+                                    <div class="article_mem_info">
+                                        <div class="article_mem_icon">
+                                            <img src="https://fakeimg.pl/12x12/200">
+                                        </div>
+                                        <div class="article_mem_name">穿搭小天才</div>
+                                    </div>
+                                    <!-- 文章標題 -->
+                                    <div class="article_container">
+                                        <!-- 文章內容 -->
+                                        <div class="article_txt_box">
+                                            <div class="article_title">穿搭精華區上線啦！！值得收藏的穿搭資訊都在這!</div>
+                                            <!-- 文章摘要 -->
+                                            <div class="article_summary">
+                                                嗨嗨穿搭板的卡友們！<br>
+                                                我是穿搭小梨子🍐
+                                            </div>
+                                            <!-- 文章反應 -->
+                                            <div class="article_react">
+                                                <!-- 喜歡數 -->
+                                                <div class="article_like_box">
+                                                    <div class="article_icon_item">
+                                                        <img src="assets/images/icon/like.png" alt="">
+                                                    </div>
+                                                    <div class="article_like_amount">144</div>
+                                                </div>
+                                                <!-- 留言數 -->
+                                                <div class="article_comment_box">
+                                                    <div class="article_icon_item">
+                                                        <img src="assets/images/icon/comment.png" alt="">
+                                                    </div>
+                                                    <div class="article_comment_amount">24</div>
+                                                </div>
+                                                <!-- 收藏 -->
+                                                <div class="article_collect_box">
+                                                    <div class="article_icon_item">
+                                                        <img src="assets/images/icon/save_hov.png" alt="">
+                                                    </div>
+                                                    <div class="article_collect_amount">收藏</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 文章圖片 -->
+                                        <div class="article_pic_box">
+                                            <img src="https://picsum.photos/150/150/?random=16">
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <section class="
+            advertise">
+                <img src="assets/images/homepage_ball.svg" alt="CiMi交友論壇">
+            </section>
+        </div>
+    </div>
+    <section class="lightbox_main_area">
+        <div class="lightbox">
+            <div class="attendance_item_box">
+                <div class="close_icon_box">
+                    <img src="assets/images/icon/close.png" class="close_icon" alt="close">
+                </div>
+                <div class="lightbox_title_box">
+                    <p class="lightbox_title_item">每日簽到</p>
+
+                </div>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第一天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第二天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="">第三天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第四天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第五天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第六天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance_7days_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">第七天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_bonus_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_bonus_item" src="assets/images/attendance_coins_bonus_item.svg">
+                        </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/attendance.js"></script>
+    </section>
+
+    <script src="js/vue.js"></script>
+
+    <!-- 分類頁籤 -->
+    <script>
+        new Vue({
+            el: '#tabs',
+            data: {
+                activetab: '1'
+            },
+        });
+    </script>
+
+    <!-- 幻燈片 Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- 幻燈片 Initialize Swiper -->
+    <script>
+        window.onload = function () {
+            //判斷螢幕寬度
+            var winWide = window.innerWidth; //獲取當前螢幕解析度
+            // alert(winWide);
+            var wideScreen = false;
+            if (winWide >= 992) { //最小寬度 
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 4, //輪播顯示項目數量
+                    spaceBetween: 0,
+                    slidesPerGroup: 1,
+                    loop: true,
+                    loopFillGroupWithBlank: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+            } else {
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                    slidesPerGroup: 1,
+                    loop: true,
+                    loopFillGroupWithBlank: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+            }
+        }
+        window.onresize = function () {
+            //判斷螢幕寬度
+            var winWide = window.innerWidth; //獲取當前螢幕解析度
+            // alert(winWide);
+            var wideScreen = false;
+            if (winWide >= 768) {
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 4,
+                    spaceBetween: 0,
+                    slidesPerGroup: 1,
+                    loop: true,
+                    loopFillGroupWithBlank: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+            } else {
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                    slidesPerGroup: 1,
+                    loop: true,
+                    loopFillGroupWithBlank: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+            }
+        }
+    </script>
+    <script>
+        //alert for one time
+        let alertmessage =
+            "本網站為緯育TibaMe提供給學員展示作品之平台，前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。(https://www.facebook.com/TibaMe)"
+
+
+        // get cookies
+
+        function get_cookie(Name) {
+            var search = Name + "=";
+            var returnvalue = "";
+            if (document.cookie.length > 0) {
+                offset = document.cookie.indexOf(search)
+                if (offset != -1) { // if cookie exists
+                    offset += search.length;
+                    end = document.cookie.indexOf(";", offset);
+                    if (end == -1)
+                        end = document.cookie.length;
+                    returnvalue = document.cookie.substring(offset, end);
+                }
+            }
+            return returnvalue;
+        }
+        if (get_cookie('alerted') != 'yes') {
+            // 著作權聲明
+            alert(alertmessage);
+            // 簽到燈箱
+            document.querySelector(".lightbox").style.display = "block"
+            document.cookie = "alerted=yes";
+        }
+    </script>
+
+    <script src="js/getbillboard.js"></script>
+
+    <script>
+        // console.log(localStorage.getItem('login'));
+        if (sessionStorage.getItem('login') == 'success') {
+            //登入的時候把頭像換掉
+            let mem_head = document.querySelector("img[alt='會員']");
+            mem_head.src = sessionStorage.getItem('mem_head')
+        }
+    </script>
+
+    <!-- <script src="js/template(get_mem_no).js"></script> -->
+
+</body>
+
+</html>

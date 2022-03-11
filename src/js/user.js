@@ -2,7 +2,8 @@
     const searchBar = document.querySelector('.users .search input');
     const searchBtn = document.querySelector('.users .search button');
     const userList = document.querySelector('.users .users_list');
-
+    const users = document.querySelector('.users')
+    const chat_area = document.querySelector('.chat_area')
 
     searchBtn.onclick = () => {
         searchBar.classList.toggle('active');
@@ -10,6 +11,8 @@
         searchBtn.classList.toggle('active');
         searchBar.value = "";
     }
+
+    
 
     /*功能二 : 從好友列表中撈資料寫入userList*/
 
@@ -22,6 +25,8 @@
                 let data = xhr.response;
                 // console.log(data);
                 userList.innerHTML = data;
+                debugger;
+                
             }
         }
     }
@@ -30,8 +35,8 @@
     // }, 500);
 
     /*滾動到底部*/
-    let $chat = $('.chat_area'),
-        $printer = $('.chat_box', $chat),
+    let $chat = $('.chat_area')
+    $printer = $('.chat_box', $chat),
         $textArea = $('textarea', $chat),
         printerH = $printer.innerHeight(),
         preventNewScroll = false;
@@ -45,35 +50,97 @@
         }
     }
 
+    // function do First ========================================W
     /*功能三: 左邊的人點擊之後要換成他的頭像和名字和聊天視窗 */
 
     function doFirst() {
         const users = document.querySelectorAll('.users_list .friends');
         console.log(users);
-
+        let xhr = new XMLHttpRequest();
         for (let i = 0; i < users.length; i++) {
             users[i].addEventListener('click', function (e) {
-
+                rowcount = 0
                 //點當前的人要換背景 => background-color: #EAF3FF;
-
-
+                changeStyle(e);
+                
                 scrollBottom(); // DO IMMEDIATELY
-                changeStyle(e)
                 let user_id = e.currentTarget.lastElementChild.innerText //使用者id
                 let userInfo = document.querySelector('.chat_area header') //右側聊天室header
+                
+
+
+                function getChat() {
+                    let xhr = new XMLHttpRequest(); //建立XHR物件
+                    xhr.onload = () => {
+                        if (xhr.readyState == 4) {
+                            if (xhr.status == 200) {
+                                let res = JSON.parse(xhr.response)
+            
+                                console.log(res.rowcount);
+                                // addDarkmodeWidget()
+            
+                                if (res.rowcount > rowcount) {
+                                    chatBox.innerHTML = res.output;
+                                    chatBox.scrollTop = chatBox.scrollHeight;
+                                    rowcount = res.rowcount
+                                }
+            
+                            }
+                        }
+                    }
+                    xhr.open('POST', 'phps/getchat.php', true)
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send(`id=${user_id}`);
+                }
+
+
 
 
                 //執行ajax
-                xhr = new XMLHttpRequest()
-
+                // xhr = new XMLHttpRequest()
+                xhr.abort();
                 xhr.onload = () => {
                     if (xhr.readyState == 4) {
                         if (xhr.status == 200) {
                             let data = xhr.responseText;
                             userInfo.innerHTML = data;
 
-                            console.log(data);
+
+                            let back = document.getElementById('back')
+                            back.onclick = () => {
+                                const users = document.querySelector('.users')
+                                const chat_area = document.querySelector('.chat_area')
+                                users.style.display = 'block'
+                                chat_area.style.display = 'none'
+
+                            }
+
+                            setInterval(() => {
+                                let xhr = new XMLHttpRequest(); //建立XHR物件
+                                xhr.onload = () => {
+                                    if (xhr.readyState == 4) {
+                                        if (xhr.status == 200) {
+                                            let res = JSON.parse(xhr.response)
+                                            console.log(res.rowcount);
+                                            // addDarkmodeWidget()
+
+                                            if (res.rowcount > rowcount) {
+                                                chatBox.innerHTML = res.output;
+
+                                                chatBox.scrollTop = chatBox.scrollHeight;
+                                                chatBox.onmouseover = (e) => {
+                                                    clearInterval(keyin)
+                                                }
+                                                rowcount = res.rowcount
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }, 500);
+
                         }
+
                     }
                 }
                 xhr.open('POST', 'phps/getusers.php', true)
@@ -82,6 +149,7 @@
             })
         }
     }
+    // ==============================================================================
 
     //換顏色的函式
     function changeStyle(e) {
@@ -95,26 +163,31 @@
         e.currentTarget.style.backgroundColor = '#EAF3FF';
 
         let users = document.querySelector('.users')
-        console.log(users);
-        users.style.display = 'none'
         let chat_area = document.querySelector('.chat_area')
-        chat_area.style.display = 'block'
-        chat_area.style.border = 'none'
+
+        let w = $(window).width();
+        if (w < 768) {
+            chat_area.style.display = 'block'
+            chat_area.style.border = 'none'
+            users.style.display = 'none'
+        }
 
 
     }
     $(document).ready(function () {
         $(window).resize(function () {
             let w = $(window).width();
-            let users = document.querySelector('.users')
-            let chat_area = document.querySelector('.chat_area')
             if (w > 768) {
                 users.style.display = 'block'
                 chat_area.style.display = 'block'
-            }else{
+            } else {
                 chat_area.style.display = 'none'
                 users.style.display = 'block'
+
+
             }
         });
     });
+
+
     window.addEventListener('load', doFirst)

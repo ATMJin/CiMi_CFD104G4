@@ -245,12 +245,17 @@ body{
     border-bottom: 1px solid #8888;
 }
 
-.chat_area header .back_icon {
+
+
+.chat_area header .dark_icon {
     font-size: 18px;
     color: #333;
     position: absolute;
     right: 10px;
     top: -40px;
+}
+.chat_area header #back {
+    display: none;
 }
 
 .chat_area header img {
@@ -306,6 +311,9 @@ body{
     color: #fff;
     border-radius: 18px 18px 0 18px;
     margin: 10px 0;
+    // font-weight: 300;
+    display: flex;
+    align-items: center;
     /* display: inline-block;
     word-wrap:break-word;
     max-width: 400px; */
@@ -344,6 +352,10 @@ body{
     color: #333;
     background-color: #FFFFFF;
     border-radius: 18px 18px 18px 0;
+    // font-weight: 300;
+    display: flex;
+    align-items: center;
+
 }
 
 .incoming .details span {
@@ -370,11 +382,12 @@ body{
 
 .typing_area button {
     width: 55px;
+    height: 34px;
     border: none;
     outline: none;
     @include chatroom;
     color: #fff;
-    font-size: 19px;
+    font-size: 14px;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
@@ -410,5 +423,7 @@ body{
         padding: 20px 2%;
 
     }
-
+    .chat_area header #back {
+        display: block;
+    }
 }

@@ -5,261 +5,266 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
+    <title>我發表的文章 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/member_guide.css">
-    <link rel="stylesheet" href="assets/css/member.css">
+    <link rel="stylesheet" href="assets/css/member_sidebar.css">
     <link rel="stylesheet" href="assets/css/member_article.css">
+    <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
+
     <script src="js/vue.js"></script>
 </head>
 
 <body>
     @@include('layout/header.html')
-    <section class="sidebar_box">
-        <!--會員左側欄開始-->
-        <aside class="sidebar">
-            <div class="member_nav">
 
-                <div class="member_head">
-                    <div class="member_head_img">
-                        <img src="assets/images/icon/nav_member.png" alt="">
-                    </div>
-                    <p>name</p>
-                </div>
-
-                <div class="member_bar">
-                    <a href="member_integral.html">
-                        <div class="member_btn my_integral">
-                            <img src="assets/images/icon/nav_charts.png">
-                            <span>
-                                我的積分 : 30
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_treasure.html">
-                        <div class="member_btn my_treasure">
-                            <img src="assets/images/icon/nav_coin.png">
-                            <span>
-                                我的Mi寶
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_myfriends.html">
-                        <div class="member_btn my_friend">
-                            <img src="assets/images/icon/nav_friend.png">
-                            <span>
-                                我的Mi友
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_my_introduction.html">
-                        <div class="member_btn my_introduction">
-                            <img src="assets/images/icon/nav_card.png">
-                            <span>
-                                配對遊戲介紹
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_article.html">
-                        <div class="member_btn my_article">
-                            <img src="assets/images/icon/nav_post.png">
-                            <span>
-                                我發表的文章
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_order.html">
-                        <div class="member_btn my_order">
-                            <img src="assets/images/icon/nav_billboard.png">
-                            <span>
-                                訂單紀錄
-                            </span>
-                        </div>
-                    </a>
-                    <a href="member_my_setup.html">
-                        <div class="member_btn my_setup">
-                            <img src="assets/images/icon/nav_settings.png">
-                            <span>
-                                設定
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </aside>
-        <!--會員左側欄結束-->
-    </section>
-    <main class="member_main_box">
-        <div class="member_bg">
-            <div class="member_main">
-                <div class="member_head">
-                    <!--手機板內文大標-->
-                </div>
+    <div class="member_content_area">
+        @@include('member_sidebar.html')
+        <main class="member_main_box">
+            <div class="backPage">
+                <button onclick="history.back()">←</button>
             </div>
 
-            <div class="member_main_title">
-                <!--桌機版內文大標-->
+            <div class="member_bg">
+                <div class="member_main">
+                    <div class="member_head">
+                        <!--手機板內文大標-->
+                    </div>
+                </div>
+
+                <div class="member_main_title">
+                    <!--桌機版內文大標-->
+                </div>
+
+                <div class="member_art_text">
+                    <!--內文-->
+                    <div class="article_box">
+                        <!-- 發文者 -->
+                        <div class="article_mem_info">
+                            <div class="article_mem_icon">
+                                <img src="https://fakeimg.pl/12x12/200">
+                            </div>
+                            <div class="article_mem_name">穿搭小天才</div>
+                            <div class="member_articlemore">
+                                <img src="assets/images/icon/more.png" alt="">
+                            </div>
+                        </div>
+                        <!-- 文章標題 -->
+                        <div class="article_container">
+                            <!-- 文章內容 -->
+                            <div class="article_txt_box">
+                                <div class="article_txt_item">
+                                    <!-- 文章標題 -->
+                                    <div class="article_title">穿搭精華區上線啦！！</div>
+                                    <!-- 文章摘要 -->
+                                    <div class="article_summary">
+                                        嗨嗨穿搭板的卡友們！<br>
+                                        我是穿搭穿搭板的穿搭板的小梨子🍐
+                                    </div>
+                                </div>
+
+                                <!-- 文章反應 -->
+                                <div class="article_react">
+                                    <!-- 喜歡數 -->
+                                    <div class="article_like_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/like.png" alt="">
+                                        </div>
+                                        <div class="article_like_amount">144</div>
+                                    </div>
+                                    <!-- 留言數 -->
+                                    <div class="article_comment_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/comment.png" alt="">
+                                        </div>
+                                        <div class="article_comment_amount">24</div>
+                                    </div>
+                                    <!-- 收藏 -->
+                                    <div class="article_collect_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/save_hov.png" alt="">
+                                        </div>
+                                        <div class="article_collect_amount">收藏</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章圖片 -->
+                            <div class="article_pic_box">
+                                <img src="https://picsum.photos/150/150/?random=9">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article_box">
+                        <!-- 發文者 -->
+                        <div class="article_mem_info">
+                            <div class="article_mem_icon">
+                                <img src="https://fakeimg.pl/12x12/200">
+                            </div>
+                            <div class="article_mem_name">穿搭小天才</div>
+                            <div class="member_articlemore">
+                                <img src="assets/images/icon/more.png" alt="">
+                            </div>
+                        </div>
+                        <!-- 文章標題 -->
+                        <div class="article_container">
+                            <!-- 文章內容 -->
+                            <div class="article_txt_box">
+                                <div class="article_txt_item">
+                                    <!-- 文章標題 -->
+                                    <div class="article_title">穿搭精華區上線啦！！</div>
+                                    <!-- 文章摘要 -->
+                                    <div class="article_summary">
+                                        嗨嗨穿搭板的卡友們！<br>
+                                        我是穿搭穿搭板的穿搭板的小梨子🍐
+                                    </div>
+                                </div>
+
+                                <!-- 文章反應 -->
+                                <div class="article_react">
+                                    <!-- 喜歡數 -->
+                                    <div class="article_like_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/like.png" alt="">
+                                        </div>
+                                        <div class="article_like_amount">144</div>
+                                    </div>
+                                    <!-- 留言數 -->
+                                    <div class="article_comment_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/comment.png" alt="">
+                                        </div>
+                                        <div class="article_comment_amount">24</div>
+                                    </div>
+                                    <!-- 收藏 -->
+                                    <div class="article_collect_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/save_hov.png" alt="">
+                                        </div>
+                                        <div class="article_collect_amount">收藏</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章圖片 -->
+                            <div class="article_pic_box">
+                                <img src="https://picsum.photos/150/150/?random=8">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article_box">
+                        <!-- 發文者 -->
+                        <div class="article_mem_info">
+                            <div class="article_mem_icon">
+                                <img src="https://fakeimg.pl/12x12/200">
+                            </div>
+                            <div class="article_mem_name">穿搭小天才</div>
+                            <div class="member_articlemore">
+                                <img src="assets/images/icon/more.png" alt="">
+                            </div>
+                        </div>
+                        <!-- 文章標題 -->
+                        <div class="article_container">
+                            <!-- 文章內容 -->
+                            <div class="article_txt_box">
+                                <div class="article_txt_item">
+                                    <!-- 文章標題 -->
+                                    <div class="article_title">穿搭精華區上線啦！！</div>
+                                    <!-- 文章摘要 -->
+                                    <div class="article_summary">
+                                        嗨嗨穿搭板的卡友們！<br>
+                                        我是穿搭穿搭板的穿搭板的小梨子🍐
+                                    </div>
+                                </div>
+
+                                <!-- 文章反應 -->
+                                <div class="article_react">
+                                    <!-- 喜歡數 -->
+                                    <div class="article_like_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/like.png" alt="">
+                                        </div>
+                                        <div class="article_like_amount">144</div>
+                                    </div>
+                                    <!-- 留言數 -->
+                                    <div class="article_comment_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/comment.png" alt="">
+                                        </div>
+                                        <div class="article_comment_amount">24</div>
+                                    </div>
+                                    <!-- 收藏 -->
+                                    <div class="article_collect_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/save_hov.png" alt="">
+                                        </div>
+                                        <div class="article_collect_amount">收藏</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章圖片 -->
+                            <div class="article_pic_box">
+                                <img src="https://picsum.photos/150/150/?random=5">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article_box">
+                        <!-- 發文者 -->
+                        <div class="article_mem_info">
+                            <div class="article_mem_icon">
+                                <img src="https://fakeimg.pl/12x12/200">
+                            </div>
+                            <div class="article_mem_name">穿搭小天才</div>
+                            <div class="member_articlemore">
+                                <img src="assets/images/icon/more.png" alt="">
+                            </div>
+                        </div>
+                        <!-- 文章標題 -->
+                        <div class="article_container">
+                            <!-- 文章內容 -->
+                            <div class="article_txt_box">
+                                <div class="article_txt_item">
+                                    <!-- 文章標題 -->
+                                    <div class="article_title">穿搭精華區上線啦！！</div>
+                                    <!-- 文章摘要 -->
+                                    <div class="article_summary">
+                                        嗨嗨穿搭板的卡友們！<br>
+                                        我是穿搭穿搭板的穿搭板的小梨子🍐
+                                    </div>
+                                </div>
+
+                                <!-- 文章反應 -->
+                                <div class="article_react">
+                                    <!-- 喜歡數 -->
+                                    <div class="article_like_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/like.png" alt="">
+                                        </div>
+                                        <div class="article_like_amount">144</div>
+                                    </div>
+                                    <!-- 留言數 -->
+                                    <div class="article_comment_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/comment.png" alt="">
+                                        </div>
+                                        <div class="article_comment_amount">24</div>
+                                    </div>
+                                    <!-- 收藏 -->
+                                    <div class="article_collect_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/save_hov.png" alt="">
+                                        </div>
+                                        <div class="article_collect_amount">收藏</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章圖片 -->
+                            <div class="article_pic_box">
+                                <img src="https://picsum.photos/150/150/?random=2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="member_art_text">
-                <!--內文-->
-                <div class="member_art_card">
-                    <!--內文卡片-->
-                    <div class="member_art_more">
-                        <img src="assets/images/icon/more.png" alt="">
-                    </div>
-
-                    <div class="member_card_imgtxt">
-
-                        <div class="member_card_bgbox">
-                            <div class="member_card_artbox">
-                                <div class="cardtxt_label gap">
-                                    <p>閒聊</p>
-                                    <p>12分鐘前</p>
-                                </div>
-
-                                <div class="cardtxt_art gap">
-                                    <h3>【閒聊】麥當勞的限時漢堡</h3>
-                                    <p>有人去吃了嗎?
-                                        香雞大麥克
-                                        無敵大麥克
-                                        好吃嗎?</p>
-                                </div>
-
-                            </div>
-
-                            <div class="cardimg">
-                                <img src="https://picsum.photos/300/200/?random=8">
-                            </div>
-
-                        </div>
-
-                        <div class="cardlike">
-                            <div class="cardsave">
-                                <img src="assets/images/icon/like.png" alt="">223
-                                <img src="assets/images/icon/comment.png" alt="">455
-                                <img src="assets/images/icon/save.png" alt="">收藏
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="member_art_card">
-                    <!--內文卡片-->
-                    <div class="member_art_more">
-                        <img src="assets/images/icon/more.png" alt="">
-                    </div>
-
-                    <div class="member_card_imgtxt">
-
-                        <div class="member_card_bgbox">
-                            <div class="member_card_artbox">
-                                <div class="cardtxt_label gap">
-                                    <p>抽獎</p>
-                                    <p>1星期前</p>
-                                </div>
-
-                                <div class="cardtxt_art gap">
-                                    <h3>【抽獎】抽SOGO禮券$5000</h3>
-                                    <p>抽獎活動開始了，請按愛心+留言</p>
-                                </div>
-
-                            </div>
-
-                            <div class="cardimg">
-                                <img src="https://picsum.photos/300/200/?random=4">
-                            </div>
-
-                        </div>
-
-                        <div class="cardlike">
-                            <div class="cardsave">
-                                <img src="assets/images/icon/like.png" alt="">566
-                                <img src="assets/images/icon/comment.png" alt="">922
-                                <img src="assets/images/icon/save.png" alt="">收藏
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="member_art_card">
-                    <!--內文卡片-->
-                    <div class="member_art_more">
-                        <img src="assets/images/icon/more.png" alt="">
-                    </div>
-
-                    <div class="member_card_imgtxt">
-
-                        <div class="member_card_bgbox">
-                            <div class="member_card_artbox">
-                                <div class="cardtxt_label gap">
-                                    <p>感情</p>
-                                    <p>3小時前</p>
-                                </div>
-
-                                <div class="cardtxt_art gap">
-                                    <h3>【感情】獅子女與天蠍男</h3>
-                                    <p>我們在一起很久了，大概有5年左右...</p>
-                                </div>
-
-                            </div>
-
-                            <div class="cardimg">
-                                <img src="https://picsum.photos/300/200/?random=3">
-                            </div>
-
-                        </div>
-
-                        <div class="cardlike">
-                            <div class="cardsave">
-                                <img src="assets/images/icon/like.png" alt="">53
-                                <img src="assets/images/icon/comment.png" alt="">12
-                                <img src="assets/images/icon/save.png" alt="">收藏
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="member_art_card">
-                    <!--內文卡片-->
-                    <div class="member_art_more">
-                        <img src="assets/images/icon/more.png" alt="">
-                    </div>
-
-                    <div class="member_card_imgtxt">
-
-                        <div class="member_card_bgbox">
-                            <div class="member_card_artbox">
-                                <div class="cardtxt_label gap">
-                                    <p>閒聊</p>
-                                    <p>3秒前</p>
-                                </div>
-
-                                <div class="cardtxt_art gap">
-                                    <h3>【閒聊】現在....</h3>
-                                    <p>就很無聊</p>
-                                </div>
-
-                            </div>
-
-                            <div class="cardimg">
-                                <img src="https://picsum.photos/300/200/?random=9">
-                            </div>
-
-                        </div>
-
-                        <div class="cardlike">
-                            <div class="cardsave">
-                                <img src="assets/images/icon/like.png" alt="">1
-                                <img src="assets/images/icon/comment.png" alt="">1
-                                <img src="assets/images/icon/save.png" alt="">收藏
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>

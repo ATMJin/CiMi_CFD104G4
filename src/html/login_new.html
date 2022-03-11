@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login_new</title>
+    <link rel="stylesheet" href="assets/css/login_new.css">
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Vue -->
+    <script src="js/vue.js"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <!-- 頂部header -->
+    @@include('layout/header.html')
+
+    <!-- 登入頁面 -->
+    <div id="app">
+        <div class="content_area">
+
+            <div class="logo">
+                <div class="pic">
+                    <!-- <img src="assets/images/login_blue_ball.jpg" alt=""> -->
+
+                </div>
+            </div>
+
+            <main class="login_area">
+                <div class="wrapper">
+                    <img src="assets/images/blue_ball.png" alt="" class="blue_ball">
+                    <img src="assets/images/pink_ball.png" alt="" class="pink_ball">
+                    <div class="control_tab">
+                        <input type="radio" class="nav_tab tab_switch" id="css_tabs01" name="css_tabs" checked />
+                        <label class="v_tab" @click="content='login'" for="css_tabs01">登入</label>
+
+                        <input type="radio" class="nav_tab tab_switch" id="css_tabs02" name="css_tabs">
+                        <label class="v_tab" @click="content='register'" for="css_tabs02">註冊</label>
+                    </div>
+
+
+                    <div class="tab_content">
+                        <component :is="content"></component>
+
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+
+
+    <!-- 登入註冊的Vue -->
+    <script>
+        Vue.component('login', {
+            template: `
+            <section class="form login">
+                <header>會員登入</header>
+                <form action="#" enctype="multipart/form-data" @submit.prevent>
+                    <div class="field input">
+                        <label>帳號</label>
+                        <input type="text" placeholder="請輸入帳號" name="mem_id" id="mem_id" required="required">
+                    </div>
+                    <div class="field input">
+                        <label>密碼</label>
+                        <input type="password" placeholder="請輸入密碼" name="mem_psw" autocomplete="on" id="mem_psw" required="required">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                        <div class="button">
+                            <input type="submit" value="登入" id="login">
+                        </div>
+                </form>  
+            </section>
+
+            `,
+            mounted() {
+                /*功能一 : 點擊小眼睛, 顯示使用者輸入之密碼*/
+                let pswField = document.querySelector('.form input[type="password"]');
+                const toogleBtn = document.querySelector('.form .field i');
+
+                toogleBtn.onclick = () => {
+                    if (pswField.type == 'password') {
+                        pswField.type = 'text';
+                        toogleBtn.classList.add('active');
+                    } else {
+                        pswField.type = 'password';
+                        toogleBtn.classList.remove('active');
+                    }
+                }
+
+
+
+            },
+
+
+
+        });
+
+        Vue.component('register', {
+            template: `
+            <section class="form signup">
+                <header>會員註冊</header>
+                <form action="phps/register copy.php" method="post">
+                <div class="field input" >
+                    <label>帳號</label>
+                    <input type="text" name="mem_id" placeholder="請輸入帳號" required="required" id="mem_id">
+                </div>
+                <div class="field input">
+                    <label>密碼</label>
+                    <input type="password" name="mem_psw" placeholder="請輸入密碼" required="required" autocomplete="on" >
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="field input">
+                    <label>名稱</label>
+                    <input type="text" name="mem_name" placeholder="請輸入名稱" required="required">
+                </div>
+                <div class="field input">
+                    <label>生日</label>
+                    <input type="date" name="mem_birth" min="1900-01-01" required="required" id="birth"/>
+                </div>
+                <div class="field input">
+                    <label>信箱</label>
+                    <input type="text" name="mem_mail" placeholder="請輸入信箱" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                </div>
+                
+                <div class="field">
+                    <span>感興趣的看版</span>
+                    <div class="field select">
+                        <select name="board1" id="board1" >
+                            <option :value="index" v-for="(board, index) in boards">{{board}}</option>
+                        </select>
+                    </div>
+
+                    <div class="field select">
+                        <select name="board2" id="board2">
+                            <option :value="index" v-for="(board, index) in boards">{{board}}</option>
+                        </select>
+                    </div>
+                  
+                    <div class="field select">
+                        <select name="board3" id="board3">
+                            <option :value="index" v-for="(board, index) in boards">{{board}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="註冊" id="register">
+                </div>
+            </form>
+        </section>
+            
+            `,
+            data() {
+                return {
+                    boards: ['美妝', '感情', '星座', '運動', '投資', '3C'],
+
+                }
+            },
+            mounted() {
+                // 點擊小眼睛, 顯示使用者輸入之密碼
+                let pswField = document.querySelector('.form input[type="password"]');
+                const toogleBtn = document.querySelector('.form .field i');
+
+                toogleBtn.onclick = () => {
+                    if (pswField.type == 'password') {
+                        pswField.type = 'text';
+                        toogleBtn.classList.add('active');
+                    } else {
+                        pswField.type = 'password';
+                        toogleBtn.classList.remove('active');
+                    }
+                }
+                // 讓date欄位max為今天
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1; //January is 0!
+                var yyyy = today.getFullYear();
+                if (dd < 10) {
+                    dd = '0' + dd
+                }
+                if (mm < 10) {
+                    mm = '0' + mm
+                }
+
+                today = yyyy + '-' + mm + '-' + dd;
+                document.getElementById("birth").setAttribute("max", today);
+
+                // 驗證使用者名稱是否存在 
+
+                let mem_id = document.getElementById('mem_id'); //獲取使用者控制元件
+                mem_id.onblur = function () { //當用戶離開當前文字框的時行驗證
+                    console.log(mem_id.value);
+                    //1.建立Ajax物件
+                    let xhr = new XMLHttpRequest();
+                    //2.建立請求事件的監聽
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            if (xhr.response == 0) { //當前使用者存在
+                                alert('當前註冊帳號已存在')
+                                document.getElementById('register').disabled = true;
+                            }else{
+                                alert('當前帳號可使用')
+                                document.getElementById('register').disabled = false;
+                            }
+                        }
+                    }
+
+                    //3.初始化一個url請求
+                    var url = 'phps/memid_verify.php';
+                    xhr.open('post', url, true); //請求型別為post，互動方式為非同步
+
+                    //4.設定請求頭
+                    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+
+                    //5.傳送url請求,需要傳入引數
+                    xhr.send(`mem_id=${mem_id.value}`);
+                }
+
+            }
+
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                content: 'login'
+            }
+        })
+    </script>
+
+    <!-- Login & Register JS -->
+    <script src="js/login.js"></script>
+    <!-- <script src="js/register.js"></script>  -->
+
+
+</body>
+</html>

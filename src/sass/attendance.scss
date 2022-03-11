@@ -1,10 +1,17 @@
   //引入共用sass ; 如: reset/common/header(上方選單)/sidebar(側邊欄) => 可以自行看自己葉面需要那些sass檔
-  @import "./layout/reset";
-  @import "./layout/common";
-  @import "./layout/header";
-  @import "./layout/sidebar";
+  //   @import "./layout/reset";
+  //   @import "./layout/common";
+  //   @import "./layout/header";
+  //   @import "./layout/sidebar";
 
   //---------------------------從此開始寫自己頁面的sass----------------------------------------------
+
+  @mixin PC {
+      @media screen and (min-width:768px) {
+          @content;
+      }
+  }
+
   .lightbox {
       position: fixed;
       top: 0;
@@ -13,21 +20,31 @@
       height: 100%;
       background: rgba(66, 66, 66, .6);
       z-index: 3000;
+      display: none;
 
       .attendance_item_box {
           position: absolute;
-          width: 800px;
-          height: 540px;
-          top: 50%;
-          left: 50%;
-          margin-left: -400px;
-          margin-top: -270px;
+          width: 90vw;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: auto;
           background-color: #cfcec6;
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
           padding: 10px;
           border-radius: 10px;
+          height: 400px;
+
+
+          @include PC() {
+              position: absolute;
+              width: 800px;
+              height: 540px;
+              padding: 20px;
+          }
 
           .close_icon_box {
               position: absolute;
@@ -43,18 +60,28 @@
               width: 100%;
               text-align: center;
               color: #164470;
-              font-weight: 700;
+              font-weight: 500;
               padding-top: 15px;
 
               .lightbox_title_item {
-                  font-size: var(--title);
+                  font-size: var(--subtitle1);
+
+                  @include PC () {
+                      font-size: var(--title);
+                  }
               }
+
           }
 
           .attendance_item {
-              width: calc(25% - 20px);
-              margin: 10px;
+              width: calc(25% - 10px);
+              margin: 5px;
               border-radius: 10px;
+
+              @include PC() {
+                  width: calc(25% - 20px);
+                  margin: 10px;
+              }
 
               .attendance_title_box {
                   background-color: #164470;
@@ -64,7 +91,11 @@
                   text-align: center;
 
                   .attendance_title_item {
-                      font-size: var(--subtitle2);
+                      font-size: var(--body2);
+
+                      @include PC () {
+                          font-size: var(--subtitle1);
+                      }
                   }
               }
 
@@ -73,38 +104,58 @@
                   justify-content: center;
                   align-items: center;
                   border-radius: 0 0 10px 10px;
-                  height: 160px;
+                  height: 80px;
                   background-color: #fff;
                   position: relative;
 
+                  @include PC() {
+                      height: 140px;
+                  }
+
                   .img_box {
-                      width: 80px;
-                      padding: 0 10px;
+                      width: 40px;
+                      padding: 0 5px;
+
+                      @include PC() {
+                          width: 80px;
+                          padding: 0 10px;
+                      }
 
                       .check_item {
                           position: absolute;
-                          top: 50%;
-                          left: 50%;
-                          margin-top: -40px;
-                          margin-left: -40px;
-                          width: 80px;
+                          top: 0;
+                          left: 0;
+                          right: 0;
+                          bottom: 0;
+                          margin: auto;
+                          width: 40px;
                           display: none;
+
+                          @include PC() {
+                              width: 80px;
+                          }
                       }
 
                       .coins_item {
                           display: block;
+                          margin-right: -12px;
                       }
                   }
 
                   .txt_box {
                       color: #5E5E5E;
-                      font-weight: 700;
+                      font-weight: 500;
                       padding: 0 10px;
                       box-sizing: border-box;
                       display: block;
 
                       .coins_amount {
-                          font-size: var(--subtitle1);
+                          font-size: var(--body1);
+
+                          @include PC () {
+                              font-size: var(--subtitle1);
+                          }
+
                       }
                   }
 
@@ -112,9 +163,14 @@
           }
 
           .attendance_7days_item {
-              width: calc(50% - 20px);
-              margin: 10px;
+              width: calc(50% - 10px);
+              margin: 5px;
               border-radius: 10px;
+
+              @include PC() {
+                  width: calc(50% - 20px);
+                  margin: 10px;
+              }
 
               .attendance_title_box {
                   background-color: #164470;
@@ -124,7 +180,11 @@
                   text-align: center;
 
                   .attendance_title_item {
-                      font-size: var(--subtitle2);
+                      font-size: var(--body2);
+
+                      @include PC () {
+                          font-size: var(--subtitle1);
+                      }
                   }
               }
 
@@ -133,22 +193,42 @@
                   justify-content: center;
                   align-items: center;
                   border-radius: 0 0 10px 10px;
-                  height: 160px;
+                  height: 80px;
                   background-color: #fff;
                   position: relative;
 
+                  @include PC() {
+                      height: 140px;
+                  }
+
+
+
                   .img_bonus_box {
-                      width: 150px;
+                      width: 120px;
                       padding: 10px 0 5px 25px;
+
+                      @include PC() {
+                          width: 150px;
+                          padding: 10px 0 5px 25px;
+                      }
 
                       .check_item {
                           position: absolute;
-                          top: 50%;
-                          left: 50%;
-                          margin-top: -40px;
-                          margin-left: -40px;
-                          width: 80px;
+                          top: 0;
+                          left: 0;
+                          right: 0;
+                          bottom: 0;
+                          margin: auto;
+                          width: 40px;
                           display: none;
+
+                          @include PC() {
+                              width: 80px;
+                          }
+
+                          img {
+                              width: 100%;
+                          }
                       }
 
                       .coins_item {
@@ -158,12 +238,17 @@
 
                   .txt_box {
                       color: #5E5E5E;
-                      font-weight: 700;
+                      font-weight: 500;
                       padding: 0 10px;
                       box-sizing: border-box;
 
                       .coins_amount {
-                          font-size: var(--subtitle1);
+                          font-size: var(--body1);
+
+                          @include PC () {
+                              font-size: var(--subtitle1);
+                          }
+
                       }
                   }
 
