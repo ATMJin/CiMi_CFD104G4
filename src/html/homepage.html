@@ -534,6 +534,9 @@
             data: {
                 activetab: '1'
             },
+            mounted() {
+
+            },
         });
     </script>
 
@@ -541,8 +544,9 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- 幻燈片 Initialize Swiper -->
-    <script>
-        window.onload = function () {
+    <!-- <script>
+        let myLoad = function () {
+            alert(123);
             //判斷螢幕寬度
             var winWide = window.innerWidth; //獲取當前螢幕解析度
             // alert(winWide);
@@ -581,6 +585,7 @@
                 });
             }
         }
+        window.addEventListener("load", myLoad);
         window.onresize = function () {
             //判斷螢幕寬度
             var winWide = window.innerWidth; //獲取當前螢幕解析度
@@ -620,7 +625,7 @@
                 });
             }
         }
-    </script>
+    </script> -->
     <script>
         //alert for one time
         let alertmessage =
