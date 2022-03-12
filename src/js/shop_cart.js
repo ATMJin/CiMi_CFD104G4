@@ -35,17 +35,25 @@ Vue.component("shopping-cart-title", {
 Vue.component('shopping-cart-goods-box', {
   data() {
     return {
-      price: 200,
       count: 0,
     };
   },
+  props: ["good"],
   computed: {
     total() {
       return this.price * this.count;
     },
-    imgrandom() {
-      let r = Math.floor(Math.random() * 10)
-      return `https://picsum.photos/300/300/?random=${r}`;
+    goods_no() {
+      return this.good.goods_no
+    },
+    goods_pic() {
+      return this.good.goods_pic1
+    },
+    price() {
+      return this.good.goods_price
+    },
+    goods_name() {
+      return this.good.goods_name
     },
   },
   methods: {
@@ -61,6 +69,18 @@ Vue.component('shopping-cart-goods-box', {
     },
     sendPrice(x) {
       bus.$emit('send', x); // 自訂事件
+    },
+    addLoveGoods() {
+      let mem_no = sessionStorage.getItem('mem_no')
+      if (!mem_no) {
+        alert("您還未登入")
+      } else {
+        fetch(
+          `./phps/shoping_cart.php?case=addLoveGoods&mem_no=${mem_no}&goods_no=${this.goods_no}`
+        ).catch(err => console.log(err));
+        // FIXME 反註解
+        // alert("加入商品收藏成功")
+      }
     },
     rmProduct(e) {
       // 尋找刪除鍵所在的商品欄
@@ -85,7 +105,7 @@ Vue.component('shopping-cart-goods-box', {
     <div class="information_box">
       <!-- 商品照 -->
       <div class="img_box">
-        <img :src="imgrandom">
+        <img :src="goods_pic">
       </div>
     </div>
 
@@ -93,7 +113,7 @@ Vue.component('shopping-cart-goods-box', {
     <div class="information_item_box">
       <!-- 商品資訊 -->
       <div class="product_txt_box">
-        <p>推薦|玫瑰花</p>
+        <p>{{goods_name}}</p>
       </div>
 
       <div class="counter_box">
@@ -123,7 +143,7 @@ Vue.component('shopping-cart-goods-box', {
       <!-- <p>操作</p> -->
       <div class="move_box">
         <p @click="this.rmProduct" class="rm_product">移除商品</p>
-        <p @click="" class="love_it">加入收藏</p>
+        <p @click="this.addLoveGoods" class="love_it">加入收藏</p>
       </div>
     </div>
   </div>
@@ -155,13 +175,16 @@ Vue.component("total-box", {
 
 
 Vue.component("shopping-car", {
+  data() {
+    return {
+      goods: [],
+    }
+  },
   template: `
   <div class="shopping_car_box">
     <!-- 商品項目 -->
     <section class="shopping_cart_goods">
-      <shopping-cart-goods-box></shopping-cart-goods-box>
-      <shopping-cart-goods-box></shopping-cart-goods-box>
-      <shopping-cart-goods-box></shopping-cart-goods-box>
+      <shopping-cart-goods-box v-for="good in goods" :key="good.goods_no" :good="good"></shopping-cart-goods-box>
     </section>
 
     <!-- 計算總額 -->
@@ -174,14 +197,58 @@ Vue.component("shopping-car", {
 Vue.component('love-list-box', {
   data() {
     return {
-      price: 200,
       count: 0,
     };
   },
+  props: ["good"],
   computed: {
     imgrandom() {
       let r = Math.floor(Math.random() * 10)
       return `https://picsum.photos/300/300/?random=${r}`;
+    },
+    goods_no() {
+      return this.good.goods_no
+    },
+    goods_pic() {
+      return this.good.goods_pic1
+    },
+    price() {
+      return this.good.goods_price
+    },
+    goods_name() {
+      return this.good.goods_name
+    },
+  },
+  methods: {
+    rmProduct(e) {
+      // 尋找刪除鍵所在的商品欄
+      let par = e.target.parentNode.parentNode.parentNode.parentNode;
+      // 刪除商品欄
+      par.remove()
+      this.sendPrice(-(this.price * this.count));
+
+      // 計算剩餘商品欄數量
+      let countP = document.querySelectorAll(".shopping_cart_goods_box")
+      // 出現吉祥物
+      if (countP.length == 0) {
+        document.querySelector(".nothing_goods_box").style.display = "block"
+        document.querySelector(".total_box").style.display = "none"
+      }
+    },
+    addShoppingCart() {
+      let goods_no = sessionStorage.getItem("ShoppingCart_goods_no")
+      if (!goods_no) {
+        sessionStorage.setItem("ShoppingCart_goods_no", this.goods_no)
+        console.log(sessionStorage.getItem("ShoppingCart_goods_no"));
+      } else {
+        if (!(goods_no.split(",").includes(`${this.goods_no}`))) {
+          goods_no += `,${this.goods_no}`
+          sessionStorage.setItem("ShoppingCart_goods_no", goods_no)
+        }
+        console.log(sessionStorage.getItem("ShoppingCart_goods_no"));
+      }
+      // FIXME 反註解
+      // alert("成功加入購物車")
     },
   },
   template: `
@@ -191,7 +258,7 @@ Vue.component('love-list-box', {
     <div class="information_box">
       <!-- 商品照 -->
       <div class="img_box">
-        <img :src="imgrandom">
+        <img :src="goods_pic">
       </div>
     </div>
 
@@ -199,7 +266,7 @@ Vue.component('love-list-box', {
     <div class="information_item_box">
       <!-- 商品資訊 -->
       <div class="product_txt_box">
-        <p>推薦|玫瑰花</p>
+        <p>{{goods_name}}</p>
       </div>
 
       <div class="counter_box">
@@ -214,8 +281,8 @@ Vue.component('love-list-box', {
     <div class="txt_box dosometing_box">
       <!-- <p>操作</p> -->
       <div class="move_box">
-        <p class="rm_product">移除商品</p>
-        <p class="love_it">加入購物車</p>
+        <p class="rm_product" @click="this.rmProduct">移除商品</p>
+        <p class="love_it" @click="this.addShoppingCart">加入購物車</p>
       </div>
     </div>
   </div>
@@ -224,12 +291,35 @@ Vue.component('love-list-box', {
 });
 
 Vue.component("love-list", {
+  data() {
+    return {
+      goods: [],
+    }
+  },
+  methods: {
+    getLoveGoods() {
+      let mem_no = sessionStorage.getItem('mem_no')
+      fetch(
+          `./phps/shoping_cart.php?case=getLoveGoods&mem_no=${mem_no}`
+        )
+        // .then(res => console.log(res))
+        .then(res => res.json())
+        .then(res => {
+          // console.log(res);
+          this.goods = res;
+        })
+        .catch(error =>
+          console.log(error.message));
+    },
+  },
+  mounted() {
+    this.getLoveGoods()
+  },
   template: `
   <div class="shopping_car_box">
     <!-- 商品項目 -->
     <section class="shopping_cart_goods">
-      <love-list-box></love-list-box>
-      <love-list-box></love-list-box>
+      <love-list-box v-for="good in goods" :key="good.goods_no" :good="good"></love-list-box>
     </section>
   </div>
   `,
@@ -271,9 +361,7 @@ Vue.component("shopping-cart", {
     <!-- 購物車最上面的title header -->
     <shopping-cart-title></shopping-cart-title>
     
-    <keep-alive>
       <component :is="this.componentId"></component>
-    </keep-alive>
 
     <!-- 吉祥物 -->
     <nothing-goods-box/>
@@ -285,8 +373,6 @@ Vue.component("shopping-cart", {
 new Vue({
   el: '#shoppingApp',
   data: {
-    count: 0,
-    price_total: 0,
     componentId: "shopping-car",
   },
   methods: {
@@ -297,9 +383,6 @@ new Vue({
     switchLoveList() {
       this.componentId = 'love-list';
     },
-  },
-  mounted() {
-    window.addEventListener("load", () => {})
   },
 });
 Vue.config.devtools = true;

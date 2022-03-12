@@ -8,7 +8,7 @@ $shopcase=$_GET["case"];
   
 switch ($shopcase) {
   case "getGoodsInfo":
-    $sql = "SELECT goods_no,goods_name,goods_price,goods_pic1 FROM goods;"; 
+    $sql = "SELECT goods_no,goods_name,goods_price,goods_pic1 FROM goods WHERE goods_no IN ({$_GET['goods_no']});"; 
     $goods = $pdo->query($sql);
     $goodsRows = $goods->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($goodsRows);
