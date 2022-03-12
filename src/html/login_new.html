@@ -19,11 +19,8 @@
 
 <body>
 
-
-    @@include('layout/header.html')
-
-
     <!-- 頂部header -->
+    @@include('layout/header.html')
 
     <!-- 登入頁面 -->
     <div id="app">
@@ -41,7 +38,7 @@
                     <img src="assets/images/blue_ball.png" alt="" class="blue_ball">
                     <img src="assets/images/pink_ball.png" alt="" class="pink_ball">
                     <div class="control_tab">
-                        <input type="radio" class="nav_tab tab_switch" id="css_tabs01" name="css_tabs" checked/>
+                        <input type="radio" class="nav_tab tab_switch" id="css_tabs01" name="css_tabs" checked />
                         <label class="v_tab" @click="content='login'" for="css_tabs01">登入</label>
 
                         <input type="radio" class="nav_tab tab_switch" id="css_tabs02" name="css_tabs">
@@ -53,7 +50,7 @@
                         <component :is="content"></component>
 
                     </div>
-                    
+
                 </div>
 
             </main>
@@ -62,7 +59,7 @@
 
 
 
-
+    <!-- 登入註冊的Vue -->
     <script>
         Vue.component('login', {
             template: `
@@ -112,8 +109,8 @@
             template: `
             <section class="form signup">
                 <header>會員註冊</header>
-                <form action="phps/register.php" method="post" id="registerForm" @submit.prevent>
-                <div class="field input">
+                <form action="phps/register copy.php" method="post">
+                <div class="field input" >
                     <label>帳號</label>
                     <input type="text" name="mem_id" placeholder="請輸入帳號" required="required" id="mem_id">
                 </div>
@@ -197,7 +194,39 @@
 
                 today = yyyy + '-' + mm + '-' + dd;
                 document.getElementById("birth").setAttribute("max", today);
-            },
+
+                // 驗證使用者名稱是否存在 
+
+                let mem_id = document.getElementById('mem_id'); //獲取使用者控制元件
+                mem_id.onblur = function () { //當用戶離開當前文字框的時行驗證
+                    console.log(mem_id.value);
+                    //1.建立Ajax物件
+                    let xhr = new XMLHttpRequest();
+                    //2.建立請求事件的監聽
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            if (xhr.response == 0) { //當前使用者存在
+                                alert('當前註冊帳號已存在')
+                                document.getElementById('register').disabled = true;
+                            }else{
+                                alert('當前帳號可使用')
+                                document.getElementById('register').disabled = false;
+                            }
+                        }
+                    }
+
+                    //3.初始化一個url請求
+                    var url = 'phps/memid_verify.php';
+                    xhr.open('post', url, true); //請求型別為post，互動方式為非同步
+
+                    //4.設定請求頭
+                    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+
+                    //5.傳送url請求,需要傳入引數
+                    xhr.send(`mem_id=${mem_id.value}`);
+                }
+
+            }
 
         });
 
@@ -209,32 +238,10 @@
         })
     </script>
 
+    <!-- Login & Register JS -->
     <script src="js/login.js"></script>
-
-    <script>
-        // let tabs = document.querySelectorAll('.v_tab')
-        // console.log(tabs);
-        // for (let i = 0; i < tabs.length; i++) {
-        //     tabs[i].onclick = (e) => {
-        //         let child = $(e.Target).siblings('div')
-        //         let item = Array.from(child);
-        //         console.log(item);
-        //         for (i = 0; i < item.length; i++) {
-        //             item[i].style.backgroundColor = 'white'
-        //         }
-        //         e.currentTarget.style.backgroundColor = '#EAF3FF'
-        //     }
-        // }
-    </script>
-    <!-- <script src="js/register.js"></script> -->
-
-
-    <script>
-
-    </script>
-
+    <!-- <script src="js/register.js"></script>  -->
 
 
 </body>
-
 </html>

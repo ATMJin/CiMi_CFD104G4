@@ -3,6 +3,15 @@
 @import "./layout/header";
 @import "./layout/sidebar";
 
+// 側邊欄顏色
+.sidebar_box .sidebar .sidebar_list a[href="member.html"] {
+    color: #fff;
+    text-shadow:0 0 5px rgb(77, 68, 202);
+  }
+.sidebar .sidebar_list a img[alt="會員專區"] {
+    filter: invert(100%);
+  }
+
 /* 會員左側欄開始 */
 .top_bar_box{
     top: 0;

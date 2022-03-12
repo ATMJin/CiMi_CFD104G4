@@ -8,8 +8,8 @@
     <title>CiMi交友論壇</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/slider.css">
-    <link rel="stylesheet" href="assets/css/index_article.css">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/homepage_article.css">
+    <link rel="stylesheet" href="assets/css/homepage.css">
     <link rel="stylesheet" href="assets/css/attendance.css">
 </head>
 
@@ -20,18 +20,18 @@
             @@include('layout/sidebar.html')
             <main class="main_area">
                 <div class="hot_billboard">
-                    <h2>熱門看版排行</h2>
-                    <div class="swiper_container">
+                    <!-- <h2>熱門看版排行</h2> -->
+                    <!-- <div class="swiper_container">
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="hot_article_wrap">
                                         <div class="hot_article_pic">
                                             <a href="article_all.html"><img
-                                                    src="assets/images/bilboard_pic_relation.png"></a>
+                                                    src="assets/images/bilboard_pic_relation.jpg"></a>
                                         </div>
                                         <div class="hot_article_txt">
-                                            <h2>情感生活</h2>
+                                            <h2>1</h2>
                                         </div>
                                         <button class="btn-secondary">追蹤</button>
                                     </div>
@@ -40,10 +40,10 @@
                                     <div class="hot_article_wrap">
                                         <div class="hot_article_pic">
                                             <a href="article_all.html"><img
-                                                    src="assets/images/bilboard_pic-makeup.png"></a>
+                                                    src="assets/images/bilboard_pic-makeup.jpg"></a>
                                         </div>
                                         <div class="hot_article_txt">
-                                            <h2>美妝保養</h2>
+                                            <h2>2</h2>
                                         </div>
                                         <button class="btn-secondary">追蹤</button>
                                     </div>
@@ -52,10 +52,10 @@
                                     <div class="hot_article_wrap">
                                         <div class="hot_article_pic">
                                             <a href="article_all.html"><img
-                                                    src="assets/images/billboard_pic_car.png"></a>
+                                                    src="assets/images/billboard_pic_car.jpg"></a>
                                         </div>
                                         <div class="hot_article_txt">
-                                            <h2>旅遊踏青</h2>
+                                            <h2>青</h2>
                                         </div>
                                         <button class="btn-secondary">追蹤</button>
                                     </div>
@@ -64,10 +64,10 @@
                                     <div class="hot_article_wrap">
                                         <div class="hot_article_pic">
                                             <a href="article_all.html"><img
-                                                    src="assets/images/bilboar_pic_music.png"></a>
+                                                    src="assets/images/bilboar_pic_music.jpg"></a>
                                         </div>
                                         <div class="hot_article_txt">
-                                            <h2>好聽音樂</h2>
+                                            <h2>好樂</h2>
                                         </div>
                                         <button class="btn-secondary">追蹤</button>
                                     </div>
@@ -76,10 +76,10 @@
                                     <div class="hot_article_wrap">
                                         <div class="hot_article_pic">
                                             <a href="article_all.html"><img
-                                                    src="assets/images/bilboard_pic_sport.png"></a>
+                                                    src="assets/images/bilboard_pic_sport.jpg"></a>
                                         </div>
                                         <div class="hot_article_txt">
-                                            <h2>運動健身</h2>
+                                            <h2>身</h2>
                                         </div>
                                         <button class="btn-secondary">追蹤</button>
                                     </div>
@@ -88,10 +88,10 @@
                                     <div class="hot_article_wrap">
                                         <div class="hot_article_pic">
                                             <a href="article_all.html"><img
-                                                    src="assets/images/bilboard_pic_clothing.png"></a>
+                                                    src="assets/images/bilboard_pic_clothing.jpg"></a>
                                         </div>
                                         <div class="hot_article_txt">
-                                            <h2>穿搭時尚</h2>
+                                            <h2>穿尚</h2>
                                         </div>
                                         <button class="btn-secondary">追蹤</button>
                                     </div>
@@ -102,7 +102,7 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="save_area">
@@ -112,7 +112,7 @@
                             <li>
                                 <a href="article_all.html">
                                     <div class="pic_box">
-                                        <img src="assets/images/billboard_square_cloth.png">
+                                        <img src="assets/images/billboard_square_cloth.jpg">
                                     </div>
                                     <div class="billboard_txt">
                                         <h2>穿搭時尚</h2>
@@ -122,7 +122,7 @@
                             <li>
                                 <a href="article_all.html">
                                     <div class="pic_box">
-                                        <img src="assets/images/billboard_square_sport.png">
+                                        <img src="assets/images/billboard_square_sport.jpg">
                                     </div>
                                     <div class="billboard_txt">
                                         <h2>運動健身</h2>
@@ -403,7 +403,7 @@
             </main>
             <section class="
             advertise">
-                <img src="assets/images/index_ball.svg" alt="CiMi交友論壇">
+                <img src="assets/images/homepage_ball.svg" alt="CiMi交友論壇">
             </section>
         </div>
     </div>
@@ -652,6 +652,20 @@
             document.cookie = "alerted=yes";
         }
     </script>
+
+    <script src="js/getbillboard.js"></script>
+
+    <script>
+        // console.log(localStorage.getItem('login'));
+        if (sessionStorage.getItem('login') == 'success') {
+            //登入的時候把頭像換掉
+            let mem_head = document.querySelector("img[alt='會員']");
+            mem_head.src = sessionStorage.getItem('mem_head')
+        }
+    </script>
+
+    <!-- <script src="js/template(get_mem_no).js"></script> -->
+
 </body>
 
 </html>

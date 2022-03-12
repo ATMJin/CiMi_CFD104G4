@@ -4,6 +4,15 @@
 @import "layout/header";
 @import "layout/sidebar";
 
+// 側邊欄顏色
+.sidebar_box .sidebar .sidebar_list a[href="billboard.html"] {
+    color: #fff;
+    text-shadow:0 0 5px rgb(77, 68, 202);
+  }
+.sidebar .sidebar_list a img[alt="所有看版"] {
+    filter: invert(100%);
+  }
+
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
 $billboard_pic_phone_width: 78%;
 
