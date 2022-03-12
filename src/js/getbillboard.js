@@ -1,29 +1,8 @@
-function saveBoard() {
-  let save_boards = document.querySelectorAll('.billboard_text li a');
-
-  // GET
-  let xhr = new XMLHttpRequest();
-  xhr.open("get", `phps/getbillboard.php?case=1`, true);
-  xhr.send(null);
-
-  xhr.onload = function () {
-    // 接收PHP傳來的資料
-    save_billboard = JSON.parse(xhr.responseText);
-    save_boards[0].innerText = save_billboard[0].billboard_name;
-    for (let i = 0; i < save_boards.length; i++) {
-      // console.log(save_billboard[i].billboard_name);
-      save_boards[i].innerText = save_billboard[i].billboard_name;
-    }
-  }
-}
-
-
 //熱門看板
-
 function hotBoard() {
 
   let hot_boards = document.querySelectorAll('.hot_article_txt H2');
-  // console.log(hot_boards)
+  console.log(hot_boards)
 
   // GET
   let xhr = new XMLHttpRequest();
@@ -132,12 +111,12 @@ function hotBoard() {
     `
     hot.innerHTML = template;
 
-    window.onload = function () {
+    let myLoad = function () {
       //判斷螢幕寬度
       var winWide = window.innerWidth; //獲取當前螢幕解析度
       // alert(winWide);
       var wideScreen = false;
-      if (winWide >= 992) { //最小寬度 
+      if (winWide >= 768) { //最小寬度 
         var swiper = new Swiper(".mySwiper", {
           slidesPerView: 4, //輪播顯示項目數量
           spaceBetween: 0,
@@ -171,6 +150,7 @@ function hotBoard() {
         });
       }
     }
+    myLoad();
     window.onresize = function () {
       //判斷螢幕寬度
       var winWide = window.innerWidth; //獲取當前螢幕解析度
@@ -209,6 +189,27 @@ function hotBoard() {
           },
         });
       }
+    }
+  }
+}
+
+// 收藏看版
+
+function saveBoard() {
+  let save_boards = document.querySelectorAll('.billboard_text li a');
+
+  // GET
+  let xhr = new XMLHttpRequest();
+  xhr.open("get", `phps/getbillboard.php?case=1`, true);
+  xhr.send(null);
+
+  xhr.onload = function () {
+    // 接收PHP傳來的資料
+    save_billboard = JSON.parse(xhr.responseText);
+    save_boards[0].innerText = save_billboard[0].billboard_name;
+    for (let i = 0; i < save_boards.length; i++) {
+      // console.log(save_billboard[i].billboard_name);
+      save_boards[i].innerText = save_billboard[i].billboard_name;
     }
   }
 }
