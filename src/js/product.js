@@ -14,9 +14,11 @@ window.addEventListener("load", () => {
         // console.log(xhr.responseText);
         console.table(allgoods);
         //撈照片
-        let img = document.querySelectorAll(".new_goods_information .item_new_product .items .item .img_box img")
-        //撈產品//撈價格
-        let txt = document.querySelectorAll(".new_goods_information .item_new_product .items .item .txt_box p:first-child")
+        let img = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_body .js-card-bg ag-card-bg")
+        //撈產品
+        let txt = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_footer span:first-child")
+        //撈價格
+        let pri = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_footer span:nth-child(2)")
         // 跑迴圈
         for (let i = 0; i < txt.length; i++) {
             // i從第幾個開始
@@ -71,8 +73,10 @@ window.addEventListener("load", () => {
         console.table(allgoods);
         //撈照片
         let img = document.querySelectorAll(".main_product .all .item .img_box img")
-        // 撈產品//撈價格                                           
+        // 撈產品                                          
         let txt = document.querySelectorAll(".main_product .all .item .txt_box p:first-of-type")
+        //撈價格 
+        let pri = document.querySelectorAll(".main_product .all .item .txt_box p:last-of-type")
         // 跑迴圈
         for (let i = 0; i < txt.length; i++) {
             // i從第幾個開始
