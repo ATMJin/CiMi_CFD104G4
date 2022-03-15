@@ -1,15 +1,12 @@
-var checkbox = $(".switch__checkbox");
-var switcher = $(".switch__slider");
-var body = $("body");
+let checkbox = document.querySelector('.switch__checkbox');
+let switcher =  document.querySelector('.switch__slider');
+var body =  document.querySelector("body");
 var audio = new Audio('https://www.freesound.org/data/previews/88/88659_392324-lq.mp3');
 let center = document.querySelector('.center');
 let section = document.getElementsByTagName('section');
 let question_no_array = [];
 let background = document.getElementById('bg_box');
 
-function $(el){
-  return document.querySelector(el)
-}
 
 Object.prototype.addClass = function(className) {
   this.classList.add(className);
