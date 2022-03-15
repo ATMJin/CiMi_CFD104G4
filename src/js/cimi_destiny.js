@@ -83,36 +83,8 @@ function getquestion(){
         let i= 0;
         let dataObj =new Date();
         let day = dataObj.getDay();
-        console.log(day);
-       
-        
-        switch(day){
-            case 0:
-                i = 0;
-                break;
-            case 1:
-                i = 3;
-                break;
-            case 2:
-                i = 6;
-                break;
-            case 3:
-                i = 9;
-                break;
-            case 4:
-                i = 12;
-                break;
-            case 5:
-                i = 15;
-                break;
-            case 6:
-                i = 18;
-                break;
-            default :
-                i = 0;
-        }
-        console.log(i);
-
+     
+        i = day*3;
         question_no_array=[questions[i].question_no,questions[i+1].question_no,questions[i+2].question_no];
         console.log(question_no_array);
 
@@ -198,17 +170,22 @@ function playToggle(e) {
         
        
     } else { 
-        let mem_ans=e.target.dataset.ans;
-        console.log(question_no_array[question_no],mem_ans);
+        let mem_ans_no = e.target.dataset.ans;
+        let mem_ans_q_no = `${question_no_array[question_no]}:${mem_ans_no}`;
+        // console.log(question_no_array[question_no],mem_ans);
+        console.log(mem_ans_q_no);
+        
 
         //傳資料給php，php執行insert會員答案的動作
 
         $.ajax({
             url: 'phps/response.php',
-            data: {mem_no:sessionStorage.getItem('mem_no'),question_no:question_no_array[question_no],mem_ans:mem_ans},
+            data: {mem_no:sessionStorage.getItem('mem_no'),question_no:question_no_array[question_no],mem_ans:mem_ans_q_no},
+            
             type: 'GET',
-            success(res){
-              alert('12345');
+            success(res) {
+                alert('111答案提交成功');
+                
             },
 
         
@@ -277,12 +254,12 @@ function videoPause() {
 
             $.ajax({
             url: 'phps/already_played.php',
-            data: {playdate},
+            data: {mem_no:sessionStorage.getItem('mem_no'),playdate},
             type: 'GET',
             success(res){
                 console.log(playdate);
                 console.log(res);
-                alert('date sucess');
+                alert('後臺異動成功');
             },
         })
 
