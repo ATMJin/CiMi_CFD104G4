@@ -3,8 +3,8 @@ try {
 	require_once("connect_cimi.php");
 	//執行sql指令
 	$playdate = $_GET["playdate"];
-
-    $sql = "update mempairdata set mem_last_play='{$playdate}' where mem_no=1;";
+	$mem_no = $_GET["mem_no"];
+    $sql = "update mempairdata set mem_last_play='{$playdate}' where mem_no={$mem_no};";
     
 
 	if($pdo->exec($sql)){ //exec用於異動資料的時候

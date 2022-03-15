@@ -10,13 +10,11 @@ $light-bg: #ffffff;
 body{
   background-color: $dark-bg;
   transition: background-color 0.2s;
- 
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
-// main{
-//   background: url(../assets/images/cards_background.jpg);
-//   background-attachment: fixed;
 
-// }
 .center{
   width: 100%;
   max-width: 500px;
@@ -41,9 +39,7 @@ body{
 }
 .light-bg{
   background-color: $light-bg;
-  transition: background-color 1s;
-  background:url(assets/images/map.jpg);
-
+  transition: background-color 1s; 
 }
 
 .glow{
@@ -119,34 +115,6 @@ section{
 
 .st2{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
 
-.theme{
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 10%;
-}
-.tree_round{
-  width: 200px;
-  margin: 0 10%;
-  display: none;
-}
-.tree_round img{
-  width: 100%;
-}
-.tree_triple{
-  width: 200px;
-  margin: 0 10%;
-  display: none;
-}
-.tree_triple img{
-  width: 100%;
-}
-.ball{
-  position: relative;
-  width: 180px;
-  margin: 0 auto;
-  // display: none;
-  visibility: hidden;
-}
 
 .left_button{
   width: 80px;
@@ -202,21 +170,26 @@ section{
 *{
   box-sizing:border-box;
 }
-// body{
-//   background-color:#000000;
-// }
+.bg_img{
+  height: 100vh;
+  position: absolute;
+  z-index: -2;
+  visibility: hidden;
+}
+.bg_img img{
+  width: 100%;
+}
 .cards{
   display: flex;
   justify-content: space-around;
-  margin: 0 auto;
+  margin:0 auto;
   width: 750px;//
   position: relative;
-
 
 }
 .avatar_circle{
   position: relative;
-  margin-top: -21%;
+  margin-top: 50%;
 }
 .card{
   position:absolute; 
@@ -226,7 +199,7 @@ section{
   transition: all ease-in-out .3s;
   background-color:#ffffff60;
   z-index: 1;
-  margin-top: 5%;//height-50px
+  margin-top: 20%;//height-50px
   text-align: center;
  
   &:hover, &:focus{
@@ -277,9 +250,9 @@ section{
     width:45px ;
     height: 150px;
     border-radius: 50px;
-    border: 2px solid#cccccc;
+    border: 2px solid#6d6d6d;
     background-color: transparent;
-    margin: 10% 0 0 10%;
+    margin: 25% 0 0 10%;
 
     display: flex;
     flex-direction: column-reverse;
@@ -365,10 +338,10 @@ section{
 
   #typewriter-contain{
     margin-top:10%;
-    left:40%;
+    left:25%;
     display: flex;
-    height: 50px; //
-    width: 900px; //這邊我有對最長文字的寬
+    height: 45px; //
+    width: 500px; //這邊我有對最長文字的寬
     overflow: hidden; //把其他不需要的地方隱藏
     position: relative;
   }
@@ -399,7 +372,7 @@ section{
       bottom: 0;
       left:0;
       background: #ffffff; //偽元素就是一塊黑黑的傢伙把其他字遮起來～
-      animation: typewriter 4s steps(23) infinite, 
+      animation: typewriter 4s steps(23) 4, 
   blink 0.5s steps(23) infinite, 
           //animation一次可以放很多個
           //animation的step就是將想要的效果拆解成幾步驟的意思
@@ -452,6 +425,16 @@ section{
     //   height: 100%;
     //   overflow: hidden;
     // }
+
+    .bg_img{
+    width: 300vh;
+    position: fixed;
+    z-index: -1;
+    visibility: hidden;
+    }
+    .bg_img img{
+    width: 100%;
+    }
     .center{
       width: 320px;
     }

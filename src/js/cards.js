@@ -1,12 +1,12 @@
-var checkbox = $(".switch__checkbox");
-var switcher = $(".switch__slider");
-var body = $("body");
+let checkbox = document.querySelector('.switch__checkbox');
+let switcher =  document.querySelector('.switch__slider');
+var body =  document.querySelector("body");
 var audio = new Audio('https://www.freesound.org/data/previews/88/88659_392324-lq.mp3');
 let center = document.querySelector('.center');
 let section = document.getElementsByTagName('section');
-function $(el){
-  return document.querySelector(el)
-}
+let question_no_array = [];
+let background = document.getElementById('bg_box');
+
 
 Object.prototype.addClass = function(className) {
   this.classList.add(className);
@@ -20,21 +20,20 @@ Object.prototype.toggleClass = function(className){
   this.classList.contains(className) ? this.removeClass(className) : this.addClass(className);
 }
 
-checkbox.addEventListener('change', function() {
+
+
+checkbox.addEventListener('change', function change_scene() {
   let typer = document.getElementById("typewriter-contain");
   switcher.toggleClass("glow");
-  setTimeout(function() {
-	section[0].style="visibility:visible";
-  typer.innerHTML='<div class="dynamic-text-wrapper"><div class="dynamic-text">屬於你的Destiny</div><div class="dynamic-text">即將於午夜12:00出現</div></div>';
+  setTimeout(function () {
+    center.style="display:none";
+    section[0].style = "visibility:visible";
+    background.style = "visibility:visible";
+  typer.innerHTML='<div class="dynamic-text-wrapper"><div class="dynamic-text">有些緣分，稍縱即逝</div><div class="dynamic-text">錯過了，將永遠消失</div><div class="dynamic-text">午夜之前，按下按鈕，送出邀請吧!</div></div>';
   }, 500);
   body.toggleClass("light-bg");
   audio.pause();
   audio.play();
-  center.style="display:none";
-  
-
-        
-       
   
 });
 
@@ -132,17 +131,35 @@ function collective_yellow(){
   }
 
 }
-// remove ===>document.getElementById("goy").innerHTML = "";
-function doFirst(){
 
+// 
+// //////////////////////////////////////
+// function getquestion() {
+//   let dataObj =new Date();
+//   let day = dataObj.getDay();
+//   question_no = [day * 3, day * 3 + 1, day * 3 + 2];
+
+// 	let xhr = new XMLHttpRequest();
+// 	xhr.onload = function(){
+// 		// console.log(JSON.parse(xhr.responseText));
+// 	}
+// 	xhr.open("get", "phps/paring.php", true);
+// 	xhr.send(null);
+// }
+//////////////////////////////////////
+
+
+function doFirst(){
+  
   red_button.addEventListener('click',collective_red);
   blue_button.addEventListener('click',collective_blue);
   yellow_button.addEventListener('click',collective_yellow);
-    
-	check_buttons.forEach(btn => {
-    btn.addEventListener('click', change_status);
+  getquestion();
 
-});
+// 	check_buttons.forEach(btn => {
+//     btn.addEventListener('click', change_status);
+
+// });
 }
 
 
