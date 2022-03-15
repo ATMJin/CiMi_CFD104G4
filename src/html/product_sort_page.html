@@ -19,6 +19,10 @@
     <script src="js/vue.js"></script>
     <link rel="stylesheet" href="assets/css/shop_cart.css">
     <!-- <script type="text/javascript" src="script.js"></script> -->
+    <!-- 輪播(最新上架) -->
+    <link rel="stylesheet" href="assets\css\product_slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +30,7 @@
     <div class="content_area">
         @@include('layout/sidebar.html')
         <!-- 好物商城 -->
-        <main class="main_product">
+        <main class="main_product sort_product">
             <!-- 好物商城標題 -->
             <Section class="product_title">
                 <div class="item_box">
@@ -152,23 +156,278 @@
                         <div class="title">
                             <p>最新上架商品</p>
                         </div>
-                        <div class="items">
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="assets\images\goods\goods_new_goods_information_heme_bluck.jpg">
+                        <div class="ag-container-shops">
+                            <div class="js-flickity-slider">
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_citt.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="txt_box">
-                                    <p>送禮推薦︱三色眉粉盤</p>
-                                    <p>NT.665</p>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_hot_switch_2.png);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="assets\images\goods\goods_new_goods_information_mascara_2.jpg">
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="txt_box">
-                                    <p>推薦小資女｜睫毛膏</p>
-                                    <p>NT.299</p>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_sort_page_2.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title"></span>
+                                                <span class="ag-shop-card-footer_products"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title">Tienda de martinvarbaro</span>
+                                                <span class="ag-shop-card-footer_products">Tienda oficial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title">Tienda de Villy</span>
+                                                <span class="ag-shop-card-footer_products">Tienda oficial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title">Tienda de SunSurf</span>
+                                                <span class="ag-shop-card-footer_products">Tienda oficial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title">Tienda de Los Cocos</span>
+                                                <span class="ag-shop-card-footer_products">Tienda oficial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(https://rawcdn.githack.com/SochavaAG/example-mycode/master/pens/parallax-swipe/images/5c4b910f1d696.png);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title">Tienda de Piñata</span>
+                                                <span class="ag-shop-card-footer_products">Tienda oficial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(https://rawcdn.githack.com/SochavaAG/example-mycode/master/pens/parallax-swipe/images/5bea050c5bff5.png);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title">Tienda de California Sun</span>
+                                                <span class="ag-shop-card-footer_products">Tienda oficial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-carousel-cell">
+                                    <div class="ag-shop-card_box-wrap">
+                                        <div class="ag-shop-card_box">
+                                            <div class="ag-shop-card_body">
+                                                <div class="js-card-bg ag-card-bg"
+                                                    style="background-image: url(https://rawcdn.githack.com/SochavaAG/example-mycode/master/pens/parallax-swipe/images/5cb88ca821bfd.png);">
+                                                </div>
+                                            </div>
+                                            <div class="ag-shop-card_footer">
+                                                <span class="ag-shop-card-footer_title">Tienda de Kapusta</span>
+                                                <span class="ag-shop-card-footer_products">Tienda oficial</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -464,22 +723,38 @@
                 </div>
                 <div class="product_small">
                     <div class="img_box">
-                        <img src="assets\images\goods\goods_sort_page_all_toy.jpg" /></div>
+                        <img src="assets\images\goods\goods_sort_page_all_toy.jpg" />
+                    </div>
                     <div class="img_box">
-                        <img src="assets\images\goods\goods_sort_page_all_toy_(1).jpg" /></div>
+                        <img src="assets\images\goods\goods_sort_page_all_toy_(1).jpg" />
+                    </div>
                     <div class="img_box">
-                        <img src="assets\images\goods\goods_sort_page_all_toy_(2).jpg" /></div>
+                        <img src="assets\images\goods\goods_sort_page_all_toy_(2).jpg" />
+                    </div>
                 </div>
             </section>
 
 
             <!-- 商品價格/資訊 -->
+            <!-- 商品價格/資訊 -->
             <section class="product_page_price_in">
                 <div class="txt_box">
-                    <p>$690</p>
+                    <div class="txt_box_pri">
+                        <p>$690</p>
+                    </div>
+                    <div class="like_box">
+                        <div class="img_box">
+                            <img src="assets\images\icon\like.png" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <p>50</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="txt_box_in">
                     <p>
-                        把正向樂觀的維尼與小豬放桌上，讓搖擺啦啦隊為你趕走每週的 Monday blue 吧！ 將 Wooderful life 彈簧擺飾
-                        木偶放置於桌面，並對木偶施力，看著木偶搖來晃去，即可觀察趣味物理的動態。
+                        把正向樂觀的維尼與小豬放桌上，讓搖擺啦啦隊為你趕走每週的 Monday blue 吧！ 將 Wooderful life
+                        彈簧擺飾木偶放置於桌面，並對木偶施力，看著木偶搖來晃去，即可觀察趣味物理的動態。
                     </p>
                 </div>
             </section>
@@ -656,7 +931,9 @@
             </section>
         </main>
     </section>
-    <!-- 廣告輪播/燈箱/收藏save/愛心heart/js限時特賣(倒數計時)/小圖變大圖 -->
+    <!-- 廣告輪播/燈箱/收藏save/愛心heart/js限時特賣(倒數計時)/小圖變大圖/輪播(上架商品) -->
+    <script src="js\product_all.js"></script>
+    <!-- 撈資料 -->
     <script src="js\product.js"></script>
 
     <!-- 文進大大的購物車燈箱 -->

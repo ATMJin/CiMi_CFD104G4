@@ -1,0 +1,196 @@
+.ag-format-container {
+    width: 1142px;
+    margin: 0 auto;
+}
+
+.ag-container-shops {
+    padding: 0;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.ag-card-bg {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    position: absolute;
+    top: 0;
+    // left: -50%;
+    right: 0;
+
+    -webkit-transition: height .6s;
+    -moz-transition: height .6s;
+    -o-transition: height .6s;
+    transition: height .6s;
+}
+
+.ag-shop-card_box-wrap {
+    // 商品之間的距離
+    padding: 15px;
+}
+
+.ag-shop-card_box {
+    // 卡片背景色
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+
+    -webkit-box-shadow: 0 2px 8px 2px #ecebebce;
+    -moz-box-shadow: 0 2px 8px 2px #ecebebce;
+    -o-box-shadow: 0 2px 8px 2px #ecebebce;
+    box-shadow: 0 2px 8px 2px #ecebebce;
+
+    -webkit-border-radius: var(--img-radius);
+    -moz-border-radius: var(--img-radius);
+    border-radius: var(--img-radius);
+
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+
+}
+
+.ag-shop-card_body {
+    display: block;
+    height: 255px;
+    width: 255px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+
+    overflow: hidden;
+
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+
+    position: relative;
+}
+
+.ag-shop-card-body_link {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    z-index: 9;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    -webkit-box-shadow: 0 2px 8px 2px #ecebebce;
+    -moz-box-shadow: 0 2px 8px 2px #ecebebce;
+    -o-box-shadow: 0 2px 8px 2px #ecebebce;
+    box-shadow: 0 2px 8px 2px #ecebebce;
+
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    -webkit-transition: top .4s;
+    -moz-transition: top .4s;
+    -o-transition: top .4s;
+    transition: top .4s;
+}
+
+.ag-shop-card-body_img {
+    max-width: 100%;
+}
+
+.ag-shop-card_footer {
+    padding: 15px 30px;
+    border: 0;
+    background-color: #FFF;
+
+    position: relative;
+}
+
+.ag-shop-card-footer_title {
+    display: block;
+    line-height: 1.3;
+
+    font-weight: var(--bold);
+    // font-size: 14px;
+    color: var(--font-primary);
+}
+
+.ag-shop-card-footer_products {
+    display: block;
+    line-height: 1.3;
+    font-size: var(--body2);
+}
+
+.ag-shop-card-footer_arrow {
+    max-width: 16px;
+}
+
+@media only screen and (max-width: 767px) {
+    .ag-format-container {
+        width: 96%;
+    }
+
+    .ag-shop-card_body {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 639px) {
+    .ag-format-container {
+        width: 750px;
+    }
+
+    .ag-shop-card_body {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .ag-format-container {
+        width: 750px;
+    }
+
+    .ag-shop-card_body {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .ag-format-container {
+        width: 750px;
+    }
+
+    .ag-shop-card_body {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@media (min-width: 980px) and (max-width: 1161px) {
+    .ag-format-container {
+        width: 960px;
+    }
+
+    .ag-shop-card_body {
+        height: 250px;
+        width: 250px;
+    }
+
+    // .ag-card-bg
+    //     .background-image
+    //         width: 250px
+}
