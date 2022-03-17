@@ -358,10 +358,10 @@
                         color: var(--font-primary);
                     }
                 }
-
+                // icon
                 .img_box {
-                    width: 30px;
-                    height: 30px;
+                    width: 40px;
+                    height: 40px;
                     img {
                         width: 100%;
                     }
@@ -442,13 +442,13 @@
                     box-shadow: 0 2px 8px 2px #ecebebce;
                     box-sizing: border-box;
                     margin: 10px;
-                    width: 150px;
+                    width: 165px;
                     cursor: pointer;
 
 
 
                     .img_box {
-                        width: 150px;
+                        width: 165px;
 
                         img {
                             width: 100%;
@@ -784,7 +784,7 @@
 
                         // <!-- icon -->
                         .img_box {
-                            width: 40px;
+                            // width: 40px;
 
                             img {
                                 width: 100%;

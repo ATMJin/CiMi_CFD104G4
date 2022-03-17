@@ -12,9 +12,9 @@ window.addEventListener("load", () => {
         // 接收PHP傳來的資料
         allgoods = JSON.parse(xhr.responseText);
         // console.log(xhr.responseText);
-        console.table(allgoods);
+        // console.table(allgoods);
         //撈照片
-        let img = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_body .js-card-bg ag-card-bg")
+        let img = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_body .js-card-bg")
         //撈產品
         let txt = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_footer span:first-child")
         //撈價格
@@ -23,12 +23,16 @@ window.addEventListener("load", () => {
         for (let i = 0; i < txt.length; i++) {
             // i從第幾個開始
             //照片
-            img[i].src = allgoods[i + 2].goods_pic1
+            // style="background-image: url("assets/images/goods/goods_all_citt.jpg"); transform: translateX(1152.69px);"
+            img[i].style.backgroundImage = `url("${allgoods[i + 2].goods_pic1.replaceAll("\\","/")}")` 
+
             //名稱
             txt[i].innerText = allgoods[i + 2].goods_name
             //價格
-            price[i].innerText=allgoods[i + 2].goods_price
+            // pri[i].innerText="NT$ "+allgoods[i + 2].goods_price
+            pri[i].innerText=`NT. ${allgoods[i + 2].goods_price}`
         }
+
     }
 })
 
@@ -43,7 +47,7 @@ window.addEventListener("load", () => {
         // 接收PHP傳來的資料
         allgoods = JSON.parse(xhr.responseText);
         // console.log(xhr.responseText);
-        console.table(allgoods);
+        // console.table(allgoods);
         //撈照片
         let img = document.querySelectorAll("hot .item .img_box img")
         //撈產品//撈價格
@@ -70,7 +74,7 @@ window.addEventListener("load", () => {
         // 接收PHP傳來的資料
         allgoods = JSON.parse(xhr.responseText);
         // console.log(xhr.responseText);
-        console.table(allgoods);
+        // console.table(allgoods);
         //撈照片
         let img = document.querySelectorAll(".main_product .all .item .img_box img")
         // 撈產品                                          
@@ -78,7 +82,7 @@ window.addEventListener("load", () => {
         //撈價格 
         let pri = document.querySelectorAll(".main_product .all .item .txt_box p:last-of-type")
         // 跑迴圈
-        for (let i = 0; i < txt.length; i++) {
+        for (let i = 0; i < allgoods.length-2; i++) {
             // i從第幾個開始
             //名稱
             txt[i].innerText = allgoods[i + 2].goods_name
@@ -86,7 +90,7 @@ window.addEventListener("load", () => {
             //照片
             img[i].src = allgoods[i + 2].goods_pic1
             //價格
-            price[i].innerText=allgoods[i + 2].goods_price
+            pri[i].innerText="NT."+allgoods[i + 2].goods_price
 
         }
 
@@ -107,11 +111,13 @@ window.addEventListener("load", () => {
         // 接收PHP傳來的資料
         allgoods = JSON.parse(xhr.responseText);
         // console.log(xhr.responseText);
-        console.table(allgoods);
+        // console.table(allgoods);
         //撈照片
         let img = document.querySelectorAll(".sort_product .all .item .img_box img")
-        //撈產品//撈價格
+        //撈產品
         let txt = document.querySelectorAll(".sort_product .all .item .txt_box p:nth-child(1)")
+        //撈價格
+        let pri = document.querySelectorAll(".sort_product .all .item .txt_box p:nth-child(2)")
         // 跑迴圈
         for (let i = 0; i < txt.length; i++) {
             // i從第幾個開始
@@ -120,7 +126,7 @@ window.addEventListener("load", () => {
             //名稱
             txt[i].innerText = allgoods[i + 2].goods_name
             //價格
-            price[i].innerText=allgoods[i + 2].goods_price
+            pri[i].innerText="NT."+allgoods[i + 2].goods_price
         }
     }
 })
@@ -136,11 +142,13 @@ window.addEventListener("load", () => {
         // 接收PHP傳來的資料
         adgoods = JSON.parse(xhr.responseText);
         // console.log(xhr.responseText);
-        console.table(adgoods);
+        // console.table(adgoods);
         //撈照片
         let img = document.querySelectorAll(".main_product_ad_page .all .item .img_box img")
-        //撈產品//撈價格
+        //撈產品
         let txt = document.querySelectorAll(".main_product_ad_page .all .item .txt_box p:nth-child(1)")
+        //撈價格
+        let pri = document.querySelectorAll(".main_product_ad_page .all .item .txt_box p:nth-child(2)")
         // 跑迴圈
         for (let i = 0; i < txt.length; i++) {
             // i從第幾個開始
@@ -149,7 +157,7 @@ window.addEventListener("load", () => {
             //名稱
             txt[i].innerText = adgoods[i + 2].goods_name
             //價格
-            price[i].innerText=allgoods[i + 2].goods_price
+            pri[i].innerText=`NT.${allgoods[i + 2].goods_price}`
         }
     }
 })
