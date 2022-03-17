@@ -15,59 +15,154 @@
 
     <div class="content_area">
         @@include('layout/sidebar.html')
-        <main class="main_area">
+        <main class="main_area" id="post">
             <div class="post_info">
                 <div class="post_img">
                     <img src="https://picsum.photos/100/100/?random=11">
+                    <!-- <img :src="memInfo.mem_head"> -->
                 </div>
                 <div class="post_text">
                     <span class="post_name">
-                        好想睡
+                        {{memInfo.mem_name}}
                     </span>
-                    <time>2022/00/00</time>
+                    <time>{{postDay}}</time>
                 </div>
             </div>
-            <form class="post" action="">
+            <form class="post" action="" @submit.prevent>
                 <div class="select_billboard">
-                    <select required>
-                        <option>選擇發文看版</option>
-                        <option>好聽音樂</option>
-                        <option>旅遊踏青</option>
-                        <option>美妝保養</option>
-                        <option>情感生活</option>
-                        <option>穿搭時尚</option>
-                        <option>運動健身</option>
+                    <select required :value="selectVal" @change="updateVal" id="board" v-model="selectVal">
+                        <option v-for="board in boards" :value="board.billboard_no">{{board.billboard_name}}</option>
                     </select>
                     <a href="">找不到適合的看版嗎？
                     </a>
                 </div>
-                <input type="text" placeholder="標題" required>
-                <textarea name="" id="" cols="100" rows="10" placeholder="內容" required></textarea>
+                <input type="text" placeholder="標題" required v-model="title">
+                <textarea name="" id="" cols="100" rows="10" placeholder="內容" required v-model="content"></textarea>
                 <div class="post_file">
                     <label class="" id="" for="filename">
                         <div class="post_file_box">
                             <img src="assets/images/icon/Insert_picture.png" alt="">
                             <span>插入圖片</span>
                         </div>
-                        <input type="file" id="filename" accept="image/*" id="upFile">
+                        <input type="file" id="filename" ref="fileInput" @change="uploadFile">
                     </label>
+
                 </div>
                 <div class="post_btn">
-                    <button type="reset" class="btn-third">取消</button>
-                    <button type="submit" class="btn-secondary">提交</button>
+                    <button type="reset" class="btn-third" @click="backHome" @submit.prevent>取消</button>
+                    <button type="submit" class="btn-secondary" @click="uploadData" @submit.prevent>提交</button>
                 </div>
+                <img :src="image" id="img" style="display: none;"></img>
             </form>
         </main>
     </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        window.addEventListener("load", function () {
-            document.getElementById("upFile").onchange = function (e) {
-                let file = e.target.files[0];
-                let reader = new FileReader();
-                reader.onload = function () {
-                    document.getElementById("myImage").src = reader.result;
+        // window.addEventListener("load", function () {
+        //     document.getElementById("upFile").onchange = function (e) {
+        //         let file = e.target.files[0];
+        //         let reader = new FileReader();
+        //         reader.onload = function () {
+        //             document.getElementById("myImage").src = reader.result;
+        //         }
+        //         reader.readAsDataURL(file);
+        //     }
+        // })
+
+        new Vue({
+            el: '#post',
+            data: {
+                title: "",
+                content: "",
+                selectVal: "好聽音樂",
+                image: "",
+                boards: [],
+                memInfo: [],
+
+
+            },
+            mounted() {
+                let params = new URLSearchParams();
+                params.append("mem_no", sessionStorage.getItem('mem_no'));
+                params.append("case", "getData");
+                axios.post('phps/post.php', params)
+                    .then(res => {
+                        console.log(res.data);
+                        this.memInfo = res.data.mem
+                        this.boards = res.data.board
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            },
+            methods: {
+                updateVal() {
+                    let obj = document.getElementById('board')
+                    //取得值
+                    this.selectVal = obj.value;
+
+                },
+
+                uploadFile() {
+                    // 拿取檔案
+                    let file = this.$refs.fileInput.files[0]
+                    console.log(file);
+
+                    //寫進html
+                    let readFile = new FileReader();
+                    readFile.readAsDataURL(file);
+                    readFile.addEventListener('load', this.loadImage);
+
+                    //創建formdata物件送到後端PHP
+                    let form = new FormData()
+                    form.append('file', file)
+                    form.append('case', 'checkFile')
+                    axios.post('phps/post.php', form).then(res => {
+                        if (res.data != true) {
+                            alert(res.data)
+                        }
+                    })
+                },
+                loadImage(e) {
+                    
+                    this.image = e.target.result;
+                    img.style.display = "block"
+                    
+                },
+
+                uploadData() {
+                    // 拿取檔案
+                    let file = this.$refs.fileInput.files[0]
+                    console.log(file);
+                    // 然後自己建立一個表單來放要上傳的資料
+                    // 也可以順便帶其他資料例如 userId
+                    let form = new FormData()
+                    form.append('file', file)
+                    form.append('case', 'insertData')
+                    form.append("billboard_no", this.selectVal);
+                    form.append("article_title", this.title);
+                    form.append("article_content", this.content);
+                    form.append("case", "insertData");
+                    form.append("mem_no", sessionStorage.getItem('mem_no'));
+
+                    // 上傳到後端伺服器
+                    axios.post('phps/post.php', form).then(res => {
+                        alert(res.data)
+                        location.href = "homepage.html"
+                    })
+                },
+                backHome() {
+                    location.href = "homepage.html"
                 }
-                reader.readAsDataURL(file);
+            },
+            computed: {
+                postDay() {
+                    let year = new Date().getFullYear()
+                    let month = new Date().getMonth() + 1
+                    let day = new Date().getDate()
+                    return (year + '-' + month + '-' + day)
+                }
             }
         })
     </script>

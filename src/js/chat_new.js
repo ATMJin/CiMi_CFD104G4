@@ -38,6 +38,7 @@ let sendBtn = document.querySelector('.typing_area button');
 let chatPerson = document.getElementById('chatPerson')
 let rowCount = 0;
 
+
 form.onsubmit = (e) => { //取消form表單的submit事件
     e.preventDefault();
 }
@@ -201,7 +202,22 @@ function newChat() {
     xhr.send(`user_id=${user_id}`);
 }
 
+//3.3 聊天室上傳照片
+function fileChange(){
+    let file = document.getElementById('theFile').files[0];
+    // console.log(file)
 
+    //創建formdata物件送到後端PHP
+    let form = new FormData()
+    form.append('file', file)
+    // form.append('case', 'checkFile')
+    axios.post('phps/chat/insertimg.php', form).then(res => {
+        if (res.data != true) {
+            // alert(res.data)
+        }
+    })
+    newChat()
+}
 
 /********************************************************* */
 //FUNCTION FOR INIT
@@ -209,7 +225,7 @@ function init() {
 
     getAdmin()
     getUsers()
-    // setInterval(newChat, 500)
+    // setInterval(getChat, 500)
 
     let inputArea = document.querySelector('.emojionearea-editor')
     sendBtn.onclick = () => {
@@ -234,6 +250,8 @@ function init() {
         searchBtn.classList.toggle('active');
         searchBar.value = "";
     }
+
+    document.getElementById('theFile').onchange = fileChange;
 
 }
 

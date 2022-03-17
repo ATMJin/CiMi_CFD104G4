@@ -50,6 +50,10 @@
     .post{
         display: flex;
         flex-direction: column;
+        #img{
+            width: 200px;
+            height: 200px;
+        }
         .select_billboard{
             select{
                 width: 200px;
