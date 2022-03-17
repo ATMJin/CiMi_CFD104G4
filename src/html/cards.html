@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paring</title>
+    <script src="https://kit.fontawesome.com/372814be81.js" crossorigin="anonymous"></script>
     <script src="js/vue.js"></script>
 </head>
 
@@ -43,20 +44,25 @@
       <div class="cards">
         <div class="card_box card_red">
             <div class="card left" id="card_top" tabindex="0">
-              <span class="card__infoicon">
-                <i class="fa fa-info"></i>
-              </span>
               <div class="avartar_img_box">
                 <img class="avatar_img"src="https://i.pravatar.cc/400?img=31" alt="">
               </div>
               
-              <h2 class="card__title">國立政治大學</h2>
+              <div class="cards_infos">
+                <h2 class="card_title" id="school_name_red"></h2>
 
-              <p class="card__description">興趣專長-看電影、逛書店、唱歌<br>參加過的社團-吉他社、熱舞<br>最喜歡的國家-韓國<br>可以交換的事情-韓語、吉他教學<br>想嘗試的事情-跳傘</p>
+                <h4 class="info_title">興趣專長-</h4>
+                <p class="card_description" id="interests_red">看電影、逛書店、唱歌</p>
 
-              
-          
-      
+                <h4 class="info_title">最喜歡的國家-</h4>
+                <p class="card_description" id="country_red">韓國</p>
+
+                <h4 class="info_title">可以交換的事情-</h4>
+                <p class="card_description" id="exchange_red">韓語、吉他教學</p>
+
+                <h4 class="info_title">想嘗試的事情-</h4>
+                <p class="card_description" id="try_red">跳傘-</p>
+              </div>
               <div class="check_button" id="red_button">送出邀請</div>
               
             </div>
@@ -68,14 +74,26 @@
         <div class="card_box card_blue">
           
           <div class="card middle" id="card_middle"tabindex="0">
-            <span class="card__infoicon">
-              <i class="fa fa-info"></i>
-            </span>
+
             <div class="avartar_img_box">
               <img class="avatar_img"src="https://i.pravatar.cc/400?img=1" alt="">
             </div>
-            <h2 class="card__title">國立中央大學</h2>
-            <p class="card__description">興趣專長-看電影、逛書店、唱歌<br>參加過的社團-吉他社、熱舞<br>最喜歡的國家-韓國<br>可以交換的事情-韓語、吉他教學<br>想嘗試的事情-跳傘</p>
+
+            <div class="cards_infos">
+              <h2 class="card_title" id="school_name_blue"></h2>
+
+              <h4 class="info_title">興趣專長-</h4>
+              <p class="card_description" id="interests_blue">看電影、逛書店、唱歌</p>
+
+              <h4 class="info_title">最喜歡的國家-</h4>
+              <p class="card_description" id="country_blue">韓國</p>
+
+              <h4 class="info_title">可以交換的事情-</h4>
+              <p class="card_description" id="exchange_blue">韓語、吉他教學</p>
+
+              <h4 class="info_title">想嘗試的事情-</h4>
+              <p class="card_description" id="try_blue">跳傘-</p>
+            </div>
             <div class="check_button" id="blue_button">送出邀請</div>
           </div>
           <div class="avatar_circle blue_avatar">
@@ -86,15 +104,26 @@
         <div class="card_box card_yellow">
           
           <div class="card right" id="card_top" tabindex="0">
-            <span class="card__infoicon">
-              <i class="fa fa-info"></i>
-            </span>
             <div class="avartar_img_box">
               <img class="avatar_img"src="https://i.pravatar.cc/400?img=32" alt="">
             </div>
-            <h2 class="card__title">This is a title</h2>
-            <p class="card__description">興趣專長-看電影、逛書店、唱歌<br>參加過的社團-吉他社、熱舞<br>最喜歡的國家-韓國<br>可以交換的事情-韓語、吉他教學<br>想嘗試的事情-跳傘</p>
-            <div class="check_button" id="yellow_button">送出邀請</div>
+            <div class="cards_infos">
+              <h2 class="card_title" id="school_name_yellow"></h2>
+
+              <h4 class="info_title">興趣專長-</h4>
+              <p class="card_description" id="interests_yellow">看電影、逛書店、唱歌</p>
+
+              <h4 class="info_title">最喜歡的國家-</h4>
+              <p class="card_description" id="country_yellow">韓國</p>
+
+              <h4 class="info_title">可以交換的事情-</h4>
+              <p class="card_description" id="exchange_yellow">韓語、吉他教學</p>
+
+              <h4 class="info_title">想嘗試的事情-</h4>
+              <p class="card_description" id="try_yellow">跳傘-</p>
+            </div>
+              <div class="check_button" id="yellow_button">送出邀請</div>
+            
           </div>
           <div class="avatar_circle yellow_avatar">
             <img class="avatar" src="assets/images/avartar_yellow.png" alt="">
@@ -103,7 +132,6 @@
     </div>
   </section>
   <div id="typewriter-contain"></div>
- 
 </main>
 </body>
 

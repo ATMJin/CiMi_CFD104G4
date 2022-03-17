@@ -184,7 +184,7 @@ function playToggle(e) {
             
             type: 'GET',
             success(res) {
-                alert('111答案提交成功');
+                alert('答案提交成功');
                 
             },
 
@@ -247,6 +247,7 @@ function videoPause() {
         
         setTimeout(function(){destiny_botton.innerHTML='<a href="cards.html"><button id="My_destiny_button">我的destiny</button></a>'}, 10*1000);
 
+        //送出玩遊戲時間
 
             let Today = new Date();
             let playdate=`${Today.getFullYear()}.${Today.getMonth()+1}.${Today.getDate()}`;

@@ -223,7 +223,6 @@ section{
 
 
 
-
 .left{
   background-color: #F09296;
   &:hover, &:focus{
@@ -303,18 +302,35 @@ section{
     margin: 5px auto 0px auto;
     
   }
+  i{
+    font-size: 20px;
+    color: rgb(39, 0, 0);
+  }
   .avatar_img{
     width: 100%;
     border-radius: 50%;
   }
-  .card__title{
-    font-size: 20px;
+  .card_title{
+    font-size: 18px;
     font-weight: 500;
     margin-bottom: 10px;
+    text-align: center;
   }
-  .card__description{
+
+  .cards_infos{
+  text-align: left;
+  }
+  .info_title{
+  font-weight: 500;
+  font-size: 16px;
+  color:rgb(51, 0, 0);
+  }
+  .card_description{
     font-weight: 300;
     text-align: left;
+    font-size: 16px;
+    color: rgb(39, 0, 0);
+    margin-left: 10px;
   }
   .check_button{
 
@@ -322,7 +338,7 @@ section{
     height:30px;
     border-radius: 10px;
     border:2px solid rgb(255, 255, 255);
-    margin: 10% auto;
+    margin: 0% auto 10%;
     color: rgb(58, 58, 58);
     background-color: #ffffff;
     font-weight: 500;
@@ -372,7 +388,7 @@ section{
       bottom: 0;
       left:0;
       background: #ffffff; //偽元素就是一塊黑黑的傢伙把其他字遮起來～
-      animation: typewriter 4s steps(23) 4, 
+      animation: typewriter 4s steps(23) infinite, 
   blink 0.5s steps(23) infinite, 
           //animation一次可以放很多個
           //animation的step就是將想要的效果拆解成幾步驟的意思
