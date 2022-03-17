@@ -2,7 +2,7 @@
 function hotBoard() {
 
   let hot_boards = document.querySelectorAll('.hot_article_txt H2');
-  console.log(hot_boards)
+  // console.log(hot_boards)
 
   // GET
   let xhr = new XMLHttpRequest();
@@ -12,7 +12,7 @@ function hotBoard() {
   xhr.onload = function () {
     // 接收PHP傳來的資料
     hot_billboard = JSON.parse(xhr.responseText);
-    console.log(hot_billboard)
+    // console.log(hot_billboard)
 
     let data = []
     for (let i = 0; i < hot_billboard.length; i++) {
@@ -20,7 +20,7 @@ function hotBoard() {
     }
 
     let hot = document.querySelector('.hot_billboard')
-    console.log(hot)
+    // console.log(hot)
 
 
     let template = `

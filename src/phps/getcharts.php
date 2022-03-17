@@ -13,7 +13,8 @@ try{
         ON a.mem_no = m.mem_no
         WHERE a.article_no IS NOT NULL
         GROUP BY a.mem_no
-        ORDER BY mem_post DESC"; 
+        ORDER BY mem_post DESC
+        LIMIT 5"; 
         // 執行
         $charts_account = $pdo -> query($sql);
         // // 將取得的資料轉成陣列形式
@@ -29,7 +30,8 @@ try{
       JOIN article a 
       ON a.mem_no = m.mem_no
       WHERE a.article_likes_amount IS NOT NULL
-      ORDER BY a.article_likes_amount DESC"; 
+      ORDER BY a.article_likes_amount DESC
+      LIMIT 5"; 
       // 執行
       $charts_account = $pdo -> query($sql);
       // // 將取得的資料轉成陣列形式
@@ -45,7 +47,8 @@ try{
         JOIN article a 
         ON a.mem_no = m.mem_no
         WHERE a.article_collect_amount IS NOT NULL
-        ORDER BY a.article_collect_amount DESC"; 
+        ORDER BY a.article_collect_amount DESC
+        LIMIT 5"; 
         // 執行
         $charts_account = $pdo -> query($sql);
         // // 將取得的資料轉成陣列形式
@@ -62,13 +65,28 @@ try{
         ON t.writer_no = m.mem_no
         WHERE t.writer_no IS NOT NULL
         GROUP BY t.writer_no
-        ORDER BY t.writer_no DESC"; 
+        ORDER BY t.writer_no DESC
+        LIMIT 5"; 
         // 執行
         $charts_account = $pdo -> query($sql);
         // // 將取得的資料轉成陣列形式
         $charts_accountRows = $charts_account->fetchAll(PDO::FETCH_ASSOC);
         // // 將陣列轉成json格式後傳出去
         echo json_encode($charts_accountRows);
+        break;
+
+    case "insertFollow":
+        // $sql = "INSERT INTO `trackwriter` (`mem_no`, `writer_no`) VALUES ({$_GET['mem_no']}, {$_GET['writer_no']})"; 
+        $sql = "INSERT INTO `trackwriter` (`mem_no`, `writer_no`) VALUES (8, 6)"; 
+        // 執行
+        $charts_account = $pdo -> exec($sql);
+        break;
+
+    case "deleteFollow":
+          // $sql="DELETE FROM `trackwriter` WHERE `trackwriter`.`mem_no` = 8 AND `trackwriter`.`writer_no` = 6"
+        // 執行
+        // $charts_account = $pdo -> query($sql);
+        echo 'hi';
         break;
   }
 }catch(PDOException $e){
