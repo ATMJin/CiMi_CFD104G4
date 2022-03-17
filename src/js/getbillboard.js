@@ -18,6 +18,7 @@ function hotBoard() {
     for (let i = 0; i < hot_billboard.length; i++) {
       data.push(hot_billboard[i].billboard_name);
     }
+    console.table(data);
 
     let hot = document.querySelector('.hot_billboard')
     console.log(hot)

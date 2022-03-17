@@ -16,6 +16,16 @@
 $headerHeight: 110px;
 $padding: 10px 10px 20px;
 
+.material-icons{
+    &.md-28 { 
+        font-size: 28px; 
+        padding: 1px 2px 0 2px;
+      }
+    &.md-36 { 
+        font-size: 36px; 
+      }
+    }
+
 
 // 聊天室頁面的header不需要fixed !
 
@@ -426,4 +436,10 @@ body{
     .chat_area header #back {
         display: block;
     }
+}
+
+.chat_box .chatImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
 }
