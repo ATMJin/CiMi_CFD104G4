@@ -56,8 +56,14 @@ let question_no;
 let ans_pack = [];
 
 
+//返回按鈕
+let back_button = document.getElementById("return_button");
+let x_button = document.getElementById("button_escape");
+
 //註冊事件聆聽
 function doFirst() {
+    back_button.addEventListener('click', return_page);
+    x_button.addEventListener('click', return_page);
     getquestion();
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     waiting_lightbox.style="display:none";
@@ -74,7 +80,11 @@ function doFirst() {
     
 };
 
-// AJAX 題目&答案從資料庫抓出放於畫面上面
+
+function return_page() {
+    window.history.go(-1);
+}
+// 一、題目&答案從資料庫抓出放於畫面上面
 //////////////////////////////////////
 function getquestion(){
     let xhr = new XMLHttpRequest();
@@ -180,7 +190,7 @@ function playToggle(e) {
         console.log(ans_pack);
         
 
-        //傳資料給php，php執行insert會員答案的動作
+//二、傳資料給php，php執行insert會員答案的動作
 
         $.ajax({
             url: 'phps/response.php',
@@ -253,13 +263,15 @@ function videoPause() {
         
         setTimeout(function(){destiny_botton.innerHTML='<a href="cards.html"><button id="My_destiny_button">我的destiny</button></a>'}, 10*1000);
 
-        //送出玩遊戲時間
+//三、送出玩遊戲時間/答案包至 mempairdata
 
             let Today = new Date();
             let playdate=`${Today.getFullYear()}.${Today.getMonth()+1}.${Today.getDate()}`;
             
         // ans_pack.toString();
         // console.log(ans_pack);
+
+
             $.ajax({
             url: 'phps/already_played.php',
             data: {mem_no:sessionStorage.getItem('mem_no'),playdate,ans_pack:ans_pack.toString()},
