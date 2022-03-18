@@ -4,7 +4,8 @@ try {
 	//執行sql指令
 	$playdate = $_GET["playdate"];
 	$mem_no = $_GET["mem_no"];
-    $sql = "update mempairdata set mem_last_play='{$playdate}' where mem_no={$mem_no};";
+	$mem_ans_pack = $_GET["ans_pack"];
+    $sql = "update mempairdata set mem_last_play='{$playdate}',mem_ans_pack='{$mem_ans_pack}' where mem_no={$mem_no};";
     
 
 	if($pdo->exec($sql)){ //exec用於異動資料的時候
