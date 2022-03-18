@@ -27,8 +27,8 @@
 </head>
 
 <body>
+    @@include('layout/header.html')
     <div id="productApp">
-        @@include('layout/header.html')
         <div class="content_area">
             @@include('layout/sidebar.html')
             <!-- 好物商城 -->
@@ -176,9 +176,9 @@
                                 </div>
                             </div>
                             <!-- 商品 -->
-                            <div class="product_item_box">
+                            <div class="product_item_box ligh_box_jump">
                                 <div class="img_box">
-                                    <img src="assets\images\goods\goods_heme.jpg">
+                                    <img src="assets\images\goods\goods_new_goods_information_heme_1_new.jpg">
                                 </div>
                                 <div class="txt_box">
                                     <p>heme | 六色眼影盤</p>
@@ -500,7 +500,7 @@
                         </div>
                         <!-- 商品 -->
                         <div class=" item_box">
-                            <div onclick="myFunction" class="item">
+                            <div onclick="myFunction" class="item ligh_box_jump">
                                 <div class="img_box">
                                     <img src="assets\images\goods\goods_hot_switch.jpg">
                                 </div>
@@ -510,8 +510,8 @@
                             </div>
                             <!-- 先打一個範本，再用v-for迴圈去跑卡片式商品 -->
                             <!-- v-for="good in hot_goods"是看vue裡面的data -->
-                            <div onclick="myFunction" class="item" v-for="good in hot_goods" v-if="good.goods_no > 2"
-                                @click="getGoodNumber(good.goods_no)">
+                            <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in hot_goods"
+                                v-if="good.goods_no > 2" @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
                                     <img v-bind:src="good.goods_pic1">
                                 </div>
@@ -892,7 +892,7 @@
             },
         })
     </script>
-  
+
 
 </body>
 

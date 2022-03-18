@@ -14,47 +14,58 @@
 
 <body>
     @@include('layout/header.html')
-    <div class="content_area">
-        @@include('layout/sidebar.html')
+    <div id="productAdApp">
+        <div class="content_area">
+            @@include('layout/sidebar.html')
+            <!-- 好物商城最上面的觸銷廣告裡的內頁文章 -->
+            <main class="main_product_ad_page">
+                <!-- 文章 -->
+                <section class="product_ad_txt">
+                    <div class="txt_box">
+                        <h1>神秘星星力量⭐65折起</h1>
+                        <h2>整體運勢🆙滿 490 折 50</h2>
+                        <p>抬頭望著數不清的星星✨，
+                            化成一個個神祕🔮的星座，
+                            他們...想告訴你什麼呢🤔
+                            就用好物來提升整體運勢，從⭐出發吧！
 
-        <!-- 好物商城最上面的觸銷廣告裡的內頁文章 -->
-        <main class="main_product_ad_page">
-            <!-- 文章 -->
-            <section class="product_ad_txt">
-                <div class="txt_box">
-                    <h1>神秘星星力量⭐65折起</h1>
-                    <h2>整體運勢🆙滿 490 折 50</h2>
-                    <p>抬頭望著數不清的星星✨，
-                        化成一個個神祕🔮的星座，
-                        他們...想告訴你什麼呢🤔
-                        就用好物來提升整體運勢，從⭐出發吧！
-
-                        用測驗找出專屬於妳的推薦好物！
-                        💫2/23-3/2 連假星座運勢💫
-                        活動詳情 CIMI 搜尋🔎 連假星座運勢測驗
-                    </p>
-                </div>
-                <!-- </div> -->
-            </section>
-            <!-- 商品 -->
-            <section class="all">
-                <div class="all_item_box">
-                    <!-- 標題 -->
-                    <div class="title">
-                        <p>商品</p>
+                            用測驗找出專屬於妳的推薦好物！
+                            💫2/23-3/2 連假星座運勢💫
+                            活動詳情 CIMI 搜尋🔎 連假星座運勢測驗
+                        </p>
                     </div>
-                    <!-- 商品 -->
-                    <div class="item_box">
-                        <div class="item">
-                            <div class="img_box">
-                                <img src="assets\images\goods\goods_ad_page_1.jpg">
-                            </div>
-                            <div class="txt_box">
-                                <p>辟邪女款水晶手鍊</p>
-                                <p>NT.500</p>
-                            </div>
+                    <!-- </div> -->
+                </section>
+                <!-- 商品 -->
+                <section class="all">
+                    <div class="all_item_box">
+                        <!-- 標題 -->
+                        <div class="title">
+                            <p>商品</p>
                         </div>
-                        <div class="item">
+                        <!-- 商品 -->
+                        <div class="item_box">
+                            <div onclick="myFunction" class="item ligh_box_jump">
+                                <div class="img_box">
+                                    <img src="assets\images\goods\goods_ad_page_1.jpg">
+                                </div>
+                                <div class="txt_box">
+                                    <p>辟邪女款水晶手鍊</p>
+                                    <p>NT.500</p>
+                                </div>
+                            </div>
+                            <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in goods"
+                                v-if="good.goods_no > 2" @click="getGoodNumber(good.goods_no)">
+                                <div class="img_box">
+                                    <img v-bind:src="good.goods_pic1">
+                                </div>
+                                <div class="txt_box">
+                                    <p>{{goods_name}}</p>
+                                    <p>NT.{{goods_price}}</p>
+                                </div>
+                            </div>
+
+                            <!-- <div class="item">
                             <div class="img_box">
                                 <img src="assets\images\goods\goods_ad_page_3.jpg">
                             </div>
@@ -224,17 +235,322 @@
                                 <p>辟邪女款水晶手鍊</p>
                                 <p>NT.500</p>
                             </div>
+                        </div> -->
                         </div>
                     </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
+        </div>
+
+        <!-- 燈箱--感謝文進大大相助!!!!! -->
+        <section class="product_lighbox">
+            <main class="product_page" v-for="good in goods" v-if="number==good.goods_no">
+                <!-- 商品最上面的標題 -->
+                <section class="product_page_title">
+                    <!-- 商品名稱 -->
+                    <div class="txt_box">
+                        <p>{{good.goods_name}}</p>
+                    </div>
+                    <!-- 叉叉按鈕 -->
+                    <div class="img_box cross" @click="displayNone">
+                        <img src="assets\images\icon\close.png">
+                    </div>
+
+                </section>
+                <!-- 追蹤分類 -->
+                <section class="product_page_sort_follow">
+                    <div class="product_item_box">
+                        <!-- 圖片 -->
+                        <div class="product_img_box">
+                            <img src="assets\images\icon\shop_food.png">
+                        </div>
+                        <!-- 文字 -->
+                        <div class="txt_box">
+                            <!-- 分類 -->
+                            <p style="color:rgb(20, 20, 20);">{{good.goods_class}}</p>
+                        </div>
+                    </div>
+                    <!-- 按鈕 -->
+                    <button class="btn-secondary">追蹤</button>
+                </section>
+
+                <!-- // 商品照(小圖變大圖 -->
+                <section class="product_page_pic">
+                    <div class="product_large">
+                        <!-- 找大圖圖片1 -->
+                        <img id="large" :src="good.goods_pic1">
+                    </div>
+                    <div class="product_small">
+                        <!-- 找圖片1 -->
+                        <div class="img_box">
+                            <img :src="good.goods_pic1" />
+                        </div>
+                        <!-- 找圖片2 -->
+                        <div class="img_box">
+                            <img :src="good.goods_pic2" />
+                        </div>
+                        <!-- 找圖片3 -->
+                        <div class="img_box">
+                            <img :src="good.goods_pic3" />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 商品價格/資訊 -->
+                <section class="product_page_price_in">
+                    <!-- 文字區 -->
+                    <div class="txt_box">
+                        <!-- 價格 -->
+                        <div class="txt_box_pri">
+                            <!-- $價格沒別的 -->
+                            <p>NT.{{good.goods_price}}</p>
+                        </div>
+                        <!-- 愛心 -->
+                        <div class="like_box">
+                            <div class="img_box">
+                                <img src="assets\images\icon\like.png">
+                            </div>
+                            <!-- 愛心數 -->
+                            <div class="num_box">
+                                <span class="num" id="product_num">
+                                    {{good.goods_like}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 商品資訊 -->
+                    <div class="txt_box_in">
+                        <p>
+                            {{good.goods_i}}
+                        </p>
+                    </div>
+                </section>
+
+                <!-- 留言區 -->
+                <section class="product_comment">
+                    <p>共5則留言</p>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">乙骨優太</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                這種很脆很好吃欸🤩
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">里香超香</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                這個超級好吃 之前有吃過！ 超級香然後有微微的甜
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">五條悟</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                也太便宜了吧！
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">純愛戰神</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                卡一個!!!!
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">咒術迴戰</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                卡一個!!!
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- 商品留言 -->
+                <section class="product_page_msg">
+                    <!-- 右邊 -->
+                    <div class="item_box_msger">
+                        <!-- 留言頭貼 -->
+                        <div class="img_box">
+                            <img src="assets\images\icon\nav_member.png">
+                        </div>
+                        <!-- 留言 -->
+
+                        <div class="txt_box">
+                            <input type="text" name="tname" placeholder="留言...">
+                        </div>
+                    </div>
+                    <!-- 左邊icon -->
+                    <div class="item_box_fuction_icon">
+                        <div class="img_box">
+                            <!-- 收藏 -->
+                            <div class="img_box_save" id="product_save" title="加入收藏">
+                                <img src="assets/images/icon/save_hov.png">
+                            </div>
+
+                            <!-- 愛心 -->
+                            <div class="img_box_report" id="product_heart" title="加入愛心">
+                                <img src="assets\images\icon\like_hov.png">
+                            </div>
+                        </div>
+                        <!-- 立即購買 -->
+                        <button class="btn-primary">立即購買</button>
+
+                        <!-- 加入購物車-->
+                        <button class="btn-secondary">加入購物車</button>
+                    </div>
+                </section>
+            </main>
+        </section>
+
     </div>
+
     <!-- 廣告輪播/燈箱/收藏save/愛心heart/js限時特賣(倒數計時)/小圖變大圖 -->
     <script src="js\product_all.js"></script>
     <!-- 撈資料 -->
     <script src="js\product.js"></script>
-    
+
+    <!-- vue product_ad_all -->
+    <script>
+        new Vue({
+            el: "#productAdApp",
+            data: {
+                ad_goods: [],
+                number: 0,
+            },
+            methods: {
+                //叉叉功能
+                displayNone() {
+                    let x = document.querySelector(".product_lighbox");
+                    x.style.display = "none";
+                },
+                //燈箱出現的跟圖片顯示要樣
+                getGoodNumber(goods_no) {
+                    console.log(this.number);
+                    this.number = goods_no;
+
+                    console.log(this.number);
+
+                },
+                getProductAd() {
+                    let xhr = new XMLHttpRequest();
+                    //打開php的我的php檔
+                    xhr.open("get", `phps/product_ad_page.php`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        // 接收PHP傳來的資料
+                        allgoods = JSON.parse(xhr.responseText);
+                        // console.log(xhr.responseText);
+                        console.table(allgoods);
+
+                        this.ad_goods = allgoods
+                    }
+                },
+            },
+            mounted() {
+                this.getProductAd()
+            },
+        })
+    </script>
+
+
 </body>
 
 </html>

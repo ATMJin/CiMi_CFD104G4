@@ -3,7 +3,7 @@
   include_once "connect.php";
 
 // 撈所有商品 來自goods表格 依據(創建時間)排序goods_creat
-  $sql = "SELECT * FROM goods order by goods_creat desc";
+  $sql = "SELECT * FROM goods order by goods_creat desc" ;
   
   //執行sql
   $member = $pdo -> query($sql);
