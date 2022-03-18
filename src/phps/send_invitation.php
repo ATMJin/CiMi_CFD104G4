@@ -18,15 +18,15 @@ try {
 	}
 
 
-	// $sql2 = "INSERT INTO mifriend(mem_no,mi_no) 
-	// SELECT a.player_no,a.paring_player_no FROM paring_result a JOIN paring_result b on a.player_no = b.paring_player_no AND a.paring_player_no=b.player_no;";
+	$sql2 = "INSERT INTO mifriend(mem_no,mi_no) 
+	SELECT a.player_no,a.paring_player_no FROM paring_result a JOIN paring_result b on a.player_no = b.paring_player_no AND a.paring_player_no=b.player_no WHERE a.player_no={$player_no} or a.paring_player_no={$player_no};";
 	
 
-	// if($pdo->exec($sql2)){ //exec用於異動資料的時候
-	// 	echo "2異動成功~";
-	// }else{
-	// 	echo "2異動失敗~";
-	// }
+	if($pdo->exec($sql2)){ //exec用於異動資料的時候
+		echo "2異動成功~";
+	}else{
+		echo "2異動失敗~";
+	}
 
 	
 }catch (PDOException $e) {
