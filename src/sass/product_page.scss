@@ -163,6 +163,10 @@
                     display: flex;
                     align-items: center;
                     margin: 10px;
+                    position: relative;
+                    text-align: end;
+                    height: 17px;
+                    overflow-y: hidden;
                     .img_box {
                         width: 20px;
                         height: 20px;
@@ -171,11 +175,24 @@
                             width: 100%;
                         }
                     }
-                    .txt_box{
+                    // 點擊數
+                    .num_box{
                         margin-left: 5px;
-                        p{
+                        top:0;
+                        left:0;
+                        position: relative;
+                        line-height: 17px;
+                        .num{
+                            content: "50"; //內容
                             font-size: var(--tag);
                             color: #a3a3a3;
+                            
+
+                        }
+                        .num .heart-active::before{
+                            content: "51"; //內容
+                            color: #5E5E5E;
+                            transition: 0.8s;
                         }
                     }
                 }
@@ -190,6 +207,7 @@
         }
     }
 }
+
 
 // 我要留言
 .product_lighbox {

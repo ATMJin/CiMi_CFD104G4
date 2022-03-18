@@ -1,37 +1,44 @@
-aside{
+aside {
     display: none;
-}
-.top_bar_box{
-    top: 0;
-}
-.member_sidebar_box{
-    display: none;
-}
-.backPage {
-    margin-top: 70px;
-    button {
-        font-family: 'Noto Sans TC', sans-serif;
-        font-size: 14px;
-        letter-spacing: .05em;
-        border-radius: .75em;
-        font-weight: 500;
-        color: var(--primary-color);
-        background-color: var(--button-secondary);
-        border: none;
-        outline: none;
-        padding: 5px 13px;
-        cursor: pointer;
-    }
 }
 
+.top_bar_box {
+    top: 0;
+}
+
+.member_sidebar_box {
+    display: none;
+}
+
+
+
 .member_main_box {
+    .backPage {
+        margin-top: 70px;
+    
+        button {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 14px;
+            letter-spacing: .05em;
+            border-radius: .75em;
+            font-weight: 500;
+            color: var(--primary-color);
+            background-color: var(--button-secondary);
+            border: none;
+            outline: none;
+            padding: 5px 13px;
+            cursor: pointer;
+        }
+    }
     .member_bg {
         .member_main {
             display: none;
         }
-        .member_main_title{
+
+        .member_main_title {
             display: none;
         }
+
         .member_text {
             width: 100%;
             display: flex;
@@ -69,16 +76,42 @@ aside{
         }
     }
 }
-
+.friend_lightbox{
+    display: none;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #cccc;
+    backdrop-filter: blur(5px);
+    .friend_intro{
+        width: 50%;
+        margin: 0 auto;
+        min-width: 768px;
+        max-width: 900px;
+        position: absolute;
+        height: 100%;
+        overflow: auto;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+    }
+}
 @media screen and (min-width:768px) {
-    aside{
+    aside {
         display: inline-block;
     }
-    .member_sidebar_box{
+
+    .member_sidebar_box {
         display: block;
     }
 
     .member_main_box {
+        .backPage{
+            display: none;
+        }
         .member_bg {
             .member_main {
                 display: none;
@@ -99,6 +132,7 @@ aside{
                 border-radius: 10px;
 
                 .member_friends_card {
+                    cursor:pointer;
                     width: calc(80%/3);
                     border-radius: 5px;
                     margin: 20px 0%;
@@ -106,7 +140,7 @@ aside{
                     border-radius: 20px;
                     background-color: #fff;
                     box-shadow: 0 2px 8px 2px #ecebebce;
-    
+
 
                     .member_cardhead {
                         display: flex;
@@ -114,6 +148,7 @@ aside{
                         align-items: center;
                         padding: 0%;
                         margin: 0%;
+
                         img {
                             width: 200px;
                             height: 200px;
@@ -122,13 +157,12 @@ aside{
 
                     .member_cardtext {
                         p {
-                            padding: auto;
+                            text-align: center;
+                            padding: 20px;
                         }
                     }
                 }
             }
         }
     }
-
-
 }

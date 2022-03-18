@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>創作者排行榜 | CiMi交友論壇</title>
-    <link rel="stylesheet" href="assets/css/charts.css">
-    <link rel="stylesheet" href="assets/css/tabs.css">
+
+    <link rel="stylesheet" href="assets/css/charts.css" />
+    <link rel="stylesheet" href="assets/css/tabs.css" />
 </head>
 
 <body>
@@ -27,380 +28,95 @@
 
                 <div class="content">
                     <div v-if="activetab ==='1'" class="tabcontent">
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.1</span>
+                        <div class="charts_content" v-for="(member, index) in members" :key="index">
+                            <div class="charts_box">
+                                <div class="charts_rank">
+                                    <span>No.{{index+1}}</span>
+                                </div>
+                                <div class="charts_img">
+                                    <img v-bind:src="member.mem_head" />
+                                </div>
+                                <div class="charts_name">
+                                    <span class="charts_mem">{{member.mem_name}}</span>
+                                    <span class="charts_account">@{{member.mem_id}}</span>
+                                </div>
                             </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=12">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">抹抹健康</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                發文數 : 343
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.2</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=13">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">好人平安</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                發文數 : 328
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.3</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=14">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">陶氣小毛</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                發文數 : 293
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.4</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=16">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">吹泡泡</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                發文數 : 288
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.5</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=17">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">炸彈超人</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                發文數 : 259
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
+                            <div class="charts_wrap">
+                                <div class="charts_sum">
+                                    發文數 : <span>{{member.mem_post}}</span>
+                                </div>
+                                <div class="charts_btn">
+                                    <button type="button" class="btn-secondary" @click="addFollow">追蹤</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div v-if="activetab ==='2'" class="tabcontent">
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.1</span>
+                        <div class="charts_content" v-for="(member, index) in members" :key="index">
+                            <div class="charts_box">
+                                <div class="charts_rank">
+                                    <span>No.{{index+1}}</span>
+                                </div>
+                                <div class="charts_img">
+                                    <img v-bind:src="member.mem_head" />
+                                </div>
+                                <div class="charts_name">
+                                    <span class="charts_mem">{{member.mem_name}}</span>
+                                    <span class="charts_account">@{{member.mem_id}}</span>
+                                </div>
                             </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=18">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">抹茶蘋果</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                喜歡數 : 834
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.2</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=19">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">三生平安</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                喜歡數 : 756
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.3</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=20">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">小氣阿花</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                喜歡數 : 666
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.4</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=21">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">如如天才</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                喜歡數 : 463
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.5</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=22">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">文進樹神</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                喜歡數 : 349
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
+                            <div class="charts_wrap">
+                                <div class="charts_sum">
+                                    喜歡數 : <span>{{member.mem_post}}</span>
+                                </div>
+                                <div class="charts_btn">
+                                    <button type="button" class="btn-secondary">追蹤</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div v-if="activetab ==='3'" class="tabcontent">
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.1</span>
+                        <div class="charts_content" v-for="(member, index) in members" :key="index">
+                            <div class="charts_box">
+                                <div class="charts_rank">
+                                    <span>No.{{index+1}}</span>
+                                </div>
+                                <div class="charts_img">
+                                    <img v-bind:src="member.mem_head" />
+                                </div>
+                                <div class="charts_name">
+                                    <span class="charts_mem">{{member.mem_name}}</span>
+                                    <span class="charts_account">@{{member.mem_id}}</span>
+                                </div>
                             </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=23">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">抹茶草莓</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                收藏數 : 777
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.2</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=24">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">黃黃顆顆</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                收藏數 : 690
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.3</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=25">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">媛氣滿滿</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                收藏數 : 675
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.4</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=26">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">雯武雙全</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                收藏數 : 533
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.5</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=27">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">源清流靖</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                收藏數 : 675
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
+                            <div class="charts_wrap">
+                                <div class="charts_sum">
+                                    收藏數 : <span>{{member.mem_post}}</span>
+                                </div>
+                                <div class="charts_btn">
+                                    <button type="button" class="btn-secondary">追蹤</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div v-if="activetab ==='4'" class="tabcontent">
+                </div>
+                <div v-if="activetab ==='4'" class="tabcontent">
+                    <div class="charts_content" v-for="(member, index) in members" :key="index">
                         <div class="charts_box">
                             <div class="charts_rank">
-                                <span>No.1</span>
+                                <span>No.{{index+1}}</span>
                             </div>
                             <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=28">
+                                <img v-bind:src="member.mem_head" />
                             </div>
                             <div class="charts_name">
-                                <span class="charts_mem">草莓巧克</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                追蹤數 : 870
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
+                                <span class="charts_mem">{{member.mem_name}}</span>
+                                <span class="charts_account">@{{member.mem_id}}</span>
                             </div>
                         </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.2</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=29">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">平安喜樂</span>
-                                <span>@mumumu</span>
-                            </div>
+                        <div class="charts_wrap">
                             <div class="charts_sum">
-                                追蹤數 : 798
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.3</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=30">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">煞氣小花</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                追蹤數 : 639
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.4</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=31">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">橫掃千均</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                追蹤數 : 584
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
-                            </div>
-                        </div>
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.5</span>
-                            </div>
-                            <div class="charts_img">
-                                <img src="https://picsum.photos/100/100/?random=32">
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">萬事如意</span>
-                                <span>@mumumu</span>
-                            </div>
-                            <div class="charts_sum">
-                                追蹤數 : 404
+                                追蹤數 : <span>{{member.mem_post}}</span>
                             </div>
                             <div class="charts_btn">
                                 <button type="button" class="btn-secondary">追蹤</button>
@@ -416,19 +132,114 @@
     <!-- 分類頁籤 -->
     <script>
         new Vue({
-            el: '#tabs',
+            el: "#tabs",
             data: {
-                activetab: '1'
+                activetab: "1",
+                members: [],
+                // btn: "追蹤",
             },
-            // methods: { // 函數大部分放在這裡!
-            //     charts_mem[i].innerText = charts_name[i].mem_name;
-            //     },
-            // },
+            computed: {
+                // btnclass() {
+                //     return {
+                //         // "btn-secondary":true,
+                //         "btn-secondary": this.btn == "追蹤",
+                //         // "btn-primary":false,
+                //         "btn-primary": this.btn == "已追蹤",
+                //     }
+                // }
+            },
+            methods: {
+                getFollow() {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("get", `phps/getcharts.php?case=insertFollow`, true);
+                    xhr.send(null);
+                },
+                cancelFollow() {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("get", `phps/getcharts.php?case=deleteFollow`, true);
+                    xhr.send(null);
+                },
+                getData() {},
+                addFollow(e) {
+                    if (e.target.innerText == "已追蹤") {
+                        e.target.innerText = "追蹤";
+                        this.cancelFollow()
+                    } else if (e.target.innerText == "追蹤") {
+                        e.target.innerText = "已追蹤";
+                        this.getFollow()
+                        // this.btn = "已追蹤"
+                    }
+                },
+            },
+            mounted() {
+                // this.getData();
+                let charts_mem = document.querySelectorAll(".charts_mem"); //會員名稱
+                let charts_icon = document.querySelectorAll(".charts_img img"); //會員頭像
+                let charts_account = document.querySelectorAll(".charts_account"); //會員帳號
+                let charts_sum = document.querySelectorAll(".charts_sum span"); //排行計算
+
+                // console.log(charts_icon)
+
+                // GET
+                let xhr = new XMLHttpRequest();
+                xhr.open("get", `phps/getcharts.php?case=${this.activetab}`, true);
+                xhr.send(null);
+
+                let m = this;
+                xhr.onload = function () {
+                    // 接收PHP傳來的資料
+                    charts_info = JSON.parse(xhr.responseText);
+                    m.members = charts_info;
+                    // charts_account[0].innerText = charts_info[0];
+                    // for迴圈
+                    // for (let i = 0; i < charts_account.length; i++) {
+                    //     // console.log(charts_info[i].mem_name);
+                    //     charts_mem[i].innerText = charts_info[i].mem_name;
+                    //     charts_account[i].innerText = "@" + charts_info[i].mem_id;
+                    //     charts_icon[i].src = charts_info[i].mem_head;
+                    //     charts_sum[i].innerText = charts_info[i].mem_post;
+                    // }
+                };
+            },
+            updated() {
+                // this.getData();
+                let charts_mem = document.querySelectorAll(".charts_mem"); //會員名稱
+                let charts_icon = document.querySelectorAll(".charts_img img"); //會員頭像
+                let charts_account = document.querySelectorAll(".charts_account"); //會員帳號
+                let charts_sum = document.querySelectorAll(".charts_sum span"); //排行計算
+
+                // console.log(charts_icon)
+
+                // GET
+                let xhr = new XMLHttpRequest();
+                xhr.open("get", `phps/getcharts.php?case=${this.activetab}`, true);
+                xhr.send(null);
+
+                let m = this;
+                xhr.onload = function () {
+                    // 接收PHP傳來的資料
+                    charts_info = JSON.parse(xhr.responseText);
+                    m.members = charts_info;
+                    // charts_account[0].innerText = charts_info[0];
+                    // for (let i = 0; i < charts_account.length; i++) {
+                    //     console.log(charts_info[i].mem_name);
+                    //     charts_mem[i].innerText = charts_info[i].mem_name;
+                    //     charts_account[i].innerText = "@" + charts_info[i].mem_id;
+                    //     charts_icon[i].src = charts_info[i].mem_head;
+                    //     charts_sum[i].innerText =
+                    //         charts_info[i].mem_post |=
+                    //         charts_info[i].article_likes_amount |=
+                    //         charts_info[i].article_collect_amount |=
+                    //         charts_info[i].writer_no;
+
+                    //     console.log(charts_info[i]);
+                    // }
+                };
+
+
+            },
         });
     </script>
-
-    <script src="js/getcharts.js"></script>
-
 </body>
 
 </html>

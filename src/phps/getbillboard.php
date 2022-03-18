@@ -26,6 +26,7 @@ try{
         // // 將陣列轉成json格式後傳出去
         echo json_encode($hot_boardsRows);
         break;
+
   }
 }catch(PDOException $e){
 	echo "錯誤原因 : ", $e->getMessage(), "<br>";
