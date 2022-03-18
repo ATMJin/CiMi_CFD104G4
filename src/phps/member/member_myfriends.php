@@ -2,9 +2,10 @@
   include_once "member_config.php";
 
 
-$sql = "SELECT mem_point,mem_head,mem_stacksign FROM mem 
-where mem.mem_no= {$_GET['mem_no']}";
-  
+  $sql = 
+  "SELECT * 
+  FROM mifriend";
+    
   //執行sql
   $member = $pdo -> query($sql);
 

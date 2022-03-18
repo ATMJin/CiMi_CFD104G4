@@ -3,9 +3,7 @@
 
 
 $sql = 
-"SELECT mem_birth,mem_sex,mem_sexuality,mem_relationship,mem_job,
-mem_school,mem_sign,mem_interests,mem_lovecountry,mem_exchange,
-mem_try ,mem.mem_name,mem.mem_head
+"SELECT * 
 FROM mem join mempairdata on mempairdata.mem_no = mem.mem_no 
 where mem.mem_no= {$_GET['mem_no']}";
   

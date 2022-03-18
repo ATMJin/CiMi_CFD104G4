@@ -19,13 +19,21 @@ window.addEventListener("load", () => {
     }
 
     logout = document.getElementsByClassName('my_logout')
-    console.log(logout);
-    logout[0].addEventListener('click',function () {
+    // console.log(logout);
+    logout[0].addEventListener('click', function () {
         sessionStorage.removeItem("login");
-        alert("登出成功");
-        location.href="homepage.html"
+        var button = document.querySelector('.my_logout');
+        function logout() {
+            alert('確認要登出嗎');
+            if (confirm('確認要登出嗎') == true) {
+                location.href = "homepage.html";
+            } else {
+
+            }
+        }
+        button.addEventListener('click', logout);
+        location.href = "homepage.html"
     })
-    
+
     // check();
 })
-
