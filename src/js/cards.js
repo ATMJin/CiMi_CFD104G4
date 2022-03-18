@@ -49,6 +49,15 @@ let paring_no=[];
 let paring_time;
 
 
+//返回
+let return_button = document.getElementById("back");
+
+function return_page() {
+    window.history.go(-1);
+}
+
+
+
 checkbox.addEventListener('change', function change_scene() {
   let typer = document.getElementById("typewriter-contain");
   switcher.classList.add("glow");
@@ -65,7 +74,7 @@ checkbox.addEventListener('change', function change_scene() {
   
 });
 
-// XML 從資料庫抓出三個人放於畫面上面
+//一、從資料庫抓出三個人放於畫面上面
 //////////////////////////////////////
 function getquestion(){
     let xhr = new XMLHttpRequest();
@@ -100,7 +109,7 @@ function getquestion(){
 }
 //////////////////////////////////////
 
-// XML 從資料庫抓出邀請狀態
+//二、從資料庫抓出邀請狀態
 //////////////////////////////////////
 function getstatus_info() {
     let xhr = new XMLHttpRequest();
@@ -215,8 +224,7 @@ function collective_blue(){
 		blue_button.style.color="white";
     blue_button.innerText = ('已邀請');
     
-  
-    
+//三、送邀請進入資料庫
 
     $.ajax({
           url: 'phps/send_invitation.php',
@@ -284,7 +292,9 @@ function collective_yellow(){
 
 
 
-function doFirst(){
+function doFirst() {
+  return_button.addEventListener('click', return_page);
+  
   getquestion();
   red_button.addEventListener('click',collective_red);
   blue_button.addEventListener('click',collective_blue);
