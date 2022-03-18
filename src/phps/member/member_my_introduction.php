@@ -2,9 +2,7 @@
   include_once "member_config.php";
 
 
-$sql = 
-"SELECT * 
-FROM mem join mempairdata on mempairdata.mem_no = mem.mem_no 
+$sql = "SELECT * FROM mem join mempairdata on mempairdata.mem_no = mem.mem_no 
 where mem.mem_no= {$_GET['mem_no']}";
   
   //執行sql

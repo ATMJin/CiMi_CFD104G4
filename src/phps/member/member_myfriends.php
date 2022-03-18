@@ -4,7 +4,9 @@
 
   $sql = 
   "SELECT * 
-  FROM mifriend";
+  FROM mem join mempairdata on mempairdata.mem_no = mem.mem_no 
+           join mifriend    on mifriend.mem_no = mem.mem_no
+  where mem.mem_no= {$_GET['mem_no']}";
     
   //執行sql
   $member = $pdo -> query($sql);

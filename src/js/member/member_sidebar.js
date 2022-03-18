@@ -8,12 +8,12 @@ window.addEventListener("load", () => {
         member = JSON.parse(xhr.responseText);
         // console.log(xhr.responseText);
 
-        let head = document.querySelectorAll('.member_head_img')
+        let head = document.querySelectorAll('.member_head_img img')
         let child = document.querySelectorAll('.my_integral p')
         let user = document.querySelectorAll('.member_head p')
 
 
-        head[0].innerHTML = member.mem_head;
+        head[0].src = member.mem_head;
         user[0].innerText = member.mem_name;
         child[0].innerText = member.mem_point;
     }
