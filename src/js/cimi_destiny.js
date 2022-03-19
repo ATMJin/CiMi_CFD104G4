@@ -95,6 +95,7 @@ function getquestion(){
         let i= 0;
         let dataObj =new Date();
         let day = dataObj.getDay();
+        console.log(day);
      
         i = day*3;
         question_no_array=[questions[i].question_no,questions[i+1].question_no,questions[i+2].question_no];
@@ -223,7 +224,7 @@ function playToggle(e) {
          
     };
     // FIXME 下面那行開發時加速用
-    selectVideo.currentTime +=7
+    // selectVideo.currentTime +=7
 };
 
 //影片暫停的時間，以及每次暫停時要做的事情(特例)
@@ -268,8 +269,6 @@ function videoPause() {
             let Today = new Date();
             let playdate=`${Today.getFullYear()}.${Today.getMonth()+1}.${Today.getDate()}`;
             
-        // ans_pack.toString();
-        // console.log(ans_pack);
 
 
             $.ajax({
