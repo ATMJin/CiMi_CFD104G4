@@ -6,12 +6,13 @@ let vm = new Vue({
     billboards: [],
     articlesFollows: [],
     trackwriters: [],
+    activetab: '1',
   },
   methods: {
 
   },
   mounted() {
-    fetch(`phps/member/member_article_treasure_order.php`)
+    fetch(`phps/member/member_article_treasure_order.php?mem_no=${sessionStorage.getItem("mem_no")}`)
       .then(res => res.json())
       // .then(res => console.log(res))
       .then(res => {
@@ -20,7 +21,9 @@ let vm = new Vue({
         this.billboards = res[2]
         this.articlesFollows = res[3]
         this.trackwriters = res[4]
+        console.log(this.billboards);
       })
       .catch(err => console.log(err))
+
   },
 })
