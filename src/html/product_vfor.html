@@ -22,8 +22,8 @@
 </head>
 
 <body>
+    @@include('layout/header.html')
     <div id="productApp">
-        @@include('layout/header.html')
         <div class="content_area">
             @@include('layout/sidebar.html')
             <!-- 好物商城 -->
@@ -310,15 +310,9 @@
                         <!-- 商品 -->
 
                         <div class="item_box">
-                            <div onclick="myFunction" class="item ligh_box_jump">
-                                <div class="img_box">
-                                    <img src="assets\images\goods\goods_all_soufflé.jpg">
-                                </div>
-                                <div class="txt_box">
-                                    <p>夢幻甜點｜舒芙蕾</p>
-                                    <p>NT.480</p>
-                                </div>
-                            </div>
+                            <!-- 撈回來的所有商品資料用v-for建立商品卡片 -->
+                            <!-- v-if跳過前兩筆 -->
+                            <!-- @click建立點及事件，變數number等於我點擊的商品編號 -->
                             <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in goods"
                                 v-if="good.goods_no > 2" @click="number=good.goods_no">
                                 <div class="img_box">
@@ -338,6 +332,8 @@
         </div>
         <!-- 燈箱--感謝文進大大相助!!!!! -->
         <section class="product_lighbox">
+            <!-- v-for建立所有商品燈箱 -->
+            <!-- v-if用number判斷要顯示哪個燈箱 -->
             <main class="product_page" v-for="good in goods" v-if="number==good.goods_no">
                 <!-- 商品最上面的標題 -->
                 <section class="product_page_title">
@@ -392,138 +388,34 @@
 
                 <!-- 留言區 -->
                 <section class="product_comment">
-                    <p>共5則留言</p>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
+                    <p>共{{count}}則留言</p>
+                    <!-- v-for建立所有留言 -->
+                    <!-- v-if篩選只屬於該商品的留言 -->
+                    <div class="comment_box" v-for="comment in comments" v-if="number == comment.goods_no">
                         <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
+                            <img :src="comment.mem_head">
                         </div>
                         <div class="comment_txt">
                             <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">乙骨優太</span>
+                                <span class="comment_mem_name_item">{{comment.mem_name}}</span>
                                 <div class="comment_impeach_icon">
                                     <img src="assets/images/icon/more_hov.png" alt="">
                                 </div>
                             </div>
                             <div class="comment_content">
-                                這種很脆很好吃欸🤩
+                                {{comment.comment_content}}
                             </div>
                             <div class="comment_info">
                                 <div class="comment_like_box">
                                     <div class="comment_like_icon">
                                         <img src="assets/images/icon/like_hov.png" alt="">
                                     </div>
-                                    <span class="comment_like_amount">23</span>
+                                    <span class="comment_like_amount">{{comment.comment_likes_amount}}</span>
                                 </div>
-                                <span class="comment_date">2022/2/23</span>
+                                <span class="comment_date">{{comment.comment_last_edit_date}}</span>
                             </div>
                         </div>
                     </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">里香超香</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                這個超級好吃 之前有吃過！ 超級香然後有微微的甜
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">五條悟</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                也太便宜了吧！
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">純愛戰神</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                卡一個!!!!
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">咒術迴戰</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                卡一個!!!
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </section>
 
                 <!-- 商品留言 -->
@@ -569,32 +461,67 @@
     <!-- <script src="js\product.js"></script> -->
 
     <script>
-        new Vue({
+        Vue.config.devtools = true;
+        const vm = new Vue({
             el: "#productApp",
             data: {
                 goods: [],
+                comments: [],
                 number: 0,
+                // 商品留言數
+                count: 0,
+            },
+            // 監聽點擊的商品編號改變
+            // 若改變則執行countComment函式
+            watch: {
+                number: "countComment",
             },
             methods: {
                 displayNone() {
                     let x = document.querySelector(".product_lighbox");
                     x.style.display = "none";
+                },
+                // 抓資料庫所有商品
+                getGoods() {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("get", `phps/product_all.php?case=allgoods`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        allgoods = JSON.parse(xhr.responseText);
+                        // console.log(xhr.responseText);
+                        console.table(allgoods);
+                        this.goods = allgoods
+                    }
+                },
+                // 抓資料庫所有留言
+                getGoodsComments() {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("get", `phps/product_all.php?case=goodscomment`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        allcomments = JSON.parse(xhr.responseText);
+                        // console.log(xhr.responseText);
+                        console.table(allcomments);
+                        this.comments = allcomments
+                    }
+                },
+                // 數這件商品有多少留言
+                countComment(newValue, oldValue) {
+                    let c = 0;
+                    for (let i = 0; i < this.comments.length; i++) {
+                        if (this.comments[i].goods_no == newValue) {
+                            c++
+                        }
+                    }
+                    // console.log(c);
+                    this.count = c;
                 }
             },
             mounted() {
-                let xhr = new XMLHttpRequest();
-                //打開php的我的php檔
-                xhr.open("get", `phps/product_all.php`, true);
-                xhr.send(null);
-
-                xhr.onload = () => {
-                    // 接收PHP傳來的資料
-                    allgoods = JSON.parse(xhr.responseText);
-                    // console.log(xhr.responseText);
-                    console.table(allgoods);
-
-                    this.goods = allgoods
-                }
+                this.getGoods();
+                this.getGoodsComments();
 
             },
         })
