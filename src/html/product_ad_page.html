@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>神秘星星力量⭐65折起 | Cimi交友論壇</title>
     <link rel="stylesheet" href="assets/css/product_ad_page.css">
+    <script src="js/vue.js"></script>
+
 </head>
 
 <body>
     @@include('layout/header.html')
-    <div id="productAdApp">
+    <div id="productApp">
         <div class="content_area">
             @@include('layout/sidebar.html')
             <!-- 好物商城最上面的觸銷廣告裡的內頁文章 -->
@@ -42,8 +44,8 @@
                         </div>
                         <!-- 商品 -->
                         <div class="item_box">
-                            <div onclick="myFunction()" class="item ligh_box_jump"  v-for="(good, index) in ad_goods" :key="index"
-                                 @click="getGoodNumber(good.goods_no)">
+                            <div onclick="myFunction()" class="item ligh_box_jump" v-for="(good, index) in ad_goods"
+                                :key="index" @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
                                     <img v-bind:src="good.goods_pic1">
                                 </div>
@@ -99,15 +101,15 @@
                     <div class="product_small">
                         <!-- 找圖片1 -->
                         <div class="img_box">
-                            <img :src="good.goods_pic1" />
+                            <img :src="good.goods_pic1" @click="showLarge" />
                         </div>
                         <!-- 找圖片2 -->
                         <div class="img_box">
-                            <img :src="good.goods_pic2" />
+                            <img :src="good.goods_pic2" @click="showLarge" />
                         </div>
                         <!-- 找圖片3 -->
                         <div class="img_box">
-                            <img :src="good.goods_pic3" />
+                            <img :src="good.goods_pic3" @click="showLarge" />
                         </div>
                     </div>
                 </section>
@@ -128,7 +130,7 @@
                             </div>
                             <!-- 愛心數 -->
                             <div class="num_box">
-                                <span class="num" id="product_num">
+                                <span class="num product_num">
                                     {{good.goods_like}}
                                 </span>
                             </div>
@@ -296,12 +298,12 @@
                     <div class="item_box_fuction_icon">
                         <div class="img_box">
                             <!-- 收藏 -->
-                            <div class="img_box_save" id="product_save" title="加入收藏">
+                            <div class="img_box_save product_save" title="加入收藏">
                                 <img src="assets/images/icon/save_hov.png">
                             </div>
 
                             <!-- 愛心 -->
-                            <div class="img_box_report" id="product_heart" title="加入愛心">
+                            <div class="img_box_report product_heart" title="加入愛心" @click="initheart(good.goods_no)">
                                 <img src="assets\images\icon\like_hov.png">
                             </div>
                         </div>
@@ -325,7 +327,7 @@
     <!-- vue product_ad_all -->
     <script>
         new Vue({
-            el: "#productAdApp",
+            el: "#productApp",
             data: {
                 ad_goods: [],
                 number: 0,
@@ -353,16 +355,161 @@
                     xhr.onload = () => {
                         // 接收PHP傳來的資料
                         allgoods = JSON.parse(xhr.responseText);
-                        // console.log(xhr.responseText);
+                        console.log(xhr.responseText);
                         console.table(allgoods);
 
                         this.ad_goods = allgoods
                     }
                 },
+                //小圖變大圖功能
+                showLarge(e) {
+                    let small = e.target;
+                    //大圖路徑變小圖
+                    document.querySelector(".large").src = small.src;
+                },
+                //加入愛心
+                initheart(goods_no) {
+                    console.log("ssss")
+                    let product_heart = document.querySelector(".product_heart")
+                    let product_num = document.querySelector(".product_num")
+                    let product_heart_img = document.querySelector(".product_heart img")
+
+                    if (product_heart.title == "加入愛心") {
+                        product_heart_img.src =
+                            "assets/images/icon/like.png";
+                        product_heart.title = "取消愛心";
+                        product_num.innerHTML++;
+
+                        let xhr = new XMLHttpRequest();
+                        //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
+                        xhr.open("get", `phps/product_heart_num_add.php?goods_no=${goods_no}`, true);
+                        xhr.send(null);
+
+                        xhr.onload = function () {
+                            // 接收PHP傳來的資料
+                            // allgoods = JSON.parse(xhr.responseText);
+                            // console.log(xhr.responseText);
+                            // console.table(allgoods);
+                        }
+
+                    } else {
+                        product_heart_img.src =
+                            "assets/images/icon/like_hov.png";
+                        product_heart.title = "加入愛心";
+                        product_num.innerHTML--;
+
+                        let xhr = new XMLHttpRequest();
+                        xhr.open("get", `phps/product_heart_num_delete.php?goods_no=${goods_no}`, true);
+                        xhr.send(null);
+
+                        xhr.onload = function () {
+                            // 接收PHP傳來的資料
+                            // allgoods = JSON.parse(xhr.responseText);
+                            // console.log(xhr.responseText);
+                            // console.table(allgoods);
+                        }
+                    }
+
+                    // function initheart() {
+                    //     //設定[加入愛心 或 取消愛心]的點按事件
+                    //     let product_heart = document.querySelector(".product_heart")
+                    //     // console.log(product_heart)
+                    //     // 變數名稱
+                    //     product_heart_img = document.querySelector(".product_heart img")
+                    //     product_heart.onclick = switchLove;
+                    // } //initheart
+
+                }
+
+
             },
             mounted() {
                 this.getProductAd()
             },
+            //筆記!!因為愛心第一次沒出現在網頁上所以寫在mounted會抓不到。
+            // 用Vue改變網頁，如:v-if
+            updated() {
+                // let product_heart = document.querySelector(".product_heart")
+                // let product_num = document.querySelector(".product_num")
+
+                // function switchLove() {
+                //     if (product_heart.title == "加入愛心") {
+                //         product_heart_img.src =
+                //             "assets/images/icon/like.png";
+                //         product_heart.title = "取消愛心";
+                //         product_num.innerHTML++;
+
+                //         let xhr = new XMLHttpRequest();
+                //         //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
+                //         xhr.open("get", `phps/product_heart_num.php?goods_no=${}`, true);
+                //         xhr.send(null);
+
+                //         xhr.onload = function () {
+                //             // 接收PHP傳來的資料
+                //             // allgoods = JSON.parse(xhr.responseText);
+                //             // console.log(xhr.responseText);
+                //             // console.table(allgoods);
+                //         }
+
+
+
+                //     } else {
+                //         product_heart_img.src =
+                //             "assets/images/icon/like_hov.png";
+                //         product_heart.title = "加入愛心";
+                //         product_num.innerHTML--;
+
+                //         let xhr = new XMLHttpRequest();
+                //         xhr.open("get", `phps/product_heart_num_delete.php?goods_no=3`, true);
+                //         xhr.send(null);
+
+                //         xhr.onload = function () {
+                //             // 接收PHP傳來的資料
+                //             // allgoods = JSON.parse(xhr.responseText);
+                //             // console.log(xhr.responseText);
+                //             // console.table(allgoods);
+                //         }
+                //     }
+                // }
+
+                // function initheart() {
+                //     //設定[加入愛心 或 取消愛心]的點按事件
+                //     let product_heart = document.querySelector(".product_heart")
+                //     // console.log(product_heart)
+                //     // 變數名稱
+                //     product_heart_img = document.querySelector(".product_heart img")
+                //     product_heart.onclick = switchLove;
+                // } //initheart
+
+                // initheart()
+                //----------------------加入收藏 或 取消收藏-------------- 
+                let product_save = document.querySelector("product_save");
+
+                function switchFavorite() {
+                    if (product_save.title == "加入收藏") {
+                        product_save_img.src =
+                            "assets/images/icon/save.png";
+                        product_save.title = "取消收藏";
+                    } else {
+                        product_save_img.src =
+                            "assets/images/icon/save_hov.png";
+                        product_save.title = "加入收藏";
+                    }
+                }
+                //function工具在這這邊
+                function initsave() {
+                    //設定[加入收藏 或 取消收藏]的點按事件
+                    product_save = document.querySelector(".product_save")
+                    // 變數名稱
+                    product_save_img = document.querySelector(".product_save img")
+                    product_save.onclick = switchFavorite;
+                } //initsave
+
+                //代表使用這個工具
+                initsave()
+
+            },
+
         })
     </script>
 

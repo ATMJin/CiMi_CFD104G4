@@ -893,6 +893,7 @@
                         this.time_goods = allgoods
                     }
                 },
+                //小圖變大圖功能
                 showLarge(e) {
                     let small = e.target;
                     // console.log(small)
@@ -939,7 +940,7 @@
 
                         let xhr = new XMLHttpRequest();
                         //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
-                        xhr.open("get", `phps/product_heart_num.php?goods_no=3`, true);
+                        xhr.open("get", `phps/product_heart_num_add.php?goods_no=3`, true);
                         xhr.send(null);
 
                         xhr.onload = function () {
@@ -948,7 +949,6 @@
                             // console.log(xhr.responseText);
                             // console.table(allgoods);
                         }
-
 
 
                     } else {
