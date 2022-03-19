@@ -13,10 +13,6 @@
   }
 
 * {
-    /* 字體 : 中文-sans-serif | 英文-Poppins */
-    // font-family: 'Poppins', sans-serif;
-    // color: $font-primary;
-    // color: var(font-primary);
     color: #5E5E5E;
 }
 
@@ -105,7 +101,7 @@
 
                     .txt_box {
                         padding: 10px;
-
+                        
                         p {
                             line-height: 20px;
                             // 使商品名稱跟價格有距離
@@ -116,6 +112,31 @@
                     }
                 }
             }
+        }
+    }
+}
+//燈箱
+@import 'product_page';
+// 購物商城的燈箱
+.product_lighbox {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100%;
+    z-index: 50;
+    // 燈箱出現<背景暗掉
+    background: #6666;
+    // 先消失
+    display: none;
+
+    .product_page {
+        background: #fff;
+        position: absolute;
+
+        // <!-- 追蹤分類 -->
+        .product_page_sort_follow {
+            width: 100%;
         }
     }
 }
@@ -132,14 +153,6 @@
 
         .product_ad_txt {
             margin: 0 40px;
-
-            .txt_box {
-                h1 {}
-
-                h2 {}
-
-                p {}
-            }
         }
     }
 

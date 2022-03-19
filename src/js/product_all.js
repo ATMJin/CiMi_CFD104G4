@@ -117,81 +117,10 @@ function qiang() {
 window.addEventListener("load", qiang, false);
 
 //------------------------------收藏save----------
-let product_save;
-//加入收藏 或 取消收藏
-function switchFavorite() {
-    if (product_save.title == "加入收藏") {
-        product_save_img.src =
-            "assets/images/icon/save.png";
-        product_save.title = "取消收藏";
-    } else {
-        product_save_img.src =
-            "assets/images/icon/save_hov.png";
-        product_save.title = "加入收藏";
-    }
-}
-
-function initsave() {
-    //設定[加入收藏 或 取消收藏]的點按事件
-    product_save = document.getElementById("product_save")
-    // 變數名稱
-    product_save_img = document.querySelector("#product_save img")
-    product_save.onclick = switchFavorite;
-} //initsave
-window.addEventListener("load", initsave, false);
-
-// ---------------------------------------- 愛心heart/點讚效果----------
-let product_heart;
-let product_num = document.getElementById('product_num');
-//加入愛心 或 取消愛心
-function switchLove() {
-    if (product_heart.title == "加入愛心") {
-        product_heart_img.src =
-            "assets/images/icon/like.png";
-        product_heart.title = "取消愛心";
-        product_num.innerHTML++;
-
-        let xhr = new XMLHttpRequest();
-        //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
-        xhr.open("get", `phps/product_heart_num.php?goods_no=3`, true);
-        xhr.send(null);
-    
-        xhr.onload = function () {
-            // 接收PHP傳來的資料
-            // allgoods = JSON.parse(xhr.responseText);
-            console.log(xhr.responseText);
-            // console.table(allgoods);
-        }
-    
 
 
-    } else {
-        product_heart_img.src =
-            "assets/images/icon/like_hov.png";
-        product_heart.title = "加入愛心";
-        product_num.innerHTML--;
+// // ---------------------------------------- 愛心heart/點讚效果----------
 
-        let xhr = new XMLHttpRequest();
-        xhr.open("get", `phps/product_heart_num_delete.php?goods_no=3`, true);
-        xhr.send(null);
-    
-        xhr.onload = function () {
-            // 接收PHP傳來的資料
-            // allgoods = JSON.parse(xhr.responseText);
-            console.log(xhr.responseText);
-            // console.table(allgoods);
-        }
-    }
-}
-
-function initheart() {
-    //設定[加入愛心 或 取消愛心]的點按事件
-    product_heart = document.querySelector("#product_heart")
-    // 變數名稱
-    product_heart_img = document.querySelector("#product_heart img")
-    product_heart.onclick = switchLove;
-} //initheart
-window.addEventListener("load", initheart, false);
 
 // ---------------------------------------- 燈箱 ----------
 function init() {

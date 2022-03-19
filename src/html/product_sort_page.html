@@ -26,8 +26,8 @@
 </head>
 
 <body>
+    @@include('layout/header.html')
     <div id="productApp">
-        @@include('layout/header.html')
         <div class="content_area">
             @@include('layout/sidebar.html')
             <!-- 好物商城 -->
@@ -106,16 +106,23 @@
                                 </div>
                             </div>
                             <!-- 商品 -->
-                            <div class="product_item_box">
+                            <!-- 先打一個範本，再用v-for迴圈去跑卡片式商品 -->
+                            <!-- v-for="good in time_goods"是看vue裡面的data -->
+                            <div onclick="myFunction()" class="product_item_box ligh_box_jump"
+                                v-for="good in time_goods" v-if="good.goods_no > 2"
+                                @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
-                                    <img src="assets\images\goods\goods_new_goods_information_heme_2.jpg">
+                                    <img v-bind:src="good.goods_pic1">
                                 </div>
                                 <div class="txt_box">
-                                    <p>heme | 六色眼影盤</p>
-                                    <p>NT.500</p>
+                                    <p>{{good.goods_name}}</p>
+                                    <p>NT.{{good.goods_price}}</p>
                                 </div>
                             </div>
+
+
                         </div>
+
                         <!-- 上架商品 -->
                         <div class="item_new_product">
                             <!-- 標題 -->
@@ -133,8 +140,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,8 +157,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -165,8 +174,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -181,8 +191,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -197,8 +208,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,8 +225,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -229,8 +242,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -245,8 +259,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -261,8 +276,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -277,8 +293,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title"></span>
-                                                    <span class="ag-shop-card-footer_products"></span>
+                                                    <span class="ag-shop-card-footer_title">Tienda de
+                                                        martinvarbaro</span>
+                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -418,39 +435,14 @@
                             </div>
                         </div>
                         <!-- 商品 -->
-                        <div class="item_box">
-                            <div class="item">
+                        <div class=" item_box">
+                            <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in hot_goods"
+                                v-if="good.goods_no > 2" @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
-                                    <img src="assets\images\goods\goods_sort_page_1.jpg">
+                                    <img v-bind:src="good.goods_pic1">
                                 </div>
                                 <div class="txt_box">
-                                    <p>客製化 | 似顏繪插畫</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="assets\images\goods\goods_sort_page_2.jpg">
-                                </div>
-                                <div class="txt_box">
-                                    <p>手比愛心 | 摩艾圓滾滾</p>
-
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="assets\images\goods\goods_sort_page_3.jpg">
-                                </div>
-                                <div class="txt_box">
-                                    <p>送禮推薦 | 鮮花盒</p>
-
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="img_box">
-                                    <img src="assets\images\goods\goods_sort_page_4.jpg">
-                                </div>
-                                <div class="txt_box">
-                                    <p>溫暖禮物 | 羊羔絨毛毯</p>
+                                    <p>{{good.goods_name}}</p>
                                 </div>
                             </div>
                         </div>
@@ -465,19 +457,11 @@
                             <p>全部商品</p>
                         </div>
                         <!-- 商品 -->
+                        <!-- 先打一個範本，再用v-for迴圈去跑卡片式商品 -->
+                        <!-- 範本參考用的 -->
                         <div class="item_box">
-                            <div onclick="myFunction" class="item ligh_box_jump">
-                                <div class="img_box">
-                                    <img src="assets\images\goods\goods_sort_page_all_toy.jpg">
-                                </div>
-                                <div class="txt_box">
-                                    <p>迪士尼 | 彈簧搖頭公仔</p>
-                                    <p>NT.690</p>
-                                </div>
-                            </div>
-                            <!-- 當我click他number=good.goods_no秀以下資料 -->
-                            <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in goods"
-                                v-if="good.goods_no > 2" @click="number=good.goods_no">
+                            <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in sort_goods"
+                                @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
                                     <img v-bind:src="good.goods_pic1">
                                 </div>
@@ -489,297 +473,376 @@
                         </div>
                     </div>
                 </section>
-
             </main>
         </div>
-    </div>
-    <!-- 燈箱--感謝文進大大相助!!!!! -->
-    <section class="product_lighbox">
-        <main class="product_page">
-            <!-- 商品最上面的標題 -->
-            <section class="product_page_title">
-                <!-- 商品名稱 -->
-                <div class="txt_box">
-                    <p>【維尼 / 小豬】迪士尼彈簧擺飾 彈簧搖頭公仔 | Wooderful life</p>
-                </div>
-                <!-- 叉叉按鈕 -->
-                <div class="img_box cross ">
-                    <img src="assets\images\icon\close.png">
-                </div>
 
-            </section>
-            <!-- 追蹤分類 -->
-            <section class="product_page_sort_follow">
-                <div class="product_item_box">
-                    <!-- 圖片 -->
-                    <div class="product_img_box">
-                        <img src="assets\images\icon\shop_life.png">
-                    </div>
-                    <!-- 文字 -->
+        <!-- 燈箱--感謝文進大大相助!!!!! -->
+        <section class="product_lighbox">
+            <main class="product_page" v-for="good in goods" v-if="number==good.goods_no">
+                <!-- 商品最上面的標題 -->
+                <section class="product_page_title">
+                    <!-- 商品名稱 -->
                     <div class="txt_box">
-                        <!-- 分類 -->
-                        <p style="color:rgb(20, 20, 20);">質感生活</p>
+                        <p>{{good.goods_name}}</p>
                     </div>
-                </div>
-                <!-- 按鈕 -->
-                <button class="btn-secondary">追蹤</button>
-            </section>
+                    <!-- 叉叉按鈕 -->
+                    <div class="img_box cross" @click="displayNone">
+                        <img src="assets\images\icon\close.png">
+                    </div>
 
-            <!-- // 商品照(小圖變大圖 -->
-            <section class="product_page_pic">
-                <div class="product_large">
-                    <img id="large" src="assets\images\goods\goods_sort_page_all_toy.jpg">
-                </div>
-                <div class="product_small">
-                    <div class="img_box">
-                        <img src="assets\images\goods\goods_sort_page_all_toy.jpg" />
-                    </div>
-                    <div class="img_box">
-                        <img src="assets\images\goods\goods_sort_page_all_toy_(1).jpg" />
-                    </div>
-                    <div class="img_box">
-                        <img src="assets\images\goods\goods_sort_page_all_toy_(2).jpg" />
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- 商品價格/資訊 -->
-            <!-- 商品價格/資訊 -->
-            <section class="product_page_price_in">
-                <div class="txt_box">
-                    <div class="txt_box_pri">
-                        <p>$690</p>
-                    </div>
-                    <div class="like_box">
-                        <div class="img_box">
-                            <img src="assets\images\icon\like.png" alt="">
+                </section>
+                <!-- 追蹤分類 -->
+                <section class="product_page_sort_follow">
+                    <div class="product_item_box">
+                        <!-- 圖片 -->
+                        <div class="product_img_box">
+                            <img src="assets\images\icon\shop_food.png">
                         </div>
+                        <!-- 文字 -->
                         <div class="txt_box">
-                            <p>50</p>
+                            <!-- 分類 -->
+                            <p style="color:rgb(20, 20, 20);">{{good.goods_class}}</p>
                         </div>
                     </div>
-                </div>
-                <div class="txt_box_in">
-                    <p>
-                        把正向樂觀的維尼與小豬放桌上，讓搖擺啦啦隊為你趕走每週的 Monday blue 吧！ 將 Wooderful life
-                        彈簧擺飾木偶放置於桌面，並對木偶施力，看著木偶搖來晃去，即可觀察趣味物理的動態。
-                    </p>
-                </div>
-            </section>
+                    <!-- 按鈕 -->
+                    <button class="btn-secondary">追蹤</button>
+                </section>
 
-            <!-- 留言區 -->
-            <section class="product_comment">
-                <p>共5則留言</p>
-                <!-- 單則留言 -->
-                <div class="comment_box">
-                    <div class="comment_head_photo">
-                        <img src="https://fakeimg.pl/40x40/200">
+                <!-- // 商品照(小圖變大圖 -->
+                <section class="product_page_pic">
+                    <div class="product_large">
+                        <!-- 找大圖圖片1 -->
+                        <img id="large" :src="good.goods_pic1">
                     </div>
-                    <div class="comment_txt">
-                        <div class="comment_mem_name_box">
-                            <span class="comment_mem_name_item">乙骨優太</span>
-                            <div class="comment_impeach_icon">
-                                <img src="assets/images/icon/more_hov.png" alt="">
-                            </div>
+                    <div class="product_small">
+                        <!-- 找圖片1 -->
+                        <div class="img_box">
+                            <img :src="good.goods_pic1" />
                         </div>
-                        <div class="comment_content">
-                            這種很脆很好吃欸🤩
+                        <!-- 找圖片2 -->
+                        <div class="img_box">
+                            <img :src="good.goods_pic2" />
                         </div>
-                        <div class="comment_info">
-                            <div class="comment_like_box">
-                                <div class="comment_like_icon">
-                                    <img src="assets/images/icon/like_hov.png" alt="">
-                                </div>
-                                <span class="comment_like_amount">23</span>
-                            </div>
-                            <span class="comment_date">2022/2/23</span>
+                        <!-- 找圖片3 -->
+                        <div class="img_box">
+                            <img :src="good.goods_pic3" />
                         </div>
                     </div>
-                </div>
-                <!-- 單則留言 -->
-                <div class="comment_box">
-                    <div class="comment_head_photo">
-                        <img src="https://fakeimg.pl/40x40/200">
-                    </div>
-                    <div class="comment_txt">
-                        <div class="comment_mem_name_box">
-                            <span class="comment_mem_name_item">里香超香</span>
-                            <div class="comment_impeach_icon">
-                                <img src="assets/images/icon/more_hov.png" alt="">
-                            </div>
-                        </div>
-                        <div class="comment_content">
-                            這個超級好吃 之前有吃過！ 超級香然後有微微的甜
-                        </div>
-                        <div class="comment_info">
-                            <div class="comment_like_box">
-                                <div class="comment_like_icon">
-                                    <img src="assets/images/icon/like_hov.png" alt="">
-                                </div>
-                                <span class="comment_like_amount">23</span>
-                            </div>
-                            <span class="comment_date">2022/2/23</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 單則留言 -->
-                <div class="comment_box">
-                    <div class="comment_head_photo">
-                        <img src="https://fakeimg.pl/40x40/200">
-                    </div>
-                    <div class="comment_txt">
-                        <div class="comment_mem_name_box">
-                            <span class="comment_mem_name_item">五條悟</span>
-                            <div class="comment_impeach_icon">
-                                <img src="assets/images/icon/more_hov.png" alt="">
-                            </div>
-                        </div>
-                        <div class="comment_content">
-                            也太便宜了吧！
-                        </div>
-                        <div class="comment_info">
-                            <div class="comment_like_box">
-                                <div class="comment_like_icon">
-                                    <img src="assets/images/icon/like_hov.png" alt="">
-                                </div>
-                                <span class="comment_like_amount">23</span>
-                            </div>
-                            <span class="comment_date">2022/2/23</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 單則留言 -->
-                <div class="comment_box">
-                    <div class="comment_head_photo">
-                        <img src="https://fakeimg.pl/40x40/200">
-                    </div>
-                    <div class="comment_txt">
-                        <div class="comment_mem_name_box">
-                            <span class="comment_mem_name_item">純愛戰神</span>
-                            <div class="comment_impeach_icon">
-                                <img src="assets/images/icon/more_hov.png" alt="">
-                            </div>
-                        </div>
-                        <div class="comment_content">
-                            卡一個!!!!
-                        </div>
-                        <div class="comment_info">
-                            <div class="comment_like_box">
-                                <div class="comment_like_icon">
-                                    <img src="assets/images/icon/like_hov.png" alt="">
-                                </div>
-                                <span class="comment_like_amount">23</span>
-                            </div>
-                            <span class="comment_date">2022/2/23</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 單則留言 -->
-                <div class="comment_box">
-                    <div class="comment_head_photo">
-                        <img src="https://fakeimg.pl/40x40/200">
-                    </div>
-                    <div class="comment_txt">
-                        <div class="comment_mem_name_box">
-                            <span class="comment_mem_name_item">咒術迴戰</span>
-                            <div class="comment_impeach_icon">
-                                <img src="assets/images/icon/more_hov.png" alt="">
-                            </div>
-                        </div>
-                        <div class="comment_content">
-                            卡一個!!!
-                        </div>
-                        <div class="comment_info">
-                            <div class="comment_like_box">
-                                <div class="comment_like_icon">
-                                    <img src="assets/images/icon/like_hov.png" alt="">
-                                </div>
-                                <span class="comment_like_amount">23</span>
-                            </div>
-                            <span class="comment_date">2022/2/23</span>
-                        </div>
-                    </div>
-                </div>
+                </section>
 
-            </section>
-
-            <!-- 商品留言 -->
-            <section class="product_page_msg">
-                <!-- 右邊 -->
-                <div class="item_box_msger">
-                    <!-- 留言頭貼 -->
-                    <div class="img_box">
-                        <img src="assets\images\icon\nav_member.png">
-                    </div>
-                    <!-- 留言 -->
-
+                <!-- 商品價格/資訊 -->
+                <section class="product_page_price_in">
+                    <!-- 文字區 -->
                     <div class="txt_box">
-                        <input type="text" name="tname" placeholder="留言...">
-                    </div>
-                </div>
-                <!-- 左邊icon -->
-                <div class="item_box_fuction_icon">
-                    <div class="img_box">
-                        <!-- 收藏 -->
-                        <div class="img_box_save" id="product_save" title="加入收藏">
-                            <img src="assets/images/icon/save_hov.png">
+                        <!-- 價格 -->
+                        <div class="txt_box_pri">
+                            <!-- $價格沒別的 -->
+                            <p>NT.{{good.goods_price}}</p>
                         </div>
-
                         <!-- 愛心 -->
-                        <div class="img_box_report" id="product_heart" title="加入愛心">
-                            <img src="assets\images\icon\like_hov.png">
+                        <div class="like_box">
+                            <!-- 愛心圖 -->
+                            <div class="img_box">
+                                <img src="assets\images\icon\like.png">
+                            </div>
+                            <!-- 愛心數 -->
+                            <div class="num_box">
+                                <span class="num" id="product_num">
+                                    {{good.goods_like}}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <!-- 立即購買 -->
-                    <button class="btn-primary">立即購買</button>
+                    <!-- 商品資訊 -->
+                    <div class="txt_box_in">
+                        <p>
+                            {{good.goods_i}}
+                        </p>
+                    </div>
+                </section>
 
-                    <!-- 加入購物車-->
-                    <button class="btn-secondary">加入購物車</button>
-                </div>
-            </section>
-        </main>
-    </section>
-    <!-- 廣告輪播/燈箱/收藏save/愛心heart/js限時特賣(倒數計時)/小圖變大圖/輪播(上架商品) -->
+                <!-- 留言區 -->
+                <section class="product_comment">
+                    <p>共5則留言</p>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">乙骨優太</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                這種很脆很好吃欸🤩
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">里香超香</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                這個超級好吃 之前有吃過！ 超級香然後有微微的甜
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">五條悟</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                也太便宜了吧！
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">純愛戰神</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                卡一個!!!!
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單則留言 -->
+                    <div class="comment_box">
+                        <div class="comment_head_photo">
+                            <img src="https://fakeimg.pl/40x40/200">
+                        </div>
+                        <div class="comment_txt">
+                            <div class="comment_mem_name_box">
+                                <span class="comment_mem_name_item">咒術迴戰</span>
+                                <div class="comment_impeach_icon">
+                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                </div>
+                            </div>
+                            <div class="comment_content">
+                                卡一個!!!
+                            </div>
+                            <div class="comment_info">
+                                <div class="comment_like_box">
+                                    <div class="comment_like_icon">
+                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    </div>
+                                    <span class="comment_like_amount">23</span>
+                                </div>
+                                <span class="comment_date">2022/2/23</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- 我的留言輸入區 -->
+                <section class="product_page_msg">
+                    <!-- 右邊 -->
+                    <div class="item_box_msger">
+                        <!-- 留言頭貼 -->
+                        <div class="img_box">
+                            <img src="assets\images\icon\nav_member.png">
+                        </div>
+                        <!-- 留言 -->
+
+                        <div class="txt_box">
+                            <input type="text" name="tname" placeholder="留言...">
+                        </div>
+                    </div>
+                    <!-- 左邊icon -->
+                    <div class="item_box_fuction_icon">
+                        <div class="img_box">
+                            <!-- 收藏 -->
+                            <div class="img_box_save" id="product_save" title="加入收藏">
+                                <img src="assets/images/icon/save_hov.png">
+                            </div>
+
+                            <!-- 愛心 -->
+                            <div class="img_box_report" id="product_heart" title="加入愛心">
+                                <img src="assets\images\icon\like_hov.png">
+                            </div>
+                        </div>
+                        <!-- 立即購買 -->
+                        <button class="btn-primary">立即購買</button>
+
+                        <!-- 加入購物車-->
+                        <button class="btn-secondary">加入購物車</button>
+                    </div>
+                </section>
+            </main>
+        </section>
+    </div>
+    <!-- 廣告輪播/燈箱/收藏save/愛心heart/js限時特賣(倒數計時)/小圖變大圖 /套件輪播(上架商品那裏) -->
     <script src="js\product_all.js"></script>
     <!-- 撈資料 -->
     <script src="js\product.js"></script>
-
     <!-- 文進大大的購物車燈箱 -->
-    <div id="app">
+    <!-- <div id="app">
         <div class="shop_cart_ligh_box">
             <shopping-cart></shopping-cart>
         </div>
-    </div>
-    <script src="js/shop_cart.js"></script>
+    </div> -->
+    <!-- <script src="js/shop_cart.js"></script> -->
 
+    <!-- vue_product_all -->
     <script>
         new Vue({
             el: "#productApp",
             data: {
+                sort_goods: [],
+                hot_goods: [],
+                time_goods: [],
                 goods: [],
+                
                 number: 0,
             },
             methods: {
+                //叉叉功能
                 displayNone() {
                     let x = document.querySelector(".product_lighbox");
                     x.style.display = "none";
+                },
+                //燈箱出現的跟圖片顯示要樣
+                getGoodNumber(goods_no) {
+                    console.log(this.number);
+                    this.number = goods_no;
+
+                    console.log(this.number);
+
+                },
+                getProductSort() {
+                    let xhr = new XMLHttpRequest();
+                    //打開php的我的php檔
+                    xhr.open("get", `phps/product_sort_life.php`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        // 接收PHP傳來的資料
+                        allgoods = JSON.parse(xhr.responseText);
+                        // console.log(xhr.responseText);
+                        console.table(allgoods);
+
+                        this.sort_goods = allgoods
+                    }
+                },
+                getProductHot() {
+                    let xhr = new XMLHttpRequest();
+                    //打開php的我的php檔
+                    xhr.open("get", `phps/product_hot.php`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        // 接收PHP傳來的資料
+                        allgoods = JSON.parse(xhr.responseText);
+                        // console.log(xhr.responseText);
+                        console.table(allgoods);
+
+                        this.hot_goods = allgoods
+                    }
+                },
+                getProductTime() {
+                    let xhr = new XMLHttpRequest();
+                    //打開php的我的php檔
+                    xhr.open("get", `phps/product_time_limit.php`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        // 接收PHP傳來的資料
+                        allgoods = JSON.parse(xhr.responseText);
+                        console.log(xhr.responseText);
+                        // console.table(allgoods);
+                        this.time_goods = allgoods
+                    }
+                },
+                getProductAll() {
+                    let xhr = new XMLHttpRequest();
+                    //打開php的我的php檔
+                    xhr.open("get", `phps/product_all.php`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        // 接收PHP傳來的資料
+                        allgoods = JSON.parse(xhr.responseText);
+                        console.log(xhr.responseText);
+                        // console.table(allgoods);
+                        this.goods = allgoods
+                    }
                 }
+
             },
             mounted() {
-                let xhr = new XMLHttpRequest();
-                //打開php的我的php檔
-                xhr.open("get", `phps/product_sort_life.php`, true);
-                xhr.send(null);
+                // 質感生活
+                this.getProductSort()
+                // 熱門
+                this.getProductHot()
+                // 限時
+                this.getProductTime()
+                //全部
+                this.getProductAll()
 
-                xhr.onload = () => {
-                    // 接收PHP傳來的資料
-                    allgoods = JSON.parse(xhr.responseText);
-                    // console.log(xhr.responseText);
-                    console.table(allgoods);
 
-                    this.goods = allgoods
-                }
 
             },
         })
