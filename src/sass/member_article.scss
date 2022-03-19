@@ -1,14 +1,18 @@
-.top_bar_box{
+.top_bar_box {
     top: 0;
 }
-aside{
+
+aside {
     display: none;
 }
-.member_sidebar_box{
+
+.member_sidebar_box {
     display: none;
 }
+
 .backPage {
     margin-top: 70px;
+
     button {
         font-family: 'Noto Sans TC', sans-serif;
         font-size: 14px;
@@ -28,27 +32,33 @@ aside{
     .member_bg {
         .member_art_text {
             margin-top: 0px;
+
             .article_box {
                 width: 80%;
                 position: relative;
                 margin: auto;
+
                 // margin-left: 20%;
                 .article_mem_info {
                     display: flex;
                     padding: 20px 0 5px;
                     align-items: center;
                     position: relative;
-                    .member_articlemore{
+
+                    .member_articlemore {
                         width: 10%;
                         text-align: end;
-                        img{
+
+                        img {
                             width: 25px;
                             height: 25px;
                         }
                     }
+
                     .article_mem_icon {
                         width: 5%;
                         text-align: center;
+
                         // background-color: #00324E;
                         img {
                             width: 25px;
@@ -56,14 +66,14 @@ aside{
                             vertical-align: middle;
                         }
                     }
-        
+
                     .article_mem_name {
                         width: 100%;
                         padding: 0 5px;
                         font-size: var(--body2);
                     }
                 }
-        
+
                 .article_container {
                     display: flex;
                     justify-content: space-between;
@@ -73,7 +83,7 @@ aside{
                     padding-bottom: 10px;
                     border-bottom: 1px solid #cccccc;
                     position: relative;
-        
+
                     .article_txt_box {
                         position: relative;
                         display: flex;
@@ -81,18 +91,23 @@ aside{
                         justify-content: space-between;
                         height: 100%;
                         width: 70%;
-        
-        
+                        flex-shrink: 0;
+
+
                         .article_title {
                             padding-bottom: 10px;
                             font-size: var(--subtitle2);
                             font-weight: 700;
                         }
-        
+
+                        .article_summary {
+                            white-space: pre-line;
+                        }
+
                         .article_react {
                             display: flex;
                             position: relative;
-        
+
                             .article_like_box,
                             .article_comment_box,
                             .article_collect_box {
@@ -100,16 +115,16 @@ aside{
                                 box-sizing: border-box;
                                 padding: 10px 10px 0 0;
                                 align-items: center;
-        
+
                                 .article_icon_item {
                                     width: 15px;
-        
+
                                     img {
                                         width: 100%;
                                     }
                                 }
                             }
-        
+
                             .article_like_amount,
                             .article_collect_amount,
                             .article_comment_amount {
@@ -119,12 +134,12 @@ aside{
                             }
                         }
                     }
-        
+
                     .article_pic_box {
                         height: 100%;
-        
+
                         img {
-                            height: 100%;
+                            width: 100%;
                             border-radius: 10px;
                             padding: 5px;
                             vertical-align: middle;
@@ -132,7 +147,7 @@ aside{
                     }
                 }
             }
-        
+
             .member_art_card {
                 width: 90%;
                 margin: auto;
@@ -212,6 +227,7 @@ aside{
                         width: 100%;
                         display: flex;
                         justify-content: start;
+
                         .cardsave {
                             width: 60%;
                             display: flex;
@@ -233,12 +249,14 @@ aside{
 }
 
 @media screen and(min-width:768px) {
-    aside{
+    aside {
         display: inline-block;
     }
-    .member_sidebar_box{
+
+    .member_sidebar_box {
         display: block;
     }
+
     .member_main_box {
         .member_bg {
             .member_art_text {
@@ -247,7 +265,7 @@ aside{
                     margin: auto;
                     margin-top: 25px;
                     background-color: var(--icon-color);
-    
+
                     .member_art_more {
                         width: 100%;
 
@@ -255,60 +273,61 @@ aside{
                         justify-content: flex-end;
                         padding-top: 5px;
                         padding-right: 10px;
-    
+
                         img {
                             width: 25px;
                             height: 25px;
                             vertical-align: top;
                             opacity: 0.5;
-                            transform:rotate(90deg) ;
+                            transform: rotate(90deg);
                         }
                     }
-    
+
                     .member_card_imgtxt {
                         .member_card_bgbox {
                             display: flex;
-    
+
                             .member_card_artbox {
                                 width: 80%;
-    
+
                                 .gap {
                                     margin: 10px 0;
                                 }
-    
+
                                 .cardtxt_label {
                                     display: flex;
-    
+
                                     p {
                                         margin-left: 10px;
                                         color: var(--font-secondary);
                                         font-size: 14px;
                                     }
                                 }
-    
+
                                 .cardtxt_art {
                                     margin-top: 20px;
+
                                     h3 {
                                         font-size: 18px;
                                         margin: 10px 0;
                                         padding: 0 5px;
-    
+
                                     }
-    
+
                                     p {
                                         font-size: 14px;
                                         margin: 10px 0;
                                         padding: 0 10px;
-    
+
                                     }
                                 }
                             }
-    
-    
+
+
                             .cardimg {
                                 width: 40%;
                                 text-align: center;
-    
+
                                 img {
                                     width: 150px;
                                     height: 150px;
@@ -316,21 +335,22 @@ aside{
                                     border-radius: 10px;
                                 }
                             }
-    
-    
+
+
                         }
-    
+
                         .cardlike {
                             width: 100%;
                             display: flex;
                             justify-content: start;
+
                             .cardsave {
                                 width: 30%;
                                 display: flex;
                                 justify-content: space-evenly;
                                 align-items: center;
                                 padding: 5px;
-    
+
                                 img {
                                     width: 25px;
                                     height: 25px;
