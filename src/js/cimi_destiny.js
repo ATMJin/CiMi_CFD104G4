@@ -51,11 +51,19 @@ let vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
 
 //點按蒐集答案
-let question_no_array=[];
+let question_no_array = [];
 let question_no;
+let ans_pack = [];
+
+
+//返回按鈕
+let back_button = document.getElementById("return_button");
+let x_button = document.getElementById("button_escape");
 
 //註冊事件聆聽
 function doFirst() {
+    back_button.addEventListener('click', return_page);
+    x_button.addEventListener('click', return_page);
     getquestion();
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     waiting_lightbox.style="display:none";
@@ -72,7 +80,11 @@ function doFirst() {
     
 };
 
-// AJAX 題目&答案從資料庫抓出放於畫面上面
+
+function return_page() {
+    window.history.go(-1);
+}
+// 一、題目&答案從資料庫抓出放於畫面上面
 //////////////////////////////////////
 function getquestion(){
     let xhr = new XMLHttpRequest();
@@ -172,11 +184,13 @@ function playToggle(e) {
     } else { 
         let mem_ans_no = e.target.dataset.ans;
         let mem_ans_q_no = `${question_no_array[question_no]}:${mem_ans_no}`;
+        ans_pack.push(mem_ans_q_no);
+
         // console.log(question_no_array[question_no],mem_ans);
-        console.log(mem_ans_q_no);
+        console.log(ans_pack);
         
 
-        //傳資料給php，php執行insert會員答案的動作
+//二、傳資料給php，php執行insert會員答案的動作
 
         $.ajax({
             url: 'phps/response.php',
@@ -208,6 +222,8 @@ function playToggle(e) {
         };
          
     };
+    // FIXME 下面那行開發時加速用
+    selectVideo.currentTime +=7
 };
 
 //影片暫停的時間，以及每次暫停時要做的事情(特例)
@@ -247,15 +263,18 @@ function videoPause() {
         
         setTimeout(function(){destiny_botton.innerHTML='<a href="cards.html"><button id="My_destiny_button">我的destiny</button></a>'}, 10*1000);
 
-        //送出玩遊戲時間
+//三、送出玩遊戲時間/答案包至 mempairdata
 
             let Today = new Date();
             let playdate=`${Today.getFullYear()}.${Today.getMonth()+1}.${Today.getDate()}`;
             
+        // ans_pack.toString();
+        // console.log(ans_pack);
+
 
             $.ajax({
             url: 'phps/already_played.php',
-            data: {mem_no:sessionStorage.getItem('mem_no'),playdate},
+            data: {mem_no:sessionStorage.getItem('mem_no'),playdate,ans_pack:ans_pack.toString()},
             type: 'GET',
             success(res){
                 console.log(playdate);

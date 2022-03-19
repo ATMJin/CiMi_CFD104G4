@@ -28,98 +28,98 @@
 
                 <div class="content">
                     <div v-if="activetab ==='1'" class="tabcontent">
-                        <div class="charts_content" v-for="(member, index) in members" :key="index">
+                        <div class="charts_content" v-for="(item, index) in post" :key="index">
                             <div class="charts_box">
                                 <div class="charts_rank">
                                     <span>No.{{index+1}}</span>
                                 </div>
                                 <div class="charts_img">
-                                    <img v-bind:src="member.mem_head" />
+                                    <img v-bind:src="item.mem_head" />
                                 </div>
                                 <div class="charts_name">
-                                    <span class="charts_mem">{{member.mem_name}}</span>
-                                    <span class="charts_account">@{{member.mem_id}}</span>
+                                    <span class="charts_mem">{{item.mem_name}}</span>
+                                    <span class="charts_account">@{{item.mem_id}}</span>
                                 </div>
                             </div>
                             <div class="charts_wrap">
                                 <div class="charts_sum">
-                                    發文數 : <span>{{member.mem_post}}</span>
+                                    發文數 : <span>{{item.mem_post}}</span>
                                 </div>
                                 <div class="charts_btn">
-                                    <button type="button" class="btn-secondary" @click="addFollow">追蹤</button>
+                                    <button type="button" class="btn-secondary"
+                                        @click="addFollow">{{isTrack(item.mem_id)}}</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div v-if="activetab ==='2'" class="tabcontent">
-                        <div class="charts_content" v-for="(member, index) in members" :key="index">
+                        <div class="charts_content" v-for="(item, index) in like" :key="index">
                             <div class="charts_box">
                                 <div class="charts_rank">
                                     <span>No.{{index+1}}</span>
                                 </div>
                                 <div class="charts_img">
-                                    <img v-bind:src="member.mem_head" />
+                                    <img v-bind:src="item.mem_head" />
                                 </div>
                                 <div class="charts_name">
-                                    <span class="charts_mem">{{member.mem_name}}</span>
-                                    <span class="charts_account">@{{member.mem_id}}</span>
+                                    <span class="charts_mem">{{item.mem_name}}</span>
+                                    <span class="charts_account">@{{item.mem_id}}</span>
                                 </div>
                             </div>
                             <div class="charts_wrap">
                                 <div class="charts_sum">
-                                    喜歡數 : <span>{{member.mem_post}}</span>
+                                    喜歡數 : <span>{{item.article_likes_amount}}</span>
                                 </div>
                                 <div class="charts_btn">
-                                    <button type="button" class="btn-secondary">追蹤</button>
+                                    <button type="button" class="btn-secondary"
+                                        @click="addFollow">{{isTrack(item.mem_id)}}</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div v-if="activetab ==='3'" class="tabcontent">
-                        <div class="charts_content" v-for="(member, index) in members" :key="index">
+                        <div class="charts_content" v-for="(item, index) in favs" :key="index">
                             <div class="charts_box">
                                 <div class="charts_rank">
                                     <span>No.{{index+1}}</span>
                                 </div>
                                 <div class="charts_img">
-                                    <img v-bind:src="member.mem_head" />
+                                    <img v-bind:src="item.mem_head" />
                                 </div>
                                 <div class="charts_name">
-                                    <span class="charts_mem">{{member.mem_name}}</span>
-                                    <span class="charts_account">@{{member.mem_id}}</span>
+                                    <span class="charts_mem">{{item.mem_name}}</span>
+                                    <span class="charts_account">@{{item.mem_id}}</span>
                                 </div>
                             </div>
                             <div class="charts_wrap">
                                 <div class="charts_sum">
-                                    收藏數 : <span>{{member.mem_post}}</span>
+                                    收藏數 : <span>{{item.article_collect_amount}}</span>
                                 </div>
-                                <div class="charts_btn">
-                                    <button type="button" class="btn-secondary">追蹤</button>
-                                </div>
+                                <button type="button" class="btn-secondary"
+                                    @click="addFollow">{{isTrack(item.mem_id)}}</button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div v-if="activetab ==='4'" class="tabcontent">
-                    <div class="charts_content" v-for="(member, index) in members" :key="index">
-                        <div class="charts_box">
-                            <div class="charts_rank">
-                                <span>No.{{index+1}}</span>
+                    <div v-if="activetab ==='4'" class="tabcontent">
+                        <div class="charts_content" v-for="(item, index) in follow" :key="index">
+                            <div class="charts_box">
+                                <div class="charts_rank">
+                                    <span>No.{{index+1}}</span>
+                                </div>
+                                <div class="charts_img">
+                                    <img v-bind:src="item.mem_head" />
+                                </div>
+                                <div class="charts_name">
+                                    <span class="charts_mem">{{item.mem_name}}</span>
+                                    <span class="charts_account">@{{item.mem_id}}</span>
+                                </div>
                             </div>
-                            <div class="charts_img">
-                                <img v-bind:src="member.mem_head" />
-                            </div>
-                            <div class="charts_name">
-                                <span class="charts_mem">{{member.mem_name}}</span>
-                                <span class="charts_account">@{{member.mem_id}}</span>
-                            </div>
-                        </div>
-                        <div class="charts_wrap">
-                            <div class="charts_sum">
-                                追蹤數 : <span>{{member.mem_post}}</span>
-                            </div>
-                            <div class="charts_btn">
-                                <button type="button" class="btn-secondary">追蹤</button>
+                            <div class="charts_wrap">
+                                <div class="charts_sum">
+                                    追蹤數 : <span>{{item.follow}}</span>
+                                </div>
+                                <button type="button" class="btn-secondary"
+                                    @click="addFollow">{{isTrack(item.mem_id)}}</button>
                             </div>
                         </div>
                     </div>
@@ -129,117 +129,78 @@
     </div>
 
     <script src="js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+
     <!-- 分類頁籤 -->
     <script>
         new Vue({
-            el: "#tabs",
+            el: '#tabs',
             data: {
-                activetab: "1",
-                members: [],
-                // btn: "追蹤",
-            },
-            computed: {
-                // btnclass() {
-                //     return {
-                //         // "btn-secondary":true,
-                //         "btn-secondary": this.btn == "追蹤",
-                //         // "btn-primary":false,
-                //         "btn-primary": this.btn == "已追蹤",
-                //     }
-                // }
-            },
-            methods: {
-                getFollow() {
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("get", `phps/getcharts.php?case=insertFollow`, true);
-                    xhr.send(null);
-                },
-                cancelFollow() {
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("get", `phps/getcharts.php?case=deleteFollow`, true);
-                    xhr.send(null);
-                },
-                getData() {},
-                addFollow(e) {
-                    if (e.target.innerText == "已追蹤") {
-                        e.target.innerText = "追蹤";
-                        this.cancelFollow()
-                    } else if (e.target.innerText == "追蹤") {
-                        e.target.innerText = "已追蹤";
-                        this.getFollow()
-                        // this.btn = "已追蹤"
-                    }
-                },
+                activetab: '1',
+                post: [],
+                poster: [],
+                like: [],
+                favs: [],
+                follow: [],
+                track: [],
             },
             mounted() {
-                // this.getData();
-                let charts_mem = document.querySelectorAll(".charts_mem"); //會員名稱
-                let charts_icon = document.querySelectorAll(".charts_img img"); //會員頭像
-                let charts_account = document.querySelectorAll(".charts_account"); //會員帳號
-                let charts_sum = document.querySelectorAll(".charts_sum span"); //排行計算
+                let vm = this
+                // 为给定 ID 的 user 创建请求
+                let params = new URLSearchParams();
+                params.append("mem_no", sessionStorage.getItem('mem_no'));
+                axios.post('phps/chart.php', params)
+                    .then(function (response) {
+                        vm.post = response.data.post
+                        vm.like = response.data.like
+                        vm.favs = response.data.fav
+                        vm.follow = response.data.follow
 
-                // console.log(charts_icon)
 
-                // GET
-                let xhr = new XMLHttpRequest();
-                xhr.open("get", `phps/getcharts.php?case=${this.activetab}`, true);
-                xhr.send(null);
+                        vm.track = response.data.track.map(item => Object.values(item)[0])
+                        vm.poster = response.data.post.map(item => Object.values(item)[0])
 
-                let m = this;
-                xhr.onload = function () {
-                    // 接收PHP傳來的資料
-                    charts_info = JSON.parse(xhr.responseText);
-                    m.members = charts_info;
-                    // charts_account[0].innerText = charts_info[0];
-                    // for迴圈
-                    // for (let i = 0; i < charts_account.length; i++) {
-                    //     // console.log(charts_info[i].mem_name);
-                    //     charts_mem[i].innerText = charts_info[i].mem_name;
-                    //     charts_account[i].innerText = "@" + charts_info[i].mem_id;
-                    //     charts_icon[i].src = charts_info[i].mem_head;
-                    //     charts_sum[i].innerText = charts_info[i].mem_post;
-                    // }
-                };
+                        console.log('vm.track', vm.track);
+                        console.log('vm.poster', vm.poster);
+
+
+                        vm.poster.indexOf(vm.track); // -1
+                        console.log(vm.poster.indexOf(vm.track));
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
-            updated() {
-                // this.getData();
-                let charts_mem = document.querySelectorAll(".charts_mem"); //會員名稱
-                let charts_icon = document.querySelectorAll(".charts_img img"); //會員頭像
-                let charts_account = document.querySelectorAll(".charts_account"); //會員帳號
-                let charts_sum = document.querySelectorAll(".charts_sum span"); //排行計算
+            methods: { // 函數大部分放在這裡!
+                addFollow(e) {
+                    console.log(sessionStorage.getItem('login'));
 
-                // console.log(charts_icon)
-
-                // GET
-                let xhr = new XMLHttpRequest();
-                xhr.open("get", `phps/getcharts.php?case=${this.activetab}`, true);
-                xhr.send(null);
-
-                let m = this;
-                xhr.onload = function () {
-                    // 接收PHP傳來的資料
-                    charts_info = JSON.parse(xhr.responseText);
-                    m.members = charts_info;
-                    // charts_account[0].innerText = charts_info[0];
-                    // for (let i = 0; i < charts_account.length; i++) {
-                    //     console.log(charts_info[i].mem_name);
-                    //     charts_mem[i].innerText = charts_info[i].mem_name;
-                    //     charts_account[i].innerText = "@" + charts_info[i].mem_id;
-                    //     charts_icon[i].src = charts_info[i].mem_head;
-                    //     charts_sum[i].innerText =
-                    //         charts_info[i].mem_post |=
-                    //         charts_info[i].article_likes_amount |=
-                    //         charts_info[i].article_collect_amount |=
-                    //         charts_info[i].writer_no;
-
-                    //     console.log(charts_info[i]);
-                    // }
-                };
-
-
+                    if (sessionStorage.getItem('login') == null) {
+                        alert("請先登入")
+                    } else if (sessionStorage.getItem('login') == 'success') {
+                        if (e.target.innerText == "已追蹤") {
+                            e.target.innerText = "追蹤";
+                            this.cancelFollow()
+                        } else if (e.target.innerText == "追蹤") {
+                            e.target.innerText = "已追蹤";
+                            this.getFollow()
+                        }
+                    }
+                },
+                isTrack(id) {
+                    if (this.track.indexOf(id) >= 0) {
+                        return "已追蹤"
+                    }
+                    return "追蹤"
+                },
             },
+            computed: {
+
+            }
         });
     </script>
+
 </body>
 
 </html>

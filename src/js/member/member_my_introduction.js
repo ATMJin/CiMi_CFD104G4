@@ -11,13 +11,11 @@ window.addEventListener("load", () => {
 
 
         let user = document.querySelectorAll('.member_headimage p')
-        let head = document.querySelectorAll('.member_headimage span')
+        let head = document.querySelectorAll('.member_headimage img')
         let child = document.querySelectorAll('.gap p')
 
-
-        head[0].innerHTML = member.mem_head;
         user[0].innerText = member.mem_name;
-
+        head[0].src = member.mem_head;
 
         child[0].innerText = member.mem_birth;
         child[1].innerText = member.mem_sex;
