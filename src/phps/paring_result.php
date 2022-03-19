@@ -7,13 +7,18 @@ try {
 	// $sql = "select * from mem join mempairdata on mem.mem_no = mempairdata.mem_no where mempairdata.mem_no in (1,2,3);";
 
 	$sql = 
-	"select * from mem 
-	join mempairdata on mem.mem_no = mempairdata.mem_no 
+	"select * from 
+	mem e join mempairdata m on e.mem_no = m.mem_no 
 	where mem_ans_pack = (select mem_ans_pack from mempairdata m where m.mem_no={$mem_no}) 
-		AND mempairdata.mem_no <> {$mem_no} 
-		AND (mempairdata.mem_sexuality='M,F' 
-			OR(mempairdata.mem_sex in (select mem_sexuality from mempairdata m where m.mem_no={$mem_no})
-				AND mempairdata.mem_sexuality = (select mem_sex from mempairdata m where m.mem_no={$mem_no})));";
+	AND m.mem_no <> {$mem_no} 
+	AND ((m.mem_sexuality='雙性' 
+	AND m.mem_sex = (select mem_sexuality from mempairdata m where m.mem_no={$mem_no}))
+		OR(exists (SELECT* FROM mempairdata m where m.mem_sexuality = '雙性' AND m.mem_no={$mem_no}) 
+		 	AND m.mem_sexuality = (select mem_sex from mempairdata m where m.mem_no={$mem_no})) 
+		OR(m.mem_sex in (select mem_sexuality from mempairdata m where m.mem_no={$mem_no}) 
+			AND m.mem_sexuality = (select mem_sex from mempairdata m where m.mem_no={$mem_no})));";
+
+	// (m.mem_sexuality='雙性'且我的性向要等於他的性別 同時排除我的性向為雙性的可能性
 
 		//  and mem_sex = (select mem_sex from mempairdata m where mem_no={$mem_no))
 

@@ -79,30 +79,61 @@ checkbox.addEventListener('change', function change_scene() {
 function getquestion(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
-        let infos = JSON.parse(xhr.responseText);
+      let infos = JSON.parse(xhr.responseText);
       console.log(xhr.responseText);
       let i = 0;
-      document.getElementById("school_name_red").innerText = infos[i].mem_job;
-      document.getElementById("interests_red").innerText = infos[i].mem_interests;
-      document.getElementById("country_red").innerText = infos[i].mem_lovecountry;
-      document.getElementById("exchange_red").innerText = infos[i].mem_exchange;
-      document.getElementById("try_red").innerText = infos[i].mem_try;
-      
-      document.getElementById("school_name_blue").innerText = infos[i + 1].mem_job;
-      document.getElementById("interests_blue").innerText = infos[i + 1].mem_interests;
-      document.getElementById("country_blue").innerText = infos[i + 1].mem_lovecountry;
-      document.getElementById("exchange_blue").innerText = infos[i + 1].mem_exchange;
-      document.getElementById("try_blue").innerText = infos[i + 1].mem_try;
+      console.log(infos[i].mem_sex);
 
-      document.getElementById("school_name_yellow").innerText = infos[i + 2].mem_job;
-      document.getElementById("interests_yellow").innerText = infos[i + 2].mem_interests;
-      document.getElementById("country_yellow").innerText = infos[i + 2].mem_lovecountry;
-      document.getElementById("exchange_yellow").innerText = infos[i + 2].mem_exchange;
-      document.getElementById("try_yellow").innerText = infos[i + 2].mem_try;
-
+      if (infos[i]) {
+        if (infos[i].mem_sex == '男') {
+          document.getElementById("avatar_img_red").src = "assets/images/avatar_b_red.png";
+        } else {
+          document.getElementById("avatar_img_red").src = "assets/images/avartar_red.png";
+        };
       
-      paring_no = [infos[i].mem_no, infos[i + 1].mem_no, infos[i + 2].mem_no];
-      console.log(paring_no);
+        document.getElementById("school_name_red").innerText = infos[i].mem_job;
+        document.getElementById("interests_red").innerText = infos[i].mem_interests;
+        document.getElementById("country_red").innerText = infos[i].mem_lovecountry;
+        document.getElementById("exchange_red").innerText = infos[i].mem_exchange;
+        document.getElementById("try_red").innerText = infos[i].mem_try;
+        paring_no.push(infos[i].mem_no);
+ 
+      };
+
+      if (infos[i + 1]) {
+         if (infos[i+1].mem_sex == '男') {
+          document.getElementById("avatar_img_blue").src = "assets/images/avatar_b_blue.png"
+        }else {
+          document.getElementById("avatar_img_blue").src = "assets/images/avartar_blue.png";
+        };
+        document.getElementById("school_name_blue").innerText = infos[i + 1].mem_job;
+        document.getElementById("interests_blue").innerText = infos[i + 1].mem_interests;
+        document.getElementById("country_blue").innerText = infos[i + 1].mem_lovecountry;
+        document.getElementById("exchange_blue").innerText = infos[i + 1].mem_exchange;
+        document.getElementById("try_blue").innerText = infos[i + 1].mem_try;
+        paring_no.push(infos[i + 1].mem_no);
+
+      };
+      
+      
+      if (infos[i + 2]) {
+
+        if (infos[i+1].mem_sex == '男') {
+          document.getElementById("avatar_img_yellow").src = "assets/images/avatar_b_yellow.png"
+        }else {
+          document.getElementById("avatar_img_red").src = "assets/images/avartar_yellow.png";
+        };
+        document.getElementById("school_name_yellow").innerText = infos[i + 2].mem_job;
+        document.getElementById("interests_yellow").innerText = infos[i + 2].mem_interests;
+        document.getElementById("country_yellow").innerText = infos[i + 2].mem_lovecountry;
+        document.getElementById("exchange_yellow").innerText = infos[i + 2].mem_exchange;
+        document.getElementById("try_yellow").innerText = infos[i + 2].mem_try;
+        paring_no.push(infos[i + 2].mem_no);
+
+      };
+
+  
+      
     }
     xhr.open("get", `phps/paring_result.php?mem_no=${sessionStorage.getItem('mem_no')}`, true);
     xhr.send(null);
@@ -115,11 +146,10 @@ function getstatus_info() {
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
       let status = JSON.parse(xhr.responseText);
-      console.log(xhr.responseText);
 
       //找出陣列中是否有紅色人的編號/藍色人的編號/黃色人的編號
       let already_sent_red = $.map(status, function(item, index) {
-      return item.paring_player_no;
+        return item.paring_player_no;
       }).indexOf(paring_no[0]+1);
 
       let already_sent_blue = $.map(status, function(item, index) {
@@ -171,7 +201,6 @@ function getstatus_info() {
 
 //////////////////////////////////////
 
-getquestion(getstatus_info);
 
 //紅色球
 let flag_ball_red=false;
@@ -294,7 +323,7 @@ function collective_yellow(){
 
 function doFirst() {
   return_button.addEventListener('click', return_page);
-  
+
   getquestion();
   red_button.addEventListener('click',collective_red);
   blue_button.addEventListener('click',collective_blue);

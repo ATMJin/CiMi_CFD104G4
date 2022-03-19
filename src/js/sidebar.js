@@ -10,18 +10,16 @@ let year = now.getFullYear();
 let month = now.getMonth() + 1;
 let date = now.getDate();
 
-(function monthchange() {
-  month = (month < 10 ? '0' : '') + month;
-})();
+// (function monthchange() {
+//   month = (month < 10 ? '0' : '') + month;
+// })();
 
-(function datechange() {
-  date = (date < 10 ? '0' : '') + date;
-})();
+// (function datechange() {
+//   date = (date < 10 ? '0' : '') + date;
+// })();
 
-(function datechange() {
-  date = (date < 10 ? '0' : '') + date;
-})();
-let Today=`${year}-${month}-${date}`;
+
+let Today=`${year}.${month}.${date}`;
 
 function playtime(){
     let xhr = new XMLHttpRequest();
