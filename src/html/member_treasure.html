@@ -2,158 +2,162 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的Mi寶 | CiMi交友論壇</title>
-  <link rel="stylesheet" href="assets/css/member_guide.css">
-  <link rel="stylesheet" href="assets/css/member_sidebar.css">
-  <link rel="stylesheet" href="assets/css/member_treasure.css">
-  <link rel="stylesheet" href="assets/css/tabs.css">
-  <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
-  <script src="js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的Mi寶 | CiMi交友論壇</title>
+    <link rel="stylesheet" href="assets/css/member_guide.css">
+    <link rel="stylesheet" href="assets/css/member_sidebar.css">
+    <link rel="stylesheet" href="assets/css/member_treasure.css">
+    <link rel="stylesheet" href="assets/css/tabs.css">
+    <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
+    <script src="js/vue.js"></script>
 </head>
 
 <body>
-  @@include('layout/header.html')
+    @@include('layout/header.html')
 
-  <div class="member_content_area">
+    <div class="member_content_area">
 
-    @@include('member_sidebar.html')
-    <main class="member_main_box" id="membersApp">
-      <div class="backPage">
-        <button onclick="history.back()">←</button>
-      </div>
-
-      <div class="member_bg">
-        <div class="member_tabchange">
-          <div id="tabs" class="container">
-            <div class="tabs">
-              <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">我的追蹤</a>
-              <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">我的收藏</a>
+        @@include('member_sidebar.html')
+        <main class="member_main_box" id="membersApp">
+            <div class="backPage">
+                <button onclick="history.back()">←</button>
             </div>
 
-            <div class="content">
-              <div v-if="activetab ==='1'" class="tabcontent">
-                <div class="member_com">
-                  <div class="member_combg">
-                    <div class="tracktitle">
-                      <h2>追蹤中的看版</h2>
+            <div class="member_bg">
+                <div class="member_tabchange">
+                    <div id="tabs" class="container">
+                        <div class="tabs">
+                            <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">我的追蹤</a>
+                            <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">我的收藏</a>
+                        </div>
+
+                        <div class="content">
+                            <div v-if="activetab ==='1'" class="tabcontent">
+                                <div class="member_com">
+                                    <div class="member_combg">
+                                        <div class="tracktitle">
+                                            <h2>追蹤中的看版</h2>
+                                        </div>
+                                        <div class="member_track" v-for="billboard in billboards">
+                                            <div class="member_tracksection">
+                                                <div class="track">
+                                                    <p>#{{billboard.billboard_name}}</p>
+                                                </div>
+
+                                                <div class="track_btn">
+                                                    <input class="btn-secondary" type="button" value="取消追蹤">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="member_tracknum">
+                                            <div class="tracktitle">
+                                                <h2>追蹤中的帳號</h2>
+                                            </div>
+
+                                            <div class="member_tracksection" v-for="trackwriter in trackwriters">
+                                                <div class="track">
+                                                    <div class="trackhead">
+                                                        <img :src="trackwriter.mem_head?trackwriter.mem_head:'assets/images/blue_ball.png'"
+                                                            alt="">
+                                                    </div>
+                                                    <div class="tracknumtxt">
+                                                        <p>{{trackwriter.mem_name}}</p>
+                                                        <p>@{{trackwriter.mem_id}}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="track_btn">
+                                                    <input class="btn-secondary" type="button" value="取消追蹤">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div v-if="activetab ==='2'" class="tabcontent">
+                                <div class="member_art_text">
+                                    <!--內文-->
+                                    <div class="article_box" v-for="articlesFollow in articlesFollows">
+                                        <!-- 發文者 -->
+                                        <div class="article_mem_info">
+                                            <div class="article_mem_icon">
+                                                <img :src="articlesFollow.mem_head">
+                                            </div>
+                                            <div class="article_mem_name">{{articlesFollow.mem_name}}</div>
+                                            <div class="member_articlemore">
+                                                <img src="assets/images/icon/more.png" alt="">
+                                            </div>
+                                        </div>
+                                        <!-- 文章標題 -->
+                                        <div class="article_container">
+                                            <!-- 文章內容 -->
+                                            <div class="article_txt_box">
+                                                <div class="article_txt_item">
+                                                    <!-- 文章標題 -->
+                                                    <div class="article_title">{{articlesFollow.article_title}}</div>
+                                                    <!-- 文章摘要 -->
+                                                    <div class="article_summary">{{articlesFollow.article_content}}
+                                                    </div>
+                                                </div>
+
+                                                <!-- 文章反應 -->
+                                                <div class="article_react">
+                                                    <!-- 喜歡數 -->
+                                                    <div class="article_like_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/like.png" alt="">
+                                                        </div>
+                                                        <div class="article_like_amount">
+                                                            {{articlesFollow.article_likes_amount}}</div>
+                                                    </div>
+                                                    <!-- 留言數 -->
+                                                    <div class="article_comment_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/comment.png" alt="">
+                                                        </div>
+                                                        <div class="article_comment_amount">
+                                                            {{articlesFollow.article_collect_amount}}</div>
+                                                    </div>
+                                                    <!-- 收藏 -->
+                                                    <div class="article_collect_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/save_hov.png" alt="">
+                                                        </div>
+                                                        <div class="article_collect_amount">收藏</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 文章圖片 -->
+                                            <div class="article_pic_box">
+                                                <img src="https://picsum.photos/150/150/?random=9">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="member_track" v-for="billboard in billboards">
-                      <div class="member_tracksection">
-                        <div class="track">
-                          <p>#{{billboard.billboard_name}}</p>
-                        </div>
-
-                        <div class="track_btn">
-                          <input class="btn-secondary" type="button" value="取消追蹤">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="member_tracknum">
-                      <div class="tracktitle">
-                        <h2>追蹤中的帳號</h2>
-                      </div>
-
-                      <div class="member_tracksection" v-for="trackwriter in trackwriters">
-                        <div class="track">
-                          <div class="trackhead">
-                            <img :src="trackwriter.mem_head?trackwriter.mem_head:'assets/images/blue_ball.png'" alt="">
-                          </div>
-                          <div class="tracknumtxt">
-                            <p>{{trackwriter.mem_name}}</p>
-                            <p>@{{trackwriter.mem_id}}</p>
-                          </div>
-
-                        </div>
-
-                        <div class="track_btn">
-                          <input class="btn-secondary" type="button" value="取消追蹤">
-
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
                 </div>
-
-              </div>
-              <div v-if="activetab ==='2'" class="tabcontent">
-                <div class="member_art_text">
-                  <!--內文-->
-                  <div class="article_box" v-for="articlesFollow in articlesFollows">
-                    <!-- 發文者 -->
-                    <div class="article_mem_info">
-                      <div class="article_mem_icon">
-                        <img :src="articlesFollow.mem_head">
-                      </div>
-                      <div class="article_mem_name">{{articlesFollow.mem_name}}</div>
-                      <div class="member_articlemore">
-                        <img src="assets/images/icon/more.png" alt="">
-                      </div>
-                    </div>
-                    <!-- 文章標題 -->
-                    <div class="article_container">
-                      <!-- 文章內容 -->
-                      <div class="article_txt_box">
-                        <div class="article_txt_item">
-                          <!-- 文章標題 -->
-                          <div class="article_title">{{articlesFollow.article_title}}</div>
-                          <!-- 文章摘要 -->
-                          <div class="article_summary">{{articlesFollow.article_content}}</div>
-                        </div>
-
-                        <!-- 文章反應 -->
-                        <div class="article_react">
-                          <!-- 喜歡數 -->
-                          <div class="article_like_box">
-                            <div class="article_icon_item">
-                              <img src="assets/images/icon/like.png" alt="">
-                            </div>
-                            <div class="article_like_amount">{{articlesFollow.article_likes_amount}}</div>
-                          </div>
-                          <!-- 留言數 -->
-                          <div class="article_comment_box">
-                            <div class="article_icon_item">
-                              <img src="assets/images/icon/comment.png" alt="">
-                            </div>
-                            <div class="article_comment_amount">{{articlesFollow.article_collect_amount}}</div>
-                          </div>
-                          <!-- 收藏 -->
-                          <div class="article_collect_box">
-                            <div class="article_icon_item">
-                              <img src="assets/images/icon/save_hov.png" alt="">
-                            </div>
-                            <div class="article_collect_amount">收藏</div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- 文章圖片 -->
-                      <div class="article_pic_box">
-                        <img src="https://picsum.photos/150/150/?random=9">
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-    </main>
-  </div>
-  <script>
-    // new Vue({
-    //   el: '#tabs',
-    //   data: {
-    //     activetab: '1'
-    //   },
-    // });
-  </script>
-  <script src="js/member/member_article_treasure_order.js"></script>
+        </main>
+    </div>
+    <script>
+        // new Vue({
+        //   el: '#tabs',
+        //   data: {
+        //     activetab: '1'
+        //   },
+        // });
+    </script>
+    <script src="js/member/member_article_treasure_order.js"></script>
 </body>
 
 </html>

@@ -2,103 +2,103 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我發表的文章 | CiMi交友論壇</title>
-  <link rel="stylesheet" href="assets/css/member_guide.css">
-  <link rel="stylesheet" href="assets/css/member_sidebar.css">
-  <link rel="stylesheet" href="assets/css/member_article.css">
-  <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>我發表的文章 | CiMi交友論壇</title>
+	<link rel="stylesheet" href="assets/css/member_guide.css">
+	<link rel="stylesheet" href="assets/css/member_sidebar.css">
+	<link rel="stylesheet" href="assets/css/member_article.css">
+	<script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
 
-  <script src="js/vue.js"></script>
+	<script src="js/vue.js"></script>
 </head>
 
 <body>
-  @@include('layout/header.html')
+	@@include('layout/header.html')
 
-  <div class="member_content_area">
-    @@include('member_sidebar.html')
-    <div id="membersApp" style="width: 100%;">
-      <main class="member_main_box">
-        <div class="backPage">
-          <button onclick="history.back()">←</button>
-        </div>
-        <div class="member_bg">
-          <div class="member_main">
-            <div class="member_head">
-              <!--手機板內文大標-->
-            </div>
-          </div>
-          <div class="member_main_title">
-            <!--桌機版內文大標-->
-          </div>
-          <div class="member_art_text">
+	<div class="member_content_area">
+		@@include('member_sidebar.html')
+		<div id="membersApp" style="width: 100%;">
+			<main class="member_main_box">
+				<div class="backPage">
+					<button onclick="history.back()">←</button>
+				</div>
+				<div class="member_bg">
+					<div class="member_main">
+						<div class="member_head">
+							<!--手機板內文大標-->
+						</div>
+					</div>
+					<div class="member_main_title">
+						<!--桌機版內文大標-->
+					</div>
+					<div class="member_art_text">
 
-            <!--內文-->
-            <div class="article_box" v-for="article in articles">
-              <!-- 發文者 -->
-              <div class="article_mem_info">
-                <div class="article_mem_icon">
-                  <img :src="article.mem_head">
-                </div>
-                <div class="article_mem_name">{{article.mem_name}}</div>
-                <div class="member_articlemore">
-                  <img src="assets/images/icon/more.png" alt="">
-                </div>
-              </div>
-              <!-- 文章標題 -->
-              <div class="article_container">
-                <!-- 文章內容 -->
-                <div class="article_txt_box">
-                  <div class="article_txt_item">
-                    <!-- 文章標題 -->
-                    <div class="article_title">{{article.article_title}}</div>
-                    <!-- 文章摘要 -->
-                    <p class="article_summary">
-                      {{article.article_content}}
-                    </p>
-                  </div>
-                  <!-- 文章反應 -->
-                  <div class="article_react">
-                    <!-- 喜歡數 -->
-                    <div class="article_like_box">
-                      <div class="article_icon_item">
-                        <img src="assets/images/icon/like.png" alt="">
-                      </div>
-                      <div class="article_like_amount">{{article.article_likes_amount}}</div>
-                    </div>
-                    <!-- 留言數 -->
-                    <div class="article_comment_box">
-                      <div class="article_icon_item">
-                        <img src="assets/images/icon/comment.png" alt="">
-                      </div>
-                      <div class="article_comment_amount">{{article.article_collect_amount}}</div>
-                    </div>
-                    <!-- 收藏 -->
-                    <div class="article_collect_box">
-                      <div class="article_icon_item">
-                        <img src="assets/images/icon/save_hov.png" alt="">
-                      </div>
-                      <div class="article_collect_amount">收藏</div>
-                    </div>
-                  </div>
-                </div>
-                <!-- 文章圖片 -->
-                <div class="article_pic_box">
-                  <img :src="article.article_pic">
-                </div>
-              </div>
-            </div>
+						<!--內文-->
+						<div class="article_box" v-for="article in articles">
+							<!-- 發文者 -->
+							<div class="article_mem_info">
+								<div class="article_mem_icon">
+									<img :src="article.mem_head">
+								</div>
+								<div class="article_mem_name">{{article.mem_name}}</div>
+								<div class="member_articlemore">
+									<img src="assets/images/icon/more.png" alt="">
+								</div>
+							</div>
+							<!-- 文章標題 -->
+							<div class="article_container">
+								<!-- 文章內容 -->
+								<div class="article_txt_box">
+									<div class="article_txt_item">
+										<!-- 文章標題 -->
+										<div class="article_title">{{article.article_title}}</div>
+										<!-- 文章摘要 -->
+										<p class="article_summary">
+											{{article.article_content}}
+										</p>
+									</div>
+									<!-- 文章反應 -->
+									<div class="article_react">
+										<!-- 喜歡數 -->
+										<div class="article_like_box">
+											<div class="article_icon_item">
+												<img src="assets/images/icon/like.png" alt="">
+											</div>
+											<div class="article_like_amount">{{article.article_likes_amount}}</div>
+										</div>
+										<!-- 留言數 -->
+										<div class="article_comment_box">
+											<div class="article_icon_item">
+												<img src="assets/images/icon/comment.png" alt="">
+											</div>
+											<div class="article_comment_amount">{{article.article_collect_amount}}</div>
+										</div>
+										<!-- 收藏 -->
+										<div class="article_collect_box">
+											<div class="article_icon_item">
+												<img src="assets/images/icon/save_hov.png" alt="">
+											</div>
+											<div class="article_collect_amount">收藏</div>
+										</div>
+									</div>
+								</div>
+								<!-- 文章圖片 -->
+								<div class="article_pic_box">
+									<img :src="article.article_pic">
+								</div>
+							</div>
+						</div>
 
 
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
 
-  <script src="js/member/member_article_treasure_order.js"></script>
+	<script src="js/member/member_article_treasure_order.js"></script>
 </body>
 
 </html>
