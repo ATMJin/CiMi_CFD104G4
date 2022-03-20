@@ -48,11 +48,7 @@
                                 </div>
                                 <div class="charts_btn">
                                     <button type="button" class="btn-secondary"
-<<<<<<< HEAD
-                                        @click="addFollow">{{isTrack(item.mem_id)}}</button>
-=======
                                         @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
->>>>>>> celia
                                 </div>
                             </div>
                         </div>
@@ -77,11 +73,7 @@
                                 </div>
                                 <div class="charts_btn">
                                     <button type="button" class="btn-secondary"
-<<<<<<< HEAD
-                                        @click="addFollow">{{isTrack(item.mem_id)}}</button>
-=======
                                     @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
->>>>>>> celia
                                 </div>
                             </div>
                         </div>
@@ -103,41 +95,16 @@
                             <div class="charts_wrap">
                                 <div class="charts_sum">
                                     收藏數 : <span>{{item.article_collect_amount}}</span>
-<<<<<<< HEAD
-=======
                                 </div>
                                 <div class="charts_btn">
                                     <button type="button" class="btn-secondary"
                                     @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
->>>>>>> celia
                                 </div>
                                 <button type="button" class="btn-secondary"
                                     @click="addFollow">{{isTrack(item.mem_id)}}</button>
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div v-if="activetab ==='4'" class="tabcontent">
-                        <div class="charts_content" v-for="(item, index) in follow" :key="index">
-                            <div class="charts_box">
-                                <div class="charts_rank">
-                                    <span>No.{{index+1}}</span>
-                                </div>
-                                <div class="charts_img">
-                                    <img v-bind:src="item.mem_head" />
-                                </div>
-                                <div class="charts_name">
-                                    <span class="charts_mem">{{item.mem_name}}</span>
-                                    <span class="charts_account">@{{item.mem_id}}</span>
-                                </div>
-                            </div>
-                            <div class="charts_wrap">
-                                <div class="charts_sum">
-                                    追蹤數 : <span>{{item.follow}}</span>
-                                </div>
-                                <button type="button" class="btn-secondary"
-                                    @click="addFollow">{{isTrack(item.mem_id)}}</button>
-=======
                 </div>
                 <div v-if="activetab ==='4'" class="tabcontent">
                     <div class="charts_content" v-for="(item, index) in follow" :key="index">
@@ -160,7 +127,6 @@
                             <div class="charts_btn">
                                 <button type="button" class="btn-secondary"
                                 @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
->>>>>>> celia
                             </div>
                         </div>
                     </div>
@@ -177,39 +143,6 @@
         new Vue({
             el: '#tabs',
             data: {
-<<<<<<< HEAD
-                activetab: '1',
-                post: [],
-                poster: [],
-                like: [],
-                favs: [],
-                follow: [],
-                track: [],
-            },
-            mounted() {
-                let vm = this
-                // 为给定 ID 的 user 创建请求
-                let params = new URLSearchParams();
-                params.append("mem_no", sessionStorage.getItem('mem_no'));
-                axios.post('phps/chart.php', params)
-                    .then(function (response) {
-                        vm.post = response.data.post
-                        vm.like = response.data.like
-                        vm.favs = response.data.fav
-                        vm.follow = response.data.follow
-
-
-                        vm.track = response.data.track.map(item => Object.values(item)[0])
-                        vm.poster = response.data.post.map(item => Object.values(item)[0])
-
-                        console.log('vm.track', vm.track);
-                        console.log('vm.poster', vm.poster);
-
-
-                        vm.poster.indexOf(vm.track); // -1
-                        console.log(vm.poster.indexOf(vm.track));
-
-=======
                 isRouterAlive: true,
                 activetab: '1',
                 //四個分頁的data
@@ -246,18 +179,10 @@
                         vm.favs = response.data.fav
                         vm.follow = response.data.follow
                         vm.track = response.data.track.map(item => Object.values(item)[1])
->>>>>>> celia
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
-<<<<<<< HEAD
-            },
-            methods: { // 函數大部分放在這裡!
-                addFollow(e) {
-                    console.log(sessionStorage.getItem('login'));
-=======
->>>>>>> celia
 
                     if (sessionStorage.getItem('login') == null) {
                         alert("請先登入")
@@ -276,13 +201,7 @@
                         return "已追蹤"
                     }
                     return "追蹤"
-                },
             },
-<<<<<<< HEAD
-            computed: {
-
-            }
-=======
             methods: {
                 show(item, index) {
                     if (this.user == null) {
@@ -358,8 +277,7 @@
                     return "追蹤"
                 },
             },
-
->>>>>>> celia
+            
         });
     </script>
 
