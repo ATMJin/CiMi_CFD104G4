@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="charts_btn">
                                     <button type="button" class="btn-secondary"
-                                    @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
+                                        @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="charts_btn">
                                     <button type="button" class="btn-secondary"
-                                    @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
+                                        @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
                                 </div>
                             </div>
                         </div>
@@ -120,11 +120,11 @@
                         </div>
                         <div class="charts_wrap">
                             <div class="charts_sum">
-                                追蹤數 : <span>{{item.writer_no}}</span>
+                                追蹤數 : <span>{{follow_num[index]}}</span>
                             </div>
                             <div class="charts_btn">
                                 <button type="button" class="btn-secondary"
-                                @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
+                                    @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
                             </div>
                         </div>
                     </div>
@@ -153,8 +153,11 @@
                 editObj: {
                     writer_no: "",
                     state: "",
-                    track: ""
-                }
+                    track: "",
+                    follow: ""
+                },
+                follow_num: []
+
             },
             mounted() {
 
@@ -176,30 +179,32 @@
                         vm.like = response.data.like
                         vm.favs = response.data.fav
                         vm.follow = response.data.follow
-                        vm.track = response.data.track
+                        vm.follow_num = response.data.follow.map(item => Object.values(item)[3])
+
                         vm.track = response.data.track.map(item => Object.values(item)[1])
+
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
 
-                    if (sessionStorage.getItem('login') == null) {
-                        // alert("請先登入")
-                    } else if (sessionStorage.getItem('login') == 'success') {
-                        if (e.target.innerText == "已追蹤") {
-                            e.target.innerText = "追蹤";
-                            this.cancelFollow()
-                        } else if (e.target.innerText == "追蹤") {
-                            e.target.innerText = "已追蹤";
-                            this.getFollow()
-                        }
+                if (sessionStorage.getItem('login') == null) {
+                    // alert("請先登入")
+                } else if (sessionStorage.getItem('login') == 'success') {
+                    if (e.target.innerText == "已追蹤") {
+                        e.target.innerText = "追蹤";
+                        this.cancelFollow()
+                    } else if (e.target.innerText == "追蹤") {
+                        e.target.innerText = "已追蹤";
+                        this.getFollow()
                     }
-                },
-                isTrack(id) {
-                    if (this.track.indexOf(id) >= 0) {
-                        return "已追蹤"
-                    }
-                    return "追蹤"
+                }
+            },
+            isTrack(id) {
+                if (this.track.indexOf(id) >= 0) {
+                    return "已追蹤"
+                }
+                return "追蹤"
             },
             methods: {
                 show(item, index) {
@@ -213,20 +218,23 @@
                         //找到當前要點擊的btn
                         let btn = document.querySelectorAll('.charts_btn button')
 
-
-                        //if (this.track.indexOf(item.mem_name) >= 0)
-
                         // 判斷當前用戶追蹤||已追蹤狀態
                         if ((btn[index].innerText) == "已追蹤") { //用戶已被追蹤
 
                             let obj = {
                                 writer_no: `${item.mem_no}`,
-                                state: "已追蹤",
-                                track: "追蹤"
+                                state: "已追蹤",  //目前狀態
+                                track: "追蹤",   // 點擊後的狀態
                             }
                             this.editObj = obj
                             btn[index].innerText = obj.track
 
+                            this.$set(this.follow_num, index, this.follow_num[index] -= 1) //重新設定用戶追蹤數
+                            console.log('hi', this.follow_num[index]);
+
+
+
+                            //--------------------------------------------------執行axios
                             let params = new URLSearchParams();
                             params.append("case", "deleteFollow");
                             params.append("writer_no", `${obj.writer_no}`);
@@ -242,6 +250,8 @@
                                     console.log(error);
                                 });
 
+
+
                         } else { //用戶未被追蹤
                             let obj = {
                                 writer_no: `${item.mem_no}`,
@@ -251,8 +261,9 @@
 
                             this.editObj = obj
                             btn[index].innerText = obj.track
+                            this.$set(this.follow_num, index, this.follow_num[index] += 1)
 
-                            //--------------------------------------------------
+                            //--------------------------------------------------執行axios
                             let params = new URLSearchParams();
                             params.append("case", "insertFollow");
                             params.append("writer_no", `${obj.writer_no}`);
@@ -266,8 +277,6 @@
                                 .catch(function (error) {
                                     console.log(error);
                                 });
-
-
                         }
 
                     }
@@ -279,7 +288,7 @@
                     return "追蹤"
                 },
             },
-            
+
         });
     </script>
 
