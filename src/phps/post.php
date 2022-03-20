@@ -76,10 +76,12 @@ switch ($_POST["case"]) {
 
                 $path = "../assets/images/post/" . $new_img_name;
 
+                $savePath = "assets/images/post/" . $new_img_name;
+
                 move_uploaded_file($tmp_name, $path);
 
                 $sql = "INSERT INTO article (mem_no, billboard_no , publish_date, last_edit_date, article_title, article_content, article_pic)
-                    VALUE ($mem_no, $billboard_no, now(), now(), '{$article_title}', '{$article_content}', '{$path}')";
+                    VALUE ($mem_no, $billboard_no, now(), now(), '{$article_title}', '{$article_content}', '{$savePath}')";
 
                 $pdo->query($sql);
                 echo "文章上傳成功 ! ";
