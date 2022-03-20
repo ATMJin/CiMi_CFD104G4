@@ -25,7 +25,7 @@
                 <button onclick="history.back()">←</button>
             </div>
 
-            <div class="member_bg">
+            <div class="member_bg" id="myIntro">
                 <div class="member_bgcard">
                     <div class="member_main">
                         <div class="member_head">
@@ -45,80 +45,150 @@
                         </div>
                         <div class="member_headimage">
                             <img src="" alt="">
-                            <p>NAME</p>
+                            <p>{{member.mem_name}}</p>
                         </div>
                     </div>
 
                     <div class="member_cardtext">
-                        <div class="member_cardtext_img">
+                        <div class="member_cardtext_img" @click="edit_info">
                             <img src="assets/images/icon/member_pen.png" alt="">
                         </div>
 
-                        <div class="member_cardmain">
+                        <div class="member_cardmain" >
                             <div class="member_cardrow">
                                 <div class="membercard_birthday gap">
                                     <h3>生日</h3>
-                                    <p>1998/03/03</p>
+                                    <p>{{member.mem_birth}}</p>
                                 </div>
                                 <div class="membercard_gender gap">
                                     <h3>性別</h3>
-                                    <p>女</p>
+                                    <p>{{member.mem_sex}}</p>
                                 </div>
                             </div>
                             <div class="member_cardrow">
                                 <div class="membercard_love gap">
                                     <h3>性向</h3>
-                                    <p>男</p>
+                                    <p>{{member.mem_sexuality}}</p>
                                 </div>
                                 <div class="membercard_word gap">
                                     <h3>感情狀態</h3>
-                                    <p>單身</p>
+                                    <p>{{member.mem_relationship}}</p>
                                 </div>
                             </div>
                             <div class="member_cardrow">
 
                                 <div class="membercard_inter gap">
                                     <h3>職業</h3>
-                                    <p>財金業</p>
+                                    <p>{{member.mem_job}}</p>
                                 </div>
                                 <div class="membercard_like gap">
                                     <h3>畢業學校</h3>
-                                    <p>XXXXXX專科大學</p>
+                                    <p>{{member.mem_school}}</p>
                                 </div>
                             </div>
                             <div class="member_cardrow">
                                 <div class="member_try gap">
                                     <h3>想嘗試的事情</h3>
-                                    <p>黑夜蝙蝠俠</p>
+                                    <p>{{member.mem_try}}</p>
                                 </div>
                                 <div class="member_interests gap">
                                     <h3>興趣、專長</h3>
-                                    <p>好棒棒</p>
+                                    <p>{{member.mem_interests}}</p>
                                 </div>
                             </div>
                             <div class="member_cardrow">
                                 <div class="member_lovecountry gap">
                                     <h3>喜歡的國家</h3>
-                                    <p>泰國</p>
+                                    <p>{{member.mem_lovecountry}}</p>
                                 </div>
                                 <div class="member_exchange gap">
                                     <h3>可以交換的事情</h3>
-                                    <p>黑夜蝙蝠俠</p>
+                                    <p>{{member.mem_exchange}}</p>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="member_cardrow">
                                 <div class="membercard_sign gap">
                                     <h3>個性化簽名</h3>
-                                    <p>泰國</p>
+                                    <p>{{member.mem_sign}}</p>
                                 </div>
                             </div>
+
+
+                            <form action="" style="display:none" id="editForm">
+                                <h4>名稱</h4><input type="text" v-model="member.mem_name">
+                                <h4>生日</h4><input type="text" v-model="member.mem_birth">
+
+                                <h4>性別</h4>
+                                <input type="radio" name="sex" v-model="member.mem_sex" value="男">男
+                                <input type="radio" name="sex" v-model="member.mem_sex" value="女">女
+
+                                <h4>性向</h4> 
+                                <input type="radio" name="sex" v-model="member.mem_sex" value="男">男
+                                <input type="radio" name="sex" v-model="member.mem_sex" value="女">女
+                                <input type="radio" name="sex" v-model="member.mem_sex" value="雙性">雙性
+
+                                <h4>感情狀態</h4><input type="text" v-model="member.mem_relationship">
+                                <h4>職業</h4><input type="text" v-model="member.mem_job">
+                                <h4>畢業學校</h4><input type="text" v-model="member.mem_school">
+                                <h4>想嘗試的事情</h4><input type="text" v-model="member.mem_try">
+                                <h4>興趣、專長</h4><input type="text" v-model="member.mem_interests">
+                                <h4>喜歡的國家</h4><input type="text" v-model="member.mem_lovecountry">
+                                <h4>可以交換的事情</h4><input type="text" v-model="member.mem_exchange">
+                                <h4>個性化簽名</h4><input type="text" v-model="member.mem_sign">
+                                <div class="">
+                                    <input type="submit" @submit.prevent @click="send">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-    <script src="js/member/member_my_introduction.js"></script>
+
+    <script>
+        new Vue({
+            el: '#myIntro',
+            data: {
+                member:[]
+            },
+            mounted() {
+                let xhr = new XMLHttpRequest();
+                xhr.open("get",
+                    `phps/member/member_my_introduction.php?case=null&mem_no=${sessionStorage.getItem('mem_no')}`,
+                    true);
+                xhr.send(null);
+
+                let vm = this
+                xhr.onload = function () {
+                    // 接收PHP傳來的資料
+                    vm.member = JSON.parse(xhr.responseText);
+                 
+                }
+            },
+
+            methods: {
+                edit_info(){
+                    editForm.style.display="block"
+                },
+                send(){
+
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("get",
+                    `phps/member/member_my_introduction.php?case=edit&mem_no=${sessionStorage.getItem('mem_no')}`,
+                    true);
+                    xhr.send(null);
+
+                    xhr.onload = function () {
+                    // 接收PHP傳來的資料
+                    member = JSON.parse(xhr.responseText);
+
+
+                    }
+                }
+            },
+        })
+    </script>
 
 </body>
 
