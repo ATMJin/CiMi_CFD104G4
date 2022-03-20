@@ -13,8 +13,6 @@
     filter: invert(100%);
 }
 
-
-
 // ------------------好物商城-----------------------
 
 // -----------手機板
@@ -56,20 +54,7 @@
     }
 }
 
-
 // 廣告輪播
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
-
-}
-
 .hero-slider {
     // 調整大小
     width: 92%;
@@ -80,67 +65,69 @@
     margin: 50px auto;
     /*調整slider位置*/
     box-shadow: 0 2px 8px 2px #ecebebce;
-    // 背景陰影
+    .carousel-cell {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
 
-}
+        // 背景陰影
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
 
-.hero-slider .carousel-cell {
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
+        }
 
-.hero-slider .carousel-cell .inner {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    text-align: center;
-}
+        .inner {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            text-align: center;
 
-.hero-slider .carousel-cell .inner .subtitle {
-    font-family: 'Roboto Slab', serif;
-    font-size: 2.2rem;
-    line-height: 1.2em;
-    font-weight: 200;
-    font-style: italic;
-    letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 5px;
-}
+            .btn {
+                border: 2px solid #fff;
+                /* background-color: rgba(255, 255, 255, 0.397); */
+                padding: 14px 18px;
+                text-transform: uppercase;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.8rem;
+                letter-spacing: 3px;
+                color: #fff;
+                text-decoration: none;
+                transition: all 0.2s ease;
+                background: rgba(255, 255, 255, 0.568);
+                color: #000;
+                border: 2px solid #fff;
+            }
 
-.hero-slider .carousel-cell .inner .title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
-    line-height: 1.2em;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-}
+            .btn:hover {
 
-.hero-slider .carousel-cell .inner .btn {
-    border: 2px solid #fff;
-    /* background-color: rgba(255, 255, 255, 0.397); */
-    padding: 14px 18px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    background: rgba(255, 255, 255, 0.568);
-    color: #000;
-    border: 2px solid #fff;
-}
+                background-color: rgb(255, 255, 255);
+                color: rgb(121, 121, 121);
 
-.hero-slider .carousel-cell .inner .btn:hover {
+            }
 
-    background-color: rgb(255, 255, 255);
-    color: rgb(121, 121, 121);
+            .subtitle {
+                font-family: 'Roboto Slab', serif;
+                font-size: 2.2rem;
+                line-height: 1.2em;
+                font-weight: 200;
+                font-style: italic;
+                letter-spacing: 3px;
+                color: rgba(255, 255, 255, 0.5);
+                margin-bottom: 5px;
+            }
 
+        }
+    }
 }
 
 .hero-slider .flickity-prev-next-button {
@@ -174,55 +161,6 @@
     background: white;
 }
 
-// 真實評論，好友討論，免運
-.main_product {
-    .product_comment {
-        width: 100%;
-        display: none;
-
-        a {
-            text-decoration: none;
-            // 文字顏色(白
-            color: var(--primary-color);
-
-            .item_box {
-                margin: auto;
-                display: flex;
-                justify-content: space-around;
-                background-color: #f97373;
-                border-radius: var(--bgc-radius);
-                margin: 40px;
-
-                .item {
-                    display: flex;
-                    padding: 10px;
-                    align-items: center;
-                    box-sizing: border-box;
-
-
-                    .img_box {
-                        width: 20px;
-                        margin: 5px;
-
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-                    .txt_box {
-                        p {
-
-                            text-align: center;
-                            // 文字顏色(白
-                            color: var(--primary-color);
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 // 商品分類
 .main_product {
     .sort {
@@ -244,6 +182,7 @@
                 .item {
                     box-sizing: border-box;
                     padding: 12px;
+                    transition: transform 1s;
 
                     .img_box {
                         padding-bottom: 10px;
@@ -269,16 +208,18 @@
 }
 
 // 商品分類
-.main_product:hover {
+.main_product {
     .sort {
         .item_box {
             a {
-                .item {
+                .item:hover {
+                    transform: translate(0px, -20px);
+                    opacity: 0.6;
+                    transition: transform 0.5s;
+
                     .img_box {
-                        img {
-                            // transition: 0.3s;
-                            // transform: translateY(-2px);
-                        }
+
+                        img {}
                     }
                 }
             }
@@ -294,29 +235,27 @@
         margin: 0 10px;
         margin-bottom: 50px;
         box-sizing: border-box;
-        // display: none;
 
         .item_box {
             display: flex;
-            // justify-content: space-around;
-            // display: none;
 
             // 灰色商品1
             .item_time_limit {
+                width: 50%;
                 background: #F674741F;
                 border-radius: var(--bgc-radius);
-                width: 50%;
 
                 // <!-- 標題 -->
                 .title {
                     display: flex;
                     padding: 10px;
                     max-width: 220px;
-                    align-items: flex-start;
+                    align-items: center;
 
                     // <!-- icon -->
                     .img_box {
                         width: 40px;
+                        height: 40px;
 
                         img {
                             width: 100%;
@@ -357,9 +296,10 @@
                 // <!-- 商品 -->
                 .product_item_box {
                     .img_box {
-                        width: 180px;
-                        padding: 10px;
+                        width: 170px;
+                        padding:4%;
                         margin: 0 auto;
+                        box-sizing: border-box;
 
                         img {
                             width: 100%;
@@ -409,7 +349,11 @@
                     }
                 }
 
+                // icon
                 .img_box {
+                    width: 40px;
+                    height: 40px;
+
                     img {
                         width: 100%;
                     }
@@ -522,8 +466,6 @@
     }
 }
 
-
-
 // ------------------商品內頁燈箱-------------------
 
 // --------平板
@@ -542,7 +484,6 @@
 
         // <!-- 限時商品 -->
         .new_goods_information {
-            // display: none;
             margin: 0 40px;
             margin-bottom: 50px;
             margin-top: 50px;
@@ -555,7 +496,6 @@
 
                 // 灰色商品1
                 .item_time_limit {
-                    // background-color: var(--icon-color);
                     border-radius: var(--bgc-radius);
                     width: calc(100%/3);
 
@@ -566,20 +506,10 @@
                         max-width: 220px;
                         align-items: center;
 
-                        // <!-- icon -->
-                        .img_box {
-                            width: 40px;
-
-                            img {
-                                width: 100%;
-                            }
-                        }
-
                         // <!-- 文字 -->
                         .txt_box {
                             display: flex;
                             align-items: center;
-
 
                             // 小標
                             .txt_new_goods {
@@ -601,18 +531,15 @@
                                     padding: 5px;
                                 }
                             }
-
-
                         }
                     }
 
                     // <!-- 商品 -->
                     .product_item_box {
                         .img_box {
-                            width: 190px;
-                            padding: 10px;
+                            width: 180px;
+                            padding: 4%;
                             box-sizing: border-box;
-
 
                             img {
                                 width: 100%;
@@ -628,12 +555,11 @@
                     }
                 }
 
-
-
                 // 上架商品2
                 .item_new_product {
                     width: 100%;
-                    .title{
+
+                    .title {
                         padding: 15px;
                     }
                 }
@@ -829,8 +755,6 @@
             margin-bottom: 50px;
             margin-top: 50px;
 
-
-
             .item_box {
                 display: flex;
                 justify-content: space-between;
@@ -850,7 +774,7 @@
 
                         // <!-- icon -->
                         .img_box {
-                            width: 40px;
+                            // width: 40px;
 
                             img {
                                 width: 100%;
@@ -889,11 +813,11 @@
                         }
                     }
 
-                    // <!-- 商品 -->
+                    // <!-- 限時商品 -->
                     .product_item_box {
                         .img_box {
                             width: 250px;
-                            padding: 10px;
+                            padding: 4%;
 
 
                             img {
@@ -915,7 +839,10 @@
                 // 上架商品2
                 .item_new_product {
                     width: 100%;
-                    .title{
+                    // 填補??找方法解決!!!!
+                    // margin: 0 80px;
+
+                    .title {
                         padding: 15px;
                     }
                 }
@@ -993,9 +920,10 @@
                         border-radius: var(--img-radius);
                         box-shadow: 0 2px 8px 2px #ecebebce;
                         box-sizing: border-box;
+                        cursor: pointer;
                         margin: 10px;
                         width: 200px;
-                        cursor: pointer;
+
 
 
 

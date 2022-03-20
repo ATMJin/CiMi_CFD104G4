@@ -19,9 +19,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- 黑夜白天模式JS -->
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <!-- 滾動套件 -->
-    <script src="https://cdn.jsdelivr.net/npm/scroll-behavior-polyfill@2.0.13/dist/index.min.js"></script>
-
+    <!-- Material Design 套件 -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <title>chat</title>
 
@@ -98,13 +99,15 @@
     @@include('layout/header.html')
 
     <!-- 開始寫自己頁面的HTML -->
+    
 
     <!-- 聊天室 -->
     <main class="chat_room">
+        <!-- <img src="assets/images/msg_img/1647432505image (12).jpg" alt=""> -->
         <section class="users">
             <div class="search">
                 <span class="text">搜尋MI友</span>
-                <input type="text" placeholder="請輸入您的好友MI稱...">
+                <input type="text" placeholder="請輸入您的好友MI稱..." id="myInput">
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="users_list">
@@ -191,13 +194,12 @@
                     <!-- 加號按鈕 -->
                     <input type="text" name="upFile" id="thePic" style="display: none;"><br>
                     <label for="thePic">
-                        <span id="btnSave" class="btn btn-danger" onclick="screenshot()"><i
-                                class="fa-solid fa-camera-retro"></i></span>
+                        <span id="btnSave" class="btn btn-danger" onclick="screenshot()"><i class="material-icons md-28">crop</i></span>
                     </label>
                     <!-- 照片按鈕 -->
-                    <input type="file" name="upFile" id="theFile" style="display: none;"><br>
+                    <input type="file" name="upFile" id="theFile" style="display: none;"ref="fileInput"><br>
                     <label for="theFile">
-                        <span><i class="fa-solid fa-images"></i></span>
+                        <span><i class="material-icons md-28">image</i></span>
                     </label>
                 </div>
                 <input type="text" placeholder="請輸入訊息..." name="message" id="emojionearea1">
@@ -234,6 +236,15 @@
                 autocomplete: false,
                 inline: true,
                 hidePickerOnBlur: false
+            });
+            $("#myInput").on("keyup", function() {
+                // 抓搜尋的關鍵詞
+                let value = $(this).val().toLowerCase();
+                console.log(value);
+                // 抓好友裡頭有沒有符合
+                $(".friends").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
             });
         })
     </script>

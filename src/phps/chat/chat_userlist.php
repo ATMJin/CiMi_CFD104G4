@@ -8,7 +8,9 @@ include_once "../config.php";
 
 //執行sql指令並取得pdoStatement
 
-$sql = "SELECT * FROM mem WHERE mem_no != {$_SESSION['mem_no']}"; //使用者登入會將mem_no寫入session, 以此判斷該用戶之好友
+$sql = "SELECT mifriend.mem_no, mi_no, mem_name, mem_head FROM `mifriend` 
+join mem on mem.mem_no = mifriend.mi_no
+where mifriend.mem_no = {$_SESSION['mem_no']}"; //使用者登入會將mem_no寫入session, 以此判斷該用戶之好友
 
 // SELECT * FROM `messages` 
 // LEFT JOIN mem.mem_no !=
@@ -32,11 +34,11 @@ if ($users -> rowCount() > 0){
                     <img src="./assets/images/blue_ball.png" alt="">
                     <div class="details">
                         <span>'.$usersRow['mem_name'].'</span>
-                        <p>'.$usersRow['mem_no'].'</p>
+                        <p>'.$usersRow['mi_no'].'</p>
                     </div>
                 </div>
                 <div class="status_dot"><i class="fas fa-circle"></i></div>
-                <span style="display:none;">'.$usersRow['mem_no'].'</span>
+                <span style="display:none;">'.$usersRow['mi_no'].'</span>
             </span>
         
         ';

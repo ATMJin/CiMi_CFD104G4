@@ -1,8 +1,9 @@
-
+import { send } from './mail.js';
 
 /*功能一 : 使用者註冊*/
 function memRegister() {
     // Ajax Start
+    send()
     let xhr = new XMLHttpRequest(); // creating XML Object
     xhr.open("POST", "phps/register.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -21,12 +22,12 @@ function memRegister() {
             }
         }
     }
-    let formData = new FormData(registerForm); 
+    let formData = new FormData(registerForm);
     xhr.send(formData);
 }
 
 
-function init(){
+function init() {
 
 }
 

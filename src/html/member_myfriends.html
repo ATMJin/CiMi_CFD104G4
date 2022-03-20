@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -10,160 +11,129 @@
     <link rel="stylesheet" href="assets/css/member_sidebar.css">
     <link rel="stylesheet" href="assets/css/member_myfriends.css">
     <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/vue.js"></script>
 </head>
 
 <body>
     @@include('layout/header.html')
+
     <div class="member_content_area">
-
         @@include('member_sidebar.html')
-
-        <main class="member_main_box">
-            <div class="backPage">
-                <button onclick="history.back()">←</button>
-            </div>
-
-            <div class="member_bg">
-                <div class="member_main">
-                    <div class="member_head">
-                        <!--手機板內文大標-->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, sunt?</p>
+        <div id="mifriendApp">
+            <main class="member_main_box">
+                <div class="backPage">
+                    <button onclick="history.back()">←</button>
+                </div>
+                <div class="member_bg">
+                    <div class="member_main">
+                        <div class="member_head">
+                            <!--手機板內文大標-->
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, sunt?</p>
+                        </div>
+                    </div>
+                    <div class="member_main_title">
+                        <!--桌機版內文大標-->
+                    </div>
+                    <div class="member_text">
+                        <!--內文-->
+                        <div class="member_friends_card" v-for="friend in friends" @click="showFriend(friend.mem_no)">
+                            <!--內文卡片-->
+                            <div class="member_cardhead">
+                                <img :src="friend.mem_head?friend.mem_head:'assets/images/pink_ball.png'"
+                                    :alt="friend.mem_name">
+                            </div>
+                            <div class="member_cardtext">
+                                <p>{{friend.mem_name}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </main>
 
-                <div class="member_main_title">
-                    <!--桌機版內文大標-->
-
-                </div>
-
-                <div class="member_text">
-                    <!--內文-->
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
+            <div class="friend_lightbox">
+                <div class="friend_intro" v-for="friend in friends" v-if="number==friend.mem_no">
+                    <div class="close" @click="hiddenFriend">
+                        <img src="assets\images\icon\close.png" alt="">
+                    </div>
+                    <div class="member_cardimage">
+                        <!--內文-->
+                        <div class="member_bgimage">
+                            <img :src="imgrandom">
                         </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
+                        <div class="member_headimage">
+                            <img :src="friend.mem_head?friend.mem_head:'assets/images/pink_ball.png'"
+                                :alt="friend.mem_name">
+                            <p>{{friend.mem_name}}</p>
                         </div>
                     </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
-                        </div>
-                    </div>
-                    <div class="member_friends_card">
-                        <!--內文卡片-->
-                        <div class="member_cardhead">
-                            <img src="assets/images/icon/nav_member.png" alt="">
-                        </div>
-                        <div class="member_cardtext">
-                            <p>暱稱</p>
-                            <p>稱號稱號</p>
+                    <div class="member_cardtext">
+                        <div class="member_cardmain">
+                            <div class="member_cardrow">
+                                <div class="membercard_birthday gap">
+                                    <h3>生日</h3>
+                                    <p>{{friend.mem_birth?friend.mem_birth:"秘密"}}</p>
+                                </div>
+                                <div class="membercard_gender gap">
+                                    <h3>性別</h3>
+                                    <p>{{friend.mem_sex?friend.mem_sex:"秘密"}}</p>
+                                </div>
+                            </div>
+                            <div class="member_cardrow">
+                                <div class="membercard_love gap">
+                                    <h3>性向</h3>
+                                    <p>{{friend.mem_sexuality?friend.mem_sexuality:"秘密"}}</p>
+                                </div>
+                                <div class="membercard_word gap">
+                                    <h3>感情狀態</h3>
+                                    <p>{{friend.mem_relationship?friend.mem_relationship:"秘密"}}</p>
+                                </div>
+                            </div>
+                            <div class="member_cardrow">
+                                <div class="membercard_inter gap">
+                                    <h3>職業</h3>
+                                    <p>{{friend.mem_job?friend.mem_job:"秘密"}}</p>
+                                </div>
+                                <div class="membercard_like gap">
+                                    <h3>畢業學校</h3>
+                                    <p>{{friend.mem_school?friend.mem_school:"秘密"}}</p>
+                                </div>
+                            </div>
+                            <div class="member_cardrow">
+                                <div class="member_try gap">
+                                    <h3>想嘗試的事情</h3>
+                                    <p>{{friend.mem_try?friend.mem_try:"秘密"}}</p>
+                                </div>
+                                <div class="member_interests gap">
+                                    <h3>興趣、專長</h3>
+                                    <p>{{friend.mem_interests?friend.mem_interests:"秘密"}}</p>
+                                </div>
+                            </div>
+                            <div class="member_cardrow">
+                                <div class="member_lovecountry gap">
+                                    <h3>喜歡的國家</h3>
+                                    <p>{{friend.mem_lovecountry?friend.mem_lovecountry:"秘密"}}</p>
+                                </div>
+                                <div class="member_exchange gap">
+                                    <h3>可以交換的事情</h3>
+                                    <p>{{friend.mem_exchange?friend.mem_exchange:"秘密"}}</p>
+                                </div>
+                            </div>
+                            <div class="member_cardrow">
+                                <div class="membercard_sign gap">
+                                    <h3>個性化簽名</h3>
+                                    <p>{{friend.mem_sign?friend.mem_sign:"秘密"}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
+
+    <!-- <script src="js/member/member_myfriends.js"></script> -->
+    <script src="js/member/member_myfriends_vue.js"></script>
 </body>
 
 </html>

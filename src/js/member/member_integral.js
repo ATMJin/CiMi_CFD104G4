@@ -7,16 +7,25 @@ window.addEventListener("load", () => {
         // 接收PHP傳來的資料
         member = JSON.parse(xhr.responseText);
         // console.log(xhr.responseText);
-        console.log(member.mem_point);
+        // console.log(member.mem_point);
         // console.log(aaaa);
 
-        let head = document.querySelectorAll('.member_bouns_mycoins span')
         let user = document.querySelectorAll('.points p')
+        let head = document.querySelectorAll('.member_bouns_mycoins span')
         let coin = document.querySelectorAll('.member_bouns_showcoins p')
-
         user[0].innerText = member.mem_point;
         coin[0].innerText = member.mem_point;
         head[0].innerHTML = member.mem_head;
-        
+        // sign[0].innerText = member.mem_stacksign;
+
+        $(function () {
+            for (i = 0; i <= member.mem_stacksign; i++) {
+                $(".member_bouns_cardbox").append($(".member_bouns_card:first-of-type").clone());
+            }
+        })
     }
+
+
+
+
 })

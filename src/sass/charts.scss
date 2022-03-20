@@ -6,49 +6,98 @@
 // 以下為側邊攔顏色
 .sidebar_box .sidebar .sidebar_list a[href="charts.html"] {
     color: #fff;
-  }
+}
+
 .sidebar .sidebar_list a img[alt="創作者排行榜"] {
     filter: invert(100%);
-  }
+}
+
+//按鈕寬度
+.btn-secondary{
+    width: 72px;
+}
 
 /* 以下為主要區域 */
-.main_area{
+.main_area {
     width: 100%;
     margin-top: 80px;
     padding: 0 20px;
     margin-bottom: 67px;
     box-sizing: border-box;
-    @media screen and (min-width: 768px){
+
+    @media screen and (min-width: 768px) {
         width: 80%;
         margin-top: 135px;
         padding: 0 40px;
     }
-    h2{
+
+    h2 {
         font-size: var(--title);
         font-weight: var(--bold);
         margin-bottom: 20px;
     }
 }
 
-.charts_box{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.charts_content {
     border-bottom: 1px solid #eee;
-    padding: 20px;
-    .charts_img{
-        width: 50px;
-        img{
-            width: 100%;
-            border-radius: var(--img-radius);
+    @media screen and (min-width: 768px) {
+        display: flex;
+        width: 100%;
+    }
+
+    .charts_box {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        @media screen and (min-width: 768px) {
+            width: 60%;
+        }
+        .charts_rank {
+            width: 35px;
+        }
+        .charts_img {
+            width: 50px;
+            img {
+                width: 100%;
+                border-radius: var(--img-radius);
+                vertical-align: top;
+            }
+        }
+
+        .charts_name {
+            display: flex;
+            flex-direction: column;
+            width: 56%;
+            @media screen and (min-width: 768px) {
+                width: 40%;
+            }
+            span:last-child {
+                font-size: var(--body2);
+                color: var(--font-secondary);
+            }
         }
     }
-    .charts_name{
+
+    .charts_wrap {
         display: flex;
-        flex-direction: column;
-        span:last-child{
-            font-size: var(--body2);
-            color: var(--font-secondary);
+        width: 66%;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0px 20px 30px 20px;
+        margin-left: auto;
+
+        @media screen and (min-width: 768px) {
+            width: 40%;
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+        .charts_sum {
+            width: 60%;
+            @media screen and (min-width: 768px) {
+                width: 66%;
+            }
         }
     }
 }

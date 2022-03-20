@@ -14,7 +14,7 @@
 
     @@include('layout/header.html')
 
-    <section class="content_area">
+    <div id="app" class="content_area">
         @@include('layout/sidebar.html')
         <main class="main_area">
             @@include('article_lightbox.html')
@@ -27,9 +27,11 @@
                 <div class="article_sort_box">
                     <div class="article_sort_item">
                         <div class="article_sort_icon">
-                            <img src="assets/images/icon/shop_3C.png">
+                            <img :src="new_articles[0]?.billboard_main_icon">
                         </div>
-                        <div class="article_sort_txt">好聽音樂</div>
+                        <div class="article_sort_txt">
+                            <h1>{{new_articles[0]?.billboard_name}}</h1>
+                        </div>
                     </div>
                     <div class="follow_btn">
                         <input class="btn-secondary" type="button" value="追蹤">
@@ -48,13 +50,18 @@
                             <div class="charts_box">
                                 <!-- 單篇文章 -->
 
-                                <div class="article_box" id="demo_article_box">
+                                <div class="article_box" id="demo_article_box" v-for="new_article in new_articles"
+                                    @click="open_lightbox(new_article.article_no,new_article.billboard_no)"
+                                    :data-articleno="new_article.article_no">
+                                    <span style="display:none;">{{new_article.article_no}}</span>
+                                    <!-- no=new_article.article_no -->
                                     <!-- 發文者 -->
                                     <div class="article_mem_info">
                                         <div class="article_mem_icon">
-                                            <img src="https://fakeimg.pl/12x12/200">
+                                            <img :src="new_article.mem_head">
                                         </div>
-                                        <div class="article_mem_name">穿搭小天才</div>
+                                        <div class="article_mem_name" id="article_mem_name">
+                                            {{new_article.mem_name}}</div>
                                     </div>
                                     <!-- 文章標題 -->
                                     <div class="article_container">
@@ -62,67 +69,13 @@
                                         <div class="article_txt_box">
                                             <div class="article_txt_item">
                                                 <!-- 文章標題 -->
-                                                <div class="article_title">穿搭精華區上線啦！！</div>
+                                                <div class="article_title">{{new_article.article_title}}</div>
                                                 <!-- 文章摘要 -->
-                                                <div class="article_summary">
-                                                    嗨嗨穿搭板的卡友們！<br>
-                                                    我是穿搭穿搭板的穿搭板的小梨子🍐
-                                                </div>
-                                            </div>
-                                            <!-- 文章反應 -->
-                                            <div class="article_react">
-                                                <!-- 喜歡數 -->
-                                                <div class="article_like_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/like.png" alt="">
-                                                    </div>
-                                                    <div class="article_like_amount">144</div>
-                                                </div>
-                                                <!-- 留言數 -->
-                                                <div class="article_comment_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/comment.png" alt="">
-                                                    </div>
-                                                    <div class="article_comment_amount">24</div>
-                                                </div>
-                                                <!-- 收藏 -->
-                                                <div class="article_collect_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/save_hov.png" alt="">
-                                                    </div>
-                                                    <div class="article_collect_amount">收藏</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 文章圖片 -->
-                                        <div class="article_pic_box">
-                                            <img src="https://picsum.photos/150/150/?random=110">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 單篇文章 -->
-                                <div class="article_box">
-                                    <!-- 發文者 -->
-                                    <div class="article_mem_info">
-                                        <div class="article_mem_icon">
-                                            <img src="https://fakeimg.pl/12x12/200">
-                                        </div>
-                                        <div class="article_mem_name">音樂隨筆</div>
-                                    </div>
-                                    <!-- 文章標題 -->
-                                    <div class="article_container">
-                                        <!-- 文章內容 -->
-                                        <div class="article_txt_box">
-                                            <div class="article_txt_item">
-                                                <!-- 文章標題 -->
-                                                <div class="article_title">【音樂月報】111年2月號</div>
-                                                <!-- 文章摘要 -->
-                                                <div class="article_summary">
-                                                    音樂月報主題會以每個月一次的形式，
-                                                    把該月聽到的好音樂分享出來！
-                                                </div>
-                                            </div>
+                                                <div class="article_summary" id="article_summary"
+                                                    v-html="new_article.article_content">
 
+                                                </div>
+                                            </div>
                                             <!-- 文章反應 -->
                                             <div class="article_react">
                                                 <!-- 喜歡數 -->
@@ -130,14 +83,17 @@
                                                     <div class="article_icon_item">
                                                         <img src="assets/images/icon/like.png" alt="">
                                                     </div>
-                                                    <div class="article_like_amount">144</div>
+                                                    <div class="article_like_amount" id="article_like_amount">
+                                                        {{new_article.article_likes_amount}}</div>
                                                 </div>
                                                 <!-- 留言數 -->
                                                 <div class="article_comment_box">
                                                     <div class="article_icon_item">
                                                         <img src="assets/images/icon/comment.png" alt="">
                                                     </div>
-                                                    <div class="article_comment_amount">24</div>
+                                                    <div class="article_comment_amount" id="article_comment_amount">
+                                                        {{new_article.comment_amount}}
+                                                    </div>
                                                 </div>
                                                 <!-- 收藏 -->
                                                 <div class="article_collect_box">
@@ -150,172 +106,12 @@
                                         </div>
                                         <!-- 文章圖片 -->
                                         <div class="article_pic_box">
-                                            <img src="https://picsum.photos/150/150/?random=10">
+                                            <img :src="new_article.article_pic">
                                         </div>
                                     </div>
                                 </div>
-                                <!-- 單篇文章 -->
-                                <div class="article_box">
-                                    <!-- 發文者 -->
-                                    <div class="article_mem_info">
-                                        <div class="article_mem_icon">
-                                            <img src="https://fakeimg.pl/12x12/200">
-                                        </div>
-                                        <div class="article_mem_name">音樂隨筆</div>
-                                    </div>
-                                    <!-- 文章標題 -->
-                                    <div class="article_container">
-                                        <!-- 文章內容 -->
-                                        <div class="article_txt_box">
-                                            <div class="article_txt_item">
-                                                <!-- 文章標題 -->
-                                                <div class="article_title">【音樂月報】111年2月號</div>
-                                                <!-- 文章摘要 -->
-                                                <div class="article_summary">
-                                                    音樂月報主題會以每個月一次的形式，
-                                                    把該月聽到的好音樂分享出來！
-                                                </div>
-                                            </div>
 
-                                            <!-- 文章反應 -->
-                                            <div class="article_react">
-                                                <!-- 喜歡數 -->
-                                                <div class="article_like_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/like.png" alt="">
-                                                    </div>
-                                                    <div class="article_like_amount">144</div>
-                                                </div>
-                                                <!-- 留言數 -->
-                                                <div class="article_comment_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/comment.png" alt="">
-                                                    </div>
-                                                    <div class="article_comment_amount">24</div>
-                                                </div>
-                                                <!-- 收藏 -->
-                                                <div class="article_collect_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/save_hov.png" alt="">
-                                                    </div>
-                                                    <div class="article_collect_amount">收藏</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 文章圖片 -->
-                                        <div class="article_pic_box">
-                                            <img src="https://picsum.photos/150/150/?random=210">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 單篇文章 -->
-                                <div class="article_box">
-                                    <!-- 發文者 -->
-                                    <div class="article_mem_info">
-                                        <div class="article_mem_icon">
-                                            <img src="https://fakeimg.pl/12x12/200">
-                                        </div>
-                                        <div class="article_mem_name">音樂隨筆</div>
-                                    </div>
-                                    <!-- 文章標題 -->
-                                    <div class="article_container">
-                                        <!-- 文章內容 -->
-                                        <div class="article_txt_box">
-                                            <div class="article_txt_item">
-                                                <!-- 文章標題 -->
-                                                <div class="article_title">【音樂月報】111年2月號</div>
-                                                <!-- 文章摘要 -->
-                                                <div class="article_summary">
-                                                    音樂月報主題會以每月一次，
-                                                    把該月聽到的好音樂分享出來！
-                                                </div>
-                                            </div>
 
-                                            <!-- 文章反應 -->
-                                            <div class="article_react">
-                                                <!-- 喜歡數 -->
-                                                <div class="article_like_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/like.png" alt="">
-                                                    </div>
-                                                    <div class="article_like_amount">144</div>
-                                                </div>
-                                                <!-- 留言數 -->
-                                                <div class="article_comment_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/comment.png" alt="">
-                                                    </div>
-                                                    <div class="article_comment_amount">24</div>
-                                                </div>
-                                                <!-- 收藏 -->
-                                                <div class="article_collect_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/save_hov.png" alt="">
-                                                    </div>
-                                                    <div class="article_collect_amount">收藏</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 文章圖片 -->
-                                        <div class="article_pic_box">
-                                            <img src="https://picsum.photos/150/150/?random=110">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 單篇文章 -->
-                                <div class="article_box">
-                                    <!-- 發文者 -->
-                                    <div class="article_mem_info">
-                                        <div class="article_mem_icon">
-                                            <img src="https://fakeimg.pl/12x12/200">
-                                        </div>
-                                        <div class="article_mem_name">音樂隨筆</div>
-                                    </div>
-                                    <!-- 文章標題 -->
-                                    <div class="article_container">
-                                        <!-- 文章內容 -->
-                                        <div class="article_txt_box">
-                                            <div class="article_txt_item">
-                                                <!-- 文章標題 -->
-                                                <div class="article_title">【音樂月報】111年2月號</div>
-                                                <!-- 文章摘要 -->
-                                                <div class="article_summary">
-                                                    音樂月報主題會以每個月一次的形式，
-                                                    把該月聽到的好音樂分享出來！
-                                                </div>
-                                            </div>
-
-                                            <!-- 文章反應 -->
-                                            <div class="article_react">
-                                                <!-- 喜歡數 -->
-                                                <div class="article_like_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/like.png" alt="">
-                                                    </div>
-                                                    <div class="article_like_amount">144</div>
-                                                </div>
-                                                <!-- 留言數 -->
-                                                <div class="article_comment_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/comment.png" alt="">
-                                                    </div>
-                                                    <div class="article_comment_amount">24</div>
-                                                </div>
-                                                <!-- 收藏 -->
-                                                <div class="article_collect_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/save_hov.png" alt="">
-                                                    </div>
-                                                    <div class="article_collect_amount">收藏</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 文章圖片 -->
-                                        <div class="article_pic_box">
-                                            <img src="https://picsum.photos/150/150/?random=120">
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
                         </div>
@@ -323,13 +119,14 @@
 
                         <div v-if="activetab ==='2'" class="tabcontent">
                             <div class="charts_box">
-                                <div class="article_box">
+                                <div class="article_box" v-for="hot_article in hot_articles"
+                                    @click="open_lightbox(hot_article.article_no)">
                                     <!-- 發文者 -->
                                     <div class="article_mem_info">
                                         <div class="article_mem_icon">
-                                            <img src="https://fakeimg.pl/12x12/200">
+                                            <img :src="hot_article.mem_head">
                                         </div>
-                                        <div class="article_mem_name">MAAZA</div>
+                                        <div class="article_mem_name">{{hot_article.mem_name}}</div>
                                     </div>
                                     <!-- 文章標題 -->
                                     <div class="article_container">
@@ -337,11 +134,10 @@
                                         <div class="article_txt_box">
                                             <div class="article_txt_item">
                                                 <!-- 文章標題 -->
-                                                <div class="article_title">#售票 落日飛車 3/7夕陽無限好聽</div>
+                                                <div class="article_title">{{hot_article.article_title}}</div>
                                                 <!-- 文章摘要 -->
-                                                <div class="article_summary">
-                                                    原價售3/7落日飛車專場1樓 Q排38號的票<br>
-                                                    匯款後自行去全家取票喲~
+                                                <div class="article_summary" v-html="hot_article.article_content">
+
                                                 </div>
                                             </div>
 
@@ -352,14 +148,16 @@
                                                     <div class="article_icon_item">
                                                         <img src="assets/images/icon/like.png" alt="">
                                                     </div>
-                                                    <div class="article_like_amount">144</div>
+                                                    <div class="article_like_amount">
+                                                        {{hot_article.article_likes_amount}}</div>
                                                 </div>
                                                 <!-- 留言數 -->
                                                 <div class="article_comment_box">
                                                     <div class="article_icon_item">
                                                         <img src="assets/images/icon/comment.png" alt="">
                                                     </div>
-                                                    <div class="article_comment_amount">24</div>
+                                                    <div class="article_comment_amount">{{hot_article.comment_amount}}
+                                                    </div>
                                                 </div>
                                                 <!-- 收藏 -->
                                                 <div class="article_collect_box">
@@ -372,7 +170,7 @@
                                         </div>
                                         <!-- 文章圖片 -->
                                         <div class="article_pic_box">
-                                            <img src="https://picsum.photos/150/150/?random=10">
+                                            <img :src="hot_article.article_pic">
                                         </div>
                                     </div>
                                 </div>
@@ -445,57 +243,144 @@
                 </div>
             </section>
         </main>
-    </section>
+    </div>
+    <!-- <script src="jquery-3.1.1.min.js"></script> -->
+
     <script src="js/vue.js"></script>
     <script>
         new Vue({
-            el: '#tabs',
+            el: '#app',
             data: {
                 activetab: '1',
                 lightbox: null,
                 close: null,
                 article_box: null,
-                // list: [
-                //     {title: '',
-                //     content: ''}
-                // ],
+                new_articles: [],
+                hot_articles: [],
+                like_articles: [],
+                comment_info: [],
+                a_num: null,
+                b_num: null,
+                // article_temp: this.article,
             },
+            computed: {
+                article() {
+                    if (this.activetab == 1) {
+                        return this.new_articles.find(art => art.article_no == this.a_num) || this.new_articles[
+                            0];
+                    } else if (this.activetab == 2) {
+                        return this.hot_articles.find(art => art.article_no == this.a_num) || this.hot_articles[
+                            0];
+                    }
+                },
+                // like_article() {
+                //     return this.like_articles.find(board => board.billboard_no == this.b_num)
+                // },
+                // console.log(this.article);
+                find_comment_info() {
+                    return this.comment_info.map(art => art.article_no == this.a_num)
+                    console.log(this.find_comment_info);
+                },
+            },
+
             watch: {
                 activetab() {
                     this.$nextTick(this.init);
                 },
             },
+
             methods: {
                 setTargets() {
                     this.lightbox = document.querySelectorAll(".lightbox");
+                    // console.log(this.lightbox);
                     this.close = document.querySelectorAll(".close_icon");
-                    this.article_box = document.getElementById("demo_article_box");
+                    this.article_box = document.getElementsByClassName("article_box");
                 },
+
                 close_lightbox() {
                     this.lightbox[0].style.display = "none";
                     let html = document.getElementsByTagName('html')[0];
                     html.style = "overflow:hidden scroll";
 
                 },
-                open_lightbox() {
+                open_lightbox(a_num, b_num) {
                     this.lightbox[0].style.display = "block";
                     let html = document.getElementsByTagName('html')[0];
-                    console.log(html);
+                    // console.log(html);
                     html.style = "overflow:hidden";
+                    console.log(a_num);
+                    this.a_num = a_num;
+                    console.log(b_num);
+                    this.b_num = b_num;
+                    // console.log(this.no);
                 },
+                get_new_article() {
+                    let xhr = new XMLHttpRequest();
+                    let thisVue = this;
+
+                    xhr.onload = function () {
+                        // console.log(xhr.responseText);
+                        thisVue.new_articles = JSON.parse(xhr.responseText);
+                        // console.log(thisVue.new_articles);
+                        thisVue.init();
+                    }
+                    xhr.open("get", "phps/article_database.php?case=1", true);
+                    xhr.send(null);
+
+                },
+                get_hot_article() {
+                    let xhr = new XMLHttpRequest();
+                    let thisVue = this;
+                    xhr.onload = function () {
+                        // console.log(xhr.responseText);
+                        thisVue.hot_articles = JSON.parse(xhr.responseText);
+                        // console.log(thisVue.hot_articles);
+                    }
+
+                    xhr.open("get", "phps/article_database.php?case=2", true);
+                    xhr.send(null);
+                },
+
+                get_like_article() {
+                    let xhr = new XMLHttpRequest();
+                    let thisVue = this;
+                    xhr.onload = function () {
+                        thisVue.like_articles = JSON.parse(xhr.responseText);
+                        // console.log(thisVue.like_articles);
+                    }
+
+                    xhr.open("get", "phps/article_database.php?case=3", true);
+                    xhr.send(null);
+
+                },
+
+                get_comment_info() {
+                    let xhr = new XMLHttpRequest();
+                    let thisVue = this;
+                    xhr.onload = function () {
+                        // console.log(xhr.responseText);
+                        thisVue.comment_info = JSON.parse(xhr.responseText);
+                        // console.log(thisVue.hot_articles);
+                    }
+
+                    xhr.open("get", "phps/article_database.php?case=4", true);
+                    xhr.send(null);
+                },
+
                 init() {
                     this.setTargets();
-                    if (this.article_box) this.article_box.onclick = this.open_lightbox;
-                    if (this.close[0]) this.close[0].onclick = this.close_lightbox;
-                    console.log('init')
-                }
+                },
+
             },
             mounted() {
-                this.$nextTick(this.init);
+                this.get_new_article();
+                this.get_hot_article();
+                this.get_like_article();
+                this.get_comment_info();
             },
-        });
+        })
     </script>
-    <script type="text/javascript" src="js/article.js"></script>
+    <!-- <script src="js/test_connect.js"></script> -->
 
 
 </body>

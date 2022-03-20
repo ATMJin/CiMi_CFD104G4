@@ -1,12 +1,13 @@
 //熱門看板
 function hotBoard() {
 
-  let hot_boards = document.querySelectorAll('.hot_article_txt H2');
-  console.log(hot_boards)
+  let hot_boards = document.querySelectorAll('.hot_article_txt H2'); //熱門看板名稱
+  let hot_boards_img = document.querySelectorAll('.hot_article_pic img'); //熱門看板圖片
+  // console.log(hot_boards)
 
   // GET
   let xhr = new XMLHttpRequest();
-  xhr.open("get", `phps/getbillboard.php?case=2`, true);
+  xhr.open("get", `phps/getbillboard.php?case=billboardHot`, true);
   xhr.send(null);
 
   xhr.onload = function () {
@@ -18,9 +19,16 @@ function hotBoard() {
     for (let i = 0; i < hot_billboard.length; i++) {
       data.push(hot_billboard[i].billboard_name);
     }
+    let img = []
+    for (let i = 0; i < hot_billboard.length; i++) {
+      img.push(hot_billboard[i].billboard_img);
+    }
+
+    console.table(data);
+    console.table(img);
 
     let hot = document.querySelector('.hot_billboard')
-    console.log(hot)
+    // console.log(hot)
 
 
     let template = `
@@ -32,7 +40,7 @@ function hotBoard() {
                 <div class="hot_article_wrap">
                     <div class="hot_article_pic">
                         <a href="article_all.html"><img
-                                src="assets/images/bilboard_pic_relation.jpg"></a>
+                                src="${img[0]}"></a>
                     </div>
                     <div class="hot_article_txt">
                         <h2>${data[0]}</h2>
@@ -44,7 +52,7 @@ function hotBoard() {
                 <div class="hot_article_wrap">
                     <div class="hot_article_pic">
                         <a href="article_all.html"><img
-                                src="assets/images/bilboard_pic-makeup.jpg"></a>
+                                src="${img[1]}"></a>
                     </div>
                     <div class="hot_article_txt">
                         <h2>${data[1]}</h2>
@@ -56,7 +64,7 @@ function hotBoard() {
                 <div class="hot_article_wrap">
                     <div class="hot_article_pic">
                         <a href="article_all.html"><img
-                                src="assets/images/billboard_pic_car.jpg"></a>
+                                src="${img[2]}"></a>
                     </div>
                     <div class="hot_article_txt">
                         <h2>${data[2]}</h2>
@@ -68,7 +76,7 @@ function hotBoard() {
                 <div class="hot_article_wrap">
                     <div class="hot_article_pic">
                         <a href="article_all.html"><img
-                                src="assets/images/bilboar_pic_music.jpg"></a>
+                                src="${img[3]}"></a>
                     </div>
                     <div class="hot_article_txt">
                         <h2>${data[3]}</h2>
@@ -80,7 +88,7 @@ function hotBoard() {
                 <div class="hot_article_wrap">
                     <div class="hot_article_pic">
                         <a href="article_all.html"><img
-                                src="assets/images/bilboard_pic_sport.jpg"></a>
+                                src="${img[4]}"></a>
                     </div>
                     <div class="hot_article_txt">
                         <h2>${data[4]}</h2>
@@ -92,7 +100,7 @@ function hotBoard() {
                 <div class="hot_article_wrap">
                     <div class="hot_article_pic">
                         <a href="article_all.html"><img
-                                src="assets/images/bilboard_pic_clothing.jpg"></a>
+                                src="${img[5]}"></a>
                     </div>
                     <div class="hot_article_txt">
                         <h2>${data[5]}</h2>
@@ -200,7 +208,7 @@ function saveBoard() {
 
   // GET
   let xhr = new XMLHttpRequest();
-  xhr.open("get", `phps/getbillboard.php?case=1`, true);
+  xhr.open("get", `phps/getbillboard.php?case=billboardFollow`, true);
   xhr.send(null);
 
   xhr.onload = function () {

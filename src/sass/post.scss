@@ -50,6 +50,12 @@
     .post{
         display: flex;
         flex-direction: column;
+        #img{
+            width: 65%;
+            @media screen and (min-width: 768px){
+                width: 50%;
+            }
+        }
         .select_billboard{
             select{
                 width: 200px;
