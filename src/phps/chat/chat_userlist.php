@@ -2,7 +2,7 @@
 session_start();
 //引入連線工作的檔案
 include_once "../config.php";
-
+                                                                                        
 
 /*------------------------------------拿到好友列表----------------------------------------*/
 
@@ -10,7 +10,8 @@ include_once "../config.php";
 
 $sql = "SELECT mifriend.mem_no, mi_no, mem_name, mem_head FROM `mifriend` 
 join mem on mem.mem_no = mifriend.mi_no
-where mifriend.mem_no = {$_SESSION['mem_no']}"; //使用者登入會將mem_no寫入session, 以此判斷該用戶之好友
+where mifriend.mem_no = {$_SESSION['mem_no']}
+order by mi_no desc"; //使用者登入會將mem_no寫入session, 以此判斷該用戶之好友
 
 // SELECT * FROM `messages` 
 // LEFT JOIN mem.mem_no !=
