@@ -19,6 +19,7 @@
         <main class="main_area">
             <h2>創作者排行榜</h2>
             <div id="tabs" class="container">
+                <!-- <router-view v-if="isRouterAlive"></router-view> -->
                 <div class="tabs">
                     <a @click="activetab='1'" :class="[ activetab === '1' ? 'active' : '' ]">發文</a>
                     <a @click="activetab='2'" :class="[ activetab === '2' ? 'active' : '' ]">喜歡</a>
@@ -47,7 +48,11 @@
                                 </div>
                                 <div class="charts_btn">
                                     <button type="button" class="btn-secondary"
+<<<<<<< HEAD
                                         @click="addFollow">{{isTrack(item.mem_id)}}</button>
+=======
+                                        @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
+>>>>>>> celia
                                 </div>
                             </div>
                         </div>
@@ -72,7 +77,11 @@
                                 </div>
                                 <div class="charts_btn">
                                     <button type="button" class="btn-secondary"
+<<<<<<< HEAD
                                         @click="addFollow">{{isTrack(item.mem_id)}}</button>
+=======
+                                    @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
+>>>>>>> celia
                                 </div>
                             </div>
                         </div>
@@ -94,12 +103,20 @@
                             <div class="charts_wrap">
                                 <div class="charts_sum">
                                     收藏數 : <span>{{item.article_collect_amount}}</span>
+<<<<<<< HEAD
+=======
+                                </div>
+                                <div class="charts_btn">
+                                    <button type="button" class="btn-secondary"
+                                    @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
+>>>>>>> celia
                                 </div>
                                 <button type="button" class="btn-secondary"
                                     @click="addFollow">{{isTrack(item.mem_id)}}</button>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div v-if="activetab ==='4'" class="tabcontent">
                         <div class="charts_content" v-for="(item, index) in follow" :key="index">
                             <div class="charts_box">
@@ -120,6 +137,30 @@
                                 </div>
                                 <button type="button" class="btn-secondary"
                                     @click="addFollow">{{isTrack(item.mem_id)}}</button>
+=======
+                </div>
+                <div v-if="activetab ==='4'" class="tabcontent">
+                    <div class="charts_content" v-for="(item, index) in follow" :key="index">
+                        <div class="charts_box">
+                            <div class="charts_rank">
+                                <span>No.{{index+1}}</span>
+                            </div>
+                            <div class="charts_img">
+                                <img v-bind:src="item.mem_head" />
+                            </div>
+                            <div class="charts_name">
+                                <span class="charts_mem">{{item.mem_name}}</span>
+                                <span class="charts_account">@{{item.mem_id}}</span>
+                            </div>
+                        </div>
+                        <div class="charts_wrap">
+                            <div class="charts_sum">
+                                追蹤數 : <span>{{item.writer_no}}</span>
+                            </div>
+                            <div class="charts_btn">
+                                <button type="button" class="btn-secondary"
+                                @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
+>>>>>>> celia
                             </div>
                         </div>
                     </div>
@@ -136,6 +177,7 @@
         new Vue({
             el: '#tabs',
             data: {
+<<<<<<< HEAD
                 activetab: '1',
                 post: [],
                 poster: [],
@@ -167,14 +209,55 @@
                         vm.poster.indexOf(vm.track); // -1
                         console.log(vm.poster.indexOf(vm.track));
 
+=======
+                isRouterAlive: true,
+                activetab: '1',
+                //四個分頁的data
+                post: [],
+                like: [],
+                favs: [],
+                follow: [],
+                track: [], // //該會員有追蹤的人
+                user: "",
+                editObj: {
+                    writer_no: "",
+                    state: "",
+                    track: ""
+                }
+            },
+            mounted() {
+
+                //用戶狀態寫入this.user
+                this.user = sessionStorage.getItem('login')
+                let params = new URLSearchParams();
+                params.append("case", this.user);
+                params.append("mem_no", sessionStorage.getItem('mem_no'));
+
+
+                //重新定向vue
+                let vm = this
+
+                //發送axios請求 : 需獲取 1. 會員 "未登入" 以及 2."登入狀態" 資料
+                axios.post('phps/chart.php', params)
+                    .then(function (response) {
+                        console.log(response.data);
+                        vm.post = response.data.post
+                        vm.like = response.data.like
+                        vm.favs = response.data.fav
+                        vm.follow = response.data.follow
+                        vm.track = response.data.track.map(item => Object.values(item)[1])
+>>>>>>> celia
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
+<<<<<<< HEAD
             },
             methods: { // 函數大部分放在這裡!
                 addFollow(e) {
                     console.log(sessionStorage.getItem('login'));
+=======
+>>>>>>> celia
 
                     if (sessionStorage.getItem('login') == null) {
                         alert("請先登入")
@@ -195,9 +278,88 @@
                     return "追蹤"
                 },
             },
+<<<<<<< HEAD
             computed: {
 
             }
+=======
+            methods: {
+                show(item, index) {
+                    if (this.user == null) {
+                        alert("請先登入")
+                    } else {
+                        console.log(index);
+                        console.log(item.mem_no);
+                        console.log(this.track.indexOf(item.mem_name));
+
+                        //找到當前要點擊的btn
+                        let btn = document.querySelectorAll('.charts_btn button')
+
+
+                        //if (this.track.indexOf(item.mem_name) >= 0)
+
+                        // 判斷當前用戶追蹤||已追蹤狀態
+                        if ((btn[index].innerText) == "已追蹤") { //用戶已被追蹤
+
+                            let obj = {
+                                writer_no: `${item.mem_no}`,
+                                state: "已追蹤",
+                                track: "追蹤"
+                            }
+                            this.editObj = obj
+                            btn[index].innerText = obj.track
+
+                            let params = new URLSearchParams();
+                            params.append("case", "deleteFollow");
+                            params.append("writer_no", `${obj.writer_no}`);
+
+                            axios.post('phps/chart.php', params)
+                                .then(function (response) {
+                                    console.log(response.data);
+
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                });
+
+                        } else { //用戶未被追蹤
+                            let obj = {
+                                writer_no: `${item.mem_no}`,
+                                state: "追蹤",
+                                track: "已追蹤"
+                            }
+
+                            this.editObj = obj
+                            btn[index].innerText = obj.track
+
+                            let params = new URLSearchParams();
+                            params.append("case", "insertFollow");
+                            params.append("writer_no", `${obj.writer_no}`);
+                            params.append("mem_no", sessionStorage.getItem('mem_no'));
+
+                            axios.post('phps/chart.php', params)
+                                .then(function (response) {
+                                    console.log(response.data);
+
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                });
+
+
+                        }
+
+                    }
+                },
+                isTrack(mem_name) {
+                    if (this.track.indexOf(mem_name) >= 0) {
+                        return "已追蹤"
+                    }
+                    return "追蹤"
+                },
+            },
+
+>>>>>>> celia
         });
     </script>
 
