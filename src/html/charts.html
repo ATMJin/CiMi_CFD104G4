@@ -100,8 +100,6 @@
                                     <button type="button" class="btn-secondary"
                                     @click="show(item, index)">{{isTrack(item.mem_name)}}</button>
                                 </div>
-                                <button type="button" class="btn-secondary"
-                                    @click="addFollow">{{isTrack(item.mem_id)}}</button>
                             </div>
                         </div>
                     </div>
@@ -171,13 +169,14 @@
                 let vm = this
 
                 //發送axios請求 : 需獲取 1. 會員 "未登入" 以及 2."登入狀態" 資料
-                axios.post('phps/chart.php', params)
+                axios.post('phps/getcharts.php', params)
                     .then(function (response) {
                         console.log(response.data);
                         vm.post = response.data.post
                         vm.like = response.data.like
                         vm.favs = response.data.fav
                         vm.follow = response.data.follow
+                        vm.track = response.data.track
                         vm.track = response.data.track.map(item => Object.values(item)[1])
                     })
                     .catch(function (error) {
@@ -185,7 +184,7 @@
                     });
 
                     if (sessionStorage.getItem('login') == null) {
-                        alert("請先登入")
+                        // alert("請先登入")
                     } else if (sessionStorage.getItem('login') == 'success') {
                         if (e.target.innerText == "已追蹤") {
                             e.target.innerText = "追蹤";
@@ -231,8 +230,10 @@
                             let params = new URLSearchParams();
                             params.append("case", "deleteFollow");
                             params.append("writer_no", `${obj.writer_no}`);
+                            params.append("mem_no", sessionStorage.getItem('mem_no'));
 
-                            axios.post('phps/chart.php', params)
+
+                            axios.post('phps/getcharts.php', params)
                                 .then(function (response) {
                                     console.log(response.data);
 
@@ -251,12 +252,13 @@
                             this.editObj = obj
                             btn[index].innerText = obj.track
 
+                            //--------------------------------------------------
                             let params = new URLSearchParams();
                             params.append("case", "insertFollow");
                             params.append("writer_no", `${obj.writer_no}`);
                             params.append("mem_no", sessionStorage.getItem('mem_no'));
 
-                            axios.post('phps/chart.php', params)
+                            axios.post('phps/getcharts.php', params)
                                 .then(function (response) {
                                     console.log(response.data);
 
