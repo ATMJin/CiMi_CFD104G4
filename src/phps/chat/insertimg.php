@@ -24,13 +24,13 @@ if (isset($_FILES['file'])) {
     if (in_array($img_ext, $extensions) === true) {
         $time = time();
 
-        $new_img_name = $time . $img_name;
+        $new_img_name = $time . '.' .$img_ext;
 
         $path = "../../assets/images/msg_img/" . $new_img_name;
 
         $rightPath = "./assets/images/msg_img/" . $new_img_name;
 
-        move_uploaded_file($tmp_name, $path);
+         copy($tmp_name, $path);
 
         $sql = "INSERT INTO messages (incoming_msg_id,outgoing_msg_id, msg, msg_date, msg_img)
         VALUE ({$incoming_id}, {$outgoing_id}, '', now(), '{$rightPath}')";
