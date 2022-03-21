@@ -20,8 +20,8 @@ new Vue({
         }
     },
     mounted() {
+        // fetch(`phps/member/member_myfriends.php?mem_no=1`)
         fetch(`phps/member/member_myfriends.php?mem_no=${sessionStorage.getItem('mem_no')}`)
-            // fetch(`phps/member/member_myfriends.php?mem_no=${sessionStorage.getItem('mem_no')}`)
             .then(res => res.json())
             // .then(res => console.log(res))
             .then(res => this.friends = res)
