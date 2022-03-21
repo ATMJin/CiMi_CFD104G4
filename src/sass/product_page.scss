@@ -329,10 +329,13 @@
             border-bottom: 1px solid #a3a3a3;
 
             .comment_head_photo {
-                margin-right: 10px;
+                margin: auto;
+                padding-right: 10px;
+                // width: 30px;
 
                 img {
                     border-radius: 50%;
+                    width: 50px;
                 }
 
                 ;
