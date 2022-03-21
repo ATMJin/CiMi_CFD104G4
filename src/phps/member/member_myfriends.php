@@ -1,5 +1,6 @@
 <?php
-  include_once "member_config.php";
+  // include_once "member_config.php";
+  require_once("../connect.php");
 
 
   $sql = 
