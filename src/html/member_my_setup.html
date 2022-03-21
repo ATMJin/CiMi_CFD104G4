@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/member_sidebar.css">
     <link rel="stylesheet" href="assets/css/member_my_setup.css">
     <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/vue.js"></script>
 </head>
 
@@ -25,14 +25,14 @@
                 <button onclick="history.back()">←</button>
             </div>
 
-            <div class="member_bg">
+            <div class="member_bg" id="setup">
                 <div class="member_bgcard">
 
                     <div class="member_main">
                         <div class="member_head">
                             <!--手機板內文大標-->
                             <p>我的設定</p>
-                            <div class="member_setchange">
+                            <div class="member_setchange" @click="revise">
                                 <img src="assets/images/icon/member_pen.png" alt="">
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="member_head">
                             <!--桌機版內文大標-->
                             <p>我的設定</p>
-                            <div class="member_setchange">
+                            <div class="member_setchange" @click="revise">
                                 <img src="assets/images/icon/member_pen.png" alt="">
                             </div>
                         </div>
@@ -53,30 +53,96 @@
                         <div class="member_cardmain">
                             <div class="membercard_email gap">
                                 <h3>名字</h3>
-                                <p></p>
+                                <p>{{member.mem_name}}</p>
                             </div>
                             <div class="membercard_name gap">
                                 <h3>常用信箱</h3>
-                                <p></p>
+                                <p>{{member.mem_mail}}</p>
                             </div>
-                            <div class="membercard_work gap">
-                                <h3>職業</h3>
-                                <p></p>
+                            <div class="membercard_psw gap">
+                                <h3>密碼</h3>
+                                <p type="password">{{member.mem_psw}}</p>
                             </div>
                             <div class="membercard_tel gap">
                                 <h3>電話</h3>
-                                <p></p>
+                                <p>{{member.mem_tel}}</p>
                             </div>
                             <div class="membercard_live gap">
                                 <h3>居住地</h3>
-                                <p></p>
+                                <p>{{member.mem_local}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <form action="" style="display:none" id="setlightbox">
+                    <div class="fixbox">
+                        <div class="member_cardtext">
+                            <!--內文-->
+                            <div class="member_cardmain">
+                                <div class="membercard_email gap">
+                                    <h3>名字</h3>
+                                    <input type="text" name="mem_name" v-model="member.mem_name">
+                                    <input type="text" name="mem_no" :value="member.mem_no" hidden>
+                                </div>
+                                <div class="membercard_name gap">
+                                    <h3>常用信箱</h3>
+                                    <input type="text" name="mem_mail" v-model="member.mem_mail">
+                                </div>
+                                <div class="membercard_psw gap">
+                                    <h3>密碼</h3>
+                                    <input type="text" name="mem_psw" v-model="member.mem_psw">
+                                </div>
+                                <div class="membercard_tel gap">
+                                    <h3>電話</h3>
+                                    <input type="text" name="mem_tel" v-model="member.mem_tel">
+                                </div>
+                                <div class="membercard_live gap">
+                                    <h3>居住地</h3>
+                                    <input type="text" name="mem_local" v-model="member.mem_local">
+                                </div>
+                            </div>
+                            <button  type="button" @click="send">完成送出</button>
+                            <!-- <input type="submit" @submit.prevent @click="send"> -->
+                        </div>
+                    </div>
+                </form>
         </main>
     </div>
-    <script src="js/member/member_setup.js"></script>
+    <script>
+        new Vue({
+            el: '#setup',
+            data: {
+                member: [],
+            },
+            mounted() {
+                let xhr = new XMLHttpRequest();
+                xhr.open("get",
+                    `phps/member/member_setup.php?mem_no=${sessionStorage.getItem('mem_no')}`,
+                    true);
+                xhr.send(null);
+
+                let vm = this
+                xhr.onload = function () {
+                    // 接收PHP傳來的資料
+                    vm.member = JSON.parse(xhr.responseText)
+                }
+            },
+            methods: {
+                revise() {
+                    setlightbox.style.display = "block"
+                },
+                send() {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("post",
+                        "phps/member/member_setbox.php", true);
+                    let form = document.getElementById("setlightbox");
+                    let formData = new FormData(form);
+                    xhr.send(formData);
+                }
+            },
+        })
+    </script>
 </body>
 
 </html>
