@@ -23,6 +23,9 @@ if(isset($_POST['id']) == true){
         <input type="checkbox" name="" id="switch_btn">
                 <div class="switch dark_icon">
                     <label for="switch_btn" class="btnn"></label>
+                    <span class="material-icons">
+                    person_remove
+                    </span>
 
     ';
     echo $output;

@@ -1,12 +1,13 @@
 /* 以下為上方搜尋區域 */
-.top_bar_box{
+.top_bar_box {
     height: 70px;
     width: 100%;
     position: fixed;
     margin: auto;
     z-index: 11;
     background-color: #fff;
-    .top_bar{
+
+    .top_bar {
         // height: 70px;
         width: 100%;
         max-width: 1440px;
@@ -16,85 +17,104 @@
         padding: 5px 20px;
         align-items: center;
         justify-content: space-between;
-        .logo_box{
-            img{
-            height: 45px;
+
+        .logo_box {
+            img {
+                height: 45px;
             }
         }
-        
-        .search_bar{
+
+        .search_bar {
             display: flex;
             box-sizing: border-box;
             position: relative;
             width: 60%;
             padding: 0 15px;
-            input{
+
+            input {
                 width: 100%;
                 height: 25px;
-                border-radius:var(--bgc-radius);
+                border-radius: var(--bgc-radius);
                 border: 2px solid var(--secondary-color);
-                }
             }
-            button{
-                width: 30px;
-                background:none;
-                border: none;
-                cursor:pointer;
-                position:absolute;
-                top: 3px;
-                right: 18px;
-                img{
-                    width: 15px;
-                }
         }
-        .member_bar{
-            li{
+
+        button {
+            width: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 3px;
+            right: 18px;
+
+            img {
+                width: 15px;
+            }
+        }
+
+        .member_bar {
+            li {
                 display: none;
-                img{
+
+                img {
                     width: 28px;
                     vertical-align: top;
                 }
             }
-            li+li{
+            li+li {
                 padding-left: 5px;
             }
-            .member_bar_phone{
+            .member_bar_phone {
                 display: inline;
                 cursor: pointer;
             }
         }
+        img[alt='會員'] {
+            border-radius: 50%;
+            cursor: pointer;
+        }
     }
 }
+
 @media screen and (min-width: 768px) {
+
     /* 以下為上方搜尋區域 */
-    .top_bar_box{
-        height:100px;
-        .search_bar{
+    .top_bar_box {
+        height: 100px;
+
+        .search_bar {
             width: 65%;
         }
-        .top_bar{
+
+        .top_bar {
             height: 100px;
-            .logo_box{
-                img{
-                height: 55px;
-                vertical-align: top;
+
+            .logo_box {
+                img {
+                    height: 55px;
+                    vertical-align: top;
                 }
             }
-            .member_bar{
-            display: block;
-                ul{
+
+            .member_bar {
+                display: block;
+
+                ul {
                     display: flex;
                     box-sizing: border-box;
-                    li{
+
+                    li {
                         display: inline;
                     }
-                    li+li{
+
+                    li+li {
                         padding-left: 15px;
                     }
-                    
+
                 }
             }
         }
-    }  
+    }
 
 }

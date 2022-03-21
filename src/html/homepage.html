@@ -20,109 +20,27 @@
             @@include('layout/sidebar.html')
             <main class="main_area">
                 <div class="hot_billboard">
-                    <!-- <h2>熱門看版排行</h2> -->
-                    <!-- <div class="swiper_container">
-                        <div class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="hot_article_wrap">
-                                        <div class="hot_article_pic">
-                                            <a href="article_all.html"><img
-                                                    src="assets/images/bilboard_pic_relation.jpg"></a>
-                                        </div>
-                                        <div class="hot_article_txt">
-                                            <h2>1</h2>
-                                        </div>
-                                        <button class="btn-secondary">追蹤</button>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="hot_article_wrap">
-                                        <div class="hot_article_pic">
-                                            <a href="article_all.html"><img
-                                                    src="assets/images/bilboard_pic-makeup.jpg"></a>
-                                        </div>
-                                        <div class="hot_article_txt">
-                                            <h2>2</h2>
-                                        </div>
-                                        <button class="btn-secondary">追蹤</button>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="hot_article_wrap">
-                                        <div class="hot_article_pic">
-                                            <a href="article_all.html"><img
-                                                    src="assets/images/billboard_pic_car.jpg"></a>
-                                        </div>
-                                        <div class="hot_article_txt">
-                                            <h2>青</h2>
-                                        </div>
-                                        <button class="btn-secondary">追蹤</button>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="hot_article_wrap">
-                                        <div class="hot_article_pic">
-                                            <a href="article_all.html"><img
-                                                    src="assets/images/bilboar_pic_music.jpg"></a>
-                                        </div>
-                                        <div class="hot_article_txt">
-                                            <h2>好樂</h2>
-                                        </div>
-                                        <button class="btn-secondary">追蹤</button>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="hot_article_wrap">
-                                        <div class="hot_article_pic">
-                                            <a href="article_all.html"><img
-                                                    src="assets/images/bilboard_pic_sport.jpg"></a>
-                                        </div>
-                                        <div class="hot_article_txt">
-                                            <h2>身</h2>
-                                        </div>
-                                        <button class="btn-secondary">追蹤</button>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="hot_article_wrap">
-                                        <div class="hot_article_pic">
-                                            <a href="article_all.html"><img
-                                                    src="assets/images/bilboard_pic_clothing.jpg"></a>
-                                        </div>
-                                        <div class="hot_article_txt">
-                                            <h2>穿尚</h2>
-                                        </div>
-                                        <button class="btn-secondary">追蹤</button>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div> -->
                 </div>
 
                 <div class="save_area">
                     <div class="save_billboard">
-                        <h2>追蹤的看版</h2>
+                        <h2>推薦的看版</h2>
                         <ul class="billboard_img">
                             <li>
                                 <a href="article_all.html">
                                     <div class="pic_box">
-                                        <img src="assets/images/billboard_square_cloth.jpg">
+                                        <img src="assets/images/bilboard_square_clothing.jpg">
                                     </div>
                                     <div class="billboard_txt">
-                                        <h2>穿搭時尚</h2>
+                                        <h2>時尚穿搭</h2>
                                     </div>
                                 </a>
                             </li>
                             <li>
                                 <a href="article_all.html">
                                     <div class="pic_box">
-                                        <img src="assets/images/billboard_square_sport.jpg">
+                                        <img src="assets/images/bilboard_square_sport.jpg">
                                     </div>
                                     <div class="billboard_txt">
                                         <h2>運動健身</h2>
@@ -134,11 +52,11 @@
                             <li><a href="article_all.html">好聽音樂</a></li>
                             <li><a href="article_all.html">旅遊踏青</a></li>
                             <li><a href="article_all.html">美妝保養</a></li>
-                            <li><a href="article_all.html">情感生活</a></li>
+                            <li><a href="article_all.html">好聽音樂</a></li>
                         </ul>
                     </div>
                     <div class="save_article">
-                        <h2>追蹤看版的最新文章</h2>
+                        <h2>推薦的文章</h2>
                         <div class="article_area">
                             <article class="article_box">
                                 <!-- 發文者 -->
@@ -403,7 +321,14 @@
             </main>
             <section class="
             advertise">
-                <img src="assets/images/homepage_ball.svg" alt="CiMi交友論壇">
+                <div class="advertise_box">
+                    <a href="https://tibamef2e.com/cfd104/g2/">
+                        <img src="assets/images/advertise.jpg" alt="藝起-線上藝術品競價平台">
+                    </a>
+                </div>
+                <div class="logo_box">
+                    <img src="assets/images/homepage_ball.svg" alt="CiMi交友論壇">
+                </div>
             </section>
         </div>
     </div>
@@ -543,89 +468,6 @@
     <!-- 幻燈片 Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <!-- 幻燈片 Initialize Swiper -->
-    <!-- <script>
-        let myLoad = function () {
-            alert(123);
-            //判斷螢幕寬度
-            var winWide = window.innerWidth; //獲取當前螢幕解析度
-            // alert(winWide);
-            var wideScreen = false;
-            if (winWide >= 992) { //最小寬度 
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 4, //輪播顯示項目數量
-                    spaceBetween: 0,
-                    slidesPerGroup: 1,
-                    loop: true,
-                    loopFillGroupWithBlank: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                });
-            } else {
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 2,
-                    spaceBetween: 0,
-                    slidesPerGroup: 1,
-                    loop: true,
-                    loopFillGroupWithBlank: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                });
-            }
-        }
-        window.addEventListener("load", myLoad);
-        window.onresize = function () {
-            //判斷螢幕寬度
-            var winWide = window.innerWidth; //獲取當前螢幕解析度
-            // alert(winWide);
-            var wideScreen = false;
-            if (winWide >= 768) {
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 4,
-                    spaceBetween: 0,
-                    slidesPerGroup: 1,
-                    loop: true,
-                    loopFillGroupWithBlank: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                });
-            } else {
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 2,
-                    spaceBetween: 0,
-                    slidesPerGroup: 1,
-                    loop: true,
-                    loopFillGroupWithBlank: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                });
-            }
-        }
-    </script> -->
     <script>
         //alert for one time
         let alertmessage =

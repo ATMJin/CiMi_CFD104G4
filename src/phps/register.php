@@ -67,10 +67,21 @@ if (isset($mem_id) && isset($mem_psw) && isset($mem_name) && isset($mem_birth) &
          VALUES ({$mem_no}, '{$board3_num}')";
     $pdo->query($sql5);
 
+    //sql for mifriend 表格
+
+    $sql6 = "INSERT INTO mifriend (mem_no, mi_no) 
+         VALUES ($mem_no, 195052890)";
+    $pdo->query($sql6 );
+
+
 
     //註冊成功 讓他跳轉回登入畫面
     session_start();
-    echo '<script language=javascript>window.location.href="../login_new.html"</script>';
+    echo '
+    <script language=javascript>
+    alert("註冊成功, 立即前往登入");
+    window.location.href="../login_new.html"
+    </script>';
     
 } else {
     echo '所有欄位都必須要填寫';

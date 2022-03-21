@@ -64,244 +64,284 @@ $headerHeight: 110px;
         justify-content: center;
         padding: 20px;
     }
-    .tab_switch:checked + label {
+
+    .tab_switch:checked+label {
         font-weight: bold;
     }
 }
 
 
-    //共用的form
-    .form {
+//共用的form
+.form {
 
-        header {
-            font-size: 22px;
-            padding: 0 24px 24px;
-            text-align: center;
-            border-bottom: 1px solid #fff;
-        }
-
-        form {
-            padding-top: 30px;
-        }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            margin: 20px 0;
-
-            input {
-                margin-top: 5px;
-                padding: 10px 0px 10px 5px;
-                border-radius: 5px;
-            }
-        }
-
-        .button {
-            width: 100%;
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: center;
-            // justify-content: space-between;
-            margin-top: 50px;
-
-            input {
-                width: 60%;
-                padding: 8px 13px;
-                border-radius: 5px;
-                background-color: transparent;
-                color: #fff;
-                outline: none;
-                border: 2px solid #fff;
-                cursor: pointer;
-                font-size: 16px;
-                border-radius: 30px;
-
-            }
-        }
+    header {
+        font-size: 22px;
+        padding: 0 24px 24px;
+        text-align: center;
+        border-bottom: 1px solid #fff;
     }
 
-    //註冊表單 => 設置scroll bar
-
-    .signup {
-        $headerHeight: 300px;
-        min-height: calc(100vh - #{$headerHeight});
-        max-height: calc(100vh - #{$headerHeight});
-        overflow-y: auto;
+    form {
+        padding-top: 30px;
     }
 
-    .signup::-webkit-scrollbar {
-        width: 0.8em;
-
-    }
-
-    // 註冊表單的scroll Bar 樣式
-    .signup::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-
-    }
-
-    .signup::-webkit-scrollbar-thumb {
-        background-color: white;
-        border: 1px solid slategrey;
-        border-radius: 100px;
-    }
-    .signup::-webkit-scrollbar-thumb {
-        background-color: white;
-        border: 1px solid slategrey;
-        border-radius: 100px;
-    }
-
-
-    // 登入表單
-    .login {
-        padding: 5% 20%;
-    }
-
-    
-
-    // 註冊表單
-    .signup {
-        padding: 5% 17% 0 20%;
-    }
-
-    .form {
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            margin: 10px 0;
-        }
+    .field {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
 
         input {
             margin-top: 5px;
-            padding: 5px 0px 5px 5px;
+            padding: 10px 0px 10px 5px;
             border-radius: 5px;
         }
-
-        .form {
-            padding: 0 18%;
-        }
-
-        .button {
-            margin-top: 50px;
-        }
     }
 
-    select {
-        /* 清除 Select 預設樣式*/
-        appearance: none;
-        outline: 0;
-        border: -1;
-        box-shadow: none;
-        /* 自定義部分 */
-        // flex: 1;
-        padding: 10px 0px 10px 5px;
-        // padding: 0 1em;
-        color: var(--font-primary);
-        background-color: #fff;
-        background-image: none;
-        cursor: pointer;
+    .button {
         width: 100%;
-        border-radius: 5px;
-
-    }
-
-    /* 移除IE醜醜箭頭 */
-    select::-ms-expand {
-        display: none;
-    }
-
-    /* 自訂義 Select wrapper */
-    .select {
-        position: relative;
         display: flex;
-        // height: 3em;
-        border-radius: .25em;
-        overflow: hidden;
-    }
-
-    /* 右側小箭頭 */
-    .select::after {
-        content: '\25BC';
-        position: absolute;
-        top: -10px;
-        right: 0;
-        padding: 1em;
-        background-color: #34495e;
-        transition: .25s all ease;
-        pointer-events: none;
-    }
-
-    /* 小動畫 */
-    .select:hover::after {
-        color: #f39c12;
-    }
-
-    .form form .field {
-        position: relative;
-    }
-
-    .form form .field i {
-        position: absolute;
-        right: 15px;
-        top: 70%;
-        transform: translateY(-50%);
-        color: #ccc;
-        cursor: pointer;
-    }
-
-    .form form .field i.active::before {
-        content: "\f070";
-        color: #333;
-
-        }
-
-
-    .control_tab{
-        width: 100%;
-        height: 60px;
-        display: flex;
+        flex-wrap: nowrap;
         justify-content: center;
-        .tab_switch{
-            opacity: 0;
-            position: absolute;
-            z-index: -1;
-        }
-        .v_tab{
-            margin: 30px 10px 30px;
+        // justify-content: space-between;
+        margin-top: 50px;
+
+        input {
+            width: 60%;
+            padding: 8px 13px;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #fff;
+            outline: none;
+            border: 2px solid #fff;
             cursor: pointer;
+            font-size: 16px;
+            border-radius: 30px;
+
         }
+    }
+}
 
+//註冊表單 => 設置scroll bar
+
+.signup {
+    $headerHeight: 300px;
+    min-height: calc(100vh - #{$headerHeight});
+    max-height: calc(100vh - #{$headerHeight});
+    overflow-y: auto;
+}
+
+.signup::-webkit-scrollbar {
+    width: 0.8em;
+
+}
+
+// 註冊表單的scroll Bar 樣式
+.signup::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+
+}
+
+.signup::-webkit-scrollbar-thumb {
+    background-color: white;
+    border: 1px solid slategrey;
+    border-radius: 100px;
+}
+
+.signup::-webkit-scrollbar-thumb {
+    background-color: white;
+    border: 1px solid slategrey;
+    border-radius: 100px;
+}
+
+
+// 登入表單
+.login {
+    padding: 5% 20%;
+}
+
+
+
+// 註冊表單
+.signup {
+    padding: 5% 17% 0 20%;
+}
+
+.form {
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
     }
 
-    // 絕對定位的兩顆球
-    .blue_ball, .pink_ball{
+    input {
+        margin-top: 5px;
+        padding: 5px 0px 5px 5px;
+        border-radius: 5px;
+    }
+
+    .form {
+        padding: 0 18%;
+    }
+
+    .button {
+        margin-top: 50px;
+    }
+}
+
+select {
+    /* 清除 Select 預設樣式*/
+    appearance: none;
+    outline: 0;
+    border: -1;
+    box-shadow: none;
+    /* 自定義部分 */
+    // flex: 1;
+    padding: 10px 0px 10px 5px;
+    // padding: 0 1em;
+    color: var(--font-primary);
+    background-color: #fff;
+    background-image: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+
+}
+
+/* 移除IE醜醜箭頭 */
+select::-ms-expand {
+    display: none;
+}
+
+/* 自訂義 Select wrapper */
+.select {
+    position: relative;
+    display: flex;
+    // height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+}
+
+/* 右側小箭頭 */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: -10px;
+    right: 0;
+    padding: 1em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+
+/* 小動畫 */
+.select:hover::after {
+    color: #f39c12;
+}
+
+.form form .field {
+    position: relative;
+}
+
+.form form .field i {
+    position: absolute;
+    right: 15px;
+    top: 70%;
+    transform: translateY(-50%);
+    color: #ccc;
+    cursor: pointer;
+}
+
+.form form .field i.active::before {
+    content: "\f070";
+    color: #333;
+
+}
+
+
+.control_tab {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+
+    .tab_switch {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .v_tab {
+        margin: 30px 10px 30px;
+        cursor: pointer;
+    }
+
+}
+
+// 絕對定位的兩顆球
+.blue_ball,
+.pink_ball {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+
+    .logo {
         display: none;
     }
-   
-@media screen and (max-width:768px){
 
-    .logo{
-        display: none;
-    }
-    .login_area{
+    .login_area {
         width: 100%;
-        .wrapper{
+
+        .wrapper {
             position: relative;
         }
     }
-    .blue_ball{
+
+    .blue_ball {
         position: absolute;
         display: block;
         top: 11%;
         left: -8%;
         width: 24%;
     }
-    .pink_ball{
+
+    .pink_ball {
         position: absolute;
         display: block;
         bottom: 1%;
         right: -10%;
         width: 36%;
     }
+}
+
+.email_verify {
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    text-decoration: underline;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.send {
+    position: absolute;
+    right: -1px;
+    top: 5px;
+    background-color: #34495E;
+    /* height: 45px; */
+    padding: 6px 5px;
+    border-radius: 0 5px 5px 0;
+}
+#verify{
+    display: none;
+}
+.verify_input{
+    width:85%;
+    outline: none;
+    border:none;
+}
+
+.mt_5{
+    margin-top: 15px;
 }

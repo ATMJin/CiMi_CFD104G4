@@ -18,8 +18,8 @@
         <main class="main_area" id="post">
             <div class="post_info">
                 <div class="post_img">
-                    <img src="https://picsum.photos/100/100/?random=11">
-                    <!-- <img :src="memInfo.mem_head"> -->
+                    <!-- <img :src="https://picsum.photos/100/100/?random=11"> -->
+                    <img :src="memInfo.mem_head">
                 </div>
                 <div class="post_text">
                     <span class="post_name">
@@ -57,19 +57,10 @@
         </main>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.common.dev.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        // window.addEventListener("load", function () {
-        //     document.getElementById("upFile").onchange = function (e) {
-        //         let file = e.target.files[0];
-        //         let reader = new FileReader();
-        //         reader.onload = function () {
-        //             document.getElementById("myImage").src = reader.result;
-        //         }
-        //         reader.readAsDataURL(file);
-        //     }
-        // })
-
         new Vue({
             el: '#post',
             data: {
@@ -83,6 +74,7 @@
 
             },
             mounted() {
+
                 let params = new URLSearchParams();
                 params.append("mem_no", sessionStorage.getItem('mem_no'));
                 params.append("case", "getData");
@@ -95,6 +87,36 @@
                     .catch(err => {
                         console.log(err);
                     });
+                if (sessionStorage.getItem('login') == null) {
+                    swal("登入才能發布文章喔! 立即前往登入頁面??", {
+                            buttons: {
+
+                                catch: {
+                                    text: "否",
+                                    value: "否",
+                                },
+                                default: {
+                                    text: "是",
+                                    value: "是",
+                                },
+
+                            },
+                        })
+                        .then((value) => {
+                            switch (value) {
+
+                                case "是":
+                                    location.href = "login_new.html"
+                                    break;
+
+                                case "否":
+                                    location.href = "homepage.html"
+                                    break;
+                            }
+                        });
+                }
+
+
             },
             methods: {
                 updateVal() {
