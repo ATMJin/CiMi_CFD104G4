@@ -88,30 +88,30 @@ function return_page() {
 //////////////////////////////////////
 function getquestion(){
     let xhr = new XMLHttpRequest();
-    xhr.onload = function(){
+    xhr.onload = function () {
         let questions = JSON.parse(xhr.responseText);
         // console.log(questions[0].optionA);
         
-        let i= 0;
-        let dataObj =new Date();
+        let i = 0;
+        let dataObj = new Date();
         let day = dataObj.getDay();
         console.log(day);
      
-        i = day*3;
-        question_no_array=[questions[i].question_no,questions[i+1].question_no,questions[i+2].question_no];
+        i = day * 3;
+        question_no_array = [questions[i].question_no, questions[i + 1].question_no, questions[i + 2].question_no];
         console.log(question_no_array);
 
         document.getElementById("question1").innerText = questions[i].question;
-        document.getElementById("question2").innerText = questions[i+1].question;
-        document.getElementById("question3").innerText = questions[i+2].question;
+        document.getElementById("question2").innerText = questions[i + 1].question;
+        document.getElementById("question3").innerText = questions[i + 2].question;
 
         // for(i = 0;i<3;i++){
         //         options[i] = [`A. ${questions[i].optionA}`,`B. ${questions[i].optionB}`,`C. ${questions[i].optionC}`];
         //     };
-      options =[
-        [questions[i].optionA,questions[i].optionB,questions[i].optionC],
-        [questions[i+1].optionA,questions[i+1].optionB,questions[i+1].optionC],
-        [questions[i+2].optionA,questions[i+2].optionB,questions[i+2].optionC]
+        options = [
+            [`A. ${questions[i].optionA}`, `B. ${questions[i].optionB}`, `C. ${questions[i].optionC}`],
+            [`A. ${questions[i + 1].optionA}`, `B. ${questions[i + 1].optionB}`, `C. ${questions[i + 1].optionC}`],
+        [`A. ${questions[i+2].optionA}`,`B. ${questions[i+2].optionB}`,`C. ${questions[i+2].optionC}`]
     ];
         }
     xhr.open("get", "phps/get_question.php", true);
@@ -257,7 +257,7 @@ function videoPause() {
         clearInterval(timer);
         
         let typer = document.getElementById("typewriter-contain");
-
+        typer.style = "display:block";
         
         typer.innerHTML='<div class="dynamic-text-wrapper"><div class="dynamic-text">屬於你的Destiny</div><div class="dynamic-text">即將於午夜12:00出現</div></div>';
 

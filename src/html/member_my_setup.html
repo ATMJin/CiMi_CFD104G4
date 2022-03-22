@@ -61,7 +61,7 @@
                             </div>
                             <div class="membercard_psw gap">
                                 <h3>密碼</h3>
-                                <p type="password">{{member.mem_psw}}</p>
+                                <p>{{member.mem_psw}}</p>
                             </div>
                             <div class="membercard_tel gap">
                                 <h3>電話</h3>
@@ -77,34 +77,46 @@
 
                 <form action="" style="display:none" id="setlightbox">
                     <div class="fixbox">
-                        <div class="member_cardtext">
-                            <!--內文-->
-                            <div class="member_cardmain">
-                                <div class="membercard_email gap">
-                                    <h3>名字</h3>
-                                    <input type="text" name="mem_name" v-model="member.mem_name">
-                                    <input type="text" name="mem_no" :value="member.mem_no" hidden>
+                        <div class="member_cardfix">
+                            <div class="fixtitle">
+                                <h2>我的設定</h2>
+                            </div>
+                            <div class="member_fixmain">
+                                <div class="fixleft">
+                                    <div class="membercard_email gap">
+                                        <h3>名字</h3>
+                                        <input type="text" name="mem_name" v-model="member.mem_name">
+                                        <input type="text" name="mem_no" :value="member.mem_no" hidden>
+                                    </div>
+                                    <div class="membercard_name gap">
+                                        <h3>常用信箱</h3>
+                                        <input type="text" name="mem_mail" v-model="member.mem_mail">
+                                    </div>
+                                    <div class="membercard_psw gap">
+                                        <h3>密碼</h3>
+                                        <input type="password" name="mem_psw" v-model="member.mem_psw">
+                                    </div>
                                 </div>
-                                <div class="membercard_name gap">
-                                    <h3>常用信箱</h3>
-                                    <input type="text" name="mem_mail" v-model="member.mem_mail">
-                                </div>
-                                <div class="membercard_psw gap">
-                                    <h3>密碼</h3>
-                                    <input type="text" name="mem_psw" v-model="member.mem_psw">
-                                </div>
-                                <div class="membercard_tel gap">
-                                    <h3>電話</h3>
-                                    <input type="text" name="mem_tel" v-model="member.mem_tel">
-                                </div>
-                                <div class="membercard_live gap">
-                                    <h3>居住地</h3>
-                                    <input type="text" name="mem_local" v-model="member.mem_local">
+                                <div class="fixright">
+                                    <div class="membercard_tel gap">
+                                        <h3>電話</h3>
+                                        <input type="text" name="mem_tel" v-model="member.mem_tel">
+                                    </div>
+                                    <div class="membercard_live gap">
+                                        <h3>居住地</h3>
+                                        <input type="text" name="mem_local" v-model="member.mem_local">
+                                    </div>
+                                    <div class="sendbox">
+                                        <button id="sendbtn" type="button" @click="send">完成修改</button>
+                                        <button id="cancelbtn" type="button" @click="cancel">取消修改</button>
+                                    </div>
+
                                 </div>
                             </div>
-                            <button  type="button" @click="send">完成送出</button>
+
                             <!-- <input type="submit" @submit.prevent @click="send"> -->
                         </div>
+
                     </div>
                 </form>
         </main>
@@ -139,6 +151,12 @@
                     let form = document.getElementById("setlightbox");
                     let formData = new FormData(form);
                     xhr.send(formData);
+
+                    alert("修改成功")
+                    setlightbox.style.display = "none"
+                },
+                cancel() {
+                    setlightbox.style.display = "none"
                 }
             },
         })
