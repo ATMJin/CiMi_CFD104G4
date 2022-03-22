@@ -19,13 +19,13 @@
   <div class="content_area">
     @@include('layout/sidebar.html')
     <main class="main_area" id="searchapp">
-      <!-- @@include('article_lightbox.html') -->
+      @@include('article_lightbox.html')
       <div>
 
         <section class="article_sort">
-          <h2>以下是"{{search}}"的文章搜尋結果</h2>
+          <h2 v-if="search">以下是"{{search}}"的文章搜尋結果</h2>
           <div class="charts_box">
-            <div class="article_box" v-for="article in articles">
+            <div class="article_box" v-for="article in articles" @click="open_lightbox(article.article_no)">
               <span style="display:none;">{{article.article_no}}</span>
               <!-- no=new_article.article_no -->
               <!-- 發文者 -->
