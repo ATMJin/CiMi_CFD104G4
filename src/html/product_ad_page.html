@@ -280,7 +280,7 @@
 
                 </section>
 
-                <!-- 商品留言 -->
+                <!-- 我的留言輸入區 -->
                 <section class="product_page_msg">
                     <!-- 右邊 -->
                     <div class="item_box_msger">
@@ -340,10 +340,9 @@
                 },
                 //燈箱出現的跟圖片顯示要樣
                 getGoodNumber(goods_no) {
-                    console.log(this.number);
+                    // console.log(this.number);
                     this.number = goods_no;
-
-                    console.log(this.number);
+                    // console.log(this.number);
 
                 },
                 getProductAd() {
@@ -355,8 +354,8 @@
                     xhr.onload = () => {
                         // 接收PHP傳來的資料
                         allgoods = JSON.parse(xhr.responseText);
-                        console.log(xhr.responseText);
-                        console.table(allgoods);
+                        // console.log(xhr.responseText);
+                        // console.table(allgoods);
 
                         this.ad_goods = allgoods
                     }
@@ -369,7 +368,7 @@
                 },
                 //加入愛心
                 initheart(goods_no) {
-                    console.log("ssss")
+                    // console.log("ssss")
                     let product_heart = document.querySelector(".product_heart")
                     let product_num = document.querySelector(".product_num")
                     let product_heart_img = document.querySelector(".product_heart img")
@@ -410,15 +409,6 @@
                         }
                     }
 
-                    // function initheart() {
-                    //     //設定[加入愛心 或 取消愛心]的點按事件
-                    //     let product_heart = document.querySelector(".product_heart")
-                    //     // console.log(product_heart)
-                    //     // 變數名稱
-                    //     product_heart_img = document.querySelector(".product_heart img")
-                    //     product_heart.onclick = switchLove;
-                    // } //initheart
-
                 }
 
 
@@ -429,59 +419,7 @@
             //筆記!!因為愛心第一次沒出現在網頁上所以寫在mounted會抓不到。
             // 用Vue改變網頁，如:v-if
             updated() {
-                // let product_heart = document.querySelector(".product_heart")
-                // let product_num = document.querySelector(".product_num")
 
-                // function switchLove() {
-                //     if (product_heart.title == "加入愛心") {
-                //         product_heart_img.src =
-                //             "assets/images/icon/like.png";
-                //         product_heart.title = "取消愛心";
-                //         product_num.innerHTML++;
-
-                //         let xhr = new XMLHttpRequest();
-                //         //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
-                //         xhr.open("get", `phps/product_heart_num.php?goods_no=${}`, true);
-                //         xhr.send(null);
-
-                //         xhr.onload = function () {
-                //             // 接收PHP傳來的資料
-                //             // allgoods = JSON.parse(xhr.responseText);
-                //             // console.log(xhr.responseText);
-                //             // console.table(allgoods);
-                //         }
-
-
-
-                //     } else {
-                //         product_heart_img.src =
-                //             "assets/images/icon/like_hov.png";
-                //         product_heart.title = "加入愛心";
-                //         product_num.innerHTML--;
-
-                //         let xhr = new XMLHttpRequest();
-                //         xhr.open("get", `phps/product_heart_num_delete.php?goods_no=3`, true);
-                //         xhr.send(null);
-
-                //         xhr.onload = function () {
-                //             // 接收PHP傳來的資料
-                //             // allgoods = JSON.parse(xhr.responseText);
-                //             // console.log(xhr.responseText);
-                //             // console.table(allgoods);
-                //         }
-                //     }
-                // }
-
-                // function initheart() {
-                //     //設定[加入愛心 或 取消愛心]的點按事件
-                //     let product_heart = document.querySelector(".product_heart")
-                //     // console.log(product_heart)
-                //     // 變數名稱
-                //     product_heart_img = document.querySelector(".product_heart img")
-                //     product_heart.onclick = switchLove;
-                // } //initheart
-
-                // initheart()
                 //----------------------加入收藏 或 取消收藏-------------- 
                 let product_save = document.querySelector("product_save");
 

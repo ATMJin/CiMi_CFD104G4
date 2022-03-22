@@ -316,8 +316,9 @@ select::-ms-expand {
 }
 
 .email_verify {
-    position: relative;
-    right: -150px;
+    position: absolute;
+    top: 3px;
+    right: 0px;
     text-decoration: underline;
     font-size: 12px;
     cursor: pointer;
@@ -326,12 +327,21 @@ select::-ms-expand {
 .send {
     position: absolute;
     right: -1px;
-    top: 6px;
+    top: 5px;
     background-color: #34495E;
     /* height: 45px; */
-    padding: 7px 5px;
-    border-radius: 5px;
+    padding: 6px 5px;
+    border-radius: 0 5px 5px 0;
 }
 #verify{
     display: none;
+}
+.verify_input{
+    width:85%;
+    outline: none;
+    border:none;
+}
+
+.mt_5{
+    margin-top: 15px;
 }

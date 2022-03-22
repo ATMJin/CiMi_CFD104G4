@@ -19,6 +19,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Email.js -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 
 
@@ -142,11 +145,11 @@
                 </div>
 
                 <div class="field input" id="verify">    
-                    <input type="text" placeholder="請輸入驗證碼" v-model="verify_code">
+                    <input type="text" placeholder="請輸入驗證碼" v-model="verify_code" class="verify_input">
                     <span class="send" @click="verify">send</span>
                 </div>
                 
-                <div class="field">
+                <div class="field" style="margin-top:25px">
                     <span>感興趣的看版</span>
                     <div class="field select">
                         <select name="board1" id="board1" >
@@ -269,7 +272,8 @@
                         data: JSON.stringify(data),
                         contentType: 'application/json'
                     }).done(function () {
-                        alert('Your mail is sent!');
+                        // alert('Your mail is sent!');
+                        swal("驗證信已寄出! 請至信箱收件");
                         sessionStorage.setItem('emailCode', emailCode);
 
                     }).fail(function (error) {
@@ -279,12 +283,12 @@
                 verify(){
                     let code = sessionStorage.getItem('emailCode');
                     if(code == this.verify_code){
-                        alert("信箱驗證成功!")
+                        swal("信箱驗證成功!");
                         email.style.display = "block"
                         // email.setAttribute("disabled", true);
                         verify.style.display = "none"
                     }else{
-                        alert("信箱驗證失敗, 請重新輸入!")
+                        swal("信箱驗證失敗, 請重新輸入!")
                     }
                 }
             }

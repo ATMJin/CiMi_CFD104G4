@@ -74,12 +74,14 @@ switch ($_POST["case"]) {
 
                 $new_img_name = $time . $img_name;
 
-                $path = "../assets/images/post/" . $new_img_name;
+                $path = "../assets/images/posts/" . $new_img_name;
+
+                $savePath = "assets/images/posts/" . $new_img_name;
 
                 move_uploaded_file($tmp_name, $path);
 
                 $sql = "INSERT INTO article (mem_no, billboard_no , publish_date, last_edit_date, article_title, article_content, article_pic)
-                    VALUE ($mem_no, $billboard_no, now(), now(), '{$article_title}', '{$article_content}', '{$path}')";
+                    VALUE ($mem_no, $billboard_no, now(), now(), '{$article_title}', '{$article_content}', '{$savePath}')";
 
                 $pdo->query($sql);
                 echo "文章上傳成功 ! ";
@@ -89,6 +91,8 @@ switch ($_POST["case"]) {
         } else {
             echo "請選擇一張欲上傳之文章首圖 !";
         }
+
+２ㄉ
 
         break;
 }

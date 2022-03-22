@@ -25,11 +25,14 @@ if ($admin -> rowCount() > 0){
         <img src="./assets/images/blue_ball.png" alt="">
         <div class="details">
             <span>'.$adminRow['mem_name'].'</span>
-            <p>this is cimi Admin</p>
+            <p>我是可愛的小天使</p>
         </div>
         <input type="checkbox" name="" id="switch_btn">
             <div class="switch dark_icon">
             <label for="switch_btn" class="btnn"></label>
+            <span class="material-icons delete_icon" id="delete_icon" onclick="confirmDelete()">
+            delete
+            </span>
 
     ';
         

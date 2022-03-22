@@ -16,12 +16,21 @@ try{
     $articlesRows = $articles->fetchAll(PDO::FETCH_ASSOC);
 
     // 會員訂單
-    $sql2 = "SELECT *
+    $sql2 = "SELECT o.*
     FROM `orders` o
-    JOIN `mem` m ON o.order_buyer_no=m.mem_no
-    WHERE m.mem_no={$mem_no}"; 
+    JOIN `mem` m ON o.order_buyer_no = m.mem_no
+    WHERE o.order_buyer_no={$mem_no};"; 
     $order = $pdo->query($sql2);
     $orderRows = $order->fetchAll(PDO::FETCH_ASSOC);
+
+    // 會員訂單商品
+    $sql2_1 = "SELECT o.*, p.product_total, p.goods_order_price, g.goods_no, g.goods_name, g.goods_pic1
+    FROM `orders` o
+    JOIN `product` p ON o.order_no = p.order_no
+    JOIN `goods` g ON p.goods_no = g.goods_no
+    WHERE o.order_buyer_no={$mem_no};"; 
+    $ordergoods = $pdo->query($sql2_1);
+    $ordergoodsRows = $ordergoods->fetchAll(PDO::FETCH_ASSOC);
 
     // 會員收藏看板
     $sql3 = "SELECT * 
@@ -51,10 +60,11 @@ try{
 
     $allRows=[
       $articlesRows, 
-      $orderRows, 
+      $ordergoodsRows,
       $billboardRows, 
       $articlesFollowRows, 
-      $trackwriterRows
+      $trackwriterRows,
+      $orderRows
     ];
     echo json_encode($allRows);
 
