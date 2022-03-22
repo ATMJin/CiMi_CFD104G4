@@ -6,7 +6,7 @@
 //函數
 @mixin chatroom {
     background-color: #164570;
-  }
+}
 
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
 
@@ -16,15 +16,16 @@
 $headerHeight: 110px;
 $padding: 10px 10px 20px;
 
-.material-icons{
-    &.md-28 { 
-        font-size: 28px; 
+.material-icons {
+    &.md-28 {
+        font-size: 28px;
         padding: 1px 2px 0 2px;
-      }
-    &.md-36 { 
-        font-size: 36px; 
-      }
     }
+
+    &.md-36 {
+        font-size: 36px;
+    }
+}
 
 
 // 聊天室頁面的header不需要fixed !
@@ -34,7 +35,8 @@ $padding: 10px 10px 20px;
 .top_bar_box {
     position: relative;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -59,9 +61,9 @@ body{
 
 //左半部好友列表
 .users {
-    $headerHeight:85px;
+    $headerHeight: 85px;
     width: 30%;
-    margin: 0 10px 0 0 ;
+    margin: 0 10px 0 0;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -107,7 +109,7 @@ body{
     // border-radius: 5px 5px 8px 5px;
     // padding: 0 5px;
     border-radius: 3px;
-    
+
 }
 
 .users .search .text {
@@ -145,7 +147,7 @@ body{
     background-color: #fff;
     cursor: pointer;
     font-size: 17px;
-    border-radius: 0 5px 8px 0;
+    // border-radius: 0 5px 8px 0;
     transition: all 0.2s ease;
 }
 
@@ -193,7 +195,7 @@ body{
     margin-bottom: 0px;
 }
 
-.user_list .friends .content{
+.user_list .friends .content {
     display: flex;
     justify-content: space-between;
 }
@@ -261,9 +263,11 @@ body{
     font-size: 18px;
     color: #333;
     position: absolute;
-    right: 10px;
+    right: 45px;
     top: -40px;
+    display: flex;
 }
+
 .chat_area header #back {
     display: none;
 }
@@ -335,7 +339,8 @@ body{
     bottom: -10px;
     right: 10px;
 }
-#imgContainer > img{
+
+#imgContainer>img {
     max-width: 10%;
     min-width: 10%;
     border-radius: none;
@@ -409,9 +414,10 @@ body{
     font-size: 25px;
     color: #164570;
     align-items: center;
-    padding: 0 2% 0 0 ;
+    padding: 0 2% 0 0;
 }
-.typing_area .fun_icon span{
+
+.typing_area .fun_icon span {
     padding: 0 2%;
 }
 
@@ -433,13 +439,28 @@ body{
         padding: 20px 2%;
 
     }
+
     .chat_area header #back {
         display: block;
     }
 }
 
-.chat_box .chatImg{
+.chat_box .chatImg {
     width: 100px;
     height: 100px;
+    border-radius: 0;
+}
+
+.chat_area header .delete_icon {
+    font-size: 28px;
+    position: absolute;
+    top: -4px;
+    right: -50px;
+    color: #8d8787;
+}
+
+.chat_area .outgoing .user_img, .chat_area .incoming .user_img{
+    width: 150px;
+    height: 150px;
     border-radius: 0;
 }

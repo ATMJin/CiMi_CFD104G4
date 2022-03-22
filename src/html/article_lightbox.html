@@ -6,7 +6,7 @@
                 <div class="article_view_mem_info_box">
                     <div class="article_view_mem_info_item">
                         <div class="article_view_mem_icon">
-                            <img :src="article.mem_head">
+                            <img :src="article.mem_head?article.mem_head:'assets/images/blue_ball.png'">
                         </div>
                         <div class="article_view_mem_name">{{article.mem_name}}</div>
                     </div>
@@ -25,8 +25,10 @@
                 </div>
                 <!-- 文章內容 -->
                 <article class="article_view_content">
+                    <!-- 文章圖片 -->
                     <div class="article_pic">
-                        <img src="https://picsum.photos/300/200/?random=10">
+                        <!-- <img src="https://picsum.photos/300/200/?random=10"> -->
+                        <img :src="article.article_pic">
                     </div>
                     <p v-html="article.article_content">
                     </p>
@@ -71,78 +73,65 @@
 
             <!-- 留言區 -->
             <div class="comment_container">
-                <p v-if="article">共{{article.comment_amount}}則留言</p>
+                <p>共{{comment_info.length}}則留言</p>
                 <!-- 單則留言 -->
-                <div class="comment_box">
+                <div v-for="find_comment_info in comment_info" class="comment_box">
                     <div class="comment_head_photo">
-                        <img src="https://fakeimg.pl/40x40/200">
+                        <!-- <img src="https://fakeimg.pl/40x40/200"> -->
+                        <img :src="find_comment_info.mem_head?find_comment_info.mem_head:'assets/images/blue_ball.png'">
                     </div>
                     <div class="comment_txt">
                         <div class="comment_mem_name_box">
-                            <span class="comment_mem_name_item">前端打工仔</span>
+                            <span class="comment_mem_name_item">{{find_comment_info.mem_name}}</span>
                             <div class="comment_impeach_icon">
                                 <img src="assets/images/icon/more_hov.png" alt="">
                             </div>
                         </div>
-                        <div class="comment_content">
-                            進來員工，股份工藝多種擁有停止自然，屬。
+                        <div class="comment_content" v-html="find_comment_info.comment_content">
+
                         </div>
                         <div class="comment_info">
                             <div class="comment_like_box">
                                 <div class="comment_like_icon">
                                     <img src="assets/images/icon/like_hov.png" alt="">
                                 </div>
-                                <span class="comment_like_amount">23</span>
+                                <span class="comment_like_amount">{{find_comment_info.comment_likes_amount}}</span>
                             </div>
-                            <span class="comment_date">2022/2/23</span>
+                            <span class="comment_date">{{find_comment_info.comment_date}}</span>
                         </div>
                     </div>
                 </div>
-                <!-- 單則留言 -->
-                <div class="comment_box">
-                    <div class="comment_head_photo">
-                        <img src="https://fakeimg.pl/40x40/200">
-                    </div>
-                    <div class="comment_txt">
-                        <div class="comment_mem_name_box">
-                            <span class="comment_mem_name_item">前端打工仔</span>
-                            <div class="comment_impeach_icon">
-                                <img src="assets/images/icon/more_hov.png" alt="">
-                            </div>
-                        </div>
-                        <div class="comment_content">
-                            進來員工，股份工藝多種擁有停止自然，屬。
-                        </div>
-                        <div class="comment_info">
-                            <div class="comment_like_box">
-                                <div class="comment_like_icon">
-                                    <img src="assets/images/icon/like_hov.png" alt="">
-                                </div>
-                                <span class="comment_like_amount">23</span>
-                            </div>
-                            <span class="comment_date">2022/2/23</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
         <!-- 使用者留言框 -->
         <div class="write_comment_container">
             <div class="write_comment_box">
-                <input type="text" class="write_comment_item" placeholder="留言...">
+                <!-- 留言 -->
+                <input @click="login_confirm" type="text" class="write_comment_item" id="write_comment_item"
+                    placeholder="留言...">
 
-                <div class="send_comment">
-                    <img src="assets/images/icon/send.png" alt="">
+                <div @click="send_comment" class="send_comment_btn" id="send_comment_btn">
+                    <img src="assets/images/icon/send.png">
                 </div>
-                <div class="article_like">
-                    <img src="assets/images/icon/like_hov.png" alt="">
+                <!--按讚 -->
+                <div @click="add_like" data-like="false" class="article_like" id="article_like" title="喜歡">
+                    <img id="article_like_img" src="assets/images/icon/like_hov.png">
                 </div>
-                <div class="article_collect">
-                    <img src="assets/images/icon/save_hov.png" alt="">
+                <!-- 收藏 -->
+                <div @click="add_collect" data-collect="false" class="article_collect" id="article_collect" title="收藏">
+                    <img id="article_collect_img" src="assets/images/icon/save_hov.png" alt="">
                 </div>
-                <div class="article_other_function">
-                    <img src="assets/images/icon/more_hov.png" alt="">
+                <!-- 更多 -->
+                <div @click="more_action" data-more="false" class="article_other_function" id="article_other_function"
+                    title="更多">
+                    <div class="impeach" id="impeach">
+                        <span @click="send_impeach">
+                            <p id="impeach_txt">檢舉</p>
+                        </span>
+                    </div>
+                    <img id="article_other_img" src="assets/images/icon/more_hov.png">
                 </div>
             </div>
         </div>

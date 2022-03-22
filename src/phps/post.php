@@ -74,9 +74,9 @@ switch ($_POST["case"]) {
 
                 $new_img_name = $time . $img_name;
 
-                $path = "../assets/images/post/" . $new_img_name;
+                $path = "../assets/images/posts/" . $new_img_name;
 
-                $savePath = "assets/images/post/" . $new_img_name;
+                $savePath = "assets/images/posts/" . $new_img_name;
 
                 move_uploaded_file($tmp_name, $path);
 
@@ -91,6 +91,8 @@ switch ($_POST["case"]) {
         } else {
             echo "請選擇一張欲上傳之文章首圖 !";
         }
+
+２ㄉ
 
         break;
 }

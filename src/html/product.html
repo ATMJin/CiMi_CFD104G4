@@ -8,19 +8,16 @@
     <title>好物商城 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/product.css">
     <!-- 廣告輪播 -->
-    <!-- <link rel="stylesheet" href="src\js\product.js"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.css">
-
-
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script> -->
+    <link rel="stylesheet" href="assets\css\product_slick.css">
+    <link rel="stylesheet" href="assets\css\product_slick-theme.css">
+    <!-- vue -->
     <script src="js/vue.js"></script>
     <link rel="stylesheet" href="assets/css/shop_cart.css">
-    <!-- <script type="text/javascript" src="script.js"></script> -->
     <!-- 輪播(最新上架) -->
     <link rel="stylesheet" href="assets\css\product_slider.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <!-- 上架商品輪播 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
     <!-- 解決這個問題favicon.ico -->
     <link rel="shortcut icon" href="#">
@@ -49,27 +46,36 @@
                 </Section>
 
                 <!-- 廣告投放 -->
-                <section class="hero-slider" data-carousel>
-                    <div class="carousel-cell"
-                        style="background-image: url(https://as2.ftcdn.net/v2/jpg/03/13/60/15/1000_F_313601509_zMFBCz9u0kUnLcQT8Uqs6kVc5T41aUMQ.jpg);">
+                <section class="center slider">
+                    <!-- 第一個 -->
+                    <div class="ad_slider">
+                        <div class="img_box">
+                            <img src="assets\images\goods\product_ad_01.jpg">
+                        </div>
                         <!-- 變暗效果 -->
                         <div class="overlay"></div>
                         <div class="inner">
                             <a href="product_ad_page.html" class="btn">Tell me more</a>
                         </div>
                     </div>
-
-                    <div class="carousel-cell"
-                        style="background-image: url(https://t4.ftcdn.net/jpg/04/73/71/87/240_F_473718710_h4W0nn69AZ0LqTcMkT3Yke71vKY7Agli.jpg);">
-                        <div class="overlay"></div>
+                    <!-- 第二個 -->
+                    <div class="ad_slider">
+                        <div class="img_box">
+                            <img src="assets\images\goods\product_ad_02.jpg">
+                        </div>
+                        <!-- 變暗效果 -->
+                        <!-- <div class="overlay"></div> -->
                         <div class="inner">
                             <a href="product_ad_page.html" class="btn">Tell me more</a>
                         </div>
                     </div>
-
-                    <div class="carousel-cell"
-                        style="background-image: url(https://as2.ftcdn.net/v2/jpg/02/51/61/69/1000_F_251616979_Qjun8K9Hse9phwWYYnhBqEeV4WLbeXKu.jpg);">
-                        <!-- <div class="overlay"></div> -->
+                    <!-- 第三個 -->
+                    <div class="ad_slider">
+                        <div class="img_box">
+                            <img src="assets\images\goods\product_ad.jpg">
+                        </div>
+                        <!-- 變暗效果 -->
+                        <div class="overlay"></div>
                         <div class="inner">
                             <a href="product_ad_page.html" class="btn">Tell me more</a>
                         </div>
@@ -177,7 +183,7 @@
                             </div>
                             <!-- 商品 -->
                             <div onclick="myFunction()" class="product_item_box ligh_box_jump"
-                                v-for="good in time_goods" v-if="good.goods_no > 2"
+                                v-for="good in time_goods" 
                                 @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
                                     <img v-bind:src="good.goods_pic1">
@@ -505,7 +511,7 @@
                         <!-- 商品 -->
                         <div class=" item_box">
                             <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in hot_goods"
-                                v-if="good.goods_no > 2" @click="getGoodNumber(good.goods_no)">
+                                v-if="good.goods_no" @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
                                     <img v-bind:src="good.goods_pic1">
                                 </div>
@@ -641,138 +647,48 @@
 
                 <!-- 留言區 -->
                 <section class="product_comment">
-                    <p>共5則留言</p>
+                    <p>共{{count}}則留言</p>
                     <!-- 單則留言 -->
-                    <div class="comment_box">
+                    <!-- v-for抓所有商品留言再用v-if判斷要的留言 -->
+                    <div class="comment_box" v-for="comment in comments" v-if="number == comment.goods_no">
+                        <!-- 頭貼 -->
                         <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
+                            <img v-bind:src="comment.mem_head">
                         </div>
+                        <!-- 留言 -->
                         <div class="comment_txt">
                             <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">乙骨優太</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                <!-- 名字 -->
+                                <span class="comment_mem_name_item">
+                                    {{comment.mem_name}}
+                                </span>
+                                <!-- 檢舉 -->
+                                <div class="comment_impeach_icon" >
+                                    <img src="assets/images/icon/more_hov.png" alt="檢舉">
                                 </div>
                             </div>
+                            <!-- 留言內容 -->
                             <div class="comment_content">
-                                這種很脆很好吃欸🤩
+                                {{comment.comment_content}}
                             </div>
                             <div class="comment_info">
+                                <!-- 愛心數 -->
                                 <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    <div class="comment_like_icon" @click="initheart(comment.goods_no)">
+                                        <img src="assets/images/icon/like_hov.png" alt="愛心">
                                     </div>
-                                    <span class="comment_like_amount">23</span>
+                                    <!-- 喜歡數 -->
+                                    <span class="comment_like_amount">
+                                        {{comment.comment_likes_amount}}
+                                    </span>
                                 </div>
-                                <span class="comment_date">2022/2/23</span>
+                                <!-- 日期 -->
+                                <span class="comment_date">
+                                    {{comment.comment_last_edit_date}}
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">里香超香</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                這個超級好吃 之前有吃過！ 超級香然後有微微的甜
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">五條悟</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                也太便宜了吧！
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">純愛戰神</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                卡一個!!!!
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">咒術迴戰</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                卡一個!!!
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </section>
 
                 <!-- 我的留言輸入區 -->
@@ -799,7 +715,7 @@
 
                             <!-- 愛心 -->
                             <!-- 筆記! 不能用id寫功能有唯一性 -->
-                            <div class="img_box_report product_heart" title="加入愛心">
+                            <div class="img_box_report product_heart" title="加入愛心" @click="initheart(good.goods_no)">
                                 <img src="assets\images\icon\like_hov.png">
                             </div>
                         </div>
@@ -817,6 +733,8 @@
     <script src="js\product_all.js"></script>
     <!-- 撈資料 -->
     <script src="js\product.js"></script>
+    <!-- 廣告輪播 -->
+    <script src="js\product_slick.min.js"></script>
     <!-- 文進大大的購物車燈箱 -->
     <!-- <div id="app">
         <div class="shop_cart_ligh_box">
@@ -827,13 +745,18 @@
 
     <!-- vue_product_all -->
     <script>
-        new Vue({
+        Vue.config.devtools = true;
+        const vm = new Vue({
             el: "#productApp",
             data: {
                 goods: [],
                 hot_goods: [],
                 time_goods: [],
+                comments:[],
                 number: 0,
+                // 商品留言數
+                count: 0,
+
             },
             methods: {
                 //叉叉功能
@@ -845,14 +768,16 @@
                 getGoodNumber(goods_no) {
                     // console.log(this.number);
                     this.number = goods_no;
-
                     // console.log(this.number);
 
                 },
+                // 抓所有商品
                 getProductAll() {
                     let xhr = new XMLHttpRequest();
                     //打開php的我的php檔
-                    xhr.open("get", `phps/product_all.php`, true);
+
+                    //如果case=allgoods抓所有商品
+                    xhr.open("get", `phps/product_all.php?case=allgoods`, true);
                     xhr.send(null);
 
                     xhr.onload = () => {
@@ -864,6 +789,7 @@
                         this.goods = allgoods
                     }
                 },
+                //熱門商品
                 getProductHot() {
                     let xhr = new XMLHttpRequest();
                     //打開php的我的php檔
@@ -879,6 +805,7 @@
                         this.hot_goods = allgoods
                     }
                 },
+                //限時商品
                 getProductTime() {
                     let xhr = new XMLHttpRequest();
                     //打開php的我的php檔
@@ -893,6 +820,33 @@
                         this.time_goods = allgoods
                     }
                 },
+                //抓所有留言
+                getGoodsComments() {
+                    let xhr = new XMLHttpRequest();
+                    //如果case=goodscomment抓商品留言數
+                    xhr.open("get", `phps/product_all.php?case=goodscomment`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        allcomments = JSON.parse(xhr.responseText);
+                        console.log(xhr.responseText);
+                        console.table(allcomments);
+                        this.comments = allcomments
+                    }
+                },
+
+                // 數這件商品有多少留言
+                // newValue這次點的，oldValue上次點的
+                countComment(newValue, oldValue) {
+                    let c = 0;
+                    for (let i = 0; i < this.comments.length; i++) {
+                        if (this.comments[i].goods_no == newValue) {
+                            c++
+                        }
+                    }
+                    // console.log(c);
+                    this.count = c;
+                },
                 //小圖變大圖功能
                 showLarge(e) {
                     let small = e.target;
@@ -902,36 +856,14 @@
                     //大圖路徑等於被點擊的小圖
                     document.querySelector(".large").src = small.src;
 
-                }
-            },
-            beforeCreate() {
+                },
+                //加入愛心
+                initheart(goods_no) {
+                    // console.log("ssss")
+                    let product_heart = document.querySelector(".product_heart")
+                    let product_num = document.querySelector(".product_num")
+                    let product_heart_img = document.querySelector(".product_heart img")
 
-            },
-            created() {
-
-            },
-            //要顯現的功能
-            // 將Vue的東西第一次出現在網頁上
-            mounted() {
-                // 全部
-                this.getProductAll()
-                // 熱門
-                this.getProductHot()
-                // 限時
-                this.getProductTime()
-
-
-
-
-            },
-            //筆記!!因為愛心第一次沒出現在網頁上所以寫在mounted會抓不到。
-            // 用Vue改變網頁，如:v-if
-            updated() {
-                //----------------------加入愛心 或 取消愛心--------------
-                let product_heart = document.querySelector(".product_heart")
-                let product_num = document.querySelector(".product_num")
-
-                function switchLove() {
                     if (product_heart.title == "加入愛心") {
                         product_heart_img.src =
                             "assets/images/icon/like.png";
@@ -950,7 +882,6 @@
                             // console.table(allgoods);
                         }
 
-
                     } else {
                         product_heart_img.src =
                             "assets/images/icon/like_hov.png";
@@ -958,7 +889,7 @@
                         product_num.innerHTML--;
 
                         let xhr = new XMLHttpRequest();
-                        xhr.open("get", `phps/product_heart_num_delete.php?goods_no=3`, true);
+                        xhr.open("get", `phps/product_heart_num_delete.php?goods_no=${goods_no}`, true);
                         xhr.send(null);
 
                         xhr.onload = function () {
@@ -968,18 +899,33 @@
                             // console.table(allgoods);
                         }
                     }
+
                 }
 
-                function initheart() {
-                    //設定[加入愛心 或 取消愛心]的點按事件
-                    let product_heart = document.querySelector(".product_heart")
-                    // console.log(product_heart)
-                    // 變數名稱
-                    product_heart_img = document.querySelector(".product_heart img")
-                    product_heart.onclick = switchLove;
-                } //initheart
+            },
+            beforeCreate() {
 
-                initheart()
+            },
+            created() {
+
+            },
+            //要顯現的功能
+            // 將Vue的東西第一次出現在網頁上
+            mounted() {
+                // 全部
+                this.getProductAll()
+                // 熱門
+                this.getProductHot()
+                // 限時
+                this.getProductTime()
+
+                this.getGoodsComments()
+            },
+            //筆記!!因為愛心第一次沒出現在網頁上所以寫在mounted會抓不到。
+            // 用Vue改變網頁，如:v-if
+            updated() {
+                //----------------------加入愛心 或 取消愛心--------------
+
                 //----------------------加入收藏 或 取消收藏--------------
                 let product_save = document.querySelector(".product_save");
 
@@ -1008,9 +954,22 @@
 
                 //----------------------小圖變大圖--------------
 
-            }
+            },
 
         })
+    </script>
+
+    <!-- 廣告輪播 -->
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $(".center").slick({
+                dots: true,
+                infinite: true,
+                centerMode: true,
+                slidesToShow: 1,
+                slidesToScroll: 3
+            });
+        });
     </script>
 
 

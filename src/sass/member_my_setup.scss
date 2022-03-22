@@ -1,14 +1,18 @@
-  aside{
+aside {
     display: none;
 }
-.top_bar_box{
+
+.top_bar_box {
     top: 0;
 }
-.member_sidebar_box{
+
+.member_sidebar_box {
     display: none;
 }
+
 .backPage {
     margin-top: 70px;
+
     button {
         font-family: 'Noto Sans TC', sans-serif;
         font-size: 14px;
@@ -23,12 +27,14 @@
         cursor: pointer;
     }
 }
+
 .member_main_box {
     .member_bg {
         .member_bgcard {
             .member_main {
                 width: 80%;
                 margin: auto;
+
                 .member_head {
                     width: 100%;
                     display: flex;
@@ -61,6 +67,7 @@
             margin: auto;
             margin-top: 20px;
             padding-bottom: 10px;
+
             .member_cardmain {
                 width: 80%;
                 margin: auto;
@@ -81,25 +88,54 @@
                 }
             }
         }
+
+        #setlightbox {
+            position: fixed;
+            z-index: 20;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #cccc;
+            backdrop-filter: blur(5px);
+
+            .fixbox {
+                width: 50%;
+                margin: 0 auto;
+                min-width: 768px;
+                max-width: 900px;
+                position: absolute;
+                height: 95%;
+                overflow: auto;
+                left: 0;
+                right: 0;
+                top: 2%;
+                background-color: #fff;
+            }
+        }
     }
 
 
 }
 
 @media screen and (min-width:768px) {
-    aside{
+    aside {
         display: inline-block;
     }
-    .member_sidebar_box{
+
+    .member_sidebar_box {
         display: block;
     }
+
     .member_main_box {
         .member_bg {
             background-color: var(--primary-color);
+
             .member_bgcard {
-                .member_main{
+                .member_main {
                     display: none;
                 }
+
                 .member_main_title {
                     .member_head {
                         width: 100%;
@@ -110,41 +146,42 @@
                         border-bottom: 2px solid transparent;
                         font-size: 24px;
                         position: relative;
-    
+
                         .member_setchange {
                             width: 5%;
                             position: absolute;
                             right: 0;
-    
+
                             img {
                                 width: 30px;
                                 height: 30px;
                                 vertical-align: top;
                             }
                         }
-    
+
                     }
                 }
             }
-    
+
             .member_cardtext {
                 width: 100%;
                 margin: auto;
                 margin-top: 0px;
                 padding-bottom: 0px;
+
                 .member_cardmain {
                     width: 80%;
                     margin: auto;
-    
+
                     .gap {
                         margin: 50px 0;
                     }
-    
+
                     h3 {
                         margin: 10px 0px;
                         font-size: 18px;
                     }
-    
+
                     p {
                         margin: 20px 0px;
                         color: var(--font-secondary);
@@ -153,7 +190,7 @@
                 }
             }
         }
-    
-    
+
+
     }
 }

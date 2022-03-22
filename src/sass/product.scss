@@ -54,23 +54,85 @@
     }
 }
 
+//-----廣告輪播(原本設定-----------
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.slider {
+    width: 80%;
+    margin: 40px auto;
+}
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+/* 左右箭頭顏色 */
+.slick-prev:before,
+.slick-next:before {
+    color: midnightblue;
+}
+
+.slick-slide {
+    transition: all ease-in-out .3s;
+    opacity: .2;
+}
+
+.slick-active {
+    opacity: .5;
+}
+
+.slick-current {
+    opacity: 1;
+}
+
 // 廣告輪播
-.hero-slider {
+.center {
     // 調整大小
-    width: 92%;
+    // width: 92%;
     height: 200px;
-    overflow: hidden;
-    border-radius: var(--img-radius);
+    // overflow: hidden;
+    // border-radius: var(--img-radius);
     /* slider圓角 */
-    margin: 50px auto;
+    margin: 0px auto;
+
     /*調整slider位置*/
-    box-shadow: 0 2px 8px 2px #ecebebce;
-    .carousel-cell {
+    // box-shadow: 0 2px 8px 2px #ecebebce;
+    .ad_slider {
+        position: relative;
         width: 100%;
         height: 100%;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        // box-shadow: 0 2px 8px 2px #ecebebce;
+        // border-radius: var(--img-radius);
+
+        // 廣告照
+        .img_box {
+            position: relative;
+            // 圖片設死
+            width: 100%;
+            height: 200px;
+
+            img {
+                width: 100%;
+                box-shadow: 0 2px 8px 2px #ecebebce;
+                border-radius: var(--img-radius);
+
+            }
+        }
 
         // 背景陰影
         .overlay {
@@ -81,16 +143,24 @@
             bottom: 0;
             left: 0;
             right: 0;
+            // box-shadow: 0 2px 8px 2px #ecebebce;
+            border-radius: var(--img-radius);
             background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
 
         }
 
         .inner {
-            position: relative;
+            position: absolute;
             top: 50%;
+            left: 50%;
             transform: translateY(-50%);
-            color: white;
+            transform: translateX(-50%);
+            color: midnightblue;
             text-align: center;
+
+            a {
+                text-decoration: none;
+            }
 
             .btn {
                 border: 2px solid #fff;
@@ -114,51 +184,8 @@
                 color: rgb(121, 121, 121);
 
             }
-
-            .subtitle {
-                font-family: 'Roboto Slab', serif;
-                font-size: 2.2rem;
-                line-height: 1.2em;
-                font-weight: 200;
-                font-style: italic;
-                letter-spacing: 3px;
-                color: rgba(255, 255, 255, 0.5);
-                margin-bottom: 5px;
-            }
-
         }
     }
-}
-
-.hero-slider .flickity-prev-next-button {
-    width: 80px;
-    height: 80px;
-    background: transparent;
-}
-
-.hero-slider .flickity-prev-next-button:hover {
-    background: transparent;
-}
-
-.hero-slider .flickity-prev-next-button .arrow {
-    fill: white;
-}
-
-.hero-slider .flickity-page-dots {
-    bottom: 30px;
-}
-
-.hero-slider .flickity-page-dots .dot {
-    width: 30px;
-    height: 4px;
-    opacity: 1;
-    background: rgba(255, 255, 255, 0.5);
-    border: 0 solid white;
-    border-radius: 0;
-}
-
-.hero-slider .flickity-page-dots .dot.is-selected {
-    background: white;
 }
 
 // 商品分類
@@ -297,7 +324,7 @@
                 .product_item_box {
                     .img_box {
                         width: 170px;
-                        padding:4%;
+                        padding: 4%;
                         margin: 0 auto;
                         box-sizing: border-box;
 
@@ -714,6 +741,8 @@
     .main_product {
         .sort {
             display: flex;
+            //調整廣告位子縮放問題
+            margin-top: 15%;
             // 物件致中
             justify-content: center;
 

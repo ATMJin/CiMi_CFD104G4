@@ -27,43 +27,45 @@
             <div class="member_bg">
 
                 <!-- /////以下頁簽///// -->
-                <div id="tabs" class="container">
+                <div id="membersApp" class="container">
 
                     <div class="tabs">
-                        <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">尚未付款</a>
-                        <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">處理中</a>
-                        <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">待收貨</a>
-                        <a v-on:click="activetab='4'" v-bind:class="[ activetab === '4' ? 'active' : '' ]">已完成</a>
-                        <a v-on:click="activetab='5'" v-bind:class="[ activetab === '5' ? 'active' : '' ]">已取消</a>
+                        <a @click="activetab='1'" :class="[ activetab === '1' ? 'active' : '' ]">處理中</a>
+                        <a @click="activetab='2'" :class="[ activetab === '2' ? 'active' : '' ]">已出貨</a>
+                        <a @click="activetab='3'" :class="[ activetab === '3' ? 'active' : '' ]">待收貨</a>
+                        <a @click="activetab='4'" :class="[ activetab === '4' ? 'active' : '' ]">已完成</a>
+                        <a @click="activetab='5'" :class="[ activetab === '5' ? 'active' : '' ]">已取消</a>
                     </div>
 
                     <div class="content">
                         <div v-if="activetab ==='1'" class="tabcontent">
-                            <div class="member_com">
+                            <div class="member_com" v-for="order in orders" v-if="order.order_shipping==0">
                                 <div class="member_combg">
                                     <div class="member_comtitle">
-                                        <h2>2021-07-17</h2>
+                                        <h2>{{order.order_time.slice(0,10)}}</h2>
                                     </div>
-                                    <div class="member_commain">
+                                    <!-- 單件商品 -->
+                                    <div class="member_commain" v-for="good in ordergoods[0]">
                                         <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
+                                            <img :src="good.goods_pic1">
                                         </div>
                                         <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 1箱
-                                            </h3>
+                                            <h3>{{good.goods_name}}</h3>
                                         </div>
 
                                         <div class="member_comtxt">
-                                            <p>訂單金額：$400</p>
+                                            <p> 商品單價：${{good.goods_order_price}}</p>
+                                            <p>購買數量：{{good.product_total}}</p>
+                                            <p>商品總額：${{good.product_total * good.goods_order_price}}</p>
                                         </div>
                                     </div>
                                     <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$400</p>   
+                                        <p>XXXXXXXXXx訂單金額：$400</p>
                                     </div>
                                 </div>
                                 <div class="member_comsum">
                                     <h2>訂單總額：</h2>
-                                    <h2>$460</h2>
+                                    <h2>${{order.order_real_price}}</h2>
                                 </div>
                                 <div class="member_combtn">
                                     <input type="button" class="btn-primary" value="前往付款">
@@ -71,296 +73,151 @@
                                 </div>
                                 <hr>
                             </div>
-                            <div class="member_com">
-                                <div class="member_combg">
-                                    <div class="member_comtitle">
-                                        <h2>2021-07-18</h2>
-                                    </div>
-                                    <div class="member_commain">
-                                        <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
-                                        </div>
-                                        <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 5箱
-                                            </h3>
-                                        </div>
 
-                                        <div class="member_comtxt">
-                                            <p>訂單金額：$2000</p>
-                                        </div>
-                                    </div>
-                                    <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$2000</p>   
-                                    </div>
-
-
-                                </div>
-                                <div class="member_comsum">
-                                    <h2>訂單總額：</h2>
-                                    <h2>$2060</h2>
-                                </div>
-                                <div class="member_combtn">
-                                    <input type="button" value="前往付款">
-                                    <input type="button" value="取消付款">
-                                </div>
-                                <hr>
-                            </div>
                         </div>
                         <div v-if="activetab ==='2'" class="tabcontent">
-                            <div class="member_com">
+                            <div class="member_com" v-for="order in orders" v-if="order.order_shipping==1">
                                 <div class="member_combg">
                                     <div class="member_comtitle">
-                                        <h2>2021-07-17</h2>
+                                        <h2>{{order.order_time.slice(0,10)}}</h2>
                                     </div>
-                                    <div class="member_commain">
+                                    <!-- 單件商品 -->
+                                    <div class="member_commain" v-for="good in ordergoods[1]">
                                         <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
+                                            <img :src="good.goods_pic1">
                                         </div>
                                         <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 1箱
-                                            </h3>
+                                            <h3>{{good.goods_name}}</h3>
                                         </div>
 
                                         <div class="member_comtxt">
-                                            <p>訂單金額：$400</p>
+                                            <p> 商品單價：${{good.goods_order_price}}</p>
+                                            <p>購買數量：{{good.product_total}}</p>
+                                            <p>商品總額：${{good.product_total * good.goods_order_price}}</p>
                                         </div>
-                                        
                                     </div>
                                     <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$400</p>   
+                                        <p>XXXXXXXXXx訂單金額：$400</p>
                                     </div>
                                 </div>
                                 <div class="member_comsum">
                                     <h2>訂單總額：</h2>
-                                    <h2>$460</h2>
+                                    <h2>${{order.order_real_price}}</h2>
                                 </div>
                                 <div class="member_combtn">
-                                    <!-- <input type="button"> -->
-                                    <input type="button" class="seconbtn" value="取消訂單">
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="member_com">
-                                <div class="member_combg">
-                                    <div class="member_comtitle">
-                                        <h2>2021-07-18</h2>
-                                    </div>
-                                    <div class="member_commain">
-                                        <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
-                                        </div>
-                                        <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 5箱
-                                            </h3>
-                                        </div>
-
-                                        <div class="member_comtxt">
-                                            <p>訂單金額：$2000</p>
-                                        </div>
-                                    </div>
-                                    <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$2000</p>   
-                                    </div>
-                                </div>
-                                <div class="member_comsum">
-                                    <h2>訂單總額：</h2>
-                                    <h2>$2060</h2>
-                                </div>
-                                <div class="member_combtn">
-                                    <input type="button" value="取消訂單">
+                                    <input type="button" class="btn-primary" value="前往付款">
+                                    <input type="button" class="btn-secondary" value="取消付款">
                                 </div>
                                 <hr>
                             </div>
 
                         </div>
                         <div v-if="activetab ==='3'" class="tabcontent">
-                            <div class="member_com">
+                            <div class="member_com" v-for="order in orders" v-if="order.order_shipping==2">
                                 <div class="member_combg">
                                     <div class="member_comtitle">
-                                        <h2>2021-07-17</h2>
+                                        <h2>{{order.order_time.slice(0,10)}}</h2>
                                     </div>
-                                    <div class="member_commain">
+                                    <!-- 單件商品 -->
+                                    <div class="member_commain" v-for="good in ordergoods[2]">
                                         <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
+                                            <img :src="good.goods_pic1">
                                         </div>
                                         <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 1箱
-                                            </h3>
+                                            <h3>{{good.goods_name}}</h3>
                                         </div>
 
                                         <div class="member_comtxt">
-                                            <p>訂單金額：$400</p>
+                                            <p> 商品單價：${{good.goods_order_price}}</p>
+                                            <p>購買數量：{{good.product_total}}</p>
+                                            <p>商品總額：${{good.product_total * good.goods_order_price}}</p>
                                         </div>
                                     </div>
                                     <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$400</p>   
+                                        <p>XXXXXXXXXx訂單金額：$400</p>
                                     </div>
                                 </div>
                                 <div class="member_comsum">
                                     <h2>訂單總額：</h2>
-                                    <h2>$460</h2>
+                                    <h2>${{order.order_real_price}}</h2>
                                 </div>
                                 <div class="member_combtn">
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="member_com">
-                                <div class="member_combg">
-                                    <div class="member_comtitle">
-                                        <h2>2021-07-18</h2>
-                                    </div>
-                                    <div class="member_commain">
-                                        <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
-                                        </div>
-                                        <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 5箱
-                                            </h3>
-                                        </div>
-
-                                        <div class="member_comtxt">
-                                            <p>訂單金額：$2000</p>
-                                        </div>
-                                    </div>
-                                    <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$2000</p>   
-                                    </div>
-                                </div>
-                                <div class="member_comsum">
-                                    <h2>訂單總額：</h2>
-                                    <h2>$2060</h2>
-                                </div>
-                                <div class="member_combtn">
+                                    <input type="button" class="btn-primary" value="前往付款">
+                                    <input type="button" class="btn-secondary" value="取消付款">
                                 </div>
                                 <hr>
                             </div>
 
                         </div>
                         <div v-if="activetab ==='4'" class="tabcontent">
-                            <div class="member_com">
+                            <div class="member_com" v-for="order in orders" v-if="order.order_shipping==3">
                                 <div class="member_combg">
                                     <div class="member_comtitle">
-                                        <h2>2021-07-17</h2>
+                                        <h2>{{order.order_time.slice(0,10)}}</h2>
                                     </div>
-                                    <div class="member_commain">
+                                    <!-- 單件商品 -->
+                                    <div class="member_commain" v-for="good in ordergoods[3]">
                                         <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
+                                            <img :src="good.goods_pic1">
                                         </div>
                                         <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 1箱
-                                            </h3>
+                                            <h3>{{good.goods_name}}</h3>
                                         </div>
 
                                         <div class="member_comtxt">
-                                            <p>訂單金額：$400</p>
+                                            <p> 商品單價：${{good.goods_order_price}}</p>
+                                            <p>購買數量：{{good.product_total}}</p>
+                                            <p>商品總額：${{good.product_total * good.goods_order_price}}</p>
                                         </div>
                                     </div>
                                     <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$400</p>   
+                                        <p>XXXXXXXXXx訂單金額：$400</p>
                                     </div>
                                 </div>
                                 <div class="member_comsum">
                                     <h2>訂單總額：</h2>
-                                    <h2>$460</h2>
+                                    <h2>${{order.order_real_price}}</h2>
                                 </div>
                                 <div class="member_combtn">
-                                    <input type="button" value="再買一次">
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="member_com">
-                                <div class="member_combg">
-                                    <div class="member_comtitle">
-                                        <h2>2021-07-18</h2>
-                                    </div>
-                                    <div class="member_commain">
-                                        <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
-                                        </div>
-                                        <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 5箱
-                                            </h3>
-                                        </div>
-
-                                        <div class="member_comtxt">
-                                            <p>訂單金額：$2000</p>
-                                        </div>
-                                    </div>
-                                    <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$2000</p>   
-                                    </div>
-                                </div>
-                                <div class="member_comsum">
-                                    <h2>訂單總額：</h2>
-                                    <h2>$2060</h2>
-                                </div>
-                                <div class="member_combtn">
-                                    <input type="button" value="再買一次">
+                                    <input type="button" class="btn-primary" value="前往付款">
+                                    <input type="button" class="btn-secondary" value="取消付款">
                                 </div>
                                 <hr>
                             </div>
 
                         </div>
                         <div v-if="activetab ==='5'" class="tabcontent">
-                            <div class="member_com">
+                            <div class="member_com" v-for="order in orders" v-if="order.order_shipping==4">
                                 <div class="member_combg">
                                     <div class="member_comtitle">
-                                        <h2>2021-07-17</h2>
+                                        <h2>{{order.order_time.slice(0,10)}}</h2>
                                     </div>
-                                    <div class="member_commain">
+                                    <!-- 單件商品 -->
+                                    <div class="member_commain" v-for="good in ordergoods[4]">
                                         <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
+                                            <img :src="good.goods_pic1">
                                         </div>
                                         <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 1箱
-                                            </h3>
+                                            <h3>{{good.goods_name}}</h3>
                                         </div>
 
                                         <div class="member_comtxt">
-                                            <p>訂單金額：$400</p>
+                                            <p> 商品單價：${{good.goods_order_price}}</p>
+                                            <p>購買數量：{{good.product_total}}</p>
+                                            <p>商品總額：${{good.product_total * good.goods_order_price}}</p>
                                         </div>
                                     </div>
                                     <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$400</p>   
+                                        <p>XXXXXXXXXx訂單金額：$400</p>
                                     </div>
                                 </div>
                                 <div class="member_comsum">
                                     <h2>訂單總額：</h2>
-                                    <h2>$460</h2>
+                                    <h2>${{order.order_real_price}}</h2>
                                 </div>
                                 <div class="member_combtn">
-                                    <input type="button" value="再買一次">
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="member_com">
-                                <div class="member_combg">
-                                    <div class="member_comtitle">
-                                        <h2>2021-07-18</h2>
-                                    </div>
-                                    <div class="member_commain">
-                                        <div class="member_comimg">
-                                            <img src="https://picsum.photos/300/200/?random=10">
-                                        </div>
-                                        <div class="member_comtxth3">
-                                            <h3>♥現貨下殺♥2022林俊杰新專輯寫真集歌詞本 贈周邊海報明信片卡貼書籤時尚最夯藝人代言 祖傳喉糖 ((!!!!林俊傑!!!!)) x 5箱
-                                            </h3>
-                                        </div>
-
-                                        <div class="member_comtxt">
-                                            <p>訂單金額：$2000</p>
-                                        </div>
-                                    </div>
-                                    <div class="member_rwdcomtxt">
-                                        <p>訂單金額：$2000</p>   
-                                    </div>
-                                </div>
-                                <div class="member_comsum">
-                                    <h2>訂單總額：</h2>
-                                    <h2>$2060</h2>
-                                </div>
-                                <div class="member_combtn">
-                                    <input type="button" value="再買一次">
+                                    <input type="button" class="btn-primary" value="前往付款">
+                                    <input type="button" class="btn-secondary" value="取消付款">
                                 </div>
                                 <hr>
                             </div>
@@ -374,14 +231,8 @@
             </div>
         </main>
     </div>
-    <script>
-        new Vue({
-            el: '#tabs',
-            data: {
-                activetab: '1'
-            },
-        });
-    </script>
+
+    <script src="js/member/member_article_treasure_order.js"></script>
 </body>
 
 </html>
