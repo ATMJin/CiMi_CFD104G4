@@ -25,8 +25,12 @@ try {
   $goods = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
   // 作者
-  $sql = "SELECT * FROM `mem` 
-  WHERE `mem_name` LIKE '%{$search}%'";
+  $sql = "SELECT mem_id, mem_name,mem_head,COUNT(a.mem_no) AS mem_post
+  FROM mem m 
+  JOIN article a 
+  ON a.mem_no = m.mem_no
+  WHERE m.mem_name LIKE '%{$search}%'
+  GROUP BY a.mem_no";
   $writers = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
   $allrows=[$billboards, $articles, $goods, $writers];

@@ -8,6 +8,7 @@ const vm = new Vue({
     writers: [],
     like_articles: [],
     comment_info: [],
+    comments: [],
     a_num: 1,
   },
   computed: {
@@ -22,15 +23,17 @@ const vm = new Vue({
   methods: {
     getSearchData() {
       let value = decodeURI(location.href.split("=")[1]);
+      document.querySelector(".search_bar input[type='search']").value = value
+
       fetch(`phps/search.php?search=${value}`)
         .then(res => res.json())
         .then(res => {
           // console.table(res)
           this.billboards = res[0]
           this.articles = res[1]
-          console.log(this.articles);
           this.goods = res[2]
           this.writers = res[3]
+          // console.log(this.writers);
         })
         .catch(err => console.log(err));
     },
@@ -269,11 +272,100 @@ const vm = new Vue({
         this.loginAlert()
       }
     },
+
+    //燈箱出現的跟圖片顯示要樣
+    getGoodNumber(goods_no) {
+      // console.log(this.number);
+      this.number = goods_no;
+      // console.log(this.number);
+    },
+    getGoodsComments() {
+      let xhr = new XMLHttpRequest();
+      //如果case=goodscomment抓商品留言數
+      xhr.open("get", `phps/product_all.php?case=goodscomment`, true);
+      xhr.send(null);
+
+      xhr.onload = () => {
+        allcomments = JSON.parse(xhr.responseText);
+        // console.log(xhr.responseText);
+        // console.table(allcomments);
+        this.comments = allcomments
+      }
+    },
+    displayNone() {
+      let x = document.querySelector(".product_lighbox");
+      x.style.display = "none";
+    },
+    countComment(newValue, oldValue) {
+      let c = 0;
+      for (let i = 0; i < this.comments.length; i++) {
+        if (this.comments[i].goods_no == newValue) {
+          c++
+        }
+      }
+      // console.log(c);
+      this.count = c;
+    },
+    //小圖變大圖功能
+    showLarge(e) {
+      let small = e.target;
+      // console.log(small)
+      //   document.getElementById("large").src = small.src ;
+
+      //大圖路徑等於被點擊的小圖
+      document.querySelector(".large").src = small.src;
+
+    },
+    //加入愛心
+    initheart(goods_no) {
+      // console.log("ssss")
+      let product_heart = document.querySelector(".product_heart")
+      let product_num = document.querySelector(".product_num")
+      let product_heart_img = document.querySelector(".product_heart img")
+
+      if (product_heart.title == "加入愛心") {
+        product_heart_img.src =
+          "assets/images/icon/like.png";
+        product_heart.title = "取消愛心";
+        product_num.innerHTML++;
+
+        let xhr = new XMLHttpRequest();
+        //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
+        xhr.open("get", `phps/product_heart_num_add.php?goods_no=${goods_no}`, true);
+        xhr.send(null);
+
+        xhr.onload = function () {
+          // 接收PHP傳來的資料
+          // allgoods = JSON.parse(xhr.responseText);
+          // console.log(xhr.responseText);
+          // console.table(allgoods);
+        }
+
+      } else {
+        product_heart_img.src =
+          "assets/images/icon/like_hov.png";
+        product_heart.title = "加入愛心";
+        product_num.innerHTML--;
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("get", `phps/product_heart_num_delete.php?goods_no=${goods_no}`, true);
+        xhr.send(null);
+
+        xhr.onload = function () {
+          // 接收PHP傳來的資料
+          // allgoods = JSON.parse(xhr.responseText);
+          // console.log(xhr.responseText);
+          // console.table(allgoods);
+        }
+      }
+
+    }
   },
   created() {
     this.getSearchData()
     this.get_like_article();
     this.get_comment_info();
+    this.getGoodsComments()
   },
   mounted() {
     this.setTargets()
