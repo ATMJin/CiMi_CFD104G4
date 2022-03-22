@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜尋 | CiMi交友論壇</title>
+
+  <link rel="stylesheet" href="assets/css/article_all.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+
+  @@include('layout/header.html')
+
+  <div class="content_area">
+    @@include('layout/sidebar.html')
+    <main class="main_area">
+      @@include('article_lightbox.html')
+      <div id="searchapp">
+
+        <section class="article_sort">
+          <h2>以下是"{{search}}"的文章搜尋結果</h2>
+          <div class="charts_box">
+            <div class="article_box" v-for="article in articles">
+              <span style="display:none;">{{article.article_no}}</span>
+              <!-- no=new_article.article_no -->
+              <!-- 發文者 -->
+              <div class="article_mem_info">
+                <div class="article_mem_icon">
+                  <img :src="article.mem_head??'assets/images/blue_ball.png'">
+                </div>
+                <div class="article_mem_name">
+                  {{article.mem_name}}</div>
+              </div>
+              <!-- 文章標題 -->
+              <div class="article_container">
+                <!-- 文章內容 -->
+                <div class="article_txt_box">
+                  <div class="article_txt_item">
+                    <!-- 文章標題 -->
+                    <div class="article_title">{{article.article_title}}</div>
+                    <!-- 文章摘要 -->
+                    <div class="article_summary">{{article.article_content}}
+                    </div>
+                  </div>
+                  <!-- 文章反應 -->
+                  <div class="article_react">
+                    <!-- 喜歡數 -->
+                    <div class="article_like_box">
+                      <div class="article_icon_item">
+                        <img src="assets/images/icon/like.png" alt="">
+                      </div>
+                      <div class="article_like_amount" id="article_like_amount">
+                        {{article.article_likes_amount}}</div>
+                    </div>
+                    <!-- 留言數 -->
+                    <div class="article_comment_box">
+                      <div class="article_icon_item">
+                        <img src="assets/images/icon/comment.png" alt="">
+                      </div>
+                      <div class="article_comment_amount" id="article_comment_amount">
+                        {{article.comment_amount}}
+                      </div>
+                    </div>
+                    <!-- 收藏 -->
+                    <div class="article_collect_box">
+                      <div class="article_icon_item">
+                        <img src="assets/images/icon/save_hov.png" alt="">
+                      </div>
+                      <div class="article_collect_amount">
+                        {{article.article_collect_amount}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 文章圖片 -->
+                <div class="article_pic_box">
+                  <img :src="article.article_pic??'assets/images/blue_ball.png'">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/search.js"> </script>
+</body>
+
+</html>
