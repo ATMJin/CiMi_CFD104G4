@@ -419,6 +419,7 @@ body {
 
 .typing_area .fun_icon span {
     padding: 0 2%;
+    
 }
 
 
@@ -444,8 +445,10 @@ body {
         display: block;
     }
 
-    #thePic{
+    .typing_area .fun_icon span {
+        padding: 0 2%;
         display: none;
+        
     }
 }
 
@@ -475,7 +478,4 @@ body {
     vertical-align: top;
     isolation: isolate;
     z-index: 666666;
-}
-#thePic{
-    display: block;
 }
