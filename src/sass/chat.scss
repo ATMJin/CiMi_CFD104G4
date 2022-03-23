@@ -263,8 +263,8 @@ body {
     font-size: 18px;
     color: #333;
     position: absolute;
-    right: 45px;
-    top: -40px;
+    right: 50px;
+    top: -51px;
     display: flex;
 }
 
@@ -443,6 +443,10 @@ body {
     .chat_area header #back {
         display: block;
     }
+
+    .crop{
+        display: none;
+    }
 }
 
 .chat_box .chatImg {
@@ -470,5 +474,8 @@ body {
     width: 28px;
     vertical-align: top;
     isolation: isolate;
-    z-index: 6666666;
+    z-index: 666666;
+}
+.crop{
+    display: block;
 }
