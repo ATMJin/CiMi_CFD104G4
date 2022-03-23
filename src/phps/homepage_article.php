@@ -57,19 +57,26 @@ try {
 
             // 抓取留言資訊資料 
         case "find_comment_info":
+            $article_no = (int)$_POST["article_no"];
+
             $sql = "SELECT c.comment_date, c.comment_content, c.comment_likes_amount, c.article_no, m.mem_name, m.mem_head,m.mem_id
 			FROM tibamefe_cfd104g4.article_comment c
 			JOIN mem m
 			on c.mem_no=m.mem_no
-			where c.article_no=:article_no
+			where c.article_no=$article_no
 			order by comment_date desc;
 			";
-            $article_no = $_POST["article_no"];
-            $articles = $pdo->prepare($sql);
-            $articles->bindValue(":article_no", $article_no); //給值
-            $articles->execute(); //執行
+
+            // $articles = $pdo->prepare($sql);
+            // $articles->bindValue(":article_no", $article_no); //給值
+            // $articles->execute(); //執行
+
+            $articles = $pdo->query($sql);
+
             $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
+
             echo json_encode($articleRows);
+
             break;
 
             // 寫下留言

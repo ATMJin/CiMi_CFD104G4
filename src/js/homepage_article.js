@@ -32,6 +32,7 @@ new Vue({
     methods: {
         setTargets() {
             this.lightbox = document.querySelectorAll(".lightbox");
+            console.log(this.lightbox)
             this.close = document.querySelectorAll(".close_icon");
             this.article_box = document.getElementsByClassName("article_box");
             // console.log(this.lightbox);
@@ -40,13 +41,13 @@ new Vue({
         },
 
         close_lightbox() {
-            this.lightbox[0].style.display = "none";
+            this.lightbox[1].style.display = "none";
             let html = document.getElementsByTagName('html')[0];
             html.style = "overflow:hidden scroll";
 
         },
         open_lightbox(a_num) {
-            this.lightbox[0].style.display = "block";
+            this.lightbox[1].style.display = "block";
             let html = document.getElementsByTagName('html')[0];
             // console.log(html);
             html.style = "overflow:hidden";
