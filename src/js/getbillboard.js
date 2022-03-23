@@ -243,7 +243,7 @@ function hotBoard() {
 //熱門看板，追蹤按鈕
 
 function followBtn(e) {
-  console.log(e.target.dataset.no)
+  // console.log(e.target.dataset.no)
   if (sessionStorage.getItem('login') == null) {
     alert("請先登入")
   } else if (sessionStorage.getItem('login') == 'success') {
