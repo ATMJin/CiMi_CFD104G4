@@ -2,94 +2,158 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>搜尋 | CiMi交友論壇</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜尋 | CiMi交友論壇</title>
 
-  <link rel="stylesheet" href="assets/css/article_all.css">
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/product.css">
+    <link rel="stylesheet" href="assets/css/charts.css" />
+    <link rel="stylesheet" href="assets/css/article_all.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/vue.js"></script>
+    <style>
+        @media screen and (min-width: 990px) {
+            .main_product {
+                width: 100%;
+            }
+
+            .main_product .all .all_item_box .title {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  @@include('layout/header.html')
+    @@include('layout/header.html')
 
-  <div class="content_area">
-    @@include('layout/sidebar.html')
-    <main class="main_area">
-      @@include('article_lightbox.html')
-      <div id="searchapp">
+    <div class="content_area">
+        @@include('layout/sidebar.html')
+        <main class="main_area" id="searchapp">
+            @@include('article_lightbox.html')
 
-        <section class="article_sort">
-          <h2>以下是"{{search}}"的文章搜尋結果</h2>
-          <div class="charts_box">
-            <div class="article_box" v-for="article in articles">
-              <span style="display:none;">{{article.article_no}}</span>
-              <!-- no=new_article.article_no -->
-              <!-- 發文者 -->
-              <div class="article_mem_info">
-                <div class="article_mem_icon">
-                  <img :src="article.mem_head??'assets/images/blue_ball.png'">
+            <!-- 文章搜尋 -->
+            <section v-if="search && articles[0]" class="article_sort">
+                <h2>以下是"{{search}}"的文章搜尋結果</h2>
+                <div class="charts_box">
+                    <div class="article_box" v-for="article in articles" @click="open_lightbox(article.article_no)">
+                        <span style="display:none;">{{article.article_no}}</span>
+                        <!-- no=new_article.article_no -->
+                        <!-- 發文者 -->
+                        <div class="article_mem_info">
+                            <div class="article_mem_icon">
+                                <img :src="article.mem_head??'assets/images/blue_ball.png'">
+                            </div>
+                            <div class="article_mem_name">
+                                {{article.mem_name}}</div>
+                        </div>
+                        <!-- 文章標題 -->
+                        <div class="article_container">
+                            <!-- 文章內容 -->
+                            <div class="article_txt_box">
+                                <div class="article_txt_item">
+                                    <!-- 文章標題 -->
+                                    <div class="article_title">{{article.article_title}}</div>
+                                    <!-- 文章摘要 -->
+                                    <div class="article_summary">{{article.article_content}}
+                                    </div>
+                                </div>
+                                <!-- 文章反應 -->
+                                <div class="article_react">
+                                    <!-- 喜歡數 -->
+                                    <div class="article_like_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/like.png" alt="">
+                                        </div>
+                                        <div class="article_like_amount" id="article_like_amount">
+                                            {{article.article_likes_amount}}</div>
+                                    </div>
+                                    <!-- 留言數 -->
+                                    <div class="article_comment_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/comment.png" alt="">
+                                        </div>
+                                        <div class="article_comment_amount" id="article_comment_amount">
+                                            {{article.comment_amount}}
+                                        </div>
+                                    </div>
+                                    <!-- 收藏 -->
+                                    <div class="article_collect_box">
+                                        <div class="article_icon_item">
+                                            <img src="assets/images/icon/save_hov.png" alt="">
+                                        </div>
+                                        <div class="article_collect_amount">
+                                            {{article.article_collect_amount}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章圖片 -->
+                            <div class="article_pic_box">
+                                <img :src="article.article_pic??'assets/images/blue_ball.png'">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="article_mem_name">
-                  {{article.mem_name}}</div>
-              </div>
-              <!-- 文章標題 -->
-              <div class="article_container">
-                <!-- 文章內容 -->
-                <div class="article_txt_box">
-                  <div class="article_txt_item">
-                    <!-- 文章標題 -->
-                    <div class="article_title">{{article.article_title}}</div>
-                    <!-- 文章摘要 -->
-                    <div class="article_summary">{{article.article_content}}
+            </section>
+
+            <!-- 商品搜尋 -->
+            <div class="main_product goods" v-if="search && goods[0]">
+                <section class="all">
+                    <div class="all_item_box">
+                        <!-- 標題 -->
+                        <div class="title">
+                            <h2>以下是"{{search}}"的商品搜尋結果</h2>
+                        </div>
+                        <!-- 商品 -->
+                        <!-- 先打一個範本，再用v-for迴圈去跑卡片式商品 -->
+                        <!-- 範本參考用的 -->
+                        <div class="item_box">
+
+                            <div class="item ligh_box_jump" v-for="good in goods" @click="getGoodNumber(good.goods_no)">
+                                <div class="img_box">
+                                    <img v-bind:src="good.goods_pic1">
+                                </div>
+                                <div class="txt_box">
+                                    <p>{{good.goods_name}}</p>
+                                    <p>NT.{{good.goods_price}}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <!-- 文章反應 -->
-                  <div class="article_react">
-                    <!-- 喜歡數 -->
-                    <div class="article_like_box">
-                      <div class="article_icon_item">
-                        <img src="assets/images/icon/like.png" alt="">
-                      </div>
-                      <div class="article_like_amount" id="article_like_amount">
-                        {{article.article_likes_amount}}</div>
-                    </div>
-                    <!-- 留言數 -->
-                    <div class="article_comment_box">
-                      <div class="article_icon_item">
-                        <img src="assets/images/icon/comment.png" alt="">
-                      </div>
-                      <div class="article_comment_amount" id="article_comment_amount">
-                        {{article.comment_amount}}
-                      </div>
-                    </div>
-                    <!-- 收藏 -->
-                    <div class="article_collect_box">
-                      <div class="article_icon_item">
-                        <img src="assets/images/icon/save_hov.png" alt="">
-                      </div>
-                      <div class="article_collect_amount">
-                        {{article.article_collect_amount}}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- 文章圖片 -->
-                <div class="article_pic_box">
-                  <img :src="article.article_pic??'assets/images/blue_ball.png'">
-                </div>
-              </div>
+                </section>
             </div>
-          </div>
-        </section>
-      </div>
-    </main>
-  </div>
 
-  <script src="js/search.js"> </script>
+            <!-- 作者搜尋 -->
+            <div class="writer" v-if="search && writers[0]">
+                <h2>以下是"{{search}}"的作者搜尋結果</h2>
+                <div class="charts_content" v-for="(writer, index) in writers" :key="index">
+                    <div class="charts_box">
+                        <div class="charts_rank">
+                            <span>No.{{index+1}}</span>
+                        </div>
+                        <div class="charts_img">
+                            <img v-bind:src="writer.mem_head" />
+                        </div>
+                        <div class="charts_name">
+                            <span class="charts_mem">{{writer.mem_name}}</span>
+                            <span class="charts_account">@{{writer.mem_id}}</span>
+                        </div>
+                    </div>
+                    <div class="charts_wrap">
+                        <div class="charts_sum">
+                            發文數 : <span>{{writer.mem_post}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/search.js"> </script>
 </body>
 
 </html>
