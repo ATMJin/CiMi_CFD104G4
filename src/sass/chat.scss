@@ -444,7 +444,7 @@ body {
         display: block;
     }
 
-    .crop{
+    .btnSave .crop{
         display: none;
     }
 }
@@ -476,6 +476,6 @@ body {
     isolation: isolate;
     z-index: 666666;
 }
-.crop{
+.btnSave .crop{
     display: block;
 }
