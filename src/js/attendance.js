@@ -38,11 +38,14 @@ function getsign_date(){
     xhr.onload = function () {
         let memsign = JSON.parse(xhr.responseText);
         // console.log(questions[0].optionA);
-   
-    if (memsign[0].mem_lastsign == check_date) {
-        lightbox[0].style.display = "none";
-    } else {
-        lightbox[0].style.display = "block";
+    if (mem_no == null) {
+       lightbox[0].style.display = "block";
+    }else{
+        if (memsign[0].mem_lastsign == check_date) {
+            lightbox[0].style.display = "none";
+        } else {
+            lightbox[0].style.display = "block";
+        }
     }
  }
     xhr.open("get", `phps/attendence.php?mem_no=${sessionStorage.getItem('mem_no')}`, true);
