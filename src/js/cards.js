@@ -87,7 +87,6 @@ function getquestion(){
       let infos = JSON.parse(xhr.responseText);
       console.log(xhr.responseText);
       let i = 0;
-      console.log(infos[i].mem_sex);
 
       if (infos[i]) {
         if (infos[i].mem_sex == '男') {

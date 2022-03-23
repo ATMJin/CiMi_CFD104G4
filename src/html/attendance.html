@@ -1,139 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
+    <section class="lightbox_main_area">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <div class="lightbox">
+            <div class="attendance_item_box">
+                <div class="close_icon_box">
+                    <img src="assets/images/icon/close.png" class="close_icon" alt="close">
+                </div>
+                <div class="lightbox_title_box">
+                    <p class="lightbox_title_item">每日簽到</p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiMi交友論壇</title>
-    <!-- <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/common.css"> -->
-    <link rel="stylesheet" href="assets/css/attendance.css">
-
-</head>
-
-<body>
-    @@include('layout/header.html')
-    <section class="content">
-        @@include('layout/sidebar.html')
-        <main class="main_area">
-            <div class="lightbox">
-                <div class="attendance_item_box">
-                    <div class="close_icon_box">
-                        <img src="assets/images/icon/close.png" class="close_icon" alt="close">
+                </div>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">星期一</span>
                     </div>
-                    <div class="lightbox_title_box">
-                        <p class="lightbox_title_item">每日簽到</p>
-
-                    </div>
-                    <div class="attendance_item">
-                        <div class="attendance_title_box">
-                            <span class="attendance_title_item">星期一</span>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
                         </div>
-                        <div class="coins_content">
-                            <div class="img_box">
-                                <img class="check_item" src="assets/images/attendance_check_item.svg">
-                                <img class="coins_item" src="assets/images/attendance_coins_item.svg">
-                            </div>
-                            <div class="txt_box">
-                                <p class="coins_amount">+1</p>
-                            </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
                         </div>
                     </div>
-                    <div class="attendance_item">
-                        <div class="attendance_title_box">
-                            <span class="attendance_title_item">星期二</span>
+                </div>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">星期二</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
                         </div>
-                        <div class="coins_content">
-                            <div class="img_box">
-                                <img class="check_item" src="assets/images/attendance_check_item.svg">
-                                <img class="coins_item" src="assets/images/attendance_coins_item.svg">
-                            </div>
-                            <div class="txt_box">
-                                <p class="coins_amount">+1</p>
-                            </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="attendance_item">
-                        <div class="attendance_title_box">
-                            <span class="attendance_title_item">星期三</span>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="">星期三</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
                         </div>
-                        <div class="coins_content">
-                            <div class="img_box">
-                                <img class="check_item" src="assets/images/attendance_check_item.svg">
-                                <img class="coins_item" src="assets/images/attendance_coins_item.svg">
-                            </div>
-                            <div class="txt_box">
-                                <p class="coins_amount">+1</p>
-                            </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="attendance_item">
-                        <div class="attendance_title_box">
-                            <span class="attendance_title_item">星期四</span>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">星期四</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
                         </div>
-                        <div class="coins_content">
-                            <div class="img_box">
-                                <img class="check_item" src="assets/images/attendance_check_item.svg">
-                                <img class="coins_item" src="assets/images/attendance_coins_item.svg">
-                            </div>
-                            <div class="txt_box">
-                                <p class="coins_amount">+1</p>
-                            </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="attendance_item">
-                        <div class="attendance_title_box">
-                            <span class="attendance_title_item">星期五</span>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">星期五</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
                         </div>
-                        <div class="coins_content">
-                            <div class="img_box">
-                                <img class="check_item" src="assets/images/attendance_check_item.svg">
-                                <img class="coins_item" src="assets/images/attendance_coins_item.svg">
-                            </div>
-                            <div class="txt_box">
-                                <p class="coins_amount">+1</p>
-                            </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="attendance_item">
-                        <div class="attendance_title_box">
-                            <span class="attendance_title_item">星期六</span>
+                <div class="attendance_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">星期六</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_item" src="assets/images/attendance_coins_item.svg">
                         </div>
-                        <div class="coins_content">
-                            <div class="img_box">
-                                <img class="check_item" src="assets/images/attendance_check_item.svg">
-                                <img class="coins_item" src="assets/images/attendance_coins_item.svg">
-                            </div>
-                            <div class="txt_box">
-                                <p class="coins_amount">+1</p>
-                            </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+1</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="attendance_7days_item">
-                        <div class="attendance_title_box">
-                            <span class="attendance_title_item">星期天</span>
+                <div class="attendance_7days_item">
+                    <div class="attendance_title_box">
+                        <span class="attendance_title_item">星期天</span>
+                    </div>
+                    <div class="coins_content">
+                        <div class="img_bonus_box">
+                            <img class="check_item" src="assets/images/attendance_check_item.svg">
+                            <img class="coins_bonus_item" src="assets/images/attendance_coins_bonus_item.svg">
                         </div>
-                        <div class="coins_content">
-                            <div class="img_bonus_box">
-                                <img class="check_item" src="assets/images/attendance_check_item.svg">
-                                <img class="coins_bonus_item" src="assets/images/attendance_coins_bonus_item.svg">
-                            </div>
-                            <div class="txt_box">
-                                <p class="coins_amount">+?</p>
-                            </div>
+                        <div class="txt_box">
+                            <p class="coins_amount">+?</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <script type="text/javascript" src="js/attendance.js"></script>
-        </main>
+        </div>
+        <script type="text/javascript" src="js/attendance.js"></script>
     </section>
-</body>
-
-</html>
