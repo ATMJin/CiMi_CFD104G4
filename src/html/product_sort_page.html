@@ -5,24 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>質感生活 | CiMi交友論壇</title>
+    <title>好物商城 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/product.css">
     <!-- 廣告輪播 -->
-    <!-- <link rel="stylesheet" href="src\js\product.js"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.css">
+    <link rel="stylesheet" href="assets\css\product_slick.css">
+    <link rel="stylesheet" href="assets\css\product_slick-theme.css">
 
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js">
-    </script>
-    <script src="js/vue.js"></script>
+    <!-- vue -->
     <link rel="stylesheet" href="assets/css/shop_cart.css">
-    <!-- <script type="text/javascript" src="script.js"></script> -->
     <!-- 輪播(最新上架) -->
-    <link rel="stylesheet" href="assets\css\product_slider.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="assets\css\product_slider.css"> -->
+    <!-- jquery -->
+    <!-- 上架商品輪播 -->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <!-- 倒數計時 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+    <!-- 解決這個問題favicon.ico -->
+    <link rel="shortcut icon" href="#">
+    <script src="js/vue.js"></script>
 </head>
 
 <body>
@@ -31,7 +33,7 @@
         <div class="content_area">
             @@include('layout/sidebar.html')
             <!-- 好物商城 -->
-            <main class="main_product sort_product">
+            <main class="main_product">
                 <!-- 好物商城標題 -->
                 <Section class="product_title">
                     <div class="item_box">
@@ -48,31 +50,109 @@
                 </Section>
 
                 <!-- 廣告投放 -->
-                <section class="hero-slider" data-carousel>
-                    <div class="carousel-cell"
-                        style="background-image: url(https://as1.ftcdn.net/v2/jpg/03/52/44/60/1000_F_352446020_H9Vwe6cEzxuFDnDvmcbmmb4z5fMoDmfL.jpg);">
+                <section class="center slider">
+                    <!-- 第一個 -->
+                    <div class="ad_slider">
+                        <div class="img_box">
+                            <img src="assets\images\goods\product_ad_01.jpg">
+                        </div>
+                        <!-- 變暗效果 -->
+                        <div class="overlay"></div>
+                        <div class="inner">
+                            <a href="product_ad_page.html" class="btn">Tell me more</a>
+                        </div>
+                    </div>
+                    <!-- 第二個 -->
+                    <div class="ad_slider">
+                        <div class="img_box">
+                            <img src="assets\images\goods\product_ad_02.jpg">
+                        </div>
                         <!-- 變暗效果 -->
                         <!-- <div class="overlay"></div> -->
                         <div class="inner">
                             <a href="product_ad_page.html" class="btn">Tell me more</a>
                         </div>
                     </div>
-
-                    <div class="carousel-cell"
-                        style="background-image: url(https://t4.ftcdn.net/jpg/03/52/34/13/240_F_352341337_QNZ3VAWemxjJ0APF7zWQT9mIvkuDdbgt.jpg);">
+                    <!-- 第三個 -->
+                    <div class="ad_slider">
+                        <div class="img_box">
+                            <img src="assets\images\goods\product_ad.jpg">
+                        </div>
+                        <!-- 變暗效果 -->
                         <div class="overlay"></div>
                         <div class="inner">
                             <a href="product_ad_page.html" class="btn">Tell me more</a>
                         </div>
                     </div>
+                </section>
 
-                    <div class="carousel-cell"
-                        style="background-image: url(https://i.pinimg.com/564x/32/ea/33/32ea3355be2a5f7302eea7cc84868bb4.jpg);">
-                        <div class="overlay"></div>
-                        <div class="inner">
-                            <a href="product_ad_page.html" class="btn">Tell me more</a>
-                        </div>
+                <!-- 商品分類 -->
+                <section class="sort">
+                    <div class="item_box">
+                        <a href="product_sort_page.html">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="assets\images\icon\shop_life.png">
+                                </div>
+                                <div class="txt_box">
+                                    <p>質感生活</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="assets\images\icon\shop_cosmetics.png">
+                                </div>
+                                <div class="txt_box">
+                                    <p>美妝保養</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="assets\images\icon\shop_clothes.png">
+                                </div>
+                                <div class="txt_box">
+                                    <p>風格穿搭</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+                    <div class="item_box">
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="assets\images\icon\shop_food.png">
+                                </div>
+                                <div class="txt_box">
+                                    <p>美食補給</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="assets\images\icon\shop_3C.png">
+                                </div>
+                                <div class="txt_box">
+                                    <p>3C家電</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item">
+                                <div class="img_box">
+                                    <img src="assets\images\icon\shop_book.png">
+                                </div>
+                                <div class="txt_box">
+                                    <p>書籍補給</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
                 </section>
 
                 <!-- 最新區 -->
@@ -106,11 +186,8 @@
                                 </div>
                             </div>
                             <!-- 商品 -->
-                            <!-- 先打一個範本，再用v-for迴圈去跑卡片式商品 -->
-                            <!-- v-for="good in time_goods"是看vue裡面的data -->
                             <div onclick="myFunction()" class="product_item_box ligh_box_jump"
-                                v-for="good in time_goods" v-if="good.goods_no > 2"
-                                @click="getGoodNumber(good.goods_no)">
+                                v-for="good in time_goods" @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
                                     <img v-bind:src="good.goods_pic1">
                                 </div>
@@ -129,293 +206,20 @@
                             <div class="title">
                                 <p>最新上架商品</p>
                             </div>
-                            <div class="ag-container-shops">
-                                <div class="js-flickity-slider">
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_citt.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <!-- 商品 -->
+                            <div class="new_goods_slider slider">
+                                <div onclick="myFunction()" class="item_slider ligh_box_jump" v-for="good in new_goods"
+                                    @click="getGoodNumber(good.goods_no)">
+                                    <div class="img_box">
+                                        <img v-bind:src="good.goods_pic1">
                                     </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_hot_switch_2.png);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_sort_page_2.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de
-                                                        martinvarbaro</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de Villy</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de SunSurf</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(assets/images/goods/goods_all_Brooklyn_Candle.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de Los Cocos</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(https://rawcdn.githack.com/SochavaAG/example-mycode/master/pens/parallax-swipe/images/5c4b910f1d696.png);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de Piñata</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(https://rawcdn.githack.com/SochavaAG/example-mycode/master/pens/parallax-swipe/images/5bea050c5bff5.png);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de California
-                                                        Sun</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="js-carousel-cell">
-                                        <div class="ag-shop-card_box-wrap">
-                                            <div class="ag-shop-card_box">
-                                                <div class="ag-shop-card_body">
-                                                    <div class="js-card-bg ag-card-bg"
-                                                        style="background-image: url(https://rawcdn.githack.com/SochavaAG/example-mycode/master/pens/parallax-swipe/images/5cb88ca821bfd.png);">
-                                                    </div>
-                                                </div>
-                                                <div class="ag-shop-card_footer">
-                                                    <span class="ag-shop-card-footer_title">Tienda de Kapusta</span>
-                                                    <span class="ag-shop-card-footer_products">Tienda oficial</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="txt_box">
+                                        <p>{{good.goods_name}}</p>
+                                        <p>NT.{{good.goods_price}}</p>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </section>
@@ -437,7 +241,7 @@
                         <!-- 商品 -->
                         <div class=" item_box">
                             <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in hot_goods"
-                                v-if="good.goods_no > 2" @click="getGoodNumber(good.goods_no)">
+                                v-if="good.goods_no" @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
                                     <img v-bind:src="good.goods_pic1">
                                 </div>
@@ -460,8 +264,9 @@
                         <!-- 先打一個範本，再用v-for迴圈去跑卡片式商品 -->
                         <!-- 範本參考用的 -->
                         <div class="item_box">
+                            <!-- v-for迴圈 -->
                             <div onclick="myFunction()" class="item ligh_box_jump" v-for="good in sort_goods"
-                                @click="getGoodNumber(good.goods_no)">
+                                v-if="good.goods_no > 2" @click="getGoodNumber(good.goods_no)">
                                 <div class="img_box">
                                     <img v-bind:src="good.goods_pic1">
                                 </div>
@@ -517,15 +322,15 @@
                     <div class="product_small">
                         <!-- 找圖片1 -->
                         <div class="img_box" @click="showLarge">
-                            <img :src=" good.goods_pic1" />
+                            <img :src="good.goods_pic1" />
                         </div>
                         <!-- 找圖片2 -->
                         <div class="img_box" @click="showLarge">
-                            <img :src=" good.goods_pic2" />
+                            <img :src="good.goods_pic2" />
                         </div>
                         <!-- 找圖片3 -->
                         <div class="img_box" @click="showLarge">
-                            <img :src=" good.goods_pic3" />
+                            <img :src="good.goods_pic3" />
                         </div>
                     </div>
                 </section>
@@ -563,152 +368,62 @@
 
                 <!-- 留言區 -->
                 <section class="product_comment">
-                    <p>共5則留言</p>
+                    <p>共{{count}}則留言</p>
                     <!-- 單則留言 -->
-                    <div class="comment_box">
+                    <!-- v-for抓所有商品留言再用v-if判斷要的留言 -->
+                    <div class="comment_box" v-for="comment in comments" v-if="number == comment.goods_no">
+                        <!-- 頭貼 -->
                         <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
+                            <img v-bind:src="comment.mem_head">
                         </div>
+                        <!-- 留言 -->
                         <div class="comment_txt">
                             <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">乙骨優太</span>
+                                <!-- 名字 -->
+                                <span class="comment_mem_name_item">
+                                    {{comment.mem_name}}
+                                </span>
+                                <!-- 檢舉 -->
                                 <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
+                                    <img src="assets/images/icon/more_hov.png" alt="檢舉">
                                 </div>
                             </div>
+                            <!-- 留言內容 -->
                             <div class="comment_content">
-                                這種很脆很好吃欸🤩
+                                {{comment.comment_content}}
                             </div>
                             <div class="comment_info">
+                                <!-- 愛心數 -->
                                 <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
+                                    <div class="comment_like_icon product_comment_heart"
+                                        @click="commentheart(comment.goods_no)">
+                                        <img src="assets/images/icon/like_hov.png" alt="愛心">
                                     </div>
-                                    <span class="comment_like_amount">23</span>
+                                    <!-- 喜歡數 -->
+                                    <span class="comment_like_amount product_comment_num">
+                                        {{comment.comment_likes_amount}}
+                                    </span>
                                 </div>
-                                <span class="comment_date">2022/2/23</span>
+                                <!-- 日期 -->
+                                <span class="comment_date">
+                                    {{comment.comment_last_edit_date}}
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">里香超香</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                這個超級好吃 之前有吃過！ 超級香然後有微微的甜
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">五條悟</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                也太便宜了吧！
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">純愛戰神</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                卡一個!!!!
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 單則留言 -->
-                    <div class="comment_box">
-                        <div class="comment_head_photo">
-                            <img src="https://fakeimg.pl/40x40/200">
-                        </div>
-                        <div class="comment_txt">
-                            <div class="comment_mem_name_box">
-                                <span class="comment_mem_name_item">咒術迴戰</span>
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="">
-                                </div>
-                            </div>
-                            <div class="comment_content">
-                                卡一個!!!
-                            </div>
-                            <div class="comment_info">
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon">
-                                        <img src="assets/images/icon/like_hov.png" alt="">
-                                    </div>
-                                    <span class="comment_like_amount">23</span>
-                                </div>
-                                <span class="comment_date">2022/2/23</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </section>
 
                 <!-- 我的留言輸入區 -->
                 <section class="product_page_msg">
                     <!-- 右邊 -->
                     <div class="item_box_msger">
-                        <!-- 留言頭貼 -->
-                        <div class="img_box">
-                            <img src="assets\images\icon\nav_member.png">
-                        </div>
                         <!-- 留言 -->
-
                         <div class="txt_box">
                             <input type="text" name="tname" placeholder="留言...">
+                        </div>
+                        <!-- 送出 -->
+                        <div class="img_box">
+                            <img src="assets\images\icon\send.png" alt="送出鍵">
                         </div>
                     </div>
                     <!-- 左邊icon -->
@@ -720,6 +435,7 @@
                             </div>
 
                             <!-- 愛心 -->
+                            <!-- 筆記! 不能用id寫功能有唯一性 -->
                             <div class="img_box_report product_heart" title="加入愛心" @click="initheart(good.goods_no)">
                                 <img src="assets\images\icon\like_hov.png">
                             </div>
@@ -738,6 +454,8 @@
     <script src="js\product_all.js"></script>
     <!-- 撈資料 -->
     <script src="js\product.js"></script>
+    <!-- 廣告輪播 -->
+    <script src="js\product_slick.min.js"></script>
     <!-- 文進大大的購物車燈箱 -->
     <!-- <div id="app">
         <div class="shop_cart_ligh_box">
@@ -748,16 +466,31 @@
 
     <!-- vue_product_all -->
     <script>
-        new Vue({
+        Vue.config.devtools = true;
+        const vm = new Vue({
             el: "#productApp",
             data: {
-                sort_goods: [],
-                hot_goods: [],
-                time_goods: [],
+                //全部商品
                 goods: [],
-
+                //限時商品
+                time_goods: [],
+                // 上架商品
+                new_goods: [],
+                //熱門商品
+                hot_goods: [],
+                //分類商品
+                sort_goods: [],
+                comments: [],
                 number: 0,
+                // 商品留言數
+                count: 0,
             },
+            // 監聽點擊的商品編號改變
+            // 若改變則執行countComment函式
+            watch: {
+                number: "countComment",
+            },
+
             methods: {
                 //叉叉功能
                 displayNone() {
@@ -766,27 +499,30 @@
                 },
                 //燈箱出現的跟圖片顯示要樣
                 getGoodNumber(goods_no) {
-                    console.log(this.number);
+                    // console.log(this.number);
                     this.number = goods_no;
-
-                    console.log(this.number);
+                    // console.log(this.number);
 
                 },
-                getProductSort() {
+                // 所有商品
+                getProductAll() {
                     let xhr = new XMLHttpRequest();
                     //打開php的我的php檔
-                    xhr.open("get", `phps/product_sort_life.php`, true);
+
+                    //如果case=allgoods抓所有商品
+                    xhr.open("get", `phps/product_all.php?case=allgoods`, true);
                     xhr.send(null);
 
                     xhr.onload = () => {
                         // 接收PHP傳來的資料
                         allgoods = JSON.parse(xhr.responseText);
                         // console.log(xhr.responseText);
-                        console.table(allgoods);
+                        // console.table(allgoods);
 
-                        this.sort_goods = allgoods
+                        this.goods = allgoods
                     }
                 },
+                //熱門商品
                 getProductHot() {
                     let xhr = new XMLHttpRequest();
                     //打開php的我的php檔
@@ -802,6 +538,7 @@
                         this.hot_goods = allgoods
                     }
                 },
+                //限時商品
                 getProductTime() {
                     let xhr = new XMLHttpRequest();
                     //打開php的我的php檔
@@ -811,24 +548,70 @@
                     xhr.onload = () => {
                         // 接收PHP傳來的資料
                         allgoods = JSON.parse(xhr.responseText);
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
                         // console.table(allgoods);
                         this.time_goods = allgoods
                     }
                 },
-                getProductAll() {
+                //上架商品
+                getProductNew() {
                     let xhr = new XMLHttpRequest();
                     //打開php的我的php檔
-                    xhr.open("get", `phps/product_all.php`, true);
+                    xhr.open("get", `phps/product_new.php`, true);
                     xhr.send(null);
 
                     xhr.onload = () => {
                         // 接收PHP傳來的資料
                         allgoods = JSON.parse(xhr.responseText);
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
                         // console.table(allgoods);
-                        this.goods = allgoods
+                        this.new_goods = allgoods
                     }
+                },
+                //分類商品
+                getProductSort() {
+                    let xhr = new XMLHttpRequest();
+                    //打開php的我的php檔
+
+                    //如果case=allgoods抓所有商品
+                    xhr.open("get", `phps/product_sort_life.php?case=allgoods`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        // 接收PHP傳來的資料
+                        allgoods = JSON.parse(xhr.responseText);
+                        // console.log(xhr.responseText);
+                        // console.table(allgoods);
+
+                        this.sort_goods = allgoods
+                    }
+                },
+
+                //抓所有留言
+                getGoodsComments() {
+                    let xhr = new XMLHttpRequest();
+                    //如果case=goodscomment抓商品留言數
+                    xhr.open("get", `phps/product_all.php?case=goodscomment`, true);
+                    xhr.send(null);
+
+                    xhr.onload = () => {
+                        allcomments = JSON.parse(xhr.responseText);
+                        console.log(xhr.responseText);
+                        console.table(allcomments);
+                        this.comments = allcomments
+                    }
+                },
+                // 數這件商品有多少留言
+                // newValue這次點的，oldValue上次點的
+                countComment(newValue, oldValue) {
+                    let c = 0;
+                    for (let i = 0; i < this.comments.length; i++) {
+                        if (this.comments[i].goods_no == newValue) {
+                            c++
+                        }
+                    }
+                    // console.log(c);
+                    this.count = c;
                 },
                 //小圖變大圖功能
                 showLarge(e) {
@@ -840,8 +623,8 @@
                     document.querySelector(".large").src = small.src;
 
                 },
-                 //加入愛心
-                 initheart(goods_no) {
+                //加入愛心
+                initheart(goods_no) {
                     // console.log("ssss")
                     let product_heart = document.querySelector(".product_heart")
                     let product_num = document.querySelector(".product_num")
@@ -883,22 +666,74 @@
                         }
                     }
 
-                }
+                },
+                //加入愛心(留言)
+                commentheart(goods_no) {
+                    // console.log("ssss")
+                    let product_comment_heart = document.querySelector(".product_comment_heart")
+                    let product_comment_num = document.querySelector(".product_comment_num")
+                    let product_comment_heart_img = document.querySelector(".product_comment_heart img")
+
+                    if (product_comment_heart.title == "加入愛心") {
+                        product_comment_heart_img.src =
+                            "assets/images/icon/like.png";
+                        product_comment_heart.title = "取消愛心";
+                        product_comment_num.innerHTML++;
+
+                        let xhr = new XMLHttpRequest();
+                        //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
+                        xhr.open("get", `phps/product_comment__num_add.php?goods_no=${goods_no}`, true);
+                        xhr.send(null);
+
+                        xhr.onload = function () {
+                            // 接收PHP傳來的資料
+                            // allgoods = JSON.parse(xhr.responseText);
+                            // console.log(xhr.responseText);
+                            // console.table(allgoods);
+                        }
+
+                    } else {
+                        product_comment_heart_img.src =
+                            "assets/images/icon/like_hov.png";
+                        product_comment_heart.title = "加入愛心";
+                        product_comment_num.innerHTML--;
+
+                        let xhr = new XMLHttpRequest();
+                        xhr.open("get", `phps/product_comment_num_delete.php?goods_no=${goods_no}`, true);
+                        xhr.send(null);
+
+                        xhr.onload = function () {
+                            // 接收PHP傳來的資料
+                            // allgoods = JSON.parse(xhr.responseText);
+                            // console.log(xhr.responseText);
+                            // console.table(allgoods);
+                        }
+                    }
+
+                },
+            },
+
+            beforeCreate() {
+
+            },
+            created() {
 
             },
             //要顯現的功能
             // 將Vue的東西第一次出現在網頁上
             mounted() {
-                // 質感生活
-                this.getProductSort()
+                // 全部
+                this.getProductAll()
                 // 熱門
                 this.getProductHot()
                 // 限時
                 this.getProductTime()
-                //全部
-                this.getProductAll()
-
-
+                //上架
+                this.getProductNew()
+                //留言
+                this.getGoodsComments()
+                //分類
+                this.getProductSort()
 
             },
             //筆記!!因為愛心第一次沒出現在網頁上所以寫在mounted會抓不到。
@@ -932,11 +767,75 @@
                 //代表使用這個工具
                 initsave()
 
+                //----------------------小圖變大圖--------------
 
             },
+
         })
     </script>
 
-</body>
+    <!-- 廣告輪播 -->
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $(".center").slick({
+                dots: true,
+                // 無限循環動
+                infinite: true,
+                // 使用部分prev/next幻灯片启用居中视图。与奇数slidesToShow计数一起使用
+                centerMode: true,
+                // 每次顯示幾個
+                slidesToShow: 1,
+                // 每次滾動幾個
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: false,
+            });
+        });
+    </script>
+    <!-- 上架商品 -->
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $(".new_goods_slider").slick({
+                dots: true,
+                // 無限循環動
+                infinite: true,
+                // 每次顯示幾個
+                slidesToShow: 3,
+                // 每次滾動幾個
+                slidesToScroll: 3,
+                autoplay: true,
+                autoplaySpeed: 1000,
+                arrows: false,
 
-</html>
+                // 斷點
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true,
+                        }
+                    },
+                    {
+                        breakpoint: 900,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: false,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: false,
+
+                        }
+                    }
+                ]
+            });
+        });
+    </script>

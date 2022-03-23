@@ -2,39 +2,39 @@
 // 注意class名稱寫詳細不然會當!!!!!!!!!!
 
 // 最新上架
-window.addEventListener("load", () => {
-    let xhr = new XMLHttpRequest();
-    //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
-    xhr.open("get", `phps/product_new.php`, true);
-    xhr.send(null);
+// window.addEventListener("load", () => {
+//     let xhr = new XMLHttpRequest();
+//     //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
+//     xhr.open("get", `phps/product_new.php`, true);
+//     xhr.send(null);
 
-    xhr.onload = function () {
-        // 接收PHP傳來的資料
-        allgoods = JSON.parse(xhr.responseText);
-        // console.log(xhr.responseText);
-        // console.table(allgoods);
-        //撈照片
-        let img = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_body .js-card-bg")
-        //撈產品
-        let txt = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_footer span:first-child")
-        //撈價格
-        let pri = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_footer span:nth-child(2)")
-        // 跑迴圈
-        for (let i = 0; i < txt.length; i++) {
-            // i從第幾個開始
-            //照片
-            // style="background-image: url("assets/images/goods/goods_all_citt.jpg"); transform: translateX(1152.69px);"
-            img[i].style.backgroundImage = `url("${allgoods[i + 2].goods_pic1.replaceAll("\\","/")}")` 
+//     xhr.onload = function () {
+//         // 接收PHP傳來的資料
+//         allgoods = JSON.parse(xhr.responseText);
+//         // console.log(xhr.responseText);
+//         // console.table(allgoods);
+//         //撈照片
+//         let img = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_body .js-card-bg")
+//         //撈產品
+//         let txt = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_footer span:first-child")
+//         //撈價格
+//         let pri = document.querySelectorAll(".new_goods_information .item_new_product .ag-container-shops .ag-shop-card_footer span:nth-child(2)")
+//         // 跑迴圈
+//         for (let i = 0; i < txt.length; i++) {
+//             // i從第幾個開始
+//             //照片
+//             // style="background-image: url("assets/images/goods/goods_all_citt.jpg"); transform: translateX(1152.69px);"
+//             img[i].style.backgroundImage = `url("${allgoods[i + 2].goods_pic1.replaceAll("\\","/")}")` 
 
-            //名稱
-            txt[i].innerText = allgoods[i + 2].goods_name
-            //價格
-            // pri[i].innerText="NT$ "+allgoods[i + 2].goods_price
-            pri[i].innerText=`NT. ${allgoods[i + 2].goods_price}`
-        }
+//             //名稱
+//             txt[i].innerText = allgoods[i + 2].goods_name
+//             //價格
+//             // pri[i].innerText="NT$ "+allgoods[i + 2].goods_price
+//             pri[i].innerText=`NT. ${allgoods[i + 2].goods_price}`
+//         }
 
-    }
-})
+//     }
+// })
 
 //熱門商品
 // window.addEventListener("load", () => {
