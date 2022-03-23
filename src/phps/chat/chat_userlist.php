@@ -33,13 +33,12 @@ if ($users -> rowCount() > 0){
         $friends.= '
             <span class="friends">
                 <div class="content">
-                    <img src="./assets/images/blue_ball.png" alt="">
+                    <img src='. $usersRow['mem_head'] .' alt="">
                     <div class="details">
                         <span>'.$usersRow['mem_name'].'</span>
                         <p>'.$usersRow['mem_sign'].'</p>
                     </div>
                 </div>
-                <div class="status_dot"><i class="fas fa-circle"></i></div>
                 <span style="display:none;">'.$usersRow['mi_no'].'</span>
             </span>
         

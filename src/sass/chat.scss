@@ -459,8 +459,16 @@ body {
     color: #8d8787;
 }
 
-.chat_area .outgoing .user_img, .chat_area .incoming .user_img{
+.chat_area .outgoing .user_img,
+.chat_area .incoming .user_img {
     width: 150px;
     height: 150px;
     border-radius: 0;
+}
+
+.top_bar_box .top_bar .member_bar li img {
+    width: 28px;
+    vertical-align: top;
+    isolation: isolate;
+    z-index: 6666666;
 }

@@ -38,7 +38,7 @@ let flag_movedown = false;
 
 //影片暫停
 let flag = [false,false,false];
-let pauseTime = [7.8,14.6,25];
+let pauseTime = [7.8,14.6,23.6];
 let options =[];
 
 
@@ -252,7 +252,7 @@ function videoPause() {
         } 
     };
     
-    if(selectVideo.currentTime > 28){
+    if(selectVideo.currentTime > 26){
 
         clearInterval(timer);
         

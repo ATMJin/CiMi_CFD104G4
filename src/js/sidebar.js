@@ -25,9 +25,6 @@ function playtime(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
         already_played = JSON.parse(xhr.responseText);
-        console.log(xhr.responseText);
-        console.log(already_played.mem_last_play);
-        console.log(Today);
         }
     xhr.open("get", `phps/sidebar.php?mem_no=${sessionStorage.getItem('mem_no')}`, true);
     xhr.send(null);
@@ -36,8 +33,6 @@ function playtime(){
 
 
 function linkhref() {
-    console.log(already_played.mem_last_play);
-    console.log(Today);
     if (mem_no == null) {
         window.location.href = "login_new.html";
     }else{

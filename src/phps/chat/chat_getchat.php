@@ -27,12 +27,12 @@ if ($user->rowCount() > 0) {
 
                 $header .= '
             <i class="fa-solid fa-arrow-left black" id="back"></i>
-            <img src="./assets/images/blue_ball.png" alt="">
+            <img src='. $userRow['mem_head'] .' alt="">
             <div class="details">
                 <span>' . $userRow['mem_name'] . '</span>
                 <p>' . $userRow['mem_sign'] . '</p>
             </div>
-            <input type="checkbox" name="" id="switch_btn">
+            <input type="checkbox" name="" id="switch_btn" onclick="addDarkmodeWidget()">
                 <div class="switch dark_icon">
                 <label for="switch_btn" class="btnn"></label>
                 <span class="material-icons delete_icon" id="delete_icon" onclick="confirmDelete()">
@@ -75,7 +75,7 @@ if ($msg->rowCount() > 0) {
                                 // print_r($msgRows['msg']);
                         } else {
                                 $output .= ' <div class="chat incoming">
-                                                <img src="./assets/images/blue_ball.png" alt="">
+                                                <img src='. $msgRows['mem_head'] .' alt="">
                                                  <div class="details">
                                                  <p>' . $msgRows['msg'] . '</p>
                                                  </div>
@@ -95,7 +95,7 @@ if ($msg->rowCount() > 0) {
                                 // print_r($msgRows['msg_img']);
                         } else {
                                 $output .= " <div class='chat incoming'>
-                                                <img src='./assets/images/blue_ball.png' alt=''>
+                                                <img src=". $msgRows['mem_head'] ." alt=''>
                                                  <div class='details'>
                                                 
                                                  <img src=". $msgRows['msg_img']. " alt='' class='user_img'>
@@ -103,8 +103,6 @@ if ($msg->rowCount() > 0) {
                                             </div>";
                         }
                 }
-
-
 
                 // echo gettype($msgRows["outgoing_msg_id"]);
                 // echo gettype($outgoing_id);
