@@ -7,6 +7,7 @@ new Vue({
         article_box: null,
         new_articles: [],
         hot_articles: [],
+        liked_articles: [],
         like_articles: [],
         comment_info: [],
         board_info: [],
@@ -83,7 +84,20 @@ new Vue({
             xhr.send("case=hotArticle");
         },
 
-        get_like_article() {
+        get_liked_article() { //篩文章被喜歡數多的文章
+            let xhr = new XMLHttpRequest();
+            let thisVue = this;
+            xhr.onload = function () {
+                // console.log(xhr.responseText);
+                thisVue.liked_articles = JSON.parse(xhr.responseText);
+                // console.log(thisVue.liked_articles);
+            }
+            xhr.open("post", "phps/homepage_article.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+            xhr.send("case=likedArticle");
+        },
+
+        get_like_article() { //獲取文章被喜歡數
             let xhr = new XMLHttpRequest();
             let thisVue = this;
             xhr.onload = function () {
@@ -113,19 +127,7 @@ new Vue({
             console.log("a.num", this.a_num);
             xhr.send(`article_no=${this.a_num}&case=find_comment_info`);
         },
-        get_board_info() {
-            let xhr = new XMLHttpRequest();
-            let thisVue = this;
-            xhr.onload = function () {
-                // console.log(xhr.responseText);
-                thisVue.board_info = JSON.parse(xhr.responseText);
-                // console.log(thisVue.hot_articles);
-            }
 
-            xhr.open("post", "phps/homepage_article.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-            xhr.send("case=5");
-        },
         // 按讚
         add_like() {
             if (sessionStorage.getItem('login') == null) {
@@ -419,6 +421,7 @@ new Vue({
     mounted() {
         this.get_new_article();
         this.get_hot_article();
+        this.get_liked_article();
         this.get_like_article();
         this.get_comment_info();
         this.get_board_info()

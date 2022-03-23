@@ -38,6 +38,23 @@ try {
             echo json_encode($articleRows);
             break;
 
+            //推薦文章→用喜歡數多來篩
+        case "likedArticle":
+            $sql = "SELECT a.article_no, a.mem_no, a.publish_date, a.last_edit_date, a.article_title, a.article_content,  a.article_pic, a.article_likes_amount, a.article_collect_amount, m.mem_name, count(c.article_comment_no) comment_amount, m.mem_head
+			FROM article a 
+			JOIN mem m
+			on a.mem_no=m.mem_no
+			left JOIN article_comment c
+			on a.article_no = c.article_no
+			GROUP BY a.article_no
+			order by a.article_likes_amount desc
+            limit 2;";
+            $articles = $pdo->prepare($sql);
+            $articles->execute(); //執行
+            $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($articleRows);
+            break;
+
             // 抓取留言資訊資料 
         case "find_comment_info":
             $sql = "SELECT c.comment_date, c.comment_content, c.comment_likes_amount, c.article_no, m.mem_name, m.mem_head,m.mem_id
@@ -116,20 +133,6 @@ try {
 			limit 4;
 			";
             $articles = $pdo->query($sql);
-            $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
-
-            echo json_encode($articleRows);
-            break;
-
-        case 5:
-            $billboard_no = $_POST["boardNo"];
-            // $billboard_no=1;
-            $sql = "SELECT billboard_name, billboard_main_icon, billboard_no,billboard_banner
-                FROM billboard
-                WHERE billboard_no=?;";
-            $articles = $pdo->prepare($sql);
-            $articles->bindValue(1, $billboard_no); //給值
-            $articles->execute(); //執行
             $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
 
             echo json_encode($articleRows);
