@@ -1,6 +1,6 @@
 <?php
 // 資料庫連線檔
-include('config.php');
+require_once("connect_suan.php");
 
 switch ($_POST["case"]) {
 
@@ -91,8 +91,6 @@ switch ($_POST["case"]) {
         } else {
             echo "請選擇一張欲上傳之文章首圖 !";
         }
-
-２ㄉ
 
         break;
 }

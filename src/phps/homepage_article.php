@@ -13,7 +13,8 @@ try {
 			left JOIN article_comment c
 			on a.article_no = c.article_no
 			GROUP BY a.article_no
-			order by a.publish_date desc;";
+			order by a.publish_date desc
+            limit 10;";
             $articles = $pdo->prepare($sql);
             $articles->execute(); //執行
             $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
@@ -29,23 +30,8 @@ try {
 			left JOIN article_comment c
 			on a.article_no = c.article_no
 			GROUP BY a.article_no
-			order by count(c.article_comment_no) desc;";
-            $articles = $pdo->prepare($sql);
-            $articles->execute(); //執行
-            $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode($articleRows);
-            break;
-
-            //推薦文章→用喜歡數多來篩
-        case "likeArticle":
-            $sql = "SELECT a.article_no, a.mem_no, a.publish_date, a.last_edit_date, a.article_title, a.article_content,  a.article_pic, a.article_likes_amount, a.article_collect_amount, m.mem_name, count(c.article_comment_no) comment_amount, m.mem_head
-			FROM article a 
-			JOIN mem m
-			on a.mem_no=m.mem_no
-			left JOIN article_comment c
-			on a.article_no = c.article_no
-			GROUP BY a.article_no
-			order by a.article_likes_amount desc;";
+			order by count(c.article_comment_no) desc
+            limit 10;";
             $articles = $pdo->prepare($sql);
             $articles->execute(); //執行
             $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
@@ -115,6 +101,38 @@ try {
             } else {
                 echo "異動失敗~";
             }
+            break;
+
+            // 抓取可能會喜歡的文章資訊
+        case 3:
+            $sql = "select a.article_title, a.article_likes_amount, count(c.article_comment_no) comment_amount, b.billboard_no, a.article_pic
+			from article a
+			left JOIN article_comment c
+			on a.article_no = c.article_no
+			JOIN billboard b
+			on b.billboard_no = a.billboard_no
+			group by a.article_no
+			order by a.article_likes_amount desc
+			limit 4;
+			";
+            $articles = $pdo->query($sql);
+            $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
+
+            echo json_encode($articleRows);
+            break;
+
+        case 5:
+            $billboard_no = $_POST["boardNo"];
+            // $billboard_no=1;
+            $sql = "SELECT billboard_name, billboard_main_icon, billboard_no,billboard_banner
+                FROM billboard
+                WHERE billboard_no=?;";
+            $articles = $pdo->prepare($sql);
+            $articles->bindValue(1, $billboard_no); //給值
+            $articles->execute(); //執行
+            $articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
+
+            echo json_encode($articleRows);
             break;
     }
 

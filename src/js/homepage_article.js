@@ -80,7 +80,7 @@ new Vue({
 
             xhr.open("post", "phps/homepage_article.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-            // xhr.send(null);
+            xhr.send("case=hotArticle");
         },
 
         get_like_article() {
@@ -124,7 +124,7 @@ new Vue({
 
             xhr.open("post", "phps/homepage_article.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-            // xhr.send(null);
+            xhr.send("case=5");
         },
         // 按讚
         add_like() {
