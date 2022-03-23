@@ -1,6 +1,6 @@
 <?php
 // 資料庫連線檔
-require_once("connect_suan.php");
+require_once("config.php");
 
 switch ($_POST["case"]) {
 
@@ -14,7 +14,7 @@ switch ($_POST["case"]) {
 
         $memRow = $mem->fetch(PDO::FETCH_ASSOC);
 
-        $sql1 = "SELECT billboard_name, billboard_no  FROM billboard";
+        $sql1 = "SELECT billboard_name, billboard_no, billboard_icon  FROM billboard";
 
         $board = $pdo->query($sql1);
 
@@ -53,6 +53,7 @@ switch ($_POST["case"]) {
 
         $mem_no = $_POST['mem_no'];
         $billboard_no = $_POST['billboard_no'];
+        $billboard_icon = $_POST['billboard_icon'];
         $article_title = $_POST['article_title'];
         $article_content = $_POST['article_content'];
 
@@ -80,8 +81,8 @@ switch ($_POST["case"]) {
 
                 copy($tmp_name, $path);
 
-                $sql = "INSERT INTO article (mem_no, billboard_no , publish_date, last_edit_date, article_title, article_content, article_pic)
-                    VALUE ($mem_no, $billboard_no, now(), now(), '{$article_title}', '{$article_content}', '{$savePath}')";
+                $sql = "INSERT INTO article (mem_no, billboard_no , billboard_icon, publish_date, last_edit_date, article_title, article_content, article_pic)
+                    VALUE ($mem_no, $billboard_no, $billboard_icon, now(), now(), '{$article_title}', '{$article_content}', '{$savePath}')";
 
                 $pdo->query($sql);
                 echo "文章上傳成功 ! ";
@@ -89,7 +90,7 @@ switch ($_POST["case"]) {
                 echo "請選擇 'png', 'jpeg', 'jpg' 檔案格式 !";
             }
         } else {
-            echo "請選擇一張欲上傳之文章首圖 !";
+            echo "請選擇一張欲上傳之文章首圖 !"; //
         }
 
         break;
