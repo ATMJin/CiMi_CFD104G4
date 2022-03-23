@@ -1,18 +1,19 @@
-    <section class="member_sidebar_box">
+    
+    <section class="member_sidebar_box" id="sidebar">
         <!--會員左側欄開始-->
         <aside class="member_sidebar">
             <div class="member_nav">
 
                 <div class="member_head">
                     <div class="member_head_img">
-                        <img src="assets/images/icon/nav_member_w.png" alt="">
+                        <img :src="member.mem_head" alt="">
                     </div>
-                    <p></p>
+                    <p>{{member.mem_name}}</p>
                 </div>
 
                 <div class="member_bar">
                     <a href="member_signin.html">
-                        <div class="member_btn my_integral">
+                        <div class="member_btn my_signin">
                             <div class="test3"></div>
                             <i class="fa-solid fa-calendar-check test1"></i>
                             <span>
@@ -28,7 +29,7 @@
                                 我的積分 :
                             </span>
                             <p>
-                                
+                                {{member.mem_point}}
                             </p>
                         </div>
                     </a>
@@ -100,3 +101,5 @@
         <!--會員左側欄結束-->
     </section>
     <script src="js/member/member_sidebar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/vue.js"></script>
