@@ -78,7 +78,7 @@ switch ($_POST["case"]) {
 
                 $savePath = "assets/images/posts/" . $new_img_name;
 
-                move_uploaded_file($tmp_name, $path);
+                copy($tmp_name, $path);
 
                 $sql = "INSERT INTO article (mem_no, billboard_no , publish_date, last_edit_date, article_title, article_content, article_pic)
                     VALUE ($mem_no, $billboard_no, now(), now(), '{$article_title}', '{$article_content}', '{$savePath}')";
@@ -91,8 +91,6 @@ switch ($_POST["case"]) {
         } else {
             echo "請選擇一張欲上傳之文章首圖 !";
         }
-
-２ㄉ
 
         break;
 }

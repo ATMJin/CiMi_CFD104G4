@@ -18,12 +18,12 @@ $output="";
 if(isset($_POST['id']) == true){ 
     $output .= '
     <i class="fa-solid fa-arrow-left black" id="back"></i>
-        <img src="./assets/images/blue_ball.png" alt="">
+        <img src='. $user['mem_head'] .' alt="">
         <div class="details">
             <span>'.$user['mem_name'].'</span>
             <p>'.$user['mem_sign'].'</p>
         </div>
-        <input type="checkbox" name="" id="switch_btn">
+        <input type="checkbox" name="" id="switch_btn" onclick="addDarkmodeWidget()">
                 <div class="switch dark_icon">
                     <label for="switch_btn" class="btnn"></label>
                     <span class="material-icons">

@@ -19,34 +19,57 @@ $sql = "SELECT * FROM messages
 
 $msg = $pdo->query($sql);
 
-if($msg -> rowCount() > 0){
-        $rowcount = $msg -> rowCount();
-        while($msgRows = $msg->fetch(PDO::FETCH_ASSOC)){    
-                // print_r($msgRows);
-                
-                if($msgRows["outgoing_msg_id"] == $outgoing_id)  {
-                        $output .=' <div class="chat outgoing">
-                                        <div class="details">
-                                        <p>' . $msgRows['msg'] . '</p>
-                                        </div>
-                                </div>';
-                        // print_r($msgRows['outgoing_msg_id']);
-                        // print_r($msgRows['msg']);
-                }else{
-                        $output .=' <div class="chat incoming">
-                                        <img src="./assets/images/blue_ball.png" alt="">
-                                         <div class="details">
-                                         <p>' . $msgRows['msg'] . '</p>
-                                         </div>
-                                    </div>';
-                         
-                }
+if ($msg->rowCount() > 0) {
+    $rowcount = $msg->rowCount();
+    while ($msgRows = $msg->fetch(PDO::FETCH_ASSOC)) {
+        // print_r($msgRows);
 
-                // echo gettype($msgRows["outgoing_msg_id"]);
-                // echo gettype($outgoing_id);
+        if ($msgRows['msg'] != "") { //聊天訊息不為空
+            if ($msgRows["outgoing_msg_id"] == $outgoing_id) {
 
+
+                $output .= ' <div class="chat outgoing">
+                                                <div class="details">
+                                                <p>' . $msgRows['msg'] . '</p>
+                                                </div>
+                                        </div>';
+                // print_r($msgRows['outgoing_msg_id']);
+                // print_r($msgRows['msg']);
+            } else {
+                $output .= ' <div class="chat incoming">
+                                                <img src="./assets/images/blue_ball.png" alt="">
+                                                 <div class="details">
+                                                 <p>' . $msgRows['msg'] . '</p>
+                                                 </div>
+                                            </div>';
+            }
+        } else { //聊天訊息為空 => 表示該訊息為圖片
+            if ($msgRows["outgoing_msg_id"] == $outgoing_id) {
+
+
+                $output .= " <div class='chat outgoing'>
+                                                 <div class='details'>
+                                                
+                                                 <img src=" . $msgRows['msg_img'] . " alt='' class='user_img'>
+                                                 </div>
+                                            </div>";
+                // print_r($msgRows['outgoing_msg_id']);
+                // print_r($msgRows['msg_img']);
+            } else {
+                $output .= " <div class='chat incoming'>
+                                                <img src='./assets/images/blue_ball.png' alt=''>
+                                                 <div class='details'>
+                                                
+                                                 <img src=" . $msgRows['msg_img'] . " alt='' class='user_img'>
+                                                 </div>
+                                            </div>";
+            }
         }
 
+        // echo gettype($msgRows["outgoing_msg_id"]);
+        // echo gettype($outgoing_id);
+
+    }
 }
- $php_array = array ('output' => $output, 'rowcount' => $rowcount);
- echo json_encode($php_array);
+$php_array = array('output' => $output, 'rowcount' => $rowcount);
+echo json_encode($php_array);
