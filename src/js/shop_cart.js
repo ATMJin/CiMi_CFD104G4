@@ -89,6 +89,12 @@ Vue.component('shopping-cart-goods-box', {
       par.remove()
       this.sendPrice(-(this.price * this.count));
 
+      // 清除sessionStorage
+      let goods = sessionStorage.getItem("ShoppingCart_goods_no").split(",")
+      let index = goods.indexOf(this.goods_no.toString())
+      goods.splice(index, 1)
+      sessionStorage.setItem("ShoppingCart_goods_no", goods)
+
       // 計算剩餘商品欄數量
       let countP = document.querySelectorAll(".shopping_cart_goods_box")
       // 出現吉祥物
@@ -180,6 +186,27 @@ Vue.component("shopping-car", {
       goods: [],
     }
   },
+  created() {
+    let goods_no = sessionStorage.getItem("ShoppingCart_goods_no")
+    fetch(
+        `./phps/shoping_cart.php?case=getGoodsInfo&goods_no=${goods_no}`
+      )
+      // .then(res => console.log(res))
+      .then(res => res.json())
+      .then(res => {
+        // console.log(res);
+        this.goods = res;
+      })
+      .catch(error =>
+        console.log(error.message));
+  },
+  mounted() {
+    if (!sessionStorage.getItem("ShoppingCart_goods_no")) {
+      document.querySelector(".nothing_goods_box").style.display = "block"
+    } else {
+      document.querySelector(".nothing_goods_box").style.display = "none"
+    }
+  },
   template: `
   <div class="shopping_car_box">
     <!-- 商品項目 -->
@@ -225,27 +252,30 @@ Vue.component('love-list-box', {
       let par = e.target.parentNode.parentNode.parentNode.parentNode;
       // 刪除商品欄
       par.remove()
-      this.sendPrice(-(this.price * this.count));
+
+      // 移除會員收藏
+      fetch(`phps/product_heart_num_delete.php?mem_no=${sessionStorage.getItem("mem_no")}&goods_no=${this.goods_no}`)
+        .catch(err => console.log(err))
 
       // 計算剩餘商品欄數量
       let countP = document.querySelectorAll(".shopping_cart_goods_box")
       // 出現吉祥物
       if (countP.length == 0) {
         document.querySelector(".nothing_goods_box").style.display = "block"
-        document.querySelector(".total_box").style.display = "none"
+        // document.querySelector(".total_box").style.display = "none"
       }
     },
     addShoppingCart() {
       let goods_no = sessionStorage.getItem("ShoppingCart_goods_no")
       if (!goods_no) {
         sessionStorage.setItem("ShoppingCart_goods_no", this.goods_no)
-        console.log(sessionStorage.getItem("ShoppingCart_goods_no"));
+        // console.log(sessionStorage.getItem("ShoppingCart_goods_no"));
       } else {
         if (!(goods_no.split(",").includes(`${this.goods_no}`))) {
           goods_no += `,${this.goods_no}`
           sessionStorage.setItem("ShoppingCart_goods_no", goods_no)
         }
-        console.log(sessionStorage.getItem("ShoppingCart_goods_no"));
+        // console.log(sessionStorage.getItem("ShoppingCart_goods_no"));
       }
       // FIXME 反註解
       // alert("成功加入購物車")
@@ -312,9 +342,17 @@ Vue.component("love-list", {
           console.log(error.message));
     },
   },
-  mounted() {
+  created() {
     this.getLoveGoods()
+    setTimeout(() => {
+      if (!this.goods[0]) {
+        document.querySelector(".nothing_goods_box").style.display = "block"
+      } else {
+        document.querySelector(".nothing_goods_box").style.display = "none"
+      }
+    }, 50)
   },
+  mounted() {},
   template: `
   <div class="shopping_car_box">
     <!-- 商品項目 -->
@@ -334,7 +372,7 @@ Vue.component("nothing-goods-box", {
   template: `
 <div class="nothing_goods_box">
   <div class="img_box">
-    <img src="assets/images/index_ball.svg" alt="">
+    <img src="assets/images/homepage_ball.svg" alt="">
   </div>
   <p>尚未有商品</p>
   <p>快去逛逛好物商城 </p>
