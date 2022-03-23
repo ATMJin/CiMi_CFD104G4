@@ -238,7 +238,7 @@
             .item_box_msger {
                 display: flex;
                 align-items: center;
-                width: calc(100% - 55%);
+                width: calc(100% - 50%);
 
                 // <!-- 留言 -->
                 .txt_box {
@@ -277,7 +277,7 @@
 
                     // <!-- 收藏 -->
                     .img_box_save {
-                        width: 30px;
+                    width: 30px;
                         padding: 5px;
                         cursor: pointer;
 
@@ -304,11 +304,15 @@
                 // <!-- 立即購買 -->
                 .btn-primary {
                     align-items: center;
+                    // border: 10px solid #000;
                 }
 
                 // <!-- 加入購物車-->
                 .btn-secondary {
-                    // display: none;
+                    @media screen and (max-width:768px) {
+                        display: none;
+                        
+                    }
                 }
             }
         }
@@ -384,6 +388,7 @@
 
                             img {
                                 width: 100%;
+                                cursor: pointer;
                             }
                         }
 
@@ -462,7 +467,9 @@
                 }
 
                 // <!-- 加入購物車-->
-                .btn-secondary {}
+                .btn-secondary {
+                    // display: none;
+                }
 
 
 
@@ -729,9 +736,8 @@
 
                 // <!-- 加入購物車-->
                 .btn-secondary {
-                    // display: none;
+                    display: block;
                 }
-
                 .txt_box {
 
 
