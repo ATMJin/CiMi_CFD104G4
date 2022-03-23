@@ -21,11 +21,11 @@ let month_a = current_date.getMonth() + 1;
 let date_a = current_date.getDate();
 
 (function monthchange() {
-  month_a = (month < 10 ? '0' : '') + month_a;
+  month_a = (month_a < 10 ? '0' : '') + month_a;
 })();
 
 (function datechange() {
-  date_a = (date < 10 ? '0' : '') + date_a;
+  date_a = (date_a < 10 ? '0' : '') + date_a;
 })();
 
 let check_date = `${year_a}-${month_a}-${date_a}`;
@@ -58,7 +58,6 @@ function close_lightbox(){
 }
 
 
-document.write('Today is 星期' + day_list[day]);
 
 function weekdays_click() {
     if (mem_no == null) {
