@@ -7,12 +7,12 @@
                 </a>
             </h1>
         </div>
-        <form class="search_bar" action="">
+        <div class="search_bar" action="">
             <input type="search">
-            <button type="submit">
+            <button>
                 <img src="assets/images/icon/nav_search.png" alt="搜尋">
             </button>
-        </form>
+        </div>
         <div class="member_bar">
             <ul>
                 <li class="member_bar_phone"><a href="post.html"><img src="assets/images/icon/nav_post.png"
@@ -27,7 +27,6 @@
 </header>
 
 <!-- 購物車燈箱 -->
-<!-- <script src="js/vue.js"></script> -->
 <div id="shoppingApp">
     <div class="shopping_cart_light_box">
         <shopping-cart></shopping-cart>
@@ -60,4 +59,16 @@
         // console.log(mem_link[3]);
         mem_link.href = 'member_my_setup.html';
     }
+
+    // 搜尋列跳轉網頁
+    (function search() {
+        let searchbar = document.querySelector(".search_bar input[type='search']")
+        let searchbtn = document.querySelector(".search_bar button")
+        searchbtn.addEventListener("click", () => location.href = `search.html?search=${searchbar.value}`)
+        searchbar.addEventListener("keydown", e => {
+            if (e.which == 13 && !e.shiftKey) {
+                location.href = `search.html?search=${searchbar.value}`
+            }
+        })
+    })()
 </script>

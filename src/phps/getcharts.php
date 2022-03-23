@@ -1,5 +1,5 @@
 <?php
-require_once("connect_suan.php");
+require_once("config.php");
 
 switch ($_POST["case"]) {
         case "null":
@@ -8,7 +8,7 @@ switch ($_POST["case"]) {
 FROM mem m 
 JOIN article a 
 ON a.mem_no = m.mem_no
-WHERE a.article_no IS NOT NULL
+WHERE a.article_no > 0
 GROUP BY a.mem_no
 ORDER BY mem_post DESC
 LIMIT 5";
@@ -21,7 +21,7 @@ LIMIT 5";
 FROM mem m 
 JOIN article a 
 ON a.mem_no = m.mem_no
-WHERE a.article_likes_amount IS NOT NULL
+WHERE a.article_likes_amount > 0
 ORDER BY a.article_likes_amount DESC
 LIMIT 5";
 
@@ -33,7 +33,7 @@ LIMIT 5";
 FROM mem m 
 JOIN article a 
 ON a.mem_no = m.mem_no
-WHERE a.article_collect_amount IS NOT NULL
+WHERE a.article_collect_amount > 0
 ORDER BY a.article_collect_amount DESC
 LIMIT 5";
 
@@ -42,14 +42,14 @@ LIMIT 5";
 
 
                 //追蹤
-                $sql4 = "SELECT mem_id, mem_name,mem_head,writer_no
-FROM trackwriter t
-JOIN mem m 
-ON t.writer_no = m.mem_no
-WHERE t.writer_no IS NOT NULL
-GROUP BY t.writer_no
-ORDER BY t.writer_no DESC
-LIMIT 5";
+                $sql4 = "SELECT mem_id, mem_name,mem_head,COUNT(t.writer_no)
+                FROM trackwriter t
+                JOIN mem m 
+                ON t.writer_no = m.mem_no
+                WHERE t.writer_no > 0
+                GROUP BY t.writer_no
+                ORDER BY COUNT(t.writer_no) DESC
+                LIMIT 5";
                 $follow = $pdo->query($sql4);
                 $followRows = $follow->fetchAll(PDO::FETCH_ASSOC);
 
@@ -59,13 +59,14 @@ LIMIT 5";
 
         case "success":
                 //發文
-                $sql1 = "SELECT mem_id, mem_name,mem_head,COUNT(a.mem_no) AS mem_post, m.mem_no
-        FROM mem m 
-        JOIN article a 
-        ON a.mem_no = m.mem_no
-        WHERE a.article_no IS NOT NULL
-        GROUP BY a.mem_no
-        ORDER BY mem_post DESC";
+                $sql1 = "SELECT mem_id, mem_name,mem_head,COUNT(a.mem_no) AS mem_post
+                FROM mem m 
+                JOIN article a 
+                ON a.mem_no = m.mem_no
+                WHERE a.article_no > 0
+                GROUP BY a.mem_no
+                ORDER BY mem_post DESC
+                LIMIT 5";
 
                 $post = $pdo->query($sql1);
                 $postRows = $post->fetchAll(PDO::FETCH_ASSOC);
@@ -75,7 +76,7 @@ LIMIT 5";
         FROM mem m 
         JOIN article a 
         ON a.mem_no = m.mem_no
-        WHERE a.article_likes_amount IS NOT NULL
+        WHERE a.article_likes_amount > 0
         ORDER BY a.article_likes_amount DESC
         LIMIT 5";
 
@@ -87,7 +88,7 @@ LIMIT 5";
         FROM mem m 
         JOIN article a 
         ON a.mem_no = m.mem_no
-        WHERE a.article_collect_amount IS NOT NULL
+        WHERE a.article_collect_amount > 0
         ORDER BY a.article_collect_amount DESC
         LIMIT 5";
 
@@ -96,14 +97,14 @@ LIMIT 5";
 
 
                 //追蹤
-                $sql4 = "SELECT mem_id, mem_name,mem_head,writer_no, m.mem_no
-        FROM trackwriter t
-        JOIN mem m 
-        ON t.writer_no = m.mem_no
-        WHERE t.writer_no IS NOT NULL
-        GROUP BY t.writer_no
-        ORDER BY t.writer_no DESC
-        LIMIT 5";
+                $sql4 = "SELECT mem_id, mem_name,mem_head,COUNT(t.writer_no)
+                FROM trackwriter t
+                JOIN mem m 
+                ON t.writer_no = m.mem_no
+                WHERE t.writer_no > 0
+                GROUP BY t.writer_no
+                ORDER BY COUNT(t.writer_no) DESC
+                LIMIT 5";
                 $follow = $pdo->query($sql4);
                 $followRows = $follow->fetchAll(PDO::FETCH_ASSOC);
 

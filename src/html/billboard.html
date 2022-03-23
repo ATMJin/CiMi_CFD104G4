@@ -22,7 +22,7 @@
                 <div class="top_area">
                     <!-- 左邊區域 -->
                     <div class="left_area">
-                        <div class="love_billboard_item" onclick="location.href='article_all.html';">
+                        <div class="love_billboard_item" onclick="goto_board(1)">
                             <div class="love_billboard_pic">
                                 <img src="assets/images/love.png" alt="">
                             </div>
@@ -30,7 +30,7 @@
                             <h3 class="billboard_txt">感情|交往|結婚</h3>
                             <button class="btn-secondary" type="button">追蹤</button>
                         </div>
-                        <div class="music_billboard_item">
+                        <div class="music_billboard_item" onclick="goto_board(2)">
                             <div class="music_billboard_pic" onclick="location.href=
                                 'article_all.html';">
                                 <img src="assets/images/music.png" alt="">
@@ -42,7 +42,7 @@
                     </div>
                     <!-- 右邊區域 -->
                     <div class="right_area">
-                        <div class="makeup_billboard_item">
+                        <div class="makeup_billboard_item" onclick="goto_board(3)">
                             <div class="makeup_billboard_pic">
                                 <img src="assets/images/makeup.png" alt="">
                             </div>
@@ -50,7 +50,7 @@
                             <h3 class="billboard_txt">美妝|美甲|美體</h3>
                             <button class="btn-secondary" type="button">追蹤</button>
                         </div>
-                        <div class="sport_billboard_item">
+                        <div class="sport_billboard_item" onclick="goto_board(4)">
                             <div class="sport_billboard_pic">
                                 <img src="assets/images/sport.png" alt="">
                             </div>
@@ -62,7 +62,7 @@
                 </div>
                 <!-- 下方區域 -->
                 <div class="bottom_area">
-                    <div class="travel_billboard_item">
+                    <div class="travel_billboard_item" onclick="goto_board(5)">
                         <div class="travel_billboard_pic">
                             <img src="assets/images/travel.png" alt="">
                         </div>
@@ -70,7 +70,7 @@
                         <h3 class="billboard_txt">景點|活動|花季</h3>
                         <button class="btn-secondary" type="button">追蹤</button>
                     </div>
-                    <div class="fashion_billboard_item">
+                    <div class="fashion_billboard_item" onclick="goto_board(6)">
                         <div class="fashion_billboard_pic">
                             <img src="assets/images/fashion.png" alt="">
                         </div>
@@ -86,6 +86,11 @@
 
         </main>
     </section>
+    <script>
+        function goto_board(boardNo) {
+            location.href = 'article_all.html?boardNo=' + boardNo;
+        }
+    </script>
 
 </body>
 

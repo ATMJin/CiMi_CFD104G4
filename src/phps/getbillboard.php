@@ -6,9 +6,20 @@ try {
   require_once("connect_suan.php");  // 開發時使用
 
   switch ($_GET["case"]) {
-    case "billboardHot":
+    case "followed":
+      if (isset($_GET["mem_no"])) {
+        $sql = "SELECT mem_billboard_no FROM `mem_billboard` where mem_no={$_GET["mem_no"]}";
+        $mem_billboard = $pdo->query($sql);
+        $rows = $mem_billboard->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($rows);
+      } else {
+        echo "[]";
+      }
+
+      break;
+    case "billboardHot": //熱門看版
       // SQL指令
-      $sql = "SELECT billboard_name,billboard_img 
+      $sql = "SELECT billboard_no,billboard_name,billboard_img
       FROM billboard 
       ORDER BY billboard_post DESC
       LIMIT 6";
@@ -20,10 +31,10 @@ try {
       echo json_encode($hot_boardsRows);
       break;
 
-    case "billboardFollow":
+    case "billboardFollow": //收藏看版
 
       // SQL指令
-      $sql = "SELECT b.billboard_name,b.billboard_square_img
+      $sql = "SELECT billboard_no,b.billboard_name,b.billboard_square_img
       FROM mem_billboard m
       JOIN billboard b
       ON m.mem_billboard_no = b.billboard_no

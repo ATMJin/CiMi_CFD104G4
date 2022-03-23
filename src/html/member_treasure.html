@@ -88,7 +88,8 @@
                                         <!-- 發文者 -->
                                         <div class="article_mem_info">
                                             <div class="article_mem_icon">
-                                                <img :src="articlesFollow.mem_head">
+                                                <img
+                                                    :src="articlesFollow.mem_head?articlesFollow.mem_head:'assets/images/blue_ball.png'">
                                             </div>
                                             <div class="article_mem_name">{{articlesFollow.mem_name}}</div>
                                             <div class="member_articlemore">
@@ -136,7 +137,7 @@
                                             </div>
                                             <!-- 文章圖片 -->
                                             <div class="article_pic_box">
-                                                <img src="https://picsum.photos/150/150/?random=9">
+                                                <img :src="articlesFollow.article_pic">
                                             </div>
                                         </div>
                                     </div>

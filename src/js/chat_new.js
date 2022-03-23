@@ -39,6 +39,7 @@ let chatPerson = document.getElementById('chatPerson')
 let rowCount = 0;
 
 
+
 form.onsubmit = (e) => { //取消form表單的submit事件
     e.preventDefault();
 }
@@ -115,10 +116,11 @@ function changeStyle(e) {
 
 /********************************************************* */
 //2.2拿到當前點擊之使用者的聊天視窗
-
 function getChat(e) {
     let user_id = e.currentTarget.lastElementChild.innerText //使用者id
     let xhr = new XMLHttpRequest(); //建立XHR物件
+    sessionStorage.setItem('chat_no', user_id);
+
     xhr.onload = () => {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
@@ -126,7 +128,7 @@ function getChat(e) {
                 header.innerHTML = res.header;
                 chatBox.innerHTML = res.output;
                 chatPerson.innerText = user_id
-                addDarkmodeWidget()
+                // addDarkmodeWidget()
 
 
                 /********************************************************* */
@@ -146,7 +148,6 @@ function getChat(e) {
                     chatBox.scrollTop = chatBox.scrollHeight;
                     rowcount = res.rowcount
                 }
-
             }
         }
     }
@@ -154,6 +155,50 @@ function getChat(e) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(`id=${user_id}`);
 }
+
+
+function confirmDelete() {
+    swal({
+        title: "Are you sure?",
+        text: "確定刪除與此好友之對話紀錄!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: false
+    }).then(function (closeOnConfirm) {
+        if (closeOnConfirm) {
+            $.ajax({
+                url: "phps/chat/chat_deletechat.php",
+                type: "POST",
+                data: {
+                    id: sessionStorage.getItem('chat_no')
+                },
+                dataType: "text",
+                success: function () {
+                    swal("Done!", "該好友對話已被成功刪除", "success");
+
+                    clearMsg = setTimeout(function () {
+                        // chatBox.innerHTML = ""
+                        window.location.reload()
+                    }, 3000)
+
+                }
+            })
+        } else {
+
+            swal("取消！", "繼續與該好友對話:)",
+
+                "error");
+
+        }
+    })
+
+
+
+
+}
+
 
 /********************************************************* */
 //3. 聊天室發送消息以及獲取消息
@@ -203,9 +248,24 @@ function newChat() {
 }
 
 //3.3 聊天室上傳照片
-function fileChange(){
+function fileChange() {
     let file = document.getElementById('theFile').files[0];
-    // console.log(file)
+    console.log(file);
+
+    let readFile = new FileReader();
+    readFile.readAsDataURL(file);
+    readFile.addEventListener('load', function () {
+        let template = `
+        <div class="chat outgoing">
+            <div class="details">
+                <img src="${readFile.result}" alt='' class='user_img'>
+            </div>
+        </div>
+        
+        `
+        $('#chat_box').append(template)
+    
+    });
 
     //創建formdata物件送到後端PHP
     let form = new FormData()
@@ -216,7 +276,7 @@ function fileChange(){
             // alert(res.data)
         }
     })
-    newChat()
+    setInterval(newChat, 500)
 }
 
 /********************************************************* */

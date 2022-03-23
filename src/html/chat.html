@@ -23,6 +23,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
     <title>chat</title>
 
@@ -32,8 +35,10 @@
             color: #000(39, 26, 221, 0.63);
         }
 
-        .button {
+        .button, img, li>img {
             isolation: isolate;
+            z-index: 6666666;
+
         }
 
         .darkmode--activated .logo {
@@ -99,7 +104,7 @@
     @@include('layout/header.html')
 
     <!-- 開始寫自己頁面的HTML -->
-    
+
 
     <!-- 聊天室 -->
     <main class="chat_room">
@@ -191,13 +196,14 @@
 
             <form action="#" class="typing_area">
                 <div class="fun_icon">
-                    <!-- 加號按鈕 -->
+                    <!-- 截圖按鈕 -->
                     <input type="text" name="upFile" id="thePic" style="display: none;"><br>
                     <label for="thePic">
-                        <span id="btnSave" class="btn btn-danger" onclick="screenshot()"><i class="material-icons md-28">crop</i></span>
+                        <span id="btnSave" class="btn btn-danger" onclick="screenshot()"><i
+                                class="material-icons md-28">crop</i></span>
                     </label>
                     <!-- 照片按鈕 -->
-                    <input type="file" name="upFile" id="theFile" style="display: none;"ref="fileInput"><br>
+                    <input type="file" name="upFile" id="theFile" style="display: none;" ref="fileInput"><br>
                     <label for="theFile">
                         <span><i class="material-icons md-28">image</i></span>
                     </label>
@@ -211,6 +217,37 @@
 
         </div>
     </main>
+
+    <script>
+        if (sessionStorage.getItem('login') == null) {
+            swal("登入才可使用聊天室喔! 立即前往登入頁面??", {
+                    buttons: {
+
+                        catch: {
+                            text: "否",
+                            value: "否",
+                        },
+                        default: {
+                            text: "是",
+                            value: "是",
+                        },
+
+                    },
+                })
+                .then((value) => {
+                    switch (value) {
+
+                        case "是":
+                            location.href = "login_new.html"
+                            break;
+
+                        case "否":
+                            location.href = "homepage.html"
+                            break;
+                    }
+                });
+        }
+    </script>
 
     <!-- Dark Mode.js -->
     <script>
@@ -237,12 +274,12 @@
                 inline: true,
                 hidePickerOnBlur: false
             });
-            $("#myInput").on("keyup", function() {
+            $("#myInput").on("keyup", function () {
                 // 抓搜尋的關鍵詞
                 let value = $(this).val().toLowerCase();
                 console.log(value);
                 // 抓好友裡頭有沒有符合
-                $(".friends").filter(function() {
+                $(".friends").filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });

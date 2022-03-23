@@ -1,6 +1,6 @@
 <?php
 // 資料庫連線檔
-include('config.php');
+require_once("connect_suan.php");
 
 switch ($_POST["case"]) {
 
@@ -74,11 +74,11 @@ switch ($_POST["case"]) {
 
                 $new_img_name = $time . $img_name;
 
-                $path = "../assets/images/post/" . $new_img_name;
+                $path = "../assets/images/posts/" . $new_img_name;
 
-                $savePath = "assets/images/post/" . $new_img_name;
+                $savePath = "assets/images/posts/" . $new_img_name;
 
-                move_uploaded_file($tmp_name, $path);
+                copy($tmp_name, $path);
 
                 $sql = "INSERT INTO article (mem_no, billboard_no , publish_date, last_edit_date, article_title, article_content, article_pic)
                     VALUE ($mem_no, $billboard_no, now(), now(), '{$article_title}', '{$article_content}', '{$savePath}')";

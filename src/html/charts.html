@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="assets/css/charts.css" />
     <link rel="stylesheet" href="assets/css/tabs.css" />
+    <script src="js/vue.js"></script>
 </head>
 
 <body>
@@ -132,8 +133,6 @@
             </div>
         </main>
     </div>
-
-    <script src="js/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
 
     <!-- 分類頁籤 -->
@@ -223,8 +222,8 @@
 
                             let obj = {
                                 writer_no: `${item.mem_no}`,
-                                state: "已追蹤",  //目前狀態
-                                track: "追蹤",   // 點擊後的狀態
+                                state: "已追蹤", //目前狀態
+                                track: "追蹤", // 點擊後的狀態
                             }
                             this.editObj = obj
                             btn[index].innerText = obj.track

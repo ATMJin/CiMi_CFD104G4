@@ -3,8 +3,8 @@ try {
 	require_once("connect_cimi.php");
 	//require=>沒有回傳值
 	//執行sql指令並取得pdoStatement
-    $mem_no=$_GET["mem_no"]
-	$sql = "select mem_no,mem_lastsign, mem_stacksign from mem where mem_no={$mem_no}";
+    $mem_no=$_GET["mem_no"];
+	$sql = "select mem_no, mem_lastsign from mem where mem_no={$mem_no}";
 	$attendence = $pdo->query($sql);
 
 	$attendence_row= $attendence->fetchAll(PDO::FETCH_ASSOC);
