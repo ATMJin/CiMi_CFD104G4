@@ -65,10 +65,7 @@ body {
     box-sizing: border-box;
 }
 
-.slider {
-    width: 80%;
-    margin: 40px auto;
-}
+
 
 .slick-slide {
     margin: 0px 20px;
@@ -76,12 +73,6 @@ body {
 
 .slick-slide img {
     width: 100%;
-}
-
-/* 左右箭頭顏色 */
-.slick-prev:before,
-.slick-next:before {
-    color: midnightblue;
 }
 
 .slick-slide {
@@ -98,17 +89,15 @@ body {
 }
 
 // 廣告輪播
+//-----廣告輪播(原本設定-----------
+.center.slider {
+    margin: 40px auto;
+}
+
 .center {
-    // 調整大小
-    // width: 92%;
-    height: 200px;
-    // overflow: hidden;
-    // border-radius: var(--img-radius);
-    /* slider圓角 */
     margin: 0px auto;
 
     /*調整slider位置*/
-    // box-shadow: 0 2px 8px 2px #ecebebce;
     .ad_slider {
         position: relative;
         width: 100%;
@@ -116,18 +105,17 @@ body {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        // box-shadow: 0 2px 8px 2px #ecebebce;
-        // border-radius: var(--img-radius);
 
         // 廣告照
         .img_box {
             position: relative;
             // 圖片設死
-            width: 100%;
-            height: 200px;
+            width: 270px;
+            height: 150px;
 
             img {
                 width: 100%;
+                height: 100%;
                 box-shadow: 0 2px 8px 2px #ecebebce;
                 border-radius: var(--img-radius);
 
@@ -169,7 +157,7 @@ body {
                 text-transform: uppercase;
                 font-family: 'Montserrat', sans-serif;
                 font-size: 0.8rem;
-                letter-spacing: 3px;
+                // letter-spacing: 1px;
                 color: #fff;
                 text-decoration: none;
                 transition: all 0.2s ease;
@@ -193,6 +181,8 @@ body {
     .sort {
         width: 100%;
         margin-bottom: 50px;
+        //調整廣告位子縮放問題
+        margin-top: 15%;
 
         .item_box {
             display: flex;
@@ -349,6 +339,48 @@ body {
                 background-color: var(--icon-color);
                 border-radius: var(--bgc-radius);
                 margin-left: 20px;
+
+                .title {}
+
+                .new_goods_slider {
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                    box-sizing: border-box;
+                    padding: 10px;
+                    text-decoration: none;
+                    margin: 0 auto;
+
+                    // 文字
+                    .item_slider {
+                        // 顏色白色然後設陰影
+                        background-color: rgb(255, 255, 255);
+                        border-radius: var(--img-radius);
+                        box-shadow: 0 2px 8px 2px #ecebebce;
+                        box-sizing: border-box;
+                        margin: 10px;
+                        width: 150px;
+                        cursor: pointer;
+
+                        .img_box {
+                            width: 150px;
+
+                            img {
+                                width: 100%;
+                                border-radius:12px 12px 0 0;
+                            }
+                        }
+
+                        .txt_box {
+                            padding: 10px;
+
+                            p {
+                                padding-bottom: 10px;
+                                line-height: 20px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -722,27 +754,50 @@ body {
         }
     }
 
-    // 廣告投放!!!!
-    .hero-slider {
-        // 調整大小
-        width: 92%;
-        height: 250px;
-        overflow: hidden;
-        border-radius: var(--img-radius);
-        /* slider圓角 */
-        margin: 30px auto;
-        /*調整slider位置*/
-        box-shadow: 0 2px 8px 2px #ecebebce;
-        // 背景陰影
+    //-----廣告輪播(原本設定-----------
+    .slider {
+        width: 80%;
+    }
 
+    // 廣告輪播
+    .center {
+        // 調整大小
+        // width: 92%;
+        // height: 200px;
+        // overflow: hidden;
+        // border-radius: var(--img-radius);
+        /* slider圓角 */
+        margin: 0px auto;
+
+        /*調整slider位置*/
+        // box-shadow: 0 2px 8px 2px #ecebebce;
+        .ad_slider {
+
+            // 廣告照
+            .img_box {
+                // 圖片設死
+                width: 100%;
+                height: 250px;
+
+                img {}
+            }
+
+            // 背景陰影
+            .overlay {}
+
+            .inner {
+                .btn {
+                    letter-spacing: 3px;
+                }
+            }
+        }
     }
 
     // 商品分類
     .main_product {
         .sort {
             display: flex;
-            //調整廣告位子縮放問題
-            margin-top: 15%;
+            margin-top: 74px;
             // 物件致中
             justify-content: center;
 
@@ -873,6 +928,16 @@ body {
 
                     .title {
                         padding: 15px;
+                    }
+
+                    .new_goods_slider {
+                        .item_slider {
+                            width: 200px;
+
+                            .img_box {
+                                width: 200px;
+                            }
+                        }
                     }
                 }
             }

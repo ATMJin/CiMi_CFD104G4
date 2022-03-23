@@ -240,24 +240,26 @@
                 align-items: center;
                 width: calc(100% - 55%);
 
-                // <!-- 留言頭貼 -->
-                .img_box {
-                    width: 32px;
-                    // 底下空白消失
-                    height: 32px;
-                    // padding-top: 5px;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-
                 // <!-- 留言 -->
                 .txt_box {
                     padding-left: 10px;
+                    width: 100%;
 
                     input {
                         border: none;
+                    }
+                }
+
+                // <!-- 送出鍵 -->
+                .img_box {
+                    width: 20px;
+                    // 底下空白消失
+                    height: 20px;
+                    // padding-top: 5px;
+                    cursor: pointer;
+                    margin-left: 10px;
+                    img {
+                        width: 100%;
                     }
                 }
 
@@ -596,7 +598,7 @@
                 cursor: pointer;
 
                 .img_box {
-                    
+
 
                     img {
                         width: 100%;
@@ -671,8 +673,8 @@
                         border: none;
                         // 留言輸入框的大小
                         height: 40px;
-                        // width: calc(100% - 10px);
-                        width: calc(100% - -73px);
+                        width: calc(100% - 10px);
+                        // width: calc(100% - -73px);
                     }
                 }
             }
