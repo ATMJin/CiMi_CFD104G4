@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>好物商城 | CiMi交友論壇</title>
     <!-- 廣告輪播 -->
+    <link rel="icon" href="assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets\css\product_slick.css">
     <link rel="stylesheet" href="assets\css\product_slick-theme.css">
 
@@ -708,7 +709,8 @@
                             window.alert('已收到您的檢舉！');
                             // 送進資料庫
                             let xhr = new XMLHttpRequest();
-                            xhr.open("get", `phps/product_all.php?article_no=${this.a_num}&case=add_impeach`, true);
+                            xhr.open("get", `phps/product_all.php?article_no=${this.a_num}&case=add_impeach`,
+                                true);
                             xhr.send(null);
 
                             xhr.onload = function () {
@@ -817,7 +819,9 @@
                     // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
                     // xhr.send(`${comment}&${comment_date}&${mem_no}&${article_no}&case=get_comment`);
 
-                    xhr.open("get", `phps/product_all.php?${comment}&${comment_date}&${mem_no}&${article_no}&case=writecomment`, true);
+                    xhr.open("get",
+                        `phps/product_all.php?${comment}&${comment_date}&${mem_no}&${article_no}&case=writecomment`,
+                        true);
                     xhr.send(null);
 
                     this.msg = ""

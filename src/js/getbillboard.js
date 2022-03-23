@@ -66,8 +66,7 @@ function hotBoard() {
               <div class="swiper-slide">
                   <div class="hot_article_wrap">
                       <div class="hot_article_pic">
-                          <a href="article_all.html"><img
-                                  src="${img[0]}"></a>
+                          <a href="article_all.html?boardNo=${billno[0]}"><img src="${img[0]}"></a>
                       </div>
                       <div class="hot_article_txt">
                           <h2>${data[0]}</h2>
@@ -78,8 +77,7 @@ function hotBoard() {
               <div class="swiper-slide">
                   <div class="hot_article_wrap">
                       <div class="hot_article_pic">
-                          <a href="article_all.html"><img
-                                  src="${img[1]}"></a>
+                      <a href="article_all.html?boardNo=${billno[1]}"><img src="${img[1]}"></a>
                       </div>
                       <div class="hot_article_txt">
                           <h2>${data[1]}</h2>
@@ -90,8 +88,7 @@ function hotBoard() {
               <div class="swiper-slide">
                   <div class="hot_article_wrap">
                       <div class="hot_article_pic">
-                          <a href="article_all.html"><img
-                                  src="${img[2]}"></a>
+                      <a href="article_all.html?boardNo=${billno[2]}"><img src="${img[2]}"></a>
                       </div>
                       <div class="hot_article_txt">
                           <h2>${data[2]}</h2>
@@ -102,8 +99,7 @@ function hotBoard() {
               <div class="swiper-slide">
                   <div class="hot_article_wrap">
                       <div class="hot_article_pic">
-                          <a href="article_all.html"><img
-                                  src="${img[3]}"></a>
+                      <a href="article_all.html?boardNo=${billno[3]}"><img src="${img[3]}"></a>
                       </div>
                       <div class="hot_article_txt">
                           <h2>${data[3]}</h2>
@@ -114,8 +110,7 @@ function hotBoard() {
               <div class="swiper-slide">
                   <div class="hot_article_wrap">
                       <div class="hot_article_pic">
-                          <a href="article_all.html"><img
-                                  src="${img[4]}"></a>
+                      <a href="article_all.html?boardNo=${billno[4]}"><img src="${img[4]}"></a>
                       </div>
                       <div class="hot_article_txt">
                           <h2>${data[4]}</h2>
@@ -126,8 +121,7 @@ function hotBoard() {
               <div class="swiper-slide">
                   <div class="hot_article_wrap">
                       <div class="hot_article_pic">
-                          <a href="article_all.html"><img
-                                  src="${img[5]}"></a>
+                      <a href="article_all.html?boardNo='${billno[5]}"><img src="${img[5]}"></a>
                       </div>
                       <div class="hot_article_txt">
                           <h2>${data[5]}</h2>
