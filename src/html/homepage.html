@@ -19,7 +19,8 @@
     <div class="content_box">
         <div class="content_area">
             @@include('layout/sidebar.html')
-            <main class="main_area">
+            <main id="app" class="main_area">
+                @@include('article_lightbox.html')
                 <div class="hot_billboard">
 
                 </div>
@@ -58,21 +59,30 @@
                     </div>
                     <div class="save_article">
                         <h2>推薦的文章</h2>
-                        <div class="article_area">
-                            <article class="article_box">
+                        <div class="charts_box">
+                            <div class="article_box" v-for="liked_article in liked_articles"
+                                @click="open_lightbox(liked_article.article_no)">
                                 <!-- 發文者 -->
                                 <div class="article_mem_info">
                                     <div class="article_mem_icon">
-                                        <img src="https://fakeimg.pl/12x12/200">
+                                        <img
+                                            :src="liked_article.mem_head?liked_article.mem_head:'assets/images/blue_ball.png'">
                                     </div>
-                                    <div class="article_mem_name">抹抹更健康</div>
+                                    <div class="article_mem_name">{{liked_article.mem_name}}</div>
                                 </div>
                                 <!-- 文章標題 -->
                                 <div class="article_container">
                                     <!-- 文章內容 -->
                                     <div class="article_txt_box">
-                                        <div class="article_title">大冰奶不夠力？這個強多了
+                                        <div class="article_txt_item">
+                                            <!-- 文章標題 -->
+                                            <div class="article_title">{{liked_article.article_title}}</div>
+                                            <!-- 文章摘要 -->
+                                            <div class="article_summary" v-html="liked_article.article_content">
+
+                                            </div>
                                         </div>
+
                                         <!-- 文章反應 -->
                                         <div class="article_react">
                                             <!-- 喜歡數 -->
@@ -80,75 +90,35 @@
                                                 <div class="article_icon_item">
                                                     <img src="assets/images/icon/like.png" alt="">
                                                 </div>
-                                                <div class="article_like_amount">144</div>
+                                                <div class="article_like_amount">
+                                                    {{liked_article.article_likes_amount}}</div>
                                             </div>
                                             <!-- 留言數 -->
                                             <div class="article_comment_box">
                                                 <div class="article_icon_item">
                                                     <img src="assets/images/icon/comment.png" alt="">
                                                 </div>
-                                                <div class="article_comment_amount">24</div>
+                                                <div class="article_comment_amount">
+                                                    {{liked_article.comment_amount}}
+                                                </div>
                                             </div>
                                             <!-- 收藏 -->
                                             <div class="article_collect_box">
                                                 <div class="article_icon_item">
                                                     <img src="assets/images/icon/save_hov.png" alt="">
                                                 </div>
-                                                <div class="article_collect_amount">收藏</div>
+                                                <div class="article_collect_amount">
+                                                    {{liked_article.article_collect_amount}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- 文章圖片 -->
                                     <div class="article_pic_box">
-                                        <img src="https://picsum.photos/60/60/?random=10">
+                                        <img :src="liked_article.article_pic">
                                     </div>
                                 </div>
-                            </article>
-                            <article class="article_box">
-                                <!-- 發文者 -->
-                                <div class="article_mem_info">
-                                    <div class="article_mem_icon">
-                                        <img src="https://fakeimg.pl/12x12/200">
-                                    </div>
-                                    <div class="article_mem_name">穿搭小天才</div>
-                                </div>
-                                <!-- 文章標題 -->
-                                <div class="article_container">
-                                    <!-- 文章內容 -->
-                                    <div class="article_txt_box">
-                                        <div class="article_title">穿搭精華區上線啦！！
-                                        </div>
-                                        <!-- 文章反應 -->
-                                        <div class="article_react">
-                                            <!-- 喜歡數 -->
-                                            <div class="article_like_box">
-                                                <div class="article_icon_item">
-                                                    <img src="assets/images/icon/like.png" alt="">
-                                                </div>
-                                                <div class="article_like_amount">144</div>
-                                            </div>
-                                            <!-- 留言數 -->
-                                            <div class="article_comment_box">
-                                                <div class="article_icon_item">
-                                                    <img src="assets/images/icon/comment.png" alt="">
-                                                </div>
-                                                <div class="article_comment_amount">24</div>
-                                            </div>
-                                            <!-- 收藏 -->
-                                            <div class="article_collect_box">
-                                                <div class="article_icon_item">
-                                                    <img src="assets/images/icon/save_hov.png" alt="">
-                                                </div>
-                                                <div class="article_collect_amount">收藏</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- 文章圖片 -->
-                                    <div class="article_pic_box">
-                                        <img src="https://picsum.photos/60/60/?random=11">
-                                    </div>
-                                </div>
-                            </article>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -333,20 +303,10 @@
             </section>
         </div>
     </div>
+
     @@include('attendance.html');
-
     <!-- 分類頁籤 -->
-    <script>
-        new Vue({
-            el: '#tabs',
-            data: {
-                activetab: '1'
-            },
-            mounted() {
-
-            },
-        });
-    </script>
+    <script src="js/homepage_article.js"></script>
 
     <!-- 幻燈片 Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -378,7 +338,6 @@
             // 著作權聲明
             alert(alertmessage);
             // 簽到燈箱
-            // document.querySelector(".lightbox").style.display = "block"
             document.cookie = "alerted=yes";
         }
     </script>
@@ -393,8 +352,6 @@
             mem_head.src = sessionStorage.getItem('mem_head')
         }
     </script>
-
-    <!-- <script src="js/template(get_mem_no).js"></script> -->
 
 </body>
 

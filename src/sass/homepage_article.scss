@@ -1,12 +1,48 @@
-.writings .article_react {
-    height: 75px;
+//引入共用sass ; 如: reset/common/header(上方選單)/sidebar(側邊欄) => 可以自行看自己葉面需要那些sass檔
+// @import "./layout/reset";
+// @import "./layout/common";
+// @import "./layout/header";
+// @import "./layout/sidebar";
+@import "./article";
+// @import "./tabs";
+
+
+//---------------------------從此開始寫自己頁面的sass----------------------------------------------
+// 桌機版
+@mixin PC {
+    @media screen and (min-width:768px) {
+        @content;
+    }
 }
 
-.article_list{
+.main_area {
     width: 100%;
+    margin-top: 80px;
+
+    @include PC() {
+        margin-top: 100px;
+
+    }
 }
+
+.charts_box {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.rule {
+    cursor: auto;
+
+    .billboard_title {
+        margin-top: 20px;
+    }
+}
+
+
+// 文章
 .article_box {
     position: relative;
+    width: 100%;
 
     .article_mem_info {
         display: flex;
@@ -40,20 +76,29 @@
         padding-bottom: 10px;
         border-bottom: 1px solid #cccccc;
         position: relative;
+        height: 150px;
+
         .article_txt_box {
-            
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: flex-start;
-
+            height: 100%;
+            width: 70%;
 
             .article_title {
                 padding-bottom: 10px;
-                flex-grow: 1;
                 font-size: var(--subtitle2);
-                font-weight: var(--bold);
+                font-weight: 500;
+            }
+
+            .article_summary {
+                overflow: hidden;
+                -webkit-line-clamp: 3;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                white-space: pre-line;
             }
 
             .article_react {
@@ -86,14 +131,154 @@
                 }
             }
         }
+
         .article_pic_box {
-            height: 20%;
+            width: 30vw;
+            height: 150px;
+            max-width: 140px;
+            border-radius: 12px;
+            overflow: hidden;
+
+            @include PC() {
+                // height: 100%;
+                // width: auto;
+                width: 150px;
+                // max-width: auto;
+            }
+
             img {
-                height: 100%;
-                border-radius: 10px;
+                width: 100%;
+                height: auto;
                 padding: 5px;
                 vertical-align: middle;
+                border-radius: 12px;
             }
         }
     }
+}
+
+// 推薦文章
+@media screen and (min-width: 768px) {
+    .save_article {
+        .charts_box {
+            padding: 20px 0 0;
+            .article_box {
+                position: relative;
+                width: 100%;
+                margin-bottom: 10px;
+
+                .article_mem_info {
+                    display: none; ////////////////////////
+                }
+
+                .article_container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    box-sizing: border-box;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #cccccc;
+                    position: relative;
+                    height: 105px;
+
+                    .article_txt_box {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 100%;
+                        width: 70%;
+
+                        .article_title {
+                            padding-bottom: 10px;
+                            font-size: var(--subtitle2);
+                            font-weight: 500;
+                            overflow: hidden;
+                            -webkit-line-clamp: 1;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            white-space: nowrap;
+                        }
+
+                        .article_summary {
+                            -webkit-line-clamp: 1; //////////////
+                        }
+
+                        .article_react {
+                            display: flex;
+                            position: relative;
+
+                            .article_like_box,
+                            .article_comment_box,
+                            .article_collect_box {
+                                display: flex;
+                                box-sizing: border-box;
+                                padding: 10px 10px 0 0;
+                                align-items: center;
+
+                                .article_icon_item {
+                                    width: 15px;
+
+                                    img {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+
+                            .article_like_amount,
+                            .article_collect_amount,
+                            .article_comment_amount {
+                                font-size: var(--tag);
+                                padding-left: 5px;
+                                color: #a3a3a3;
+                            }
+                        }
+                    }
+
+                    .article_pic_box {
+                        width: 30vw;
+                        height: 150px;
+                        max-width: 140px;
+                        border-radius: 12px;
+                        overflow: hidden;
+
+                        @include PC() {
+                            // height: 100%;
+                            // width: auto;
+                            width: 95px; ////////////
+                            // max-width: auto;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                            padding: 5px;
+                            vertical-align: middle;
+                            border-radius: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.billboard_title {
+    font-size: var(--subtitle2);
+    font-weight: 500;
+}
+
+.billboard_rule {
+    white-space: pre-line;
+}
+
+@media screen and (min-width: 768px) {
+    .main_area {
+        width: 80%;
+    }
+}
+
+.swal-modal {
+    z-index: 5000;
 }

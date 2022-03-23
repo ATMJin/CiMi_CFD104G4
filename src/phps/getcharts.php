@@ -1,5 +1,5 @@
 <?php
-require_once("connect_suan.php");
+require_once("config.php");
 
 switch ($_POST["case"]) {
         case "null":
