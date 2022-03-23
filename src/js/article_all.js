@@ -28,14 +28,6 @@ new Vue({
 
             }
         },
-
-        // find_comment_info() {
-
-        //     return this.comment_info.find(art => art.article_no == this.a_num)
-        //     console.log(this.find_comment_info);
-        // },
-
-
     },
 
     watch: {
@@ -47,11 +39,9 @@ new Vue({
     methods: {
         setTargets() {
             this.lightbox = document.querySelectorAll(".lightbox");
-            // console.log(this.lightbox);
             this.close = document.querySelectorAll(".close_icon");
             this.article_box = document.getElementsByClassName("article_box");
-            // let article_like = document.getElementById('article_like');
-            // let article_collect = document.getElementById('article_like');
+
         },
 
         close_lightbox() {
@@ -65,12 +55,16 @@ new Vue({
             let html = document.getElementsByTagName('html')[0];
             // console.log(html);
             html.style = "overflow:hidden";
-            console.log(a_num);
             this.a_num = a_num;
             this.setCollect(a_num);
             this.get_comment_info();
-            // console.log(this.no);
+            this.backto_top();
         },
+        backto_top(){
+            let article_view_box=document.getElementsByClassName("article_view_container");
+            article_view_box[0].scrollTo(0, 0);
+        },
+
         setCollect(num) {
             let arr = [1, 2, 7, 12];
             if (arr.indexOf(num) > -1) {
@@ -78,11 +72,8 @@ new Vue({
             };
         },
         get_new_article() {
-            // console.log(location.search);
-            // let boardNo = location.search.substr(1).split("=")[1];
+
             let boardNo = `boardNo=${location.search.substring(1).split("=")[1]}`;
-            // let boardNo = `boardNo=${location.search.substr(1).split("=")[1]}&case=1`;
-            // console.log("no", boardNo);
             let xhr = new XMLHttpRequest();
             let thisVue = this;
 
@@ -100,8 +91,6 @@ new Vue({
         },
         get_hot_article() {
             let boardNo = `boardNo=${location.search.substring(1).split("=")[1]}`;
-            // let boardNo = location.search.substr(1).split("=")[1];
-
             let xhr = new XMLHttpRequest();
             let thisVue = this;
             xhr.onload = function () {
@@ -115,8 +104,73 @@ new Vue({
             xhr.send(`${boardNo}&case=2`);
             console.log(boardNo);
         },
+         // 按追蹤看板
+         click_follow_btn() {
+            let boardNo = `boardNo=${location.search.substring(1).split("=")[1]}`;
+            // 留言者
+            let mem_no = `mem_no=${sessionStorage.getItem('mem_no')}`;
+            if (sessionStorage.getItem('login') == null) {
+                swal("登入才能進行操作哦! 立即前往登入頁面??", {
+                        buttons: {
+
+                            catch: {
+                                text: "否",
+                                value: "否",
+                            },
+                            default: {
+                                text: "是",
+                                value: "是",
+                            },
+
+                        },
+                    })
+                    .then((value) => {
+                        switch (value) {
+
+                            case "是":
+                                location.href = "login_new.html"
+                                break;
+
+                            case "否":
+
+                                break;
+                        }
+                    });
+            } else {
+                let board_follow_btn = document.getElementById('board_follow_btn');
+
+                if (board_follow_btn.value == "追蹤") {
+                    board_follow_btn.value = "已追蹤"
+                    // 送進資料庫
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("post", "phps/article_database.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                    xhr.send(`${boardNo}&${mem_no}&case=add_follow`);
+
+                    xhr.onload = ()=>{
+                        console.log(xhr.responseText);
+                    }
+
+
+
+                } else {
+                    board_follow_btn.value = "追蹤"
+                    // 送進資料庫
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("post", "phps/article_database.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                    xhr.send(`${boardNo}&${mem_no}&case=remove_follow`);
+
+                    xhr.onload = ()=>{
+                        console.log(xhr.responseText);
+                    }
+
+                }
+            }
+        },
 
         get_like_article() {
+            let boardNo = `boardNo=${location.search.substring(1).split("=")[1]}`;
             let xhr = new XMLHttpRequest();
             let thisVue = this;
             xhr.onload = function () {
@@ -126,17 +180,16 @@ new Vue({
 
             xhr.open("post", "phps/article_database.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-            xhr.send("case=3");
+            xhr.send(`${boardNo}&case=3`);
 
         },
+
 
         get_comment_info() {
             let xhr = new XMLHttpRequest();
             let thisVue = this;
             xhr.onload = function () {
                 thisVue.comment_info = JSON.parse(xhr.responseText);
-                // console.log(thisVue.hot_articles);
-                // thisVue.article_comment_info=thisVue.comment_info;
                 console.log(thisVue.comment_info);
 
             }
@@ -334,18 +387,20 @@ new Vue({
             console.log(article_no);
             // 送進資料庫
             let xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                console.log(xhr.responseText);
-                // window.location.reload();
-                // console.log(this.a_num);
 
-                // window.alert('已收到您的！');
+            xhr.onload =  ()=> {
+                console.log(xhr.responseText);
+                this.get_comment_info();
+   
+                // this.open_lightbox(this.a_num);
+
 
             }
             xhr.open("post", "phps/article_database.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
             xhr.send(`${comment}&${comment_date}&${mem_no}&${article_no}&case=get_comment`);
-            this.open_lightbox(this.a_num);
+
+            
 
 
 

@@ -2,7 +2,7 @@
     <section class="article_view_container">
         <div class="article_content_view_box">
             <!-- 發文者 -->
-            <div v-if="article" v-for class="article_view_content_container">
+            <div v-if="article" class="article_view_content_container">
                 <div class="article_view_mem_info_box">
                     <div class="article_view_mem_info_item">
                         <div class="article_view_mem_icon">
@@ -39,7 +39,8 @@
                 <p>你可能感興趣的文章</p>
                 <div class="interest_article_box">
                     <!-- 感興趣的文章項目 -->
-                    <div v-for="like_article in like_articles" class="interest_article_item">
+                    <div v-for="like_article in like_articles" @click="open_lightbox(like_article.article_no)"
+                        class="interest_article_item">
                         <div class="interest_article_txt">
                             <h2>{{like_article.article_title}}</h2>
                             <!-- 感興趣的文章反應 -->
