@@ -306,15 +306,7 @@
 
     @@include('attendance.html');
     <!-- 分類頁籤 -->
-    <script>
-        new Vue({
-            el: '#tabs',
-            data: {
-                activetab: '1'
-            },
-            mounted() {},
-        });
-    </script>
+    <script src="js/homepage_article.js"></script>
 
     <!-- 幻燈片 Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -360,8 +352,6 @@
             mem_head.src = sessionStorage.getItem('mem_head')
         }
     </script>
-
-    <!-- <script src="js/template(get_mem_no).js"></script> -->
 
 </body>
 
