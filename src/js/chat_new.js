@@ -78,9 +78,9 @@ function getUsers() {
                 //將好友寫入userList
                 userList.innerHTML = res
                 let users = document.querySelectorAll('.users_list .friends');
-                console.log(users);
+                // console.log(users);
                 for (let i = 0; i < users.length; i++) {
-                    console.log(users[i]);
+                    // console.log(users[i]);
                     users[i].addEventListener('click', changeStyle) // line 81
                     users[i].addEventListener('click', getChat) // line 105
                 }
@@ -206,14 +206,14 @@ function confirmDelete() {
 //3.1 聊天室發送消息
 function sendMsg() {
     let user_id = chatPerson.innerText
-    console.log(user_id);
+    // console.log(user_id);
     let msg = document.querySelector('.emojionearea-editor').innerHTML
     let xhr = new XMLHttpRequest(); //建立XHR物件
     xhr.onload = () => {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
                 let data = xhr.response;
-                console.log(data);
+                // console.log(data);
             }
         }
     }
@@ -250,7 +250,7 @@ function newChat() {
 //3.3 聊天室上傳照片
 function fileChange() {
     let file = document.getElementById('theFile').files[0];
-    console.log(file);
+    // console.log(file);
 
     let readFile = new FileReader();
     readFile.readAsDataURL(file);

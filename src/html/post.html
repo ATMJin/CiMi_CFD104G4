@@ -77,12 +77,12 @@
                 params.append("case", "getData");
                 axios.post('phps/post.php', params)
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                         this.memInfo = res.data.mem
                         this.boards = res.data.board
                     })
                     .catch(err => {
-                        console.log(err);
+                        // console.log(err);
                     });
                 if (sessionStorage.getItem('login') == null) {
                     swal("登入才能發布文章喔! 立即前往登入頁面??", {
@@ -126,7 +126,7 @@
                 uploadFile() {
                     // 拿取檔案
                     let file = this.$refs.fileInput.files[0]
-                    console.log(file);
+                    // console.log(file);
 
                     //寫進html
                     let readFile = new FileReader();
@@ -153,7 +153,7 @@
                 uploadData() {
                     // 拿取檔案
                     let file = this.$refs.fileInput.files[0]
-                    console.log(file);
+                    // console.log(file);
                     // 然後自己建立一個表單來放要上傳的資料
                     // 也可以順便帶其他資料例如 userId
                     let form = new FormData()
