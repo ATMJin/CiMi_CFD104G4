@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/member_my_introduction.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="js/vue.js"></script>
 </head>
@@ -44,7 +45,7 @@
                             <img src="https://picsum.photos/1000/300/?random=10">
                         </div>
                         <div class="member_headimage">
-                            <img src="" alt="">
+                            <img :src="member.mem_head" alt="">
                             <p>{{member.mem_name}}</p>
                         </div>
                     </div>
@@ -113,32 +114,106 @@
                                 </div>
                             </div>
 
-
-                            <form action="" style="display:none" id="editForm">
-                                <h4>名稱</h4><input type="text" v-model="member.mem_name">
-                                <h4>生日</h4><input type="text" v-model="member.mem_birth">
-
-                                <h4>性別</h4>
-                                <input type="radio" name="sex" v-model="member.mem_sex" value="男">男
-                                <input type="radio" name="sex" v-model="member.mem_sex" value="女">女
-
-                                <h4>性向</h4> 
-                                <input type="radio" name="sex" v-model="member.mem_sex" value="男">男
-                                <input type="radio" name="sex" v-model="member.mem_sex" value="女">女
-                                <input type="radio" name="sex" v-model="member.mem_sex" value="雙性">雙性
-
-                                <h4>感情狀態</h4><input type="text" v-model="member.mem_relationship">
-                                <h4>職業</h4><input type="text" v-model="member.mem_job">
-                                <h4>畢業學校</h4><input type="text" v-model="member.mem_school">
-                                <h4>想嘗試的事情</h4><input type="text" v-model="member.mem_try">
-                                <h4>興趣、專長</h4><input type="text" v-model="member.mem_interests">
-                                <h4>喜歡的國家</h4><input type="text" v-model="member.mem_lovecountry">
-                                <h4>可以交換的事情</h4><input type="text" v-model="member.mem_exchange">
-                                <h4>個性化簽名</h4><input type="text" v-model="member.mem_sign">
-                                <div class="">
-                                    <input type="submit" @submit.prevent @click="send">
+                            <div id="edit_intro">
+                                <div class="close" @click="hiddenFriend">
+                                    <img src="assets\images\icon\close.png" alt="">
                                 </div>
-                            </form>
+                                <form enctype="multipart/form-data" id="editForm" >
+                                     <div class="member_cardimage lightbox_cardimage">
+                                         <div class="member_bgimage lightbox_bgimage">
+                                             <img src="https://picsum.photos/1000/300/?random=10">
+                                         </div>
+                                         <div class="member_headimage lightbox_headimage">
+                                            <img :src="member.mem_head" id="old_img" alt="">
+                                             <img :src="image" id="img" style="display:none"></img>
+
+                                             <div class="upload">
+                                                 <label class="" id="" for="filename">
+                                                     <div class="post_file_box">
+                                                         <img src="assets\images\camera.png" alt="">
+                                                     </div>
+                                                     <input type="file" id="filename" ref="fileInput"
+                                                         @change="uploadFile" hidden>
+                                                 </label>
+                                             </div>
+                                              <h4>{{member.mem_name}}</h4>
+                                              <input type="text" name="mem_no" :value="member.mem_no" hidden>
+                                         </div>
+                                     </div>
+                                     <div class="member_cardtext">
+                                         <div class="member_cardmain">
+                                             <div class="member_cardrow">
+                                                 <div class="membercard_birthday gap">
+                                                      <h4>生日</h4>
+                                                      <input type="text"name="birth" v-model="member.mem_birth">
+                                                 </div>
+                                                 <div class="membercard_gender gap">
+                                                     <h4>性別</h4>
+                                                     <input type="radio" name="sex" v-model="member.mem_sex" value="男">男
+                                                     <input type="radio" name="sex" v-model="member.mem_sex" value="女">女
+                                                    
+                                                 </div>
+                                             </div>
+                                             <div class="member_cardrow">
+                                                 <div class="membercard_love gap">
+                                                     <h4>性向</h4>
+                                                     <input type="radio" name="sexuality" v-model="member.mem_sexuality" value="男">男
+                                                     <input type="radio" name="sexuality" v-model="member.mem_sexuality"
+                                                         value="女">女
+                                                     <input type="radio" name="sexuality" v-model="member.mem_sexuality"
+                                                         value="雙性">雙性
+                                                 </div>
+                                                 <div class="membercard_word gap">
+                                                     <h4>感情狀態</h4>
+                                                     <input type="text" name="relationship" v-model="member.mem_relationship">
+                                                 </div>
+                                             </div>
+                                             <div class="member_cardrow">
+                                                 <div class="membercard_inter gap">
+                                                     <h4>職業</h4>
+                                                     <input type="text" name="job" v-model="member.mem_job">
+                                                 </div>
+                                                 <div class="membercard_like gap">
+                                                     <h4>畢業學校</h4>
+                                                     <input type="text" name="school" v-model="member.mem_school">
+                                                 </div>
+                                             </div>
+                                             <div class="member_cardrow">
+                                                 <div class="member_try gap">
+                                                       <h4>想嘗試的事情</h4>
+                                                       <input type="text" name="try" v-model="member.mem_try">
+                                                 </div>
+                                                 <div class="member_interests gap">
+                                                     <h4>興趣、專長</h4>
+                                                     <input type="text" name="interests" v-model="member.mem_interests">
+                                                 </div>
+                                             </div>
+                                             <div class="member_cardrow">
+                                                 <div class="member_lovecountry gap">
+                                                    <h4>喜歡的國家</h4>
+                                                    <input type="text" name="lovecountry"
+                                                        v-model="member.mem_lovecountry">
+                                                 </div>
+                                                 <div class="member_exchange gap">
+                                                     <h4>可以交換的事情</h4>
+                                                     <input type="text" name="exchange" v-model="member.mem_exchange">
+                                                 </div>
+                                             </div>
+                                             <div class="member_cardrow">
+                                                 <div class="membercard_sign gap">
+                                                     <h4>個性化簽名</h4>
+                                                     <input type="text" name="sign" v-model="member.mem_sign">
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+  
+                                    <div class="submit_button">
+                                        <!-- <input type="submit" @submit.prevent @click="" value=""> -->
+                                        <button type="button" class="secondary_btn" @click="send">完成編輯</button>
+                                    </div>         
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -150,12 +225,14 @@
         new Vue({
             el: '#myIntro',
             data: {
-                member:[]
+                member:[],
+                mem_no:"",
+                image:"",
             },
             mounted() {
                 let xhr = new XMLHttpRequest();
                 xhr.open("get",
-                    `phps/member/member_my_introduction.php?case=null&mem_no=${sessionStorage.getItem('mem_no')}`,
+                    `phps/member/member_my_introduction.php?mem_no=${sessionStorage.getItem('mem_no')}`,
                     true);
                 xhr.send(null);
 
@@ -169,23 +246,55 @@
 
             methods: {
                 edit_info(){
-                    editForm.style.display="block"
+                    edit_intro.style.display="block"
+                },
+                hiddenFriend(){
+                    edit_intro.style.display="none"
+                },
+                uploadFile() {
+                    // 拿取檔案
+                    let file = this.$refs.fileInput.files[0]
+                    console.log(file);
+                    document.getElementById("old_img").style="display:none;"
+                    //寫進html
+                    let readFile = new FileReader();
+                    readFile.readAsDataURL(file);
+                    readFile.addEventListener('load', this.loadImage);
+
+                    //創建formdata物件送到後端PHP
+                    let form = new FormData()
+                    form.append('file', file);
+                    form.append("mem_no", sessionStorage.getItem('mem_no'));
+                    axios.post('phps/member/mem_intro_avatar.php', form).then(res => {
+                    if (res.data != true) {
+                    alert(res.data)
+                    }
+                    })
+                },
+                loadImage(e) {
+
+                    this.image = e.target.result;
+                    img.style.display = "block"
+
                 },
                 send(){
-
                     let xhr = new XMLHttpRequest();
-                    xhr.open("get",
-                    `phps/member/member_my_introduction.php?case=edit&mem_no=${sessionStorage.getItem('mem_no')}`,
-                    true);
-                    xhr.send(null);
-
                     xhr.onload = function () {
-                    // 接收PHP傳來的資料
-                    member = JSON.parse(xhr.responseText);
-
-
                     }
-                }
+                    // insert
+                    xhr.open("post",
+                    "phps/member/mem_my_introduction_send.php",
+                    true);
+                    let form = document.getElementById("editForm");
+                    let formData = new FormData(form);
+                    xhr.send(formData);
+                    edit_intro.style.display="none";
+
+                    window.location.reload();
+
+
+                },
+                
             },
         })
     </script>

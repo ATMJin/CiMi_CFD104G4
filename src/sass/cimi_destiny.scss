@@ -488,13 +488,10 @@ body{
     width: 900px; //這邊我有對最長文字的寬
     overflow: hidden; //把其他不需要的地方隱藏
     position: absolute;
+    display: none;
   }
 
-  //文字讓他不要換行
-//   .static-text{
-//     white-space: nowrap;
-//     color:#F5BA79
-//   }
+
   
   //處理-2：打字效果
   .dynamic-text{
@@ -517,7 +514,7 @@ body{
       left:0;
       background: #1C1415; //偽元素就是一塊黑黑的傢伙把其他字遮起來～
       animation: typewriter 4s steps(23) 4, 
-  blink 0.5s steps(23) infinite, 
+      blink 0.5s steps(23) infinite, 
           //animation一次可以放很多個
           //animation的step就是將想要的效果拆解成幾步驟的意思
           //這邊以最長的文字長度23拆解出來～
@@ -598,9 +595,10 @@ body{
     
 }
 
-@media screen and (max-width: 576px){
-    body{
-  
+@media screen and (max-width: 768px){
+    main{
+        overflow: hidden;
+        
     }
     .ball{
         width: 35%;
@@ -633,21 +631,60 @@ body{
     .loading_text{
         left:35%;
     }
-    .instrction{
-        top:13%;
-        width: 80%;
-        padding: 45px 20px 10px;
-    }
-    .instrction span{
-        font-size: 20px;
+
+
+    //燈箱
+    .lightbox{
+        position: fixed;
+        width: 100vw;
+        height: 100%;
+        background-color: rgba(20, 19, 19, 0.568);
+        z-index: 4;
+        
+        // overflow: hidden;
+
     }
     #instruction_tree{
-     
+        position: absolute;
         width: 100px;
         left:15%;
         top:-12%;
         z-index: 5;
     }
+    .instrction{
+        position: relative;
+        top:13%;
+        width: 80vw;
+        background-color: rgb(255, 255, 255); 
+        padding: 45px 20px 10px;
+        line-height: 2;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        color: #02314c;
+        border-radius: 15px;
+        box-shadow: 5px 7px 16px 0px rgba(58,58,58,0.54);
+        box-sizing: border-box;
+        margin: auto;
+    }
+    .instrction span{
+        font-size:26px;
+        line-height: 2;
+        font-weight: 500;
+    }
+
+    .lightbox_button{
+        display: flex;
+        justify-content: center;
+        
+    }
+    .lightbox_button img{
+        width: 80px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+
     .margin_top{
         margin-top: 30vh;
         transition: all 1s ease-in-out;
@@ -745,7 +782,7 @@ body{
         left: 15%;
         height: 32px;
         font-weight: 500;
-
+        display: none;
     }
     .dynamic-text{
         font-size: 24px;

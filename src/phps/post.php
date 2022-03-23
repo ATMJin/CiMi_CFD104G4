@@ -1,6 +1,6 @@
 <?php
 // 資料庫連線檔
-include('config.php');
+require_once("connect_suan.php");
 
 switch ($_POST["case"]) {
 

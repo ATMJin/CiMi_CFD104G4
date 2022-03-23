@@ -11,11 +11,11 @@ window.addEventListener("load", () => {
         // console.log(aaaa);
 
         let user = document.querySelectorAll('.points p')
-        let head = document.querySelectorAll('.member_bouns_mycoins span')
+        let head = document.querySelectorAll('.member_bouns_mycoins img')
         let coin = document.querySelectorAll('.member_bouns_showcoins p')
         user[0].innerText = member.mem_point;
         coin[0].innerText = member.mem_point;
-        head[0].innerHTML = member.mem_head;
+        head[0].src = member.mem_head;
         // sign[0].innerText = member.mem_stacksign;
 
         $(function () {
