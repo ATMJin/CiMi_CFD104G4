@@ -85,7 +85,7 @@ function getquestion(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
       let infos = JSON.parse(xhr.responseText);
-      console.log(xhr.responseText);
+      // console.log(xhr.responseText);
       let i = 0;
 
       if (infos[i]) {
@@ -247,7 +247,7 @@ function collective_red(){
           type: 'GET',
           success(res) {
               alert('邀請提交成功');
-            console.log(res);
+            // console.log(res);
             
           },
 
@@ -286,7 +286,7 @@ function collective_blue(){
           type: 'GET',
           success(res) {
               alert('邀請提交成功');
-              console.log(res);
+              // console.log(res);
           },
 
       });
@@ -322,7 +322,7 @@ function collective_yellow(){
           type: 'GET',
           success(res) {
               alert('邀請提交成功');
-              console.log(res);
+              // console.log(res);
           },
 
       });

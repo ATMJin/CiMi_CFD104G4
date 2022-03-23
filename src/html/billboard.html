@@ -10,93 +10,9 @@
 </head>
 
 <body>
-    <header class="top_bar_box">
-    <div class="top_bar">
-        <div class="logo_box">
-            <h1>
-                <a href="homepage.html">
-                    <img src="assets/images/homepage_logo.svg" alt="CiMi交友論壇">
-                </a>
-            </h1>
-        </div>
-        <form class="search_bar" action="">
-            <input type="search">
-            <button type="submit">
-                <img src="assets/images/icon/nav_search.png" alt="搜尋">
-            </button>
-        </form>
-        <div class="member_bar">
-            <ul>
-                <li class="member_bar_phone"><a href="post.html"><img src="assets/images/icon/nav_post.png"
-                            alt="發文"></a></li>
-                <li class="member_bar_phone"><img src="assets/images/icon/cart.png" alt="購物車"></li>
-                <li class="member_bar_phone"><a href="chat.html"><img src="assets/images/icon/nav_message.png"
-                            alt="聊天室"></a></li>
-                <li><img src="assets/images/icon/nav_member.png" alt="會員"></li>
-            </ul>
-        </div>
-    </div>
-</header>
-
-<!-- 購物車燈箱 -->
-<!-- <script src="js/vue.js"></script> -->
-<div id="shoppingApp">
-    <div class="shopping_cart_light_box">
-        <shopping-cart></shopping-cart>
-    </div>
-</div>
-<script src="js/shop_cart.js"></script>
-<link rel="stylesheet" href="assets/css/shop_cart.css">
-<script>
-    let mem_head = document.querySelector("img[alt='會員']");
-    mem_head.addEventListener('click', check)
-
-    function check() {
-        // console.log(localStorage.getItem('login'));
-        console.log(sessionStorage.getItem('login'));
-
-        if (sessionStorage.getItem('login') == null) {
-            location.href = 'login_new.html';
-
-        } else {
-            location.href = 'member_my_setup.html';
-        }
-
-
-    }
-    if (sessionStorage.getItem('login') == 'success') {
-        //登入的時候把頭像換
-        mem_head.src = sessionStorage.getItem('mem_head')
-        let mem_link = document.querySelector("img[alt='會員']")
-        // console.log(mem_link);
-        // console.log(mem_link[3]);
-        mem_link.href = 'member_my_setup.html';
-    }
-</script>
+    @@include('layout/header.html')
     <section class="content_area">
-        <div class="sidebar_box">
-    <aside class="sidebar">
-        <nav>
-            <ul class="sidebar_list">
-                <li><a href="homepage.html"><img src="assets/images/icon/nav_home.svg" alt="首頁">首頁</a>
-                </li>
-                <li><a href="billboard.html"><img src="assets/images/icon/nav_billboard.svg" alt="所有看版">所有看版</a>
-                </li>
-                <li><a href="product.html"><img src="assets/images/icon/nav_shop.svg" alt="好物商城">好物商城</a>
-                </li>
-                <li><a href="charts.html"><img src="assets/images/icon/nav_charts.svg" alt="創作者排行榜">創作者排行榜</a>
-                </li>
-                <li id="cimi_destiny"><a><img src="assets/images/icon/game_card.svg" alt="CiMi
-                            Destiny">CiMi
-                        Destiny</a></li>
-                <li class="nav_phone"><a href="member.html"><img src="assets/images/icon/nav_member.svg"
-                            alt="會員專區">會員專區</a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
-</div>
-<script src="js/sidebar.js"></script>
+        @@include('layout/sidebar.html')
         <main class="billboard_main_area">
             <div class="billboard_sort">
                 <h1>所有看版</h1>
@@ -112,7 +28,7 @@
                             </div>
                             <h2 class="billboard_name">情感生活</h2>
                             <h3 class="billboard_txt">感情|交往|結婚</h3>
-                            <button class="btn-secondary" type="button">追蹤</button>
+                            <!-- <button class="btn-secondary" type="button">追蹤</button> -->
                         </div>
                         <div class="music_billboard_item" onclick="goto_board(2)" data-no="2">
                             <div class="music_billboard_pic">
@@ -120,7 +36,7 @@
                             </div>
                             <h2 class="billboard_name">好聽音樂</h2>
                             <h3 class="billboard_txt">嘻哈|流行|樂團</h3>
-                            <button class="btn-secondary" type="button">追蹤</button>
+                            <!-- <button class="btn-secondary" type="button">追蹤</button> -->
                         </div>
                     </div>
                     <!-- 右邊區域 -->
@@ -131,7 +47,7 @@
                             </div>
                             <h2 class="billboard_name">美妝保養</h2>
                             <h3 class="billboard_txt">美妝|美甲|美體</h3>
-                            <button class="btn-secondary" type="button">追蹤</button>
+                            <!-- <button class="btn-secondary" type="button">追蹤</button> -->
                         </div>
                         <div class="sport_billboard_item" onclick="goto_board(4)" data-no="4">
                             <div class="sport_billboard_pic">
@@ -139,7 +55,7 @@
                             </div>
                             <h2 class="billboard_name">運動健身</h2>
                             <h3 class="billboard_txt">健身|賽事|減肥</h3>
-                            <button class="btn-secondary" type="button">追蹤</button>
+                            <!-- <button class="btn-secondary" type="button">追蹤</button> -->
                         </div>
                     </div>
                 </div>
@@ -151,7 +67,7 @@
                         </div>
                         <h2 class="billboard_name">旅遊踏青</h2>
                         <h3 class="billboard_txt">景點|活動|花季</h3>
-                        <button class="btn-secondary" type="button">追蹤</button>
+                        <!-- <button class="btn-secondary" type="button">追蹤</button> -->
                     </div>
                     <div class="fashion_billboard_item" onclick="goto_board(6)" data-no="6">
                         <div class="fashion_billboard_pic">
@@ -159,7 +75,7 @@
                         </div>
                         <h2 class="billboard_name">穿搭時尚</h2>
                         <h3 class="billboard_txt">穿搭|球鞋|飾品</h3>
-                        <button class="btn-secondary" type="button">追蹤</button>
+                        <!-- <button class="btn-secondary" type="button">追蹤</button> -->
                     </div>
                 </div>
 
@@ -172,8 +88,10 @@
     <script>
         function goto_board(boardNo) {
             location.href = 'article_all.html?boardNo=' + boardNo;
+            return false
         }
     </script>
+
 
 </body>
 

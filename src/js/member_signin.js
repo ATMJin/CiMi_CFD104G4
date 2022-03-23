@@ -7,12 +7,11 @@ let checks = document.getElementsByClassName("check_item");
 let txt = document.getElementsByClassName("txt_box");
 let coins_content = document.getElementsByClassName("coins_content");
 let close = document.querySelector(".close_icon");
-let lightbox = document.querySelectorAll(".lightbox");
 let day_list = ['日', '一', '二', '三', '四', '五', '六'];
 let day = new Date().getDay();
 let mem_point_add = 0;
 let mem_last_sign;
-
+let mem_no = sessionStorage.getItem('mem_no');
 
 let current_date = new Date();
 
@@ -38,35 +37,24 @@ function getsign_date(){
     xhr.onload = function () {
         let memsign = JSON.parse(xhr.responseText);
         // console.log(questions[0].optionA);
-    if (mem_no != null) {
-        
-        console.log(lightbox[0]);
-        lightbox[0].style.display = "block";
-        
         if (memsign[0].mem_lastsign == check_date) {
-            lightbox[0].style.display = "none";
+            coins[day - 1].style.display = "none";
+            txt_box[day].style.display = "none";
+            checks[day - 1].style.display = "block";
+           
         } else {
-            lightbox[0].style.display = "block";
+            attendances[day - 1].addEventListener("click", weekdays_click);
         }
-    }
  }
     xhr.open("get", `phps/attendence.php?mem_no=${sessionStorage.getItem('mem_no')}`, true);
     xhr.send(null);
 };
 
 
-function close_lightbox(){
-    lightbox[0].style.display= "none";
-}
-
 
 
 function weekdays_click() {
-    if (mem_no == null) {
-        alert("登入或註冊，即可簽到累積點數喔!")
-        window.location.href = "login_new.html";
-    }else {
-        
+ 
         coins[day - 1].style.display = "none";
         txt_box[day].style.display = "none";
         checks[day - 1].style.display = "block";
@@ -87,8 +75,9 @@ function weekdays_click() {
             },
 
         
-        });
-    }
+          });
+        window.location.reload();
+    
 };
 
 function passed_days() {
@@ -101,12 +90,9 @@ function passed_days() {
 function init(){
     passed_days();
     getsign_date();
-    attendances[day - 1].addEventListener("click", weekdays_click);
-
     if (day == 0) {
          attendances_7days[0].addEventListener("click", weekdays_click);
         };
-    
-    close.onclick = close_lightbox;
+
 }
 window.addEventListener("load", init, false);

@@ -66,6 +66,11 @@ $billboard_pic_phone_width: 78%;
     .billboard_name {
         font-size: var(--subtitle2);
         font-weight: 500;
+
+        @include PC() {
+            font-size: var(--subtitle1);
+
+        }
     }
 
     .billboard_txt {
