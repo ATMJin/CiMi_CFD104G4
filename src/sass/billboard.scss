@@ -7,11 +7,12 @@
 // 側邊欄顏色
 .sidebar_box .sidebar .sidebar_list a[href="billboard.html"] {
     color: #fff;
-    text-shadow:0 0 5px rgb(77, 68, 202);
-  }
+    text-shadow: 0 0 5px rgb(77, 68, 202);
+}
+
 .sidebar .sidebar_list a img[alt="所有看版"] {
     filter: invert(100%);
-  }
+}
 
 //---------------------------從此開始寫自己頁面的sass----------------------------------------------
 $billboard_pic_phone_width: 78%;
@@ -33,6 +34,8 @@ $billboard_pic_phone_width: 78%;
     box-shadow: 3px 5px 0.3em #ddd;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+
 
     @include PC() {
         width: calc(100% - 20px);
@@ -111,6 +114,8 @@ $billboard_pic_phone_width: 78%;
                 .love_billboard_item {
                     @extend %billboard_item_common;
                     background-color: #ffadc4aa;
+                    cursor: pointer;
+
 
                     @include PC() {
                         height: 200px;
@@ -148,6 +153,7 @@ $billboard_pic_phone_width: 78%;
                     @extend %billboard_item_common;
                     background-color: #fdd7aeaa;
                     margin-top: 50px;
+                    cursor: pointer;
 
                     @include PC() {
                         height: 200px;
@@ -198,6 +204,8 @@ $billboard_pic_phone_width: 78%;
                 .makeup_billboard_item {
                     @extend %billboard_item_common;
                     background-color: #d9bdf7aa;
+                    cursor: pointer;
+
 
                     @include PC() {
                         height: 420px;
@@ -234,6 +242,7 @@ $billboard_pic_phone_width: 78%;
                     @extend %billboard_item_common;
                     background-color: #fff3adaa;
                     margin-top: 50px;
+                    cursor: pointer;
 
                     @include PC() {
                         height: 420px;
@@ -285,6 +294,7 @@ $billboard_pic_phone_width: 78%;
             .travel_billboard_item {
                 @extend %billboard_item_common;
                 background-color: #b7dbfaaa;
+                cursor: pointer;
 
                 @include PC() {
                     width: 50%;
@@ -322,6 +332,7 @@ $billboard_pic_phone_width: 78%;
                 @extend %billboard_item_common;
                 background-color: #d0f5b9aa;
                 margin-top: 50px;
+                cursor: pointer;
 
                 @include PC() {
                     width: 50%;

@@ -1,7 +1,7 @@
 <?php
 try{
-    require_once("../connect_cfd104g4.php"); // 上線時使用
-    // require_once("test_connect.php");  // 開發時使用
+    // require_once("../connect_cfd104g4.php"); // 上線時使用
+    require_once("connect.php");  // 開發時使用
   
 
     $article_case=$_POST["case"];
@@ -53,21 +53,27 @@ try{
 		// 抓取可能會喜歡的文章資訊
 
 		case 3:
-			$sql = "select a.article_title, a.article_likes_amount, count(c.article_comment_no) comment_amount, b.billboard_no, a.article_pic
+			$billboard_no = $_POST["boardNo"];
+
+			$sql = "select a.article_title, a.article_likes_amount, count(c.article_comment_no) comment_amount, b.billboard_no, a.article_pic, a.article_no
 			from article a
 			left JOIN article_comment c
 			on a.article_no = c.article_no
 			JOIN billboard b
 			on b.billboard_no = a.billboard_no
+			where b.billboard_no =?
 			group by a.article_no
 			order by a.article_likes_amount desc
 			limit 4;
 			";
-			$articles = $pdo->query($sql);
+			$articles = $pdo->prepare($sql);
+			$articles->bindValue(1, $billboard_no);//給值
+			$articles->execute();//執行
 			$articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
 
 			echo json_encode($articleRows);    
 		break;
+
 		// 抓取留言資訊資料 
 		case "find_comment_info":
 
@@ -103,6 +109,41 @@ try{
 			$articleRows = $articles->fetchAll(PDO::FETCH_ASSOC);
 
 			echo json_encode($articleRows);   
+		break;
+
+		// 加入追蹤
+		case "add_follow":
+			$billboard_no = $_POST["boardNo"];
+			$mem_no=$_POST["mem_no"];	
+			// $billboard_no=1;
+			$sql = "INSERT INTO mem_billboard(mem_no, mem_billboard_no)	VALUES (:mem_no,:mem_board_no);";
+			$articles = $pdo->prepare($sql);
+			$articles->bindValue(":mem_no", $mem_no);//給值
+			$articles->bindValue(":mem_board_no", $billboard_no);//給值
+			if($articles->execute()){//執行
+				echo"異動成功";
+			}else{
+				echo"異動失敗";
+			}
+
+		break;
+
+		// 取消追蹤
+		case "remove_follow":
+			$billboard_no = $_POST["boardNo"];
+			$mem_no=$_POST["mem_no"];
+			// $billboard_no=1;
+			$sql = "DELETE FROM mem_billboard
+			WHERE mem_no=:mem_no and mem_billboard_no=:mem_board_no;";
+			$articles = $pdo->prepare($sql);
+			$articles->bindValue(":mem_no", $mem_no);//給值
+			$articles->bindValue(":mem_board_no", $billboard_no);//給值
+			if($articles->execute()){//執行
+				echo"異動成功";
+			}else{
+				echo"異動失敗";
+			}
+
 		break;
 
 		// 寫下留言
