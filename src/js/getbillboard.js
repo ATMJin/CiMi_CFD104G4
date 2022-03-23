@@ -40,7 +40,6 @@ function hotBoard() {
     let xhr2 = new XMLHttpRequest();
     xhr2.onload = function () {
       let collect_arr = JSON.parse(xhr2.responseText);
-      console.log(collect_arr)
 
       // let arr = [false, false, false, false, false, false];
       // for (let i = 1; i < 7; i++) {

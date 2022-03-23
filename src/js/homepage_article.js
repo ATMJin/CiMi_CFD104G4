@@ -51,13 +51,19 @@ new Vue({
             let html = document.getElementsByTagName('html')[0];
             // console.log(html);
             html.style = "overflow:hidden";
-            console.log(a_num);
             this.a_num = a_num;
-            this.setCollect(a_num);
-            this.get_comment_info();
-            // console.log(this.no);
+            // this.setCollect(a_num);
+            this.get_comment_info(a_num);
+            this.backto_top();
         },
-        get_new_article() {
+        backto_top() {
+            let article_view_box = document.getElementsByClassName("article_view_container");
+            console.log('v', article_view_box);
+
+            article_view_box[0].scrollTo(0, 0);
+        },
+
+        get_new_article(a_num) {
 
             let xhr = new XMLHttpRequest();
             let thisVue = this;
@@ -112,7 +118,8 @@ new Vue({
 
         },
 
-        get_comment_info() {
+
+        get_comment_info(v) {
             let xhr = new XMLHttpRequest();
             let thisVue = this;
             xhr.onload = function () {
@@ -125,8 +132,7 @@ new Vue({
 
             xhr.open("post", "phps/homepage_article.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-            console.log("a.num", this.a_num);
-            xhr.send(`article_no=${this.a_num}&case=find_comment_info`);
+            xhr.send(`article_no=${v}&case=find_comment_info`);
         },
 
         // 按讚
@@ -425,7 +431,7 @@ new Vue({
         this.get_liked_article();
         this.get_like_article();
         this.get_comment_info();
-        this.get_board_info()
+        // this.get_board_info()
     },
 
 })
