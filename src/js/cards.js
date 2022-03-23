@@ -246,7 +246,7 @@ function collective_red(){
           data:{player_no:sessionStorage.getItem('mem_no'),paring_player_no:paring_no[0],paring_time:timestamp,send_invitation:'是'},
           type: 'GET',
           success(res) {
-              alert('邀請提交成功');
+              // alert('邀請提交成功');
             // console.log(res);
             
           },
@@ -285,7 +285,7 @@ function collective_blue(){
           data:{player_no:sessionStorage.getItem('mem_no'),paring_player_no:paring_no[1],paring_time:timestamp,send_invitation:'是'},
           type: 'GET',
           success(res) {
-              alert('邀請提交成功');
+              // alert('邀請提交成功');
               // console.log(res);
           },
 
@@ -321,7 +321,7 @@ function collective_yellow(){
           data:{player_no:sessionStorage.getItem('mem_no'),paring_player_no:paring_no[2],paring_time:timestamp,send_invitation:'是'},
           type: 'GET',
           success(res) {
-              alert('邀請提交成功');
+              // alert('邀請提交成功');
               // console.log(res);
           },
 
