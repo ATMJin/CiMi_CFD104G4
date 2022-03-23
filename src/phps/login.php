@@ -1,7 +1,7 @@
 <?php
 session_start();
 try{
-  include_once "config.php";
+  include_once "connect.php";
   
   $sql = "select * from mem where mem_id=:mem_id and mem_psw=:mem_psw"; 
 
