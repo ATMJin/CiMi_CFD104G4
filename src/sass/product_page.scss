@@ -242,7 +242,7 @@
 
                 // <!-- 留言 -->
                 .txt_box {
-                    padding-left: 10px;
+                    // padding-left: 10px;
                     width: 100%;
 
                     input {
@@ -256,8 +256,9 @@
                     // 底下空白消失
                     height: 20px;
                     // padding-top: 5px;
+                    flex-shrink: 0;
                     cursor: pointer;
-                    margin-left: 10px;
+                    // margin-left: 10px;
                     img {
                         width: 100%;
                     }
