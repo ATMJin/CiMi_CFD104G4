@@ -122,7 +122,7 @@ try {
 
             // 抓取可能會喜歡的文章資訊
         case 3:
-            $sql = "select a.article_title, a.article_likes_amount, count(c.article_comment_no) comment_amount, b.billboard_no, a.article_pic
+            $sql = "select a.article_title, a.article_likes_amount, count(c.article_comment_no) comment_amount, b.billboard_no, a.article_pic, a.article_no
 			from article a
 			left JOIN article_comment c
 			on a.article_no = c.article_no

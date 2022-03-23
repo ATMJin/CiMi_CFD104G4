@@ -95,11 +95,11 @@ function getquestion(){
         let i = 0;
         let dataObj = new Date();
         let day = dataObj.getDay();
-        console.log(day);
+        // console.log(day);
      
         i = day * 3;
         question_no_array = [questions[i].question_no, questions[i + 1].question_no, questions[i + 2].question_no];
-        console.log(question_no_array);
+        // console.log(question_no_array);
 
         document.getElementById("question1").innerText = questions[i].question;
         document.getElementById("question2").innerText = questions[i + 1].question;
@@ -188,7 +188,7 @@ function playToggle(e) {
         ans_pack.push(mem_ans_q_no);
 
         // console.log(question_no_array[question_no],mem_ans);
-        console.log(ans_pack);
+        // console.log(ans_pack);
         
 
 //二、傳資料給php，php執行insert會員答案的動作
@@ -199,7 +199,7 @@ function playToggle(e) {
             
             type: 'GET',
             success(res) {
-                alert('答案提交成功');
+                // alert('答案提交成功');
                 
             },
 
@@ -276,9 +276,9 @@ function videoPause() {
             data: {mem_no:sessionStorage.getItem('mem_no'),playdate,ans_pack:ans_pack.toString()},
             type: 'GET',
             success(res){
-                console.log(playdate);
-                console.log(res);
-                alert('後臺異動成功');
+                // console.log(playdate);
+                // console.log(res);
+                // alert('後臺異動成功');
             },
         })
 

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CiMi交友論壇</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="icon" href="assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/slider.css">
     <link rel="stylesheet" href="assets/css/homepage_article.css">
     <link rel="stylesheet" href="assets/css/homepage.css">
@@ -15,6 +16,7 @@
 </head>
 
 <body>
+    @@include('attendance.html')
     @@include('layout/header.html')
     <div class="content_box">
         <div class="content_area">
@@ -22,9 +24,7 @@
             <main id="app" class="main_area">
                 @@include('article_lightbox.html')
                 <div class="hot_billboard">
-
                 </div>
-
                 <div class="save_area">
                     <div class="save_billboard">
                         <h2>推薦的看版</h2>
@@ -122,34 +122,44 @@
                         </div>
                     </div>
                 </div>
-                <div class="writings">
+                <div class="writings" id="app">
                     <div id="tabs" class="container">
                         <div class="tabs">
-                            <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">追蹤</a>
+                            <a v-on:click="activetab='1'" v-bind:class="[ activetab === '1' ? 'active' : '' ]">最新</a>
                             <a v-on:click="activetab='2'" v-bind:class="[ activetab === '2' ? 'active' : '' ]">熱門</a>
-                            <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">最近</a>
+                            <a v-on:click="activetab='3'" v-bind:class="[ activetab === '3' ? 'active' : '' ]">規則</a>
                         </div>
 
                         <div class="content">
                             <div v-if="activetab ==='1'" class="tabcontent">
-                                <div class="article_list">
-                                    <article class="article_box">
+                                <div class="charts_box">
+                                    <!-- 單篇文章 -->
+
+                                    <div class="article_box" id="demo_article_box" v-for="new_article in new_articles"
+                                        @click="open_lightbox(new_article.article_no)">
+                                        <span style="display:none;">{{new_article.article_no}}</span>
+                                        <!-- no=new_article.article_no -->
                                         <!-- 發文者 -->
                                         <div class="article_mem_info">
                                             <div class="article_mem_icon">
-                                                <img src="https://fakeimg.pl/12x12/200">
+                                                <img
+                                                    :src="new_article.mem_head?new_article.mem_head:'assets/images/blue_ball.png'">
                                             </div>
-                                            <div class="article_mem_name">小小小梨子</div>
+                                            <div class="article_mem_name" id="article_mem_name">
+                                                {{new_article.mem_name}}</div>
                                         </div>
                                         <!-- 文章標題 -->
                                         <div class="article_container">
                                             <!-- 文章內容 -->
                                             <div class="article_txt_box">
-                                                <div class="article_title">穿搭精華區上線啦！！值得收藏的穿搭資訊都在這!</div>
-                                                <!-- 文章摘要 -->
-                                                <div class="article_summary">
-                                                    嗨嗨穿搭板的卡友們！<br>
-                                                    我是穿搭小梨子🍐
+                                                <div class="article_txt_item">
+                                                    <!-- 文章標題 -->
+                                                    <div class="article_title">{{new_article.article_title}}</div>
+                                                    <!-- 文章摘要 -->
+                                                    <div class="article_summary" id="article_summary"
+                                                        v-html="new_article.article_content">
+
+                                                    </div>
                                                 </div>
                                                 <!-- 文章反應 -->
                                                 <div class="article_react">
@@ -158,133 +168,164 @@
                                                         <div class="article_icon_item">
                                                             <img src="assets/images/icon/like.png" alt="">
                                                         </div>
-                                                        <div class="article_like_amount">144</div>
+                                                        <div class="article_like_amount" id="article_like_amount">
+                                                            {{new_article.article_likes_amount}}</div>
                                                     </div>
                                                     <!-- 留言數 -->
                                                     <div class="article_comment_box">
                                                         <div class="article_icon_item">
                                                             <img src="assets/images/icon/comment.png" alt="">
                                                         </div>
-                                                        <div class="article_comment_amount">24</div>
+                                                        <div class="article_comment_amount" id="article_comment_amount">
+                                                            {{new_article.comment_amount}}
+                                                        </div>
                                                     </div>
                                                     <!-- 收藏 -->
                                                     <div class="article_collect_box">
                                                         <div class="article_icon_item">
                                                             <img src="assets/images/icon/save_hov.png" alt="">
                                                         </div>
-                                                        <div class="article_collect_amount">收藏</div>
+                                                        <div class="article_collect_amount">
+                                                            {{new_article.article_collect_amount}}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- 文章圖片 -->
                                             <div class="article_pic_box">
-                                                <img src="https://picsum.photos/150/150/?random=14">
+                                                <img :src="new_article.article_pic">
                                             </div>
                                         </div>
-                                    </article>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- 熱門文章區塊 -->
+
                             <div v-if="activetab ==='2'" class="tabcontent">
-                                <div class="article_list">
-                                    <article class="article_box">
+                                <div class="charts_box">
+                                    <div class="article_box" v-for="hot_article in hot_articles"
+                                        @click="open_lightbox(hot_article.article_no)">
                                         <!-- 發文者 -->
                                         <div class="article_mem_info">
                                             <div class="article_mem_icon">
-                                                <img src="https://fakeimg.pl/12x12/200">
+                                                <img
+                                                    :src="hot_article.mem_head?hot_article.mem_head:'assets/images/blue_ball.png'">
                                             </div>
-                                            <div class="article_mem_name">抹茶大福</div>
+                                            <div class="article_mem_name">{{hot_article.mem_name}}</div>
                                         </div>
                                         <!-- 文章標題 -->
                                         <div class="article_container">
                                             <!-- 文章內容 -->
                                             <div class="article_txt_box">
-                                                <div class="article_title">COSCO的爆紅抹茶太甜了，不推薦</div>
-                                                <!-- 文章摘要 -->
-                                                <div class="article_summary">
-                                                    最近爆紅的抹茶沖泡包<br>
-                                                    雖然價格還算親民，但口味太甜啦>A< </div> <!-- 文章反應 -->
-                                                        <div class="article_react">
-                                                            <!-- 喜歡數 -->
-                                                            <div class="article_like_box">
-                                                                <div class="article_icon_item">
-                                                                    <img src="assets/images/icon/like.png" alt="">
-                                                                </div>
-                                                                <div class="article_like_amount">144</div>
-                                                            </div>
-                                                            <!-- 留言數 -->
-                                                            <div class="article_comment_box">
-                                                                <div class="article_icon_item">
-                                                                    <img src="assets/images/icon/comment.png" alt="">
-                                                                </div>
-                                                                <div class="article_comment_amount">24</div>
-                                                            </div>
-                                                            <!-- 收藏 -->
-                                                            <div class="article_collect_box">
-                                                                <div class="article_icon_item">
-                                                                    <img src="assets/images/icon/save_hov.png" alt="">
-                                                                </div>
-                                                                <div class="article_collect_amount">收藏</div>
-                                                            </div>
-                                                        </div>
+                                                <div class="article_txt_item">
+                                                    <!-- 文章標題 -->
+                                                    <div class="article_title">{{hot_article.article_title}}</div>
+                                                    <!-- 文章摘要 -->
+                                                    <div class="article_summary" v-html="hot_article.article_content">
+
+                                                    </div>
                                                 </div>
-                                                <!-- 文章圖片 -->
-                                                <div class="article_pic_box">
-                                                    <img src="https://picsum.photos/150/150/?random=15">
+
+                                                <!-- 文章反應 -->
+                                                <div class="article_react">
+                                                    <!-- 喜歡數 -->
+                                                    <div class="article_like_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/like.png" alt="">
+                                                        </div>
+                                                        <div class="article_like_amount">
+                                                            {{hot_article.article_likes_amount}}</div>
+                                                    </div>
+                                                    <!-- 留言數 -->
+                                                    <div class="article_comment_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/comment.png" alt="">
+                                                        </div>
+                                                        <div class="article_comment_amount">
+                                                            {{hot_article.comment_amount}}
+                                                        </div>
+                                                    </div>
+                                                    <!-- 收藏 -->
+                                                    <div class="article_collect_box">
+                                                        <div class="article_icon_item">
+                                                            <img src="assets/images/icon/save_hov.png" alt="">
+                                                        </div>
+                                                        <div class="article_collect_amount">
+                                                            {{hot_article.article_collect_amount}}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                    </article>
+                                            <!-- 文章圖片 -->
+                                            <div class="article_pic_box">
+                                                <img :src="hot_article.article_pic">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                             <div v-if="activetab ==='3'" class="tabcontent">
-                                <article class="article_box">
-                                    <!-- 發文者 -->
-                                    <div class="article_mem_info">
-                                        <div class="article_mem_icon">
-                                            <img src="https://fakeimg.pl/12x12/200">
-                                        </div>
-                                        <div class="article_mem_name">穿搭小天才</div>
-                                    </div>
-                                    <!-- 文章標題 -->
-                                    <div class="article_container">
-                                        <!-- 文章內容 -->
-                                        <div class="article_txt_box">
-                                            <div class="article_title">穿搭精華區上線啦！！值得收藏的穿搭資訊都在這!</div>
-                                            <!-- 文章摘要 -->
-                                            <div class="article_summary">
-                                                嗨嗨穿搭板的卡友們！<br>
-                                                我是穿搭小梨子🍐
-                                            </div>
-                                            <!-- 文章反應 -->
-                                            <div class="article_react">
-                                                <!-- 喜歡數 -->
-                                                <div class="article_like_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/like.png" alt="">
-                                                    </div>
-                                                    <div class="article_like_amount">144</div>
-                                                </div>
-                                                <!-- 留言數 -->
-                                                <div class="article_comment_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/comment.png" alt="">
-                                                    </div>
-                                                    <div class="article_comment_amount">24</div>
-                                                </div>
-                                                <!-- 收藏 -->
-                                                <div class="article_collect_box">
-                                                    <div class="article_icon_item">
-                                                        <img src="assets/images/icon/save_hov.png" alt="">
-                                                    </div>
-                                                    <div class="article_collect_amount">收藏</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 文章圖片 -->
-                                        <div class="article_pic_box">
-                                            <img src="https://picsum.photos/150/150/?random=16">
-                                        </div>
-                                    </div>
-                                </article>
+                                <div class="charts_box rule">
+                                    <p class="billboard_title">看版共通規範</p>
+                                    <p class="billboard_rule">
+                                        一、避免不當言論
+                                        1. 在社團發文屬公開性質，請斟酌用字遣詞、互相尊重、負責。
+                                        2. 不得討論 政治、宗教 或其他容易引起爭執之議題。
+                                        3. 嚴禁發表各種色情、恐怖、猥褻的文章或圖片。
+                                        4. 禁止各種謾罵、不雅、毀謗、傷害、暴力、人身攻擊或影射之言論。
+                                        5. 嚴禁公開號招聚賭、糾眾夜遊、滋事、飆車、援交，及其他不法行為。
+                                        6. 勿發表毫無憑據之負面評論，如有任何追訴，請自負法律責任。
+                                        7. 禁止在版上PO臨檢、路檢、攔查之相關文章。
+
+                                        二、發文規則
+                                        1. 勿PO非關新營或鄰近區域之事物，若附圖片或影片必需與內文相關。
+                                        2. 為避免洗版，所有PO文僅限單一張圖片，禁止開設相簿。
+                                        3. 徵才請至 https://goo.gl/4bxrWv 留言，需寫明公司資訊與職缺內容供求職版友參考。
+                                        4. 求職請主動查看徵才專區，或留言 http://goo.gl/UntXnw ，在版上PO徵才求職一律砍文不另外告知。
+                                        5. 有物超所值的優惠活動，請在新營人好康分享 http://goo.gl/3VkrHk 留言推薦。
+                                        6. 非經管理團隊允許，禁止以私人名義發起捐物資或捐款 (堪用二手物品除外)。
+                                        7. 本社團非交友聯誼社團，有關徵友徵婚或其他社團拉人之PO文，一律刪除。
+
+                                        三、外部連結
+                                        1. 發文在社團裡的連結，無論是問卷調查或是好康分享等等，請清楚標示主題及連結內容。
+                                        2. 發文者需先確定沒有惡意程式或病毒，若管理員判定可能為不安全連結時，將直接刪除。
+
+                                        四、勤爬文
+                                        1. 建議多利用 Google
+                                        搜尋功能；若需在版上提出問題，也請先至【檔案區】查找，或利用右上角"放大鏡"搜尋相關資訊，儘量避免相同話題重覆發文，另依資訊集中原則，同一事件只保留最早之PO文。
+
+                                        五、店家廣告文 (限新營或鄰近之實體店家)
+                                        1. 請店家先至【實體店家廣告登記區】http://goo.gl/3f3wCi 登記，未取得廣告核准編號，不得廣告。
+                                        2. 廣告刊頭需標示，例:【8月廣告130XXX】字樣，若標示不完整，將提醒您重新PO文。
+                                        3. 請遵守 "一個月限PO一則廣告" 重覆廣告將移除，並禁刊次月廣告。
+                                        4. 可用粉絲團或相簿網址，有新優惠、活動請於原廣告留言補充，若違規推文將移除該廣告。
+                                        5. 固定攤位、夜市攤位，歸納於本廣告登記規範。
+                                        6. 寵物活體買賣依法需有合法之證明 (例如: 狗/貓)。
+                                        7. 本社團禁止傳直銷、保險、金融商品之廣告。
+
+                                        六、其他交易規範 (限新營在地或鄰近地區)
+                                        1. 無店鋪之個人收費服務 (例如: 按摩/美容美甲) 請至【新營個人收費服務】http://goo.gl/8iITaw
+                                        留言刊登，需說明服務內容，有固定價格者需明白標示。
+                                        2. 個人二手/閒置物品出售，請至【新營二手/閒置物品/提貨票劵買賣】http://goo.gl/C9FprX 留言刊登。
+                                        3. 在地出產之農產漁獲/手工食品出售，請至【新營區農產漁獲/手工食品買賣】http://goo.gl/5ODjsE 留言刊登。
+                                        4. 在地營利販售商品之個人賣家，僅限於【新營個人營利賣家宣傳區】http://goo.gl/OjND1C 留言宣傳。
+                                        5. 在地房屋租/售，請至【新營房屋(不動產)租/售專區】http://goo.gl/Ge6RDF 留言刊登。
+                                        6. 本社團禁止團購行為。
+                                        7. 不得販售菸酒檳榔、醫療類、盜版仿冒、法規違禁物等。
+
+                                        七、懲治條款
+                                        1. 在家賺錢有多好賺或收集點閱率，諸如此類PO文，或惡意發佈病毒連結者，直接刪文，並可能踢出社團。
+                                        2. 嚴禁廣告代打之寫手文，經發現事實，第一次提醒並刪文，再犯者寫手與店家帳號一併請出社團。
+                                        3. 已告知違反版規事項，經屢勸不改善，情節嚴重或言論惡意攻擊威脅者，直接請出社團。
+
+                                        八、補充說明:
+                                        1. 違反版規被移除PO文，請自行詳閱版規，若有誤會，請私訊向管理員反應問題；在版面上詢問為什麼被刪文一律移除，蓄意鬧版或無故黑管理員者踢出社團並封鎖。
+                                        2. 若版友受到社團內不明人士之騷擾，可向管理員投訴，經佐證屬實，將踢出社團並封鎖，另涉及違法行為者，行為人須負擔相關法律責任。
+                                        3. 網路購物風險高，本社團不負相關責任，提醒版友在交易前務必評估風險，盡量以當面交易方式，保障自身權益，避免上當受騙！
+                                    </p>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -303,8 +344,6 @@
             </section>
         </div>
     </div>
-
-    @@include('attendance.html');
     <!-- 分類頁籤 -->
     <script src="js/homepage_article.js"></script>
 
