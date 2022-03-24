@@ -166,6 +166,8 @@ Vue.component("total-box", {
   },
   mounted() {
     bus.$on('send', (x) => {
+      x = parseInt(x)
+      this.price_total = parseInt(this.price_total)
       this.price_total += x;
     })
   },
@@ -186,27 +188,37 @@ Vue.component("shopping-car", {
       goods: [],
     }
   },
-  created() {
-    let goods_no = sessionStorage.getItem("ShoppingCart_goods_no")
-    fetch(
-        `./phps/shoping_cart.php?case=getGoodsInfo&goods_no=${goods_no}`
-      )
-      // .then(res => console.log(res))
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res);
-        this.goods = res;
-      })
-      .catch(error =>
-        console.log(error.message));
-  },
-  mounted() {
-    if (!sessionStorage.getItem("ShoppingCart_goods_no")) {
-      document.querySelector(".nothing_goods_box").style.display = "block"
-    } else {
-      document.querySelector(".nothing_goods_box").style.display = "none"
+  methods: {
+    getGoodsInfo() {
+      let goods_no = sessionStorage.getItem("ShoppingCart_goods_no")
+      fetch(
+          `./phps/shoping_cart.php?case=getGoodsInfo&goods_no=${goods_no}`
+        )
+        // .then(res => console.log(res))
+        .then(res => res.json())
+        .then(res => {
+          // console.log(res);
+          this.goods = res;
+        })
+        .catch(error =>
+          console.log(error.message));
+    },
+    goShopping() {
+      if (!sessionStorage.getItem("ShoppingCart_goods_no")) {
+        document.querySelector(".nothing_goods_box").style.display = "block"
+      } else {
+        document.querySelector(".nothing_goods_box").style.display = "none"
+      }
     }
   },
+  created() {
+    this.getGoodsInfo()
+    // FIXME 繞過有商品還出現球球
+    setInterval(this.getGoodsInfo, 3000)
+    this.goShopping()
+    setInterval(this.goShopping, 3000)
+  },
+  mounted() {},
   template: `
   <div class="shopping_car_box">
     <!-- 商品項目 -->
@@ -341,16 +353,20 @@ Vue.component("love-list", {
         .catch(error =>
           console.log(error.message));
     },
-  },
-  created() {
-    this.getLoveGoods()
-    setTimeout(() => {
+    goShopping() {
       if (!this.goods[0]) {
         document.querySelector(".nothing_goods_box").style.display = "block"
       } else {
         document.querySelector(".nothing_goods_box").style.display = "none"
       }
-    }, 50)
+    }
+  },
+  created() {
+    // FIXME 繞過有商品還出現球球
+    this.getLoveGoods()
+    setInterval(this.getLoveGoods, 4000)
+    this.goShopping()
+    setInterval(this.goShopping, 4000)
   },
   mounted() {},
   template: `
