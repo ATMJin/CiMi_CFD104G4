@@ -68,7 +68,7 @@ function weekdays_click() {
     }else {
         
         coins[day - 1].style.display = "none";
-        txt_box[day].style.display = "none";
+        txt_box[day - 1].style.display = "none";
         checks[day - 1].style.display = "block";
         mem_point_add = mem_point_add + 1;
 
