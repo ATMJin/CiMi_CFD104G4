@@ -3,253 +3,263 @@
         @content;
     }
 }
-.member_content_area{
+
+.member_content_area {
     display: block;
     padding: 10px;
-    .backPage {
-    margin-top: 70px;
-    display: block;
-    button {
-        border: 0;
-        background-color:transparent;
-        outline: none;
-        img{
-            width: 50px;
-            height: 50px;
-            vertical-align: top;
-        }
-    }
-}
-.lightbox {
-    .attendance_item_box {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 30px;
-        background-color: #cfcec6;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 10px;
-        border-radius: 10px;
 
+    .backPage {
+
+        margin-top: 70px;
+        display: block;
+
+        button {
+            border: 0;
+            background-color: transparent;
+            outline: none;
+
+            img {
+                width: 50px;
+                height: 50px;
+                vertical-align: top;
+            }
+        }
 
         @include PC() {
-            width: 800px;
-            height: 540px;
-            padding: 20px;
-            margin:135px 0px 0px 50% ;
+            display: none;
         }
-
-        .close_icon_box {
-            position: absolute;
-            right: 20px;
-            width: 20px;
-
-            .close_icon {
-                width: 100%;
-            }
-        }
-
-        .lightbox_title_box {
-            width: 100%;
-            text-align: center;
-            color: #164470;
-            font-weight: 500;
-            padding-top: 15px;
-
-            .lightbox_title_item {
-                font-size: var(--subtitle1);
-
-                @include PC () {
-                    font-size: var(--title);
-                }
-            }
-
-        }
-
-        .attendance_item {
-            width: calc(25% - 10px);
-            margin: 5px;
-            border-radius: 10px;
-
-            @include PC() {
-                width: calc(25% - 20px);
-                margin: 10px;
-            }
-
-            .attendance_title_box {
-                background-color: #164470;
-                color: #ffffff;
-                border-radius: 10px 10px 0 0;
-                padding: 10px;
-                text-align: center;
-
-                .attendance_title_item {
-                    font-size: var(--body2);
-
-                    @include PC () {
-                        font-size: var(--subtitle1);
-                    }
-                }
-            }
-
-            .coins_content {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 0 0 10px 10px;
-                height: 80px;
-                background-color: #fff;
-                position: relative;
-
-                @include PC() {
-                    height: 140px;
-                }
-
-                .img_box {
-                    width: 40px;
-                    padding: 0 5px;
-
-                    @include PC() {
-                        width: 80px;
-                        padding: 0 10px;
-                    }
-
-                    .check_item {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        margin: auto;
-                        width: 40px;
-                        display: none;
-
-                        @include PC() {
-                            width: 80px;
-                        }
-                    }
-
-                    .coins_item {
-                        display: block;
-                        margin-right: -12px;
-                    }
-                }
-
-                .txt_box {
-                    color: #5E5E5E;
-                    font-weight: 500;
-                    padding: 0 10px;
-                    box-sizing: border-box;
-                    display: block;
-
-                    .coins_amount {
-                        font-size: var(--body1);
-
-                        @include PC () {
-                            font-size: var(--subtitle1);
-                        }
-
-                    }
-                }
-
-            }
-        }
-
-        .attendance_7days_item {
-            width: calc(50% - 10px);
-            margin: 5px;
-            border-radius: 10px;
-
-            @include PC() {
-                width: calc(50% - 20px);
-                margin: 10px;
-            }
-
-            .attendance_title_box {
-                background-color: #164470;
-                color: #ffffff;
-                border-radius: 10px 10px 0 0;
-                padding: 10px;
-                text-align: center;
-
-                .attendance_title_item {
-                    font-size: var(--body2);
-
-                    @include PC () {
-                        font-size: var(--subtitle1);
-                    }
-                }
-            }
-
-            .coins_content {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 0 0 10px 10px;
-                height: 80px;
-                background-color: #fff;
-                position: relative;
-
-                @include PC() {
-                    height: 140px;
-                }
-
-
-
-                .img_bonus_box {
-                    width: 120px;
-                    padding: 10px 0 5px 25px;
-
-                    @include PC() {
-                        width: 150px;
-                        padding: 10px 0 5px 25px;
-                    }
-
-                    .check_item {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        margin: auto;
-                        width: 40px;
-                        display: none;
-
-                        @include PC() {
-                            width: 80px;
-                        }
-
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-                    .coins_item {
-                        display: block;
-                    }
-                }
-
-                .txt_box {
-                    color: #5E5E5E;
-                    font-weight: 500;
-                    padding: 0 10px;
-                    box-sizing: border-box;
-
-                    .coins_amount {
-                        font-size: var(--body1);
-
-                        @include PC () {
-                            font-size: var(--subtitle1);
-                        }
-
-                    }
-                }
-
-            }
-        }
-
-
     }
-}
+
+    .lightbox {
+        .attendance_item_box {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 30px;
+            background-color: #cfcec6;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 10px;
+            border-radius: 10px;
+
+
+            @include PC() {
+                width: 800px;
+                height: 540px;
+                padding: 20px;
+                margin: 135px 0px 0px 30%;
+            }
+
+            .close_icon_box {
+                position: absolute;
+                right: 20px;
+                width: 20px;
+
+                .close_icon {
+                    width: 100%;
+                }
+            }
+
+            .lightbox_title_box {
+                width: 100%;
+                text-align: center;
+                color: #164470;
+                font-weight: 500;
+                padding-top: 15px;
+
+                .lightbox_title_item {
+                    font-size: var(--subtitle1);
+
+                    @include PC () {
+                        font-size: var(--title);
+                    }
+                }
+
+            }
+
+            .attendance_item {
+                width: calc(25% - 10px);
+                margin: 5px;
+                border-radius: 10px;
+
+                @include PC() {
+                    width: calc(25% - 20px);
+                    margin: 10px;
+                }
+
+                .attendance_title_box {
+                    background-color: #164470;
+                    color: #ffffff;
+                    border-radius: 10px 10px 0 0;
+                    padding: 10px;
+                    text-align: center;
+
+                    .attendance_title_item {
+                        font-size: var(--body2);
+
+                        @include PC () {
+                            font-size: var(--subtitle1);
+                        }
+                    }
+                }
+
+                .coins_content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 0 0 10px 10px;
+                    height: 80px;
+                    background-color: #fff;
+                    position: relative;
+
+                    @include PC() {
+                        height: 140px;
+                    }
+
+                    .img_box {
+                        width: 40px;
+                        padding: 0 5px;
+
+                        @include PC() {
+                            width: 80px;
+                            padding: 0 10px;
+                        }
+
+                        .check_item {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            margin: auto;
+                            width: 40px;
+                            display: none;
+
+                            @include PC() {
+                                width: 80px;
+                            }
+                        }
+
+                        .coins_item {
+                            display: block;
+                            margin-right: -12px;
+                        }
+                    }
+
+                    .txt_box {
+                        color: #5E5E5E;
+                        font-weight: 500;
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        display: block;
+
+                        .coins_amount {
+                            font-size: var(--body1);
+
+                            @include PC () {
+                                font-size: var(--subtitle1);
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+            .attendance_7days_item {
+                width: calc(50% - 10px);
+                margin: 5px;
+                border-radius: 10px;
+
+                @include PC() {
+                    width: calc(50% - 20px);
+                    margin: 10px;
+                }
+
+                .attendance_title_box {
+                    background-color: #164470;
+                    color: #ffffff;
+                    border-radius: 10px 10px 0 0;
+                    padding: 10px;
+                    text-align: center;
+
+                    .attendance_title_item {
+                        font-size: var(--body2);
+
+                        @include PC () {
+                            font-size: var(--subtitle1);
+                        }
+                    }
+                }
+
+                .coins_content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 0 0 10px 10px;
+                    height: 80px;
+                    background-color: #fff;
+                    position: relative;
+
+                    @include PC() {
+                        height: 140px;
+                    }
+
+
+
+                    .img_bonus_box {
+                        width: 120px;
+                        padding: 10px 0 5px 25px;
+
+                        @include PC() {
+                            width: 150px;
+                            padding: 10px 0 5px 25px;
+                        }
+
+                        .check_item {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            margin: auto;
+                            width: 40px;
+                            display: none;
+
+                            @include PC() {
+                                width: 80px;
+                            }
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+                        .coins_item {
+                            display: block;
+                        }
+                    }
+
+                    .txt_box {
+                        color: #5E5E5E;
+                        font-weight: 500;
+                        padding: 0 10px;
+                        box-sizing: border-box;
+
+                        .coins_amount {
+                            font-size: var(--body1);
+
+                            @include PC () {
+                                font-size: var(--subtitle1);
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+
+        }
+    }
 }
