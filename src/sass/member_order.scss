@@ -39,6 +39,12 @@ aside {
     margin: 10px auto;
 }
 
+
+.top_bar_box {
+    top: 0;
+}
+
+.member_main_box {
 .backPage {
     margin-top: 70px;
 
@@ -54,11 +60,8 @@ aside {
     }
 }
 
-.top_bar_box {
-    top: 0;
-}
 
-.member_main_box {
+
     .member_bg {
         .tabs a {
             padding: 10px;
@@ -149,6 +152,9 @@ aside {
 
 
     .member_main_box {
+        .backPage{
+            display: none;
+        }
         .member_bg {
             padding: 0px 40px;
             margin-top: 135px;

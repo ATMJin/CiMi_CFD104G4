@@ -12,7 +12,6 @@ aside {
 
 .backPage {
     margin-top: 70px;
-
     button {
         border: 0;
         background-color:transparent;
@@ -253,7 +252,9 @@ aside {
     .member_sidebar_box {
         display: block;
     }
-
+.backPage{
+    display: none;
+}
     .member_main_box {
         .member_bg {
             .member_art_text {
