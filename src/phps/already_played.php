@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_cimi.php");
+	require_once("../connect_cfd104g4.php");
 	//執行sql指令
 	$playdate = $_GET["playdate"];
 	$mem_no = $_GET["mem_no"];

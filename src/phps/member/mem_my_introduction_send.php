@@ -1,5 +1,5 @@
 <?php
-include_once "../connect_cimi.php";
+include_once "../connect_cfd104g4.php";
 header('Content-Type: application/json; charset=utf-8');
     //接收xhr送過來的資料 像是性向 / 自我介紹等等...
     $mem_no = $_POST['mem_no'];

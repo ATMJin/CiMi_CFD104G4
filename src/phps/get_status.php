@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_cimi.php");
+	require_once("../connect_cfd104g4.php");
 	//require=>沒有回傳值
 	$today = date("Y-m-d H:i:s");   
 	$paring_time = substr($today,0,10);

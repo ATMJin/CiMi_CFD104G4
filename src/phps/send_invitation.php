@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_cimi.php");
+	require_once("../connect_cfd104g4.php");
 	//執行sql指令
 	$player_no = $_GET["player_no"];
 	$paring_player_no = $_GET["paring_player_no"];

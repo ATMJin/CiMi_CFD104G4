@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_cimi.php");
+	require_once("../connect_cfd104g4.php");
 	//require=>沒有回傳值
 	//執行sql指令並取得pdoStatement
     $mem_no=$_GET["mem_no"];
