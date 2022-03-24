@@ -18,7 +18,7 @@
                 <h1 class="article_view_title">{{article.article_title}}</h1>
                 <!-- 文章資訊 -->
                 <div class="article_view_info_box">
-                    <a href="###">
+                    <a href="article_all.html?boardNo=1">
                         <div class="article_view_sort">{{article.billboard_name}}</div>
                     </a>
                     <div class="article_view_date">{{article.last_edit_date}}</div>
@@ -91,12 +91,14 @@
                         <div class="comment_content" v-html="find_comment_info.comment_content">
 
                         </div>
+                        <!-- 留言按讚 -->
                         <div class="comment_info">
                             <div class="comment_like_box">
-                                <div class="comment_like_icon">
-                                    <img src="assets/images/icon/like_hov.png" alt="">
+                                <div class="comment_like_icon" id="comment_like">
+                                    <img id="comment_like_img" src="assets/images/icon/like_hov.png" alt="">
                                 </div>
-                                <span class="comment_like_amount">{{find_comment_info.comment_likes_amount}}</span>
+                                <span class="comment_like_amount"
+                                    id="comment_like_amount">{{find_comment_info.comment_likes_amount}}</span>
                             </div>
                             <span class="comment_date">{{find_comment_info.comment_date}}</span>
                         </div>
@@ -110,8 +112,8 @@
         <div class="write_comment_container">
             <div class="write_comment_box">
                 <!-- 留言 -->
-                <input @click="login_confirm" type="text" class="write_comment_item" id="write_comment_item"
-                    placeholder="留言...">
+                <input @keyup.enter="send_comment" @click="login_confirm" type="text" class="write_comment_item"
+                    id="write_comment_item" placeholder="留言...">
 
                 <div @click="send_comment" class="send_comment_btn" id="send_comment_btn">
                     <img src="assets/images/icon/send.png">

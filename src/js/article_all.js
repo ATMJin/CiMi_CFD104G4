@@ -13,6 +13,7 @@ new Vue({
         a_num: 1,
         boardNo: 1,
         collect_arr: [],
+        c_num:1,
         // article_comment_info:[],
 
         // article_temp: this.article,
@@ -56,7 +57,7 @@ new Vue({
             // console.log(html);
             html.style = "overflow:hidden";
             this.a_num = a_num;
-            this.setCollect(a_num);
+            // this.setCollect(a_num);
             this.get_comment_info();
             this.backto_top();
         },
@@ -65,12 +66,12 @@ new Vue({
             article_view_box[0].scrollTo(0, 0);
         },
 
-        setCollect(num) {
-            let arr = [1, 2, 7, 12];
-            if (arr.indexOf(num) > -1) {
+        // setCollect(num) {
+        //     let arr = [1, 2, 7, 12];
+        //     if (arr.indexOf(num) > -1) {
 
-            };
-        },
+        //     };
+        // },
         get_new_article() {
 
             let boardNo = `boardNo=${location.search.substring(1).split("=")[1]}`;
@@ -183,8 +184,7 @@ new Vue({
             xhr.send(`${boardNo}&case=3`);
 
         },
-
-
+        
         get_comment_info() {
             let xhr = new XMLHttpRequest();
             let thisVue = this;
