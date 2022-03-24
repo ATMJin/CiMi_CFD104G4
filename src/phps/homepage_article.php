@@ -1,7 +1,7 @@
 <?php
 try {
     // require_once("../connect_cfd104g4.php"); // 上線時使用
-    require_once("connect_suan.php");  // 開發時使用
+    require_once("../connect_cfd104g4.php");  // 開發時使用
 
     switch ($_POST["case"]) {
             // 最新文章→用建立時間來篩
