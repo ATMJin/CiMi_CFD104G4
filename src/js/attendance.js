@@ -38,7 +38,7 @@ function getsign_date(){
     xhr.onload = function () {
         let memsign = JSON.parse(xhr.responseText);
         // console.log(questions[0].optionA);
-    if (mem_no != null) {
+    if (sessionStorage.getItem('login') != null) {
         
         console.log(lightbox[0]);
         lightbox[0].style.display = "block";
