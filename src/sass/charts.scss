@@ -59,6 +59,8 @@
         }
         .charts_img {
             width: 45px;
+            height: 45px;
+            overflow: hidden;
             img {
                 width: 100%;
                 border-radius: var(--img-radius);
