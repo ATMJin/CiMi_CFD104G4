@@ -1,7 +1,9 @@
 <?php
   include_once "connect.php";
 
-  $sql = "UPDATE `goods` SET `goods_like` = `goods_like`+1 WHERE `goods`.`goods_no` ={$_GET['goods_no']}";
+  $sql = "UPDATE `goods` SET `goods_like` = `goods_like`+1 WHERE `goods`.`goods_no` ={$_GET['goods_no']};
+  INSERT INTO `mem_goods_like` (`mem_no`, `goods_no`) VALUES ({$_GET['mem_no']}, {$_GET['goods_no']}) ;
+  ";
   
   //執行sql
 //   $pdo->exec($sql);

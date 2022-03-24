@@ -263,8 +263,8 @@ body {
     font-size: 18px;
     color: #333;
     position: absolute;
-    right: 45px;
-    top: -40px;
+    right: 50px;
+    top: -51px;
     display: flex;
 }
 
@@ -419,6 +419,7 @@ body {
 
 .typing_area .fun_icon span {
     padding: 0 2%;
+    
 }
 
 
@@ -442,6 +443,12 @@ body {
 
     .chat_area header #back {
         display: block;
+    }
+
+    .typing_area .fun_icon span {
+        padding: 0 2%;
+        display: none;
+        
     }
 }
 
@@ -470,5 +477,5 @@ body {
     width: 28px;
     vertical-align: top;
     isolation: isolate;
-    z-index: 6666666;
+    z-index: 666666;
 }

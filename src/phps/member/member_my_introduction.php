@@ -1,5 +1,5 @@
 <?php
-include_once "../connect_cimi.php";
+include_once "../connect_cfd104g4.php";
 
 // switch ($_GET["case"]) {
 //   case 'null':

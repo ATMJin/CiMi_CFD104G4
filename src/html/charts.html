@@ -173,7 +173,7 @@
                 //發送axios請求 : 需獲取 1. 會員 "未登入" 以及 2."登入狀態" 資料
                 axios.post('phps/getcharts.php', params)
                     .then(function (response) {
-                        console.log(response.data);
+                        // console.log(response.data);
                         vm.post = response.data.post
                         vm.like = response.data.like
                         vm.favs = response.data.fav
@@ -184,7 +184,7 @@
 
                     })
                     .catch(function (error) {
-                        console.log(error);
+                        // console.log(error);
                     });
 
                 if (sessionStorage.getItem('login') == null) {
@@ -210,9 +210,9 @@
                     if (this.user == null) {
                         alert("請先登入")
                     } else {
-                        console.log(index);
-                        console.log(item.mem_no);
-                        console.log(this.track.indexOf(item.mem_name));
+                        // console.log(index);
+                        // console.log(item.mem_no);
+                        // console.log(this.track.indexOf(item.mem_name));
 
                         //找到當前要點擊的btn
                         let btn = document.querySelectorAll('.charts_btn button')
@@ -229,7 +229,7 @@
                             btn[index].innerText = obj.track
 
                             this.$set(this.follow_num, index, this.follow_num[index] -= 1) //重新設定用戶追蹤數
-                            console.log('hi', this.follow_num[index]);
+                            // console.log('hi', this.follow_num[index]);
 
 
 
@@ -242,11 +242,11 @@
 
                             axios.post('phps/getcharts.php', params)
                                 .then(function (response) {
-                                    console.log(response.data);
+                                    // console.log(response.data);
 
                                 })
                                 .catch(function (error) {
-                                    console.log(error);
+                                    // console.log(error);
                                 });
 
 
@@ -270,11 +270,11 @@
 
                             axios.post('phps/getcharts.php', params)
                                 .then(function (response) {
-                                    console.log(response.data);
+                                    // console.log(response.data);
 
                                 })
                                 .catch(function (error) {
-                                    console.log(error);
+                                    // console.log(error);
                                 });
                         }
 

@@ -3,10 +3,28 @@
         @content;
     }
 }
-
+.member_content_area{
+    display: block;
+    padding: 10px;
+    .backPage {
+    margin-top: 70px;
+    display: block;
+    button {
+        border: 0;
+        background-color:transparent;
+        outline: none;
+        img{
+            width: 50px;
+            height: 50px;
+            vertical-align: top;
+        }
+    }
+}
 .lightbox {
     .attendance_item_box {
-        margin-left: 25%;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
         background-color: #cfcec6;
         display: flex;
         flex-direction: row;
@@ -233,4 +251,5 @@
 
 
     }
+}
 }

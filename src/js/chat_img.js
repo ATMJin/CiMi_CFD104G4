@@ -18,7 +18,7 @@ function fileChange(){
         let imgContainer = document.createElement('img')
         imgContainer.setAttribute('src', readImage.result)
         chat_box.append(imgContainer)
-        console.log(chat_box)
+        // console.log(chat_box)
         // let image = document.getElementById('image')
         // image.src = readImage.result;
         // image.style.maxWidth = '400px';

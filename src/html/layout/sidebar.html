@@ -13,7 +13,7 @@
                 <li id="cimi_destiny"><a><img src="assets/images/icon/game_card.svg" alt="CiMi
                             Destiny">CiMi
                         Destiny</a></li>
-                <li class="nav_phone"><a href="member.html"><img src="assets/images/icon/nav_member.svg"
+                <li class="nav_phone"><a><img src="assets/images/icon/nav_member.svg"
                             alt="會員專區">會員專區</a>
                 </li>
             </ul>
@@ -21,3 +21,22 @@
     </aside>
 </div>
 <script src="js/sidebar.js"></script>
+
+<script>
+    let mem_memberhead = document.querySelector("img[alt='會員專區']");
+    console.log('v',mem_memberhead)
+    mem_memberhead.addEventListener('click', check)
+
+    function check() {
+        console.log(localStorage.getItem('login'));
+        console.log(sessionStorage.getItem('login'));
+
+        if (sessionStorage.getItem('login') == null) {
+            location.href = 'login_new.html';
+
+        } else {
+            location.href = 'member.html';
+        }
+
+    }
+</script>

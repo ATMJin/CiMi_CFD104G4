@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>好物商城 | CiMi交友論壇</title>
-    <link rel="stylesheet" href="assets/css/product.css">
     <!-- 廣告輪播 -->
+    <link rel="icon" href="assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets\css\product_slick.css">
     <link rel="stylesheet" href="assets\css\product_slick-theme.css">
 
@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="assets/css/shop_cart.css">
     <!-- 輪播(最新上架) -->
     <!-- <link rel="stylesheet" href="assets\css\product_slider.css"> -->
-    <!-- jquery --><!-- 上架商品輪播 -->
+    <!-- jquery -->
+    <!-- 上架商品輪播 -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <!-- 倒數計時 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
@@ -24,13 +25,17 @@
     <!-- 解決這個問題favicon.ico -->
     <link rel="shortcut icon" href="#">
     <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/product.css">
+    <!-- //美化通知 -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
+
 
 <body>
     @@include('layout/header.html')
     <div id="productApp">
         <div class="content_area">
-            @@include('layout/sidebar.html')
+            @@include('layout/sidebar_without_js.html')
             <!-- 好物商城 -->
             <main class="main_product">
                 <!-- 好物商城標題 -->
@@ -206,7 +211,7 @@
                                 <p>最新上架商品</p>
                             </div>
                             <!-- 商品 -->
-                            <div class="new_goods_slider slider">
+                            <div class="new_goods slider">
                                 <div onclick="myFunction()" class="item_slider ligh_box_jump" v-for="good in new_goods"
                                     @click="getGoodNumber(good.goods_no)">
                                     <div class="img_box">
@@ -391,34 +396,52 @@
                                 <span class="comment_mem_name_item">
                                     {{comment.mem_name}}
                                 </span>
-                                <!-- 檢舉 -->
-                                <div class="comment_impeach_icon">
-                                    <img src="assets/images/icon/more_hov.png" alt="檢舉">
-                                </div>
-                            </div>
-                            <!-- 留言內容 -->
-                            <div class="comment_content">
-                                {{comment.comment_content}}
-                            </div>
-                            <div class="comment_info">
-                                <!-- 愛心數 -->
-                                <div class="comment_like_box">
-                                    <div class="comment_like_icon product_comment_heart"
-                                        @click="commentheart(comment.goods_no)">
-                                        <img src="assets/images/icon/like_hov.png" alt="愛心">
+                                <!-- 更多 -->
+                                <!-- <div @click="more_action" data-more="false"
+                                    class="article_other_function comment_impeach_icon" id="article_other_function"
+                                    title="更多">
+                                    <div class="impeach" id="impeach">
+                                        <span @click="send_impeach">
+                                            <p id="impeach_txt">檢舉</p>
+                                        </span>
                                     </div>
-                                    <!-- 喜歡數 -->
-                                    <span class="comment_like_amount product_comment_num">
-                                        {{comment.comment_likes_amount}}
+                                    <img id="article_other_img" src="assets/images/icon/more_hov.png">
+                                </div> -->
+
+                                <!-- 留言內容 -->
+                                <div class="comment_content">
+                                    {{comment.comment_content}}
+                                </div>
+                                <div class="comment_info">
+                                    <!-- 愛心數 -->
+                                    <div class="comment_like_box">
+                                        <div class="comment_like_icon product_comment_heart"
+                                            @click="commentheart(comment.goods_no)">
+                                            <img src="assets/images/icon/like_hov.png" alt="愛心">
+                                        </div>
+                                        <!-- 喜歡數 -->
+                                        <span class="comment_like_amount product_comment_num">
+                                            {{comment.comment_likes_amount}}
+                                        </span>
+                                    </div>
+                                    <!-- 日期 -->
+                                    <span class="comment_date">
+                                        {{comment.comment_date}}
                                     </span>
                                 </div>
-                                <!-- 日期 -->
-                                <span class="comment_date">
-                                    {{comment.comment_last_edit_date}}
-                                </span>
+                                <!-- 更多 -->
+                                <div @click="more_action" data-more="false"
+                                    class="article_other_function comment_impeach_icon" id="article_other_function"
+                                    title="更多">
+                                    <div class="impeach" id="impeach">
+                                        <span @click="send_impeach">
+                                            <p id="impeach_txt">檢舉</p>
+                                        </span>
+                                    </div>
+                                    <img id="article_other_img" src="assets/images/icon/more_hov.png">
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </section>
 
                 <!-- 我的留言輸入區 -->
@@ -426,11 +449,11 @@
                     <!-- 右邊 -->
                     <div class="item_box_msger">
                         <!-- 留言 -->
-                        <div class="txt_box">
-                            <input type="text" name="tname" placeholder="留言...">
+                        <div @click="login_confirm" class="txt_box" id="write_comment_item">
+                            <input type="text" name="tname" placeholder="留言..." v-model="msg">
                         </div>
                         <!-- 送出 -->
-                        <div class="img_box">
+                        <div @click="send_comment" class="img_box">
                             <img src="assets\images\icon\send.png" alt="送出鍵">
                         </div>
                     </div>
@@ -449,10 +472,11 @@
                             </div>
                         </div>
                         <!-- 立即購買 -->
-                        <button class="btn-primary">立即購買</button>
+                        <button @click="addShoppingCart();displayNone();openShoppingCart()"
+                            class="btn-primary">立即購買</button>
 
                         <!-- 加入購物車-->
-                        <button class="btn-secondary">加入購物車</button>
+                        <button @click="addShoppingCart" class="btn-secondary">加入購物車</button>
                     </div>
                 </section>
             </main>
@@ -464,302 +488,10 @@
     <script src="js\product.js"></script>
     <!-- 廣告輪播 -->
     <script src="js\product_slick.min.js"></script>
-    <!-- 文進大大的購物車燈箱 -->
-    <!-- <div id="app">
-        <div class="shop_cart_ligh_box">
-            <shopping-cart></shopping-cart>
-        </div>
-    </div> -->
-    <!-- <script src="js/shop_cart.js"></script> -->
 
     <!-- vue_product_all -->
-    <script>
-        Vue.config.devtools = true;
-        const vm = new Vue({
-            el: "#productApp",
-            data: {
-                //全部商品
-                goods: [],
-                //限時商品
-                time_goods: [],
-                // 上架商品
-                new_goods: [],
-                //熱門商品
-                hot_goods: [],
-                comments: [],
-                number: 0,
-                // 商品留言數
-                count: 0,
-            },
-            // 監聽點擊的商品編號改變
-            // 若改變則執行countComment函式
-            watch: {
-                number: "countComment",
-            },
-
-            methods: {
-                //叉叉功能
-                displayNone() {
-                    let x = document.querySelector(".product_lighbox");
-                    x.style.display = "none";
-                },
-                //燈箱出現的跟圖片顯示要樣
-                getGoodNumber(goods_no) {
-                    // console.log(this.number);
-                    this.number = goods_no;
-                    // console.log(this.number);
-
-                },
-                // 所有商品
-                getProductAll() {
-                    let xhr = new XMLHttpRequest();
-                    //打開php的我的php檔
-
-                    //如果case=allgoods抓所有商品
-                    xhr.open("get", `phps/product_all.php?case=allgoods`, true);
-                    xhr.send(null);
-
-                    xhr.onload = () => {
-                        // 接收PHP傳來的資料
-                        allgoods = JSON.parse(xhr.responseText);
-                        // console.log(xhr.responseText);
-                        // console.table(allgoods);
-
-                        this.goods = allgoods
-                    }
-                },
-                //熱門商品
-                getProductHot() {
-                    let xhr = new XMLHttpRequest();
-                    //打開php的我的php檔
-                    xhr.open("get", `phps/product_hot.php`, true);
-                    xhr.send(null);
-
-                    xhr.onload = () => {
-                        // 接收PHP傳來的資料
-                        allgoods = JSON.parse(xhr.responseText);
-                        // console.log(xhr.responseText);
-                        console.table(allgoods);
-
-                        this.hot_goods = allgoods
-                    }
-                },
-                //限時商品
-                getProductTime() {
-                    let xhr = new XMLHttpRequest();
-                    //打開php的我的php檔
-                    xhr.open("get", `phps/product_time_limit.php`, true);
-                    xhr.send(null);
-
-                    xhr.onload = () => {
-                        // 接收PHP傳來的資料
-                        allgoods = JSON.parse(xhr.responseText);
-                        // console.log(xhr.responseText);
-                        // console.table(allgoods);
-                        this.time_goods = allgoods
-                    }
-                },
-                //上架商品
-                getProductNew() {
-                    let xhr = new XMLHttpRequest();
-                    //打開php的我的php檔
-                    xhr.open("get", `phps/product_new.php`, true);
-                    xhr.send(null);
-
-                    xhr.onload = () => {
-                        // 接收PHP傳來的資料
-                        allgoods = JSON.parse(xhr.responseText);
-                        // console.log(xhr.responseText);
-                        // console.table(allgoods);
-                        this.new_goods = allgoods
-                    }
-                },
-
-                //抓所有留言
-                getGoodsComments() {
-                    let xhr = new XMLHttpRequest();
-                    //如果case=goodscomment抓商品留言數
-                    xhr.open("get", `phps/product_all.php?case=goodscomment`, true);
-                    xhr.send(null);
-
-                    xhr.onload = () => {
-                        allcomments = JSON.parse(xhr.responseText);
-                        console.log(xhr.responseText);
-                        console.table(allcomments);
-                        this.comments = allcomments
-                    }
-                },
-
-                // 數這件商品有多少留言
-                // newValue這次點的，oldValue上次點的
-                countComment(newValue, oldValue) {
-                    let c = 0;
-                    for (let i = 0; i < this.comments.length; i++) {
-                        if (this.comments[i].goods_no == newValue) {
-                            c++
-                        }
-                    }
-                    // console.log(c);
-                    this.count = c;
-                },
-                //小圖變大圖功能
-                showLarge(e) {
-                    let small = e.target;
-                    // console.log(small)
-                    //   document.getElementById("large").src = small.src ;
-
-                    //大圖路徑等於被點擊的小圖
-                    document.querySelector(".large").src = small.src;
-
-                },
-                //加入愛心
-                initheart(goods_no) {
-                    // console.log("ssss")
-                    let product_heart = document.querySelector(".product_heart")
-                    let product_num = document.querySelector(".product_num")
-                    let product_heart_img = document.querySelector(".product_heart img")
-
-                    if (product_heart.title == "加入愛心") {
-                        product_heart_img.src =
-                            "assets/images/icon/like.png";
-                        product_heart.title = "取消愛心";
-                        product_num.innerHTML++;
-
-                        let xhr = new XMLHttpRequest();
-                        //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
-                        xhr.open("get", `phps/product_heart_num_add.php?goods_no=${goods_no}`, true);
-                        xhr.send(null);
-
-                        xhr.onload = function () {
-                            // 接收PHP傳來的資料
-                            // allgoods = JSON.parse(xhr.responseText);
-                            // console.log(xhr.responseText);
-                            // console.table(allgoods);
-                        }
-
-                    } else {
-                        product_heart_img.src =
-                            "assets/images/icon/like_hov.png";
-                        product_heart.title = "加入愛心";
-                        product_num.innerHTML--;
-
-                        let xhr = new XMLHttpRequest();
-                        xhr.open("get", `phps/product_heart_num_delete.php?goods_no=${goods_no}`, true);
-                        xhr.send(null);
-
-                        xhr.onload = function () {
-                            // 接收PHP傳來的資料
-                            // allgoods = JSON.parse(xhr.responseText);
-                            // console.log(xhr.responseText);
-                            // console.table(allgoods);
-                        }
-                    }
-
-                },
-                //加入愛心(留言)
-                commentheart(goods_no) {
-                    // console.log("ssss")
-                    let product_comment_heart = document.querySelector(".product_comment_heart")
-                    let product_comment_num = document.querySelector(".product_comment_num")
-                    let product_comment_heart_img = document.querySelector(".product_comment_heart img")
-
-                    if (product_comment_heart.title == "加入愛心") {
-                        product_comment_heart_img.src =
-                            "assets/images/icon/like.png";
-                        product_comment_heart.title = "取消愛心";
-                        product_comment_num.innerHTML++;
-
-                        let xhr = new XMLHttpRequest();
-                        //問號之後傳php資料，因為我們的會員資料寫在local storage,需要的會員資料，在問號後面寫入，商品目前不需要
-                        xhr.open("get", `phps/product_comment__num_add.php?goods_no=${goods_no}`, true);
-                        xhr.send(null);
-
-                        xhr.onload = function () {
-                            // 接收PHP傳來的資料
-                            // allgoods = JSON.parse(xhr.responseText);
-                            // console.log(xhr.responseText);
-                            // console.table(allgoods);
-                        }
-
-                    } else {
-                        product_comment_heart_img.src =
-                            "assets/images/icon/like_hov.png";
-                        product_comment_heart.title = "加入愛心";
-                        product_comment_num.innerHTML--;
-
-                        let xhr = new XMLHttpRequest();
-                        xhr.open("get", `phps/product_comment_num_delete.php?goods_no=${goods_no}`, true);
-                        xhr.send(null);
-
-                        xhr.onload = function () {
-                            // 接收PHP傳來的資料
-                            // allgoods = JSON.parse(xhr.responseText);
-                            // console.log(xhr.responseText);
-                            // console.table(allgoods);
-                        }
-                    }
-
-                },
-            },
-
-            beforeCreate() {
-
-            },
-            created() {
-
-            },
-            //要顯現的功能
-            // 將Vue的東西第一次出現在網頁上
-            mounted() {
-                // 全部
-                this.getProductAll()
-                // 熱門
-                this.getProductHot()
-                // 限時
-                this.getProductTime()
-                //上架
-                this.getProductNew()
-                //留言
-                this.getGoodsComments()
-            },
-            //筆記!!因為愛心第一次沒出現在網頁上所以寫在mounted會抓不到。
-            // 用Vue改變網頁，如:v-if
-            updated() {
-                //----------------------加入愛心 或 取消愛心--------------
-
-                //----------------------加入收藏 或 取消收藏--------------
-                let product_save = document.querySelector(".product_save");
-
-                function switchFavorite() {
-                    if (product_save.title == "加入收藏") {
-                        product_save_img.src =
-                            "assets/images/icon/save.png";
-                        product_save.title = "取消收藏";
-                    } else {
-                        product_save_img.src =
-                            "assets/images/icon/save_hov.png";
-                        product_save.title = "加入收藏";
-                    }
-                }
-                //function工具在這這邊
-                function initsave() {
-                    //設定[加入收藏 或 取消收藏]的點按事件
-                    product_save = document.querySelector(".product_save")
-                    // 變數名稱
-                    product_save_img = document.querySelector(".product_save img")
-                    product_save.onclick = switchFavorite;
-                } //initsave
-
-                //代表使用這個工具
-                initsave()
-
-                //----------------------小圖變大圖--------------
-
-            },
-
-        })
-    </script>
-
+    <script src="js/product_vue.js"></script>
+    <script src="js/sidebar.js"></script>
     <!-- 廣告輪播 -->
     <script type="text/javascript">
         $(document).on('ready', function () {
@@ -825,8 +557,6 @@
             });
         });
     </script>
-
-
 
 </body>
 

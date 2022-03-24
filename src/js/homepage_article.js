@@ -32,7 +32,6 @@ new Vue({
     methods: {
         setTargets() {
             this.lightbox = document.querySelectorAll(".lightbox");
-            console.log(this.lightbox)
             this.close = document.querySelectorAll(".close_icon");
             this.article_box = document.getElementsByClassName("article_box");
             // console.log(this.lightbox);
@@ -49,7 +48,6 @@ new Vue({
         open_lightbox(a_num) {
             this.lightbox[1].style.display = "block";
             let html = document.getElementsByTagName('html')[0];
-            // console.log(html);
             html.style = "overflow:hidden";
             this.a_num = a_num;
             // this.setCollect(a_num);
@@ -58,7 +56,7 @@ new Vue({
         },
         backto_top() {
             let article_view_box = document.getElementsByClassName("article_view_container");
-            console.log('v', article_view_box);
+            // console.log('v', article_view_box);
 
             article_view_box[0].scrollTo(0, 0);
         },
@@ -126,7 +124,7 @@ new Vue({
                 thisVue.comment_info = JSON.parse(xhr.responseText);
                 // console.log(thisVue.hot_articles);
                 // thisVue.article_comment_info=thisVue.comment_info;
-                console.log(thisVue.comment_info);
+                // console.log(thisVue.comment_info);
 
             }
 
@@ -178,7 +176,7 @@ new Vue({
                     xhr.send(`article_no=${this.a_num}&case=add_like`);
 
                     xhr.onload = function () {
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
                     }
 
 
@@ -192,7 +190,7 @@ new Vue({
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
                     xhr.send(`article_no=${this.a_num}&case=remove_like`);
                     xhr.onload = function () {
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
                     }
 
                 }
@@ -244,7 +242,7 @@ new Vue({
                     xhr.send(`article_no=${this.a_num}&case=add_collect`);
 
                     xhr.onload = function () {
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
                     }
                 } else {
                     article_collect_img.src = "assets/images/icon/save_hov.png";
@@ -257,7 +255,7 @@ new Vue({
                     xhr.send(`article_no=${this.a_num}&case=remove_collect`);
 
                     xhr.onload = function () {
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
                     }
                 }
             }
@@ -288,7 +286,7 @@ new Vue({
             let write_comment = document.getElementById("write_comment_item");
             // 留言內容
             let comment = `comment_content=${write_comment.value}`;
-            console.log(comment);
+            // console.log(comment);
             write_comment.value = "";
 
             // 留言日期
@@ -298,19 +296,19 @@ new Vue({
             let s = today.getSeconds();
             let comment_date =
                 `comment_date=${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} ${h}:${m}:${s}`;
-            console.log(comment_date);
+            // console.log(comment_date);
             // 留言者
             let mem_no = `mem_no=${sessionStorage.getItem('mem_no')}`;
             // let mem_no = sessionStorage.getItem('mem_no');
 
-            console.log(mem_no);
+            // console.log(mem_no);
             // 所留言的文章編號
             let article_no = `article_no=${this.a_num}`;
-            console.log(article_no);
+            // console.log(article_no);
             // 送進資料庫
             let xhr = new XMLHttpRequest();
             xhr.onload = function () {
-                console.log(xhr.responseText);
+                // console.log(xhr.responseText);
                 // window.location.reload();
                 // console.log(this.a_num);
 
@@ -369,7 +367,7 @@ new Vue({
                     xhr.send(`article_no=${this.a_num}&case=add_impeach`);
 
                     xhr.onload = function () {
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
                     }
                 } else {
                     impeach_txt.innerText = "檢舉";
@@ -382,7 +380,7 @@ new Vue({
 
 
                     xhr.onload = function () {
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
                     }
                 }
             }

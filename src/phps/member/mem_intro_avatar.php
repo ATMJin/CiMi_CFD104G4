@@ -1,6 +1,6 @@
 <?php
 // 資料庫連線檔
-include('../connect_cimi.php');
+include('../connect_cfd104g4.php');
 
         if (isset($_FILES['file'])) {
             $img_name = $_FILES['file']['name'];
