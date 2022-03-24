@@ -1,6 +1,6 @@
 <?php
 // 資料庫連線檔
-require_once("config.php");
+require_once("../connect_cfd104g4.php");
 
 switch ($_POST["case"]) {
 
@@ -81,8 +81,8 @@ switch ($_POST["case"]) {
 
                 copy($tmp_name, $path);
 
-                $sql = "INSERT INTO article (mem_no, billboard_no , billboard_icon, publish_date, last_edit_date, article_title, article_content, article_pic)
-                    VALUE ($mem_no, $billboard_no, $billboard_icon, now(), now(), '{$article_title}', '{$article_content}', '{$savePath}')";
+                $sql = "INSERT INTO article (mem_no, billboard_no , publish_date, last_edit_date, article_title, article_content, article_pic)
+                    VALUE ($mem_no, $billboard_no, now(), now(), '{$article_title}', '{$article_content}', '{$savePath}')";
 
                 $pdo->query($sql);
                 echo "文章上傳成功 ! ";

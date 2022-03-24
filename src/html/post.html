@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="assets/css/tabs.css">
 </head>
 
+
+
 <body>
     <header class="top_bar_box">
         <div class="top_bar">
@@ -114,13 +116,20 @@
         <main class="main_area" id="post">
             <div class="post_info">
                 <div class="post_img">
-                    <!-- <img :src="https://picsum.photos/100/100/?random=11"> -->
-                    <img :src="memInfo.mem_head">
+                    <img src="./assets/images/blue_ball.png" v-show="show">
+
+                    <img :src="memInfo.mem_head" v-show="login">
                 </div>
                 <div class="post_text">
-                    <span class="post_name">
+
+                    <span class="post_name" v-show="show">
+                        會員名稱
+                    </span>
+
+                    <span class="post_name" v-show="login">
                         {{memInfo.mem_name}}
                     </span>
+
                     <time>{{postDay}}</time>
                 </div>
             </div>
@@ -165,21 +174,12 @@
                 boards: [],
                 memInfo: [],
                 icon: "",
-                icons:["💖", "🎼", "💄", "🚴", "🚌", "🧥"]
+                icons: ["💖", "🎼", "💄", "🚴", "🚌", "🧥"],
+                login: false,
+                show: true
             },
             mounted() {
-                let params = new URLSearchParams();
-                params.append("mem_no", sessionStorage.getItem('mem_no'));
-                params.append("case", "getData");
-                axios.post('phps/post.php', params)
-                    .then(res => {
-                        // console.log(res.data);
-                        this.memInfo = res.data.mem
-                        this.boards = res.data.board
-                    })
-                    .catch(err => {
-                        // console.log(err);
-                    });
+
                 if (sessionStorage.getItem('login') == null) {
                     swal("登入才能發布文章喔! 立即前往登入頁面??", {
                             buttons: {
@@ -207,8 +207,22 @@
                                     break;
                             }
                         });
+                } else {
+                    let params = new URLSearchParams();
+                    params.append("mem_no", sessionStorage.getItem('mem_no'));
+                    params.append("case", "getData");
+                    axios.post('phps/post.php', params)
+                        .then(res => {
+                            console.log(res.data);
+                            this.memInfo = res.data.mem
+                            // this.boards = res.data.board
+                        })
+                        .catch(err => {
+                            // console.log(err);
+                        });
+                    this.show = false
+                    this.login = true
                 }
-
 
             },
             methods: {
@@ -217,14 +231,14 @@
                     //取得值
                     this.selectVal = obj.value;
                     let num = parseInt(this.selectVal)
-                    
-                    for(let i=1; i<7; i++){
-                        if(num == i){
-                            this.icon = this.icons[i-1]
+
+                    for (let i = 1; i < 7; i++) {
+                        if (num == i) {
+                            this.icon = this.icons[i - 1]
                         }
                     }
 
-                 
+
 
 
                 },
