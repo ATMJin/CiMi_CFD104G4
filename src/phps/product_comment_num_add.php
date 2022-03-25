@@ -5,7 +5,8 @@
   
   //執行sql
 //   $pdo->exec($sql);
-  if($pdo->exec($sql)){ //exec用於異動資料的時候
+  if($pdo->exec($sql)){ 
+    //exec用於異動資料的時候
     echo "異動成功~";
 }else{
     echo "異動失敗~";
