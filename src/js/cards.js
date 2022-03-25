@@ -170,22 +170,24 @@ function getstatus_info() {
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
       let status = JSON.parse(xhr.responseText);
-
+      console.log(status);
       //找出陣列中是否有紅色人的編號/藍色人的編號/黃色人的編號
       let already_sent_red = $.map(status, function(item, index) {
         return item.paring_player_no;
-      }).indexOf(paring_no[0]+1);
+      }).indexOf(paring_no[0])+1;
 
       let already_sent_blue = $.map(status, function(item, index) {
       return item.paring_player_no;
-      }).indexOf(paring_no[1]+1);
+      }).indexOf(paring_no[1])+1;
 
       let already_sent_yellow = $.map(status, function(item, index) {
       return item.paring_player_no;
-      }).indexOf(paring_no[2] + 1);
+      }).indexOf(paring_no[2])+1;
+
+      console.log(already_sent_red, already_sent_blue, already_sent_yellow);
       
       //判斷陣列中有沒有物件，如有，判斷紅色藍色黃色分別是否有邀請
-      if (xhr.responseText !== '[]') {
+      if (status !== '[]') {
 
             if (already_sent_red) {
             red_button.innerText = ('已邀請');

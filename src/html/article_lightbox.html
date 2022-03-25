@@ -84,22 +84,22 @@
                     <div class="comment_txt">
                         <div class="comment_mem_name_box">
                             <span class="comment_mem_name_item">{{find_comment_info.mem_name}}</span>
-                            <div class="comment_impeach_icon">
+                            <!-- <div @click="send_comment_impeach" class="comment_impeach_icon">
                                 <img src="assets/images/icon/more_hov.png" alt="">
-                            </div>
+                            </div> -->
                         </div>
                         <div class="comment_content" v-html="find_comment_info.comment_content">
 
                         </div>
                         <!-- 留言按讚 -->
                         <div class="comment_info">
-                            <div class="comment_like_box">
+                            <!-- <div class="comment_like_box">
                                 <div class="comment_like_icon" id="comment_like">
                                     <img id="comment_like_img" src="assets/images/icon/like_hov.png" alt="">
                                 </div>
                                 <span class="comment_like_amount"
                                     id="comment_like_amount">{{find_comment_info.comment_likes_amount}}</span>
-                            </div>
+                            </div> -->
                             <span class="comment_date">{{find_comment_info.comment_date}}</span>
                         </div>
                     </div>

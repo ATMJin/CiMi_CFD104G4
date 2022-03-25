@@ -153,19 +153,19 @@
                     <span>感興趣的看版</span>
                     <div class="field select">
                         <select name="board1" id="board1" >
-                            <option :value="index" v-for="(board, index) in boards">{{board}}</option>
+                            <option :value="index+1" v-for="(board, index) in boards">{{board}}</option>
                         </select>
                     </div>
 
                     <div class="field select">
                         <select name="board2" id="board2">
-                            <option :value="index" v-for="(board, index) in boards">{{board}}</option>
+                            <option :value="index+1" v-for="(board, index) in boards">{{board}}</option>
                         </select>
                     </div>
                   
                     <div class="field select">
                         <select name="board3" id="board3">
-                            <option :value="index" v-for="(board, index) in boards">{{board}}</option>
+                            <option :value="index+1" v-for="(board, index) in boards">{{board}}</option>
                         </select>
                     </div>
                 </div>
