@@ -95,7 +95,7 @@ function getquestion(){
           document.getElementById("avatar_img_red").src = "assets/images/avartar_red.png";
         };
         mem_pair_avatars[0].src = infos[i].mem_head;
-        document.getElementById("school_name_red").innerText = infos[i].mem_job;
+        document.getElementById("school_name_red").innerText = infos[i].mem_name;
         document.getElementById("interests_red").innerText = infos[i].mem_interests;
         document.getElementById("country_red").innerText = infos[i].mem_lovecountry;
         document.getElementById("exchange_red").innerText = infos[i].mem_exchange;
@@ -117,7 +117,7 @@ function getquestion(){
           document.getElementById("avatar_img_blue").src = "assets/images/avartar_blue.png";
         };
         mem_pair_avatars[1].src = infos[i+1].mem_head;
-        document.getElementById("school_name_blue").innerText = infos[i + 1].mem_job;
+        document.getElementById("school_name_blue").innerText = infos[i + 1].mem_name;
         document.getElementById("interests_blue").innerText = infos[i + 1].mem_interests;
         document.getElementById("country_blue").innerText = infos[i + 1].mem_lovecountry;
         document.getElementById("exchange_blue").innerText = infos[i + 1].mem_exchange;
@@ -141,7 +141,7 @@ function getquestion(){
           document.getElementById("avatar_img_yellow").src = "assets/images/avartar_yellow.png";
         };
         mem_pair_avatars[2].src = infos[i+2].mem_head;
-        document.getElementById("school_name_yellow").innerText = infos[i + 2].mem_job;
+        document.getElementById("school_name_yellow").innerText = infos[i + 2].mem_name;
         document.getElementById("interests_yellow").innerText = infos[i + 2].mem_interests;
         document.getElementById("country_yellow").innerText = infos[i + 2].mem_lovecountry;
         document.getElementById("exchange_yellow").innerText = infos[i + 2].mem_exchange;
