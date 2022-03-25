@@ -39,29 +39,29 @@ aside {
     margin: 10px auto;
 }
 
-.backPage {
-    margin-top: 70px;
-
-    button {
-        font-family: 'Noto Sans TC', sans-serif;
-        font-size: 14px;
-        letter-spacing: .05em;
-        border-radius: .75em;
-        font-weight: 500;
-        color: var(--primary-color);
-        background-color: var(--button-secondary);
-        border: none;
-        outline: none;
-        padding: 5px 13px;
-        cursor: pointer;
-    }
-}
 
 .top_bar_box {
     top: 0;
 }
 
 .member_main_box {
+.backPage {
+    margin-top: 70px;
+
+    button {
+        border: 0;
+        background-color:transparent;
+        outline: none;
+        img{
+            width: 50px;
+            height: 50px;
+            vertical-align: top;
+        }
+    }
+}
+
+
+
     .member_bg {
         .tabs a {
             padding: 10px;
@@ -152,6 +152,9 @@ aside {
 
 
     .member_main_box {
+        .backPage{
+            display: none;
+        }
         .member_bg {
             padding: 0px 40px;
             margin-top: 135px;

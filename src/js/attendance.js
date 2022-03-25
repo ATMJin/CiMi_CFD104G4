@@ -38,7 +38,7 @@ function getsign_date(){
     xhr.onload = function () {
         let memsign = JSON.parse(xhr.responseText);
         // console.log(questions[0].optionA);
-    if (mem_no != null) {
+    if (sessionStorage.getItem('login') != null) {
         
         console.log(lightbox[0]);
         lightbox[0].style.display = "block";
@@ -68,7 +68,7 @@ function weekdays_click() {
     }else {
         
         coins[day - 1].style.display = "none";
-        txt_box[day].style.display = "none";
+        txt_box[day - 1].style.display = "none";
         checks[day - 1].style.display = "block";
         mem_point_add = mem_point_add + 1;
 

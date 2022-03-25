@@ -35,7 +35,9 @@
             color: #000(39, 26, 221, 0.63);
         }
 
-        .button, img, li>img {
+        .button,
+        img,
+        li>img {
             isolation: isolate;
             z-index: 6666666;
 
@@ -97,11 +99,95 @@
         #switch_btn:checked+.switch {
             background-color: #164570;
         }
+
+        #btnSave{
+            display: block;
+        }
+        @media (max-width: 768px) {
+            #btnSave {
+                padding: 0 2%;
+                display: none;
+
+            }
+        }
     </style>
 </head>
 
 <body id="body">
-    @@include('layout/header.html')
+    <header class="top_bar_box">
+        <div class="top_bar">
+            <div class="logo_box">
+                <h1>
+                    <a href="homepage.html">
+                        <img src="assets/images/homepage_logo.svg" alt="CiMi交友論壇">
+                    </a>
+                </h1>
+            </div>
+            <div class="search_bar" action="">
+                <input type="search">
+                <button>
+                    <img src="assets/images/icon/nav_search.png" alt="搜尋">
+                </button>
+            </div>
+            <div class="member_bar">
+                <ul>
+                    <li class="member_bar_phone"><a href="post.html"><img src="assets/images/icon/nav_post.png"
+                                alt="發文"></a></li>
+                    <li class="member_bar_phone"><img src="assets/images/icon/cart.png" alt="購物車"></li>
+                    <li class="member_bar_phone"><a href="chat.html"><img src="assets/images/icon/nav_message.png"
+                                alt="聊天室"></a></li>
+                    <li><img src="assets/images/icon/nav_member.png" alt="會員"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- 購物車燈箱 -->
+    <div id="shoppingApp">
+        <div class="shopping_cart_light_box">
+            <shopping-cart></shopping-cart>
+        </div>
+    </div>
+    <script src="js/shop_cart.js"></script>
+    <link rel="stylesheet" href="assets/css/shop_cart.css">
+    <script>
+        let mem_head = document.querySelector("img[alt='會員']");
+        mem_head.addEventListener('click', check)
+
+        function check() {
+            // console.log(localStorage.getItem('login'));
+            console.log(sessionStorage.getItem('login'));
+
+            if (sessionStorage.getItem('login') == null) {
+                location.href = 'login_new.html';
+
+            } else {
+                location.href = 'member_my_setup.html';
+            }
+
+
+        }
+        if (sessionStorage.getItem('login') == 'success') {
+            //登入的時候把頭像換
+            mem_head.src = sessionStorage.getItem('mem_head')
+            let mem_link = document.querySelector("img[alt='會員']")
+            // console.log(mem_link);
+            // console.log(mem_link[3]);
+            mem_link.href = 'member_my_setup.html';
+        }
+
+        // 搜尋列跳轉網頁
+        (function search() {
+            let searchbar = document.querySelector(".search_bar input[type='search']")
+            let searchbtn = document.querySelector(".search_bar button")
+            searchbtn.addEventListener("click", () => location.href = `search.html?search=${searchbar.value}`)
+            searchbar.addEventListener("keydown", e => {
+                if (e.which == 13 && !e.shiftKey) {
+                    location.href = `search.html?search=${searchbar.value}`
+                }
+            })
+        })()
+    </script>
 
     <!-- 開始寫自己頁面的HTML -->
 

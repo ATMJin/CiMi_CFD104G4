@@ -8,20 +8,21 @@
     <title>會員中心 | CiMi交友論壇</title>
     <link rel="stylesheet" href="assets/css/member.css">
     <script src="https://kit.fontawesome.com/46f3ab0818.js" crossorigin="anonymous"></script>
+    <script src="js/vue.js"></script>
 </head>
 
 <body>
     @@include('layout/header.html')
     <section class="member_sidebar_box">
         <!--會員左側欄開始-->
-        <aside class="member_sidebar">
+        <aside class="member_sidebar" id="sidebar">
             <div class="member_nav">
 
                 <div class="member_head">
                     <div class="member_head_img">
-                        <img src="assets/images/icon/nav_member.png" alt="">
+                        <img :src="member.mem_head" alt="">
                     </div>
-                    <p></p>
+                    <p>{{member.mem_name}}</p>
                 </div>
 
                 <div class="member_bar">
@@ -42,7 +43,7 @@
                                 我的積分 :
                             </span>
                             <p>
-                                30
+                                {{member.mem_point}}
                             </p>
                         </div>
                     </a>
@@ -102,7 +103,6 @@
                     </a>
                     <a>
                         <div class="member_btn my_logout">
-
                             <i class="fa-solid fa-right-from-bracket test1"></i>
                             <div class="test3"></div>
                             <span>

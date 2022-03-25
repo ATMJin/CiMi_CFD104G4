@@ -54,9 +54,6 @@ const rename = require('gulp-rename');
 function ugjs() {
     return src('src/js/*.js')
         .pipe(uglify())
-        .pipe(rename({
-            extname: '.min.js'
-        }))
         .pipe(dest('dist/js/min'));
 }
 exports.minjs = ugjs;
@@ -68,9 +65,6 @@ const cleanCSS = require('gulp-clean-css');
 function cleanC() {
     return src('dist/assets/css/*.css') //來源
         .pipe(cleanCSS()) // 壓縮
-        .pipe(rename({
-            extname: '.min.css'
-        }))
         .pipe(dest('dist/assets/css/min')) // 目的地
 }
 exports.mincss = cleanC;

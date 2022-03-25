@@ -1,7 +1,7 @@
 <?php
 try{
-    // require_once("../connect_cfd104g4.php"); // 上線時使用
-    require_once("connect.php");  // 開發時使用
+    require_once("../connect_cfd104g4.php"); // 上線時使用
+    // require_once("connect.php");  // 開發時使用
   
 
     $article_case=$_POST["case"];
@@ -77,7 +77,7 @@ try{
 		// 抓取留言資訊資料 
 		case "find_comment_info":
 
-			$sql = "SELECT c.comment_date, c.comment_content, c.comment_likes_amount, c.article_no, m.mem_name, m.mem_head,m.mem_id
+			$sql = "SELECT c.article_comment_no,c.comment_date, c.comment_content, c.comment_likes_amount, c.article_no, m.mem_name, m.mem_head,m.mem_id
 			FROM tibamefe_cfd104g4.article_comment c
 			JOIN mem m
 			on c.mem_no=m.mem_no
@@ -145,6 +145,22 @@ try{
 			}
 
 		break;
+
+
+		case "remove_comment_like":
+			// 撈所有商品   來自goods表格 依據被喜歡數排序 前4筆資料
+			$sql = "UPDATE article_comment
+			SET comment_likes_amount = comment_likes_amount - 1 
+			WHERE article_comment_no ={$_POST['article_comment_no']}";
+		
+			//執行sql
+			//   $pdo->exec($sql);
+			if($pdo->exec($sql)){ //exec用於異動資料的時候
+				echo "異動成功~";
+			}else{
+				echo "異動失敗~";
+			}
+	 	break;
 
 		// 寫下留言
 		case "get_comment":

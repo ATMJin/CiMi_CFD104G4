@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_cimi.php");
+	require_once("../connect_cfd104g4.php");
 	//執行sql指令
 	$question_no = $_GET["question_no"];
 	$mem_ans = $_GET["mem_ans"];
