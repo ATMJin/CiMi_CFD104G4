@@ -35,7 +35,7 @@ Vue.component("shopping-cart-title", {
 Vue.component('shopping-cart-goods-box', {
   data() {
     return {
-      count: 0,
+      count: 1,
     };
   },
   props: ["good"],
@@ -216,7 +216,7 @@ Vue.component("shopping-car", {
     // FIXME 繞過有商品還出現球球
     setInterval(this.getGoodsInfo, 3000)
     this.goShopping()
-    setInterval(this.goShopping, 3000)
+    setInterval(this.goShopping, 100)
   },
   mounted() {},
   template: `
@@ -366,7 +366,7 @@ Vue.component("love-list", {
     this.getLoveGoods()
     setInterval(this.getLoveGoods, 4000)
     this.goShopping()
-    setInterval(this.goShopping, 4000)
+    setInterval(this.goShopping, 100)
   },
   mounted() {},
   template: `
