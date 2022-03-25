@@ -178,7 +178,8 @@
                         vm.like = response.data.like
                         vm.favs = response.data.fav
                         vm.follow = response.data.follow
-                        vm.follow_num = response.data.follow.map(item => Object.values(item)[3])
+                        vm.follow_num = response.data.follow.map(item => parseInt(Object.values(item)[3]))
+                        console.log(vm.follow_num);
 
                         vm.track = response.data.track.map(item => Object.values(item)[1])
 
