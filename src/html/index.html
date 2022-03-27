@@ -44,6 +44,7 @@
 
     .front_back_text {
       position: absolute;
+      width: 100%;
       top: 68%;
       font-size: 30px;
       color: rgb(94, 94, 94);
@@ -52,17 +53,17 @@
     }
 
     .front {
-      left: 41%;
+      right: calc(55% + 20px);
+      text-align: end;
     }
 
     .back {
-      right: 39%;
+      left: calc(55% + 20px);
     }
 
     .background img {
       position: absolute;
       width: 100%;
-
     }
 
     .container_load {
@@ -70,8 +71,6 @@
       display: flex;
       width: 100%;
       height: 50%;
-
-
     }
 
     .ball {
@@ -88,7 +87,7 @@
     }
 
     .blue_ball {
-      left: 41%;
+      right: 55%;
       animation-name: blue_ball_anime;
     }
 
@@ -132,42 +131,40 @@
     }
 
     .red_shadow {
-      left: 57%;
+      left: calc(55% + 25px);
       animation-name: shadow_r;
-
-
     }
 
     .blue_shadow {
-      left: 43%;
+      right: calc(55% + 25px);
       animation-name: shadow_b;
     }
 
     @keyframes shadow_r {
       0% {
-        width: 50px;
+        transform: scaleX(1);
       }
 
       50% {
-        width: 40px;
+        transform: scaleX(0.8);
       }
 
       100% {
-        width: 50px;
+        transform: scaleX(1);
       }
     }
 
     @keyframes shadow_b {
       0% {
-        width: 40px;
+        transform: scaleX(0.8);
       }
 
       50% {
-        width: 50px;
+        transform: scaleX(1);
       }
 
       100% {
-        width: 40px;
+        transform: scaleX(0.8);
       }
     }
 
@@ -190,39 +187,10 @@
       .background img {
         height: 100%;
         object-fit: cover;
-
       }
 
-      .red_ball {
-        left: 55%;
-      }
-
-      .blue_ball {
-        left: 25%;
-      }
-
-      .red_shadow {
-        left: 60%;
-        animation-name: shadow_r;
-
-
-      }
-
-      .blue_shadow {
-        left: 30%;
-        animation-name: shadow_b;
-      }
-
-      .front {
+      .front_back_text {
         top: 75%;
-        left: 30%;
-
-      }
-
-      .back {
-        top: 75%;
-        right: 33%;
-
       }
     }
   </style>
