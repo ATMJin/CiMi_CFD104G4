@@ -35,7 +35,8 @@ Vue.component("shopping-cart-title", {
 Vue.component('shopping-cart-goods-box', {
   data() {
     return {
-      count: 1,
+      // FIXME 初始值1，總值會錯誤，添加商品時也要傳值到加總欄 
+      count: 0,
     };
   },
   props: ["good"],
