@@ -101,10 +101,12 @@ function passed_days() {
 function init(){
     passed_days();
     getsign_date();
-    attendances[day - 1].addEventListener("click", weekdays_click);
+    
 
     if (day == 0) {
          attendances_7days[0].addEventListener("click", weekdays_click);
+    } else {
+        attendances[day - 1].addEventListener("click", weekdays_click);
         };
     
     close.onclick = close_lightbox;
