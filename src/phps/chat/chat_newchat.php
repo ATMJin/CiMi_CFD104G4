@@ -57,7 +57,7 @@ if ($msg->rowCount() > 0) {
                 // print_r($msgRows['msg_img']);
             } else {
                 $output .= " <div class='chat incoming'>
-                                                <img src='. $msgRows['mem_head'] .' alt=''>
+                                                <img src='". $msgRows['mem_head'] ."' alt=''>
                                                  <div class='details'>
                                                 
                                                  <img src=" . $msgRows['msg_img'] . " alt='' class='user_img'>
