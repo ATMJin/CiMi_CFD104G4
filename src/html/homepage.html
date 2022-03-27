@@ -350,36 +350,7 @@
     <!-- 幻燈片 Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <script>
-        //alert for one time
-        let alertmessage =
-            "本網站為緯育TibaMe提供給學員展示作品之平台，前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。(https://www.facebook.com/TibaMe)"
 
-
-        // get cookies
-
-        function get_cookie(Name) {
-            var search = Name + "=";
-            var returnvalue = "";
-            if (document.cookie.length > 0) {
-                offset = document.cookie.indexOf(search)
-                if (offset != -1) { // if cookie exists
-                    offset += search.length;
-                    end = document.cookie.indexOf(";", offset);
-                    if (end == -1)
-                        end = document.cookie.length;
-                    returnvalue = document.cookie.substring(offset, end);
-                }
-            }
-            return returnvalue;
-        }
-        if (get_cookie('alerted') != 'yes') {
-            // 著作權聲明
-            alert(alertmessage);
-            // 簽到燈箱
-            document.cookie = "alerted=yes";
-        }
-    </script>
 
     <script src="js/getbillboard.js"></script>
 
